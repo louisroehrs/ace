@@ -1,0 +1,38 @@
+title: ResponseUnitPrice
+properties:
+  fund:
+    properties:
+      no:
+        type: number
+      name:
+        type: string
+    type: object
+  cutOffs:
+    type: array
+    items:
+      properties:
+        no:
+          type: number
+        fundSeriesPrices:
+          type: array
+          items:
+            properties:
+              fundSeries:
+                type: number
+              bidUnitPrice:
+                type: number
+              offerUnitPrice:
+                type: number
+              effectivePriceDate:
+                type: string
+            type: object
+            required:
+              - fundSeries
+              - bidUnitPrice
+              - offerUnitPrice
+              - effectivePriceDate
+      type: object
+      required:
+        - no
+        - fundSeriesPrices
+type: object

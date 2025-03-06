@@ -1,0 +1,53 @@
+definition:
+  path: /v1/policies/{policy_id}/beneficiaries
+  verb: get
+  id: imported#/v1/policies/{policy_id}/beneficiaries#get
+  operationId: getPolicyBeneficeriesV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policy_id
+      description: Policy Number
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/PolicyBeneficiariesResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/PolicyBeneficiariesResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getPolicyBeneficeriesV1.yaml
+method: get
+path: /v1/policies/{policy_id}/beneficiaries
+errorHandlers: []
+handlers: []

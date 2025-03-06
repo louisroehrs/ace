@@ -1,0 +1,885 @@
+tags:
+  - Agent
+sampleInputSchema: ""
+sampleData:
+  agent_id: string
+  agentType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  businessIndividual:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  externalAgentRef:
+    type: string
+  idType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  idReference:
+    type: string
+  taxCertification:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  vatRegistrationNo:
+    type: string
+  personalStatus:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  dateOfDeath:
+    type: string
+    format: date
+  prefix:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  firstName:
+    type: string
+  middleName:
+    type: string
+  lastName:
+    type: string
+  suffix:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  additionalNameLine:
+    type: string
+  dateOfBirth:
+    type: string
+    format: date
+  gender:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  nationalProducerNumber:
+    type: string
+  commissionHold:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  commissionHoldNote:
+    type: string
+  addressUnknown:
+    type: boolean
+    default: false
+  dailyEAppPayment:
+    type: boolean
+    default: false
+  maxReserveAccountAmt:
+    type: number
+  maximumAdvancedAmount:
+    type: number
+  useDefault:
+    type: boolean
+    default: false
+  language:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  companies:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        company:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        companyAgentStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        currentStatusDate:
+          type: string
+          format: date
+      type: object
+  licenses:
+    type: array
+    items:
+      properties:
+        company:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        residence:
+          type: boolean
+          default: false
+        lineOfProducts:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        licenseStartDate:
+          type: string
+          format: date
+        licenseEndDate:
+          type: string
+          format: date
+        licenseStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        licenseClass:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        licenseNumber:
+          type: string
+      type: object
+  appointments:
+    type: array
+    items:
+      properties:
+        company:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        lineOfProducts:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        appointmentStartDate:
+          type: string
+          format: date
+        appointmentEndDate:
+          type: string
+          format: date
+        appointmentStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        appointmentStatusReason:
+          type: string
+      type: object
+  errorsAndOmissions:
+    type: array
+    items:
+      properties:
+        eoStartDate:
+          type: string
+          format: date
+        eoEndDate:
+          type: string
+          format: date
+      type: object
+  aml:
+    type: array
+    items:
+      properties:
+        amlStartDate:
+          type: string
+          format: date
+        amlEndDate:
+          type: string
+          format: date
+      type: object
+  companyAnnuities:
+    type: array
+    items:
+      properties:
+        companyAnnuityCeStartDate:
+          type: string
+          format: date
+        companyAnnuityCeEndDate:
+          type: string
+          format: date
+      type: object
+  commissions:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        company:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        product:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        version:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        sourceCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        sourceCodeRelevance:
+          type: boolean
+          default: false
+        default:
+          type: boolean
+          default: false
+        indemnityTerms:
+          type: boolean
+          default: false
+        productCommissionStyle:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        commissionFormat:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        initialCommissionSacrificeType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        renewalLevelCommissionSacrificeFactorType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        renewalLevelCommissionSacrificeType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        renewalLevelCommissionSacrificeFactorType1:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        participatingAgent:
+          type: integer
+        participatingAgentPercent:
+          type: integer
+        participatingDefaultMask:
+          type: integer
+      type: object
+  communications:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        communicationCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        recipientType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        role:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        recipientsGroup:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        addressType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        noCopies:
+          type: integer
+        copyCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        linkage:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        priorityInGroup:
+          type: integer
+        mandatory:
+          type: boolean
+          default: false
+        postFlag:
+          type: boolean
+          default: false
+        emailFlag:
+          type: boolean
+          default: false
+        faxFlag:
+          type: boolean
+          default: false
+      type: object
+  entityItems:
+    type: array
+    items:
+      properties:
+        entitySecondSubType:
+          type: integer
+        entitySubType:
+          type: integer
+        entityType:
+          type: integer
+        id:
+          type: integer
+        entityNo:
+          type: integer
+        value:
+          type: string
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        agentType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        businessIndividual:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        externalAgentRef:
+          type: string
+        idType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        idReference:
+          type: string
+        taxCertification:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        vatRegistrationNo:
+          type: string
+        personalStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        dateOfDeath:
+          type: string
+          format: date
+        prefix:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+        suffix:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        additionalNameLine:
+          type: string
+        dateOfBirth:
+          type: string
+          format: date
+        gender:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        nationalProducerNumber:
+          type: string
+        commissionHold:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        commissionHoldNote:
+          type: string
+        addressUnknown:
+          type: boolean
+          default: false
+        dailyEAppPayment:
+          type: boolean
+          default: false
+        maxReserveAccountAmt:
+          type: number
+        maximumAdvancedAmount:
+          type: number
+        useDefault:
+          type: boolean
+          default: false
+        language:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        companies:
+          type: array
+          items:
+            properties:
+              id:
+                type: integer
+              company:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              companyAgentStatus:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              currentStatusDate:
+                type: string
+                format: date
+            type: object
+        licenses:
+          type: array
+          items:
+            properties:
+              company:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              residence:
+                type: boolean
+                default: false
+              lineOfProducts:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              licenseStartDate:
+                type: string
+                format: date
+              licenseEndDate:
+                type: string
+                format: date
+              licenseStatus:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              licenseClass:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              licenseNumber:
+                type: string
+            type: object
+        appointments:
+          type: array
+          items:
+            properties:
+              company:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              lineOfProducts:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              appointmentStartDate:
+                type: string
+                format: date
+              appointmentEndDate:
+                type: string
+                format: date
+              appointmentStatus:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              appointmentStatusReason:
+                type: string
+            type: object
+        errorsAndOmissions:
+          type: array
+          items:
+            properties:
+              eoStartDate:
+                type: string
+                format: date
+              eoEndDate:
+                type: string
+                format: date
+            type: object
+        aml:
+          type: array
+          items:
+            properties:
+              amlStartDate:
+                type: string
+                format: date
+              amlEndDate:
+                type: string
+                format: date
+            type: object
+        companyAnnuities:
+          type: array
+          items:
+            properties:
+              companyAnnuityCeStartDate:
+                type: string
+                format: date
+              companyAnnuityCeEndDate:
+                type: string
+                format: date
+            type: object
+        commissions:
+          type: array
+          items:
+            properties:
+              id:
+                type: integer
+              company:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              product:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              version:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              sourceCode:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              sourceCodeRelevance:
+                type: boolean
+                default: false
+              default:
+                type: boolean
+                default: false
+              indemnityTerms:
+                type: boolean
+                default: false
+              productCommissionStyle:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              commissionFormat:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              initialCommissionSacrificeType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              renewalLevelCommissionSacrificeFactorType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              renewalLevelCommissionSacrificeType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              renewalLevelCommissionSacrificeFactorType1:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              participatingAgent:
+                type: integer
+              participatingAgentPercent:
+                type: integer
+              participatingDefaultMask:
+                type: integer
+            type: object
+        communications:
+          type: array
+          items:
+            properties:
+              id:
+                type: integer
+              communicationCode:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              recipientType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              role:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              recipientsGroup:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              addressType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              noCopies:
+                type: integer
+              copyCode:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              linkage:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              priorityInGroup:
+                type: integer
+              mandatory:
+                type: boolean
+                default: false
+              postFlag:
+                type: boolean
+                default: false
+              emailFlag:
+                type: boolean
+                default: false
+              faxFlag:
+                type: boolean
+                default: false
+            type: object
+        entityItems:
+          type: array
+          items:
+            properties:
+              entitySecondSubType:
+                type: integer
+              entitySubType:
+                type: integer
+              entityType:
+                type: integer
+              id:
+                type: integer
+              entityNo:
+                type: integer
+              value:
+                type: string
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/agents/{{agent_id}}"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Service to update agent deatils

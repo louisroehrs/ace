@@ -1,0 +1,77 @@
+definition:
+  path: /v1/policies/{policy_id}/withdrawals/notification
+  verb: post
+  id: imported#/v1/policies/{policy_id}/withdrawals/notification#post
+  operationId: createWithdrawalsV1
+  summary: withdrawals
+  tags:
+    - Client
+  parameters:
+    - in: path
+      name: policy_id
+      description: policy_id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/createWithdrawalsRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/createWithdrawalResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/createWithdrawalResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: createWithdrawalsV1.yaml
+method: post
+path: /v1/policies/{policy_id}/withdrawals/notification
+errorHandlers: []
+handlers: []

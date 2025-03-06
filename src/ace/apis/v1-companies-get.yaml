@@ -1,0 +1,83 @@
+definition:
+  path: /v1/companies
+  verb: get
+  id: imported#/v1/companies#get
+  operationId: searchCompanyV1
+  tags:
+    - Client
+  parameters:
+    - in: query
+      name: companyId
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: companyName
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: companyType
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: tin
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: zipCode
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: maxResults
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchCompanyV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/searchCompanyV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: searchCompanyV1.yaml
+method: get
+path: /v1/companies
+errorHandlers: []
+handlers: []

@@ -1,0 +1,66 @@
+definition:
+  path: /v1/policies/{no1}/monetaryTransactions/contributions
+  verb: get
+  id: imported#/v1/policies/{no1}/monetaryTransactions/contributions#get
+  operationId: 1f84f6ee-42d6-4979-8d55-f4310ba61dbeV1
+  summary: Get monetary transactions for a given policy
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: fromDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: toDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: no1
+      description: policy number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/PolicyMonetaryTransactionsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/PolicyMonetaryTransactionsResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 1f84f6ee-42d6-4979-8d55-f4310ba61dbeV1.yaml
+method: get
+path: /v1/policies/{no1}/monetaryTransactions/contributions
+errorHandlers: []
+handlers: []

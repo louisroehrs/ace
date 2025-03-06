@@ -1,0 +1,50 @@
+definition:
+  path: /v1/groups/{group_id}/plans/{plan_id}/
+  verb: get
+  id: imported#/v1/groups/{group_id}/plans/{plan_id}/#get
+  operationId: getPlanV1
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: Group ID
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: plan_id
+      description: Plan No
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/getPlanResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/getPlanResponseV1"
+  security:
+    - bearerAuth: []
+flow: getPlanV1.yaml
+method: get
+path: /v1/groups/{group_id}/plans/{plan_id}/
+errorHandlers: []
+handlers: []

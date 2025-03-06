@@ -1,0 +1,235 @@
+title: getClaimsInformation
+properties:
+  claimTypeGroup:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  claimType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  claimSubType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  claimStage:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  claimId:
+    type: number
+  requestedDate:
+    type: string
+    format: date
+  receivedDate:
+    type: string
+    format: date
+  eventDate:
+    type: string
+    format: date
+  valueDate:
+    type: string
+    format: date
+  requestorId:
+    type: number
+  requestor:
+    properties:
+      firstName:
+        type: string
+      middleName:
+        type: string
+      lastName:
+        type: string
+    type: object
+  primaryMedicalReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  approvalReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  cancellationReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  initialReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  overruledReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  pendingReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  quoteReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  rescissionReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  terminationReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  declineReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  clientId:
+    type: number
+  client:
+    properties:
+      firstName:
+        type: string
+      middleName:
+        type: string
+      lastName:
+        type: string
+    type: object
+  policyId:
+    type: number
+  description:
+    type: string
+  entityItems:
+    type: array
+    items:
+      properties:
+        entityType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        item:
+          properties:
+            id:
+              type: number
+            name:
+              type: string
+            value:
+              type: string
+            valueDescription:
+              type: string
+            manualFlag:
+              type: boolean
+              default: false
+            mandatoryFlag:
+              type: number
+          type: object
+      type: object
+  totalPayable:
+    type: number
+  paymentOrders:
+    type: array
+    items:
+      properties:
+        payeeId:
+          type: string
+        payee:
+          properties:
+            firstName:
+              type: string
+            middleName:
+              type: string
+            lastName:
+              type: string
+          type: object
+        requestType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        percentRequested:
+          type: number
+        originalAmount:
+          type: number
+        paymentStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        paymentOption:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        paymentDueDate:
+          type: string
+          format: date
+        paymentMethod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        transitNumber:
+          type: number
+        accountNumber:
+          type: string
+        accountType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        accountName:
+          type: string
+      type: object
+type: object

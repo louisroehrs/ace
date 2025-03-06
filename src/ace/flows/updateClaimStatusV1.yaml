@@ -1,0 +1,56 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  policyNo: integer
+  claimId: integer
+  currentStatus:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required: []
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        currentStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required: []
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policyNo}}/claims/{{claimId}}/claimStatus"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

@@ -1,0 +1,51 @@
+definition:
+  path: /v1/groups/{group_id}/subgroups/{subgroup_id}
+  verb: get
+  id: imported#/v1/groups/{group_id}/subgroups/{subgroup_id}#get
+  operationId: d1b512b5-d79a-418c-8ca7-8fc2d71498c0V1
+  summary: Get subgroup details under a group
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: Group Id
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: subgroup_id
+      description: Subgroup Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/getSubgroupResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/getSubgroupResponseV1"
+  security:
+    - bearerAuth: []
+flow: d1b512b5-d79a-418c-8ca7-8fc2d71498c0V1.yaml
+method: get
+path: /v1/groups/{group_id}/subgroups/{subgroup_id}
+errorHandlers: []
+handlers: []

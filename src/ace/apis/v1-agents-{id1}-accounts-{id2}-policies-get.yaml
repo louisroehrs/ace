@@ -1,0 +1,68 @@
+definition:
+  path: /v1/agents/{id1}/accounts/{id2}/policies
+  verb: get
+  id: imported#/v1/agents/{id1}/accounts/{id2}/policies#get
+  operationId: ebb224ec-8003-4154-aa72-70b09b191f64V1
+  tags:
+    - Agent
+  parameters:
+    - in: query
+      name: fromDate
+      description: fromDate
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: toDate
+      description: toDate
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: statusGroup
+      description: statusGroup
+      required: false
+      schema:
+        type: integer
+    - in: path
+      name: id1
+      description: Agent ID
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: id2
+      description: Account ID
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: coreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AgentPoliciesDetailsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/AgentPoliciesDetailsV1"
+  security:
+    - bearerAuth: []
+flow: ebb224ec-8003-4154-aa72-70b09b191f64V1.yaml
+method: get
+path: /v1/agents/{id1}/accounts/{id2}/policies
+errorHandlers: []
+handlers: []

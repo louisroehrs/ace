@@ -1,0 +1,28 @@
+title: CreatePaymentBatchResponse
+properties:
+  responseMessage:
+    properties:
+      code:
+        type: integer
+      text:
+        type: string
+    type: object
+    required:
+      - code
+      - text
+  additionalMessages:
+    type: array
+    items:
+      properties:
+        code:
+          type: integer
+        text:
+          type: string
+      type: object
+      required:
+        - code
+        - text
+type: object
+required:
+  - responseMessage
+  - additionalMessages

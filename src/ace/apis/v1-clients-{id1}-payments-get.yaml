@@ -1,0 +1,72 @@
+definition:
+  path: /v1/clients/{id1}/payments
+  verb: get
+  id: imported#/v1/clients/{id1}/payments#get
+  operationId: 8b08bc1c-cbdb-4a97-879a-1fe699232c27V1
+  summary: get client policy payments Information
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: policyNo
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: fromMoneyDueDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: toMoneyDueDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: id1
+      description: client ID
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ClientPolicyPaymentResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ClientPolicyPaymentResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 8b08bc1c-cbdb-4a97-879a-1fe699232c27V1.yaml
+method: get
+path: /v1/clients/{id1}/payments
+errorHandlers: []
+handlers: []

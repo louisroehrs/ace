@@ -1,0 +1,46 @@
+tags:
+  - Agent
+sampleInputSchema: ""
+sampleData:
+  agentId: integer
+  firstName: string
+  lastName: string
+  agentType: integer
+  agentStatus: integer
+  postalCode: string
+  additionalNameLine: string
+  brand: integer
+  idReference: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"agentId":"agentId","firstName":"firstName","lastName":"lastName","agentType":"agentType","agentStatus":"agentStatus","postalCode":"postalCode","additionalNameLine":"additionalNameLine","brand":"brand","idReference":"idReference"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/agents"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Service to search person on provided parameter

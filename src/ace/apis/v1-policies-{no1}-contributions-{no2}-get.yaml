@@ -1,0 +1,63 @@
+definition:
+  path: /v1/policies/{no1}/contributions/{no2}
+  verb: get
+  id: imported#/v1/policies/{no1}/contributions/{no2}#get
+  operationId: getPolicyContributions1V1
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: contributionTypeMainGroup
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: effectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: path
+      name: no1
+      description: PolicyNo
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: no2
+      description: contributionType
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/getPolicyContributionResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/getPolicyContributionResponseV1"
+  security:
+    - bearerAuth: []
+flow: getPolicyContributions1V1.yaml
+method: get
+path: /v1/policies/{no1}/contributions/{no2}
+errorHandlers: []
+handlers: []

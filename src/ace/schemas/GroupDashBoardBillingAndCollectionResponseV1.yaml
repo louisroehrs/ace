@@ -1,0 +1,8 @@
+title: GroupDashBoardBillingAndCollectionResponse
+properties:
+  result:
+    $ref: ResponseGetGroupDashBoardBillingAndCollectionV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

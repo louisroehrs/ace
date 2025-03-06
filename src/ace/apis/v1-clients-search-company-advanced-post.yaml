@@ -1,0 +1,43 @@
+definition:
+  path: /v1/clients/search-company-advanced
+  verb: post
+  id: imported#/v1/clients/search-company-advanced#post
+  operationId: searchCompanyAdvancedV1
+  tags:
+    - Company
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/searchAdvanceCompanyV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchAdvanceCompanyResponceV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/searchAdvanceCompanyResponceV1"
+  security:
+    - bearerAuth: []
+flow: searchCompanyAdvancedV1.yaml
+method: post
+path: /v1/clients/search-company-advanced
+errorHandlers: []
+handlers: []

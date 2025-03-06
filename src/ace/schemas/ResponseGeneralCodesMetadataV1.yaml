@@ -1,0 +1,68 @@
+title: ResponseGeneralCodesMetadata
+properties:
+  generalCodes:
+    type: object
+    properties:
+      codeType:
+        type: object
+        properties:
+          value:
+            type: integer
+            title: value
+          name:
+            type: string
+            title: name
+            description: Reference name for the Code Value option.
+        description: ID for a group of records, used as the reference code when relating
+          a process, drop down window, or other item to the set of general code
+          options.
+        title: codeType
+      codeValues:
+        type: array
+        title: codeValues
+        description: Unique ID within the code_type group, used as the specified or
+          selected code value for the related process, drop down window, or
+          other item.
+        items:
+          type: object
+          properties:
+            value:
+              type: integer
+              title: value
+            name:
+              type: string
+              description: Reference name for the Code Value option.
+              title: name
+            codeShortName:
+              type: string
+              title: codeShortName
+              description: Shortened reference name for the Code Value option.
+            codeValueFloat:
+              type: integer
+              title: codeValueFloat
+              description: Optional use to keep interest rates. Usage is hard-coded for other
+                options. For example, code value float value is used to group or
+                relate Reason codes to Policy Status, to set table rating
+                percentage for Table Rating options 1-16 or A - P, and in entity
+                references used in compliance..
+            xmlTag:
+              type: string
+              title: xmlTag
+              description: XML reference tag for related code value.
+            displayFlag:
+              type: integer
+              title: displayFlag
+              description: Indicates if the general code option should be included (displayed)
+                in a drop down list.
+            description:
+              type: string
+              title: description
+              description: Provides additional information about the general code option or
+                its usage.
+            codeTypeHeader:
+              type: integer
+              title: codeTypeHeader
+              description: Explicit indicator that the record is the header for a set of
+                records belonging to the same code_type group, replacing
+                implicit use of Code Value = 0 as the header record for a group.
+type: object

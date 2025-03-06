@@ -1,0 +1,34 @@
+definition:
+  path: /v1/group/getGroupDashboard
+  verb: post
+  id: imported#/v1/group/getGroupDashboard#post
+  operationId: 814d00fc-8dc4-40e5-81b6-564f18dc8919V1
+  summary: Retrieve Group Dashboard Details
+  tags:
+    - Group
+  parameters: []
+  requestBody:
+    description: body param generated from provided JSON request example
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            groupId:
+              type: integer
+          example:
+            groupId: 9725
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json: {}
+        application/xml: {}
+  security:
+    - bearerAuth: []
+flow: 814d00fc-8dc4-40e5-81b6-564f18dc8919V1.yaml
+method: post
+path: /v1/group/getGroupDashboard
+errorHandlers: []
+handlers: []

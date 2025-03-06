@@ -1,0 +1,39 @@
+title: clientEventRequest
+properties:
+  requestorId:
+    type: integer
+  notificationDate:
+    type: string
+  effectiveDate:
+    type: string
+  eventType:
+    properties:
+      number:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - number
+  status:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+  percentage:
+    type: integer
+  sourceCode:
+    type: integer
+type: object
+required:
+  - requestorId
+  - notificationDate
+  - effectiveDate
+  - eventType
+  - status
+  - percentage
+  - sourceCode

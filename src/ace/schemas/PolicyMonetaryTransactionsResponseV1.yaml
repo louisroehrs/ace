@@ -1,0 +1,8 @@
+title: PolicyMonetaryTransactionsResponse
+properties:
+  result:
+    $ref: PolicyMonetaryTransactionsV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

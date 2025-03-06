@@ -1,0 +1,19 @@
+title: createPaymentOrdersResponse
+properties:
+  primaryKey:
+    type: string
+  primaryKeyType:
+    type: number
+  secondaryKey:
+    type: string
+  secondaryKeyType:
+    type: integer
+  message:
+    properties:
+      code:
+        type: number
+      text:
+        type: string
+    type: object
+    required: []
+type: object

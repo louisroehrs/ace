@@ -1,0 +1,41 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  version: integer
+  fromEffectiveDate: string
+  toEffectiveDate: string
+  product_id: integer
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"version":"version","fromEffectiveDate":"fromEffectiveDate","toEffectiveDate":"toEffectiveDate"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/products/{{product_id}}/questionnaire"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coreSuite-dataSource-key: "{{$headers.coreSuite-dataSource-key}}"
+        coreSuite-user-name: "{{$headers.coreSuite-user-name}}"
+      targetPath: result
+    description: retrieve the medical questions list by providing product and version

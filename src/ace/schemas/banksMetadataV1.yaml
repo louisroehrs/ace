@@ -1,0 +1,11 @@
+title: banksMetadata
+type: array
+items:
+  properties:
+    label:
+      type: string
+      description: Bank name.
+    value:
+      type: string
+      description: Bank sorting code.
+  type: object

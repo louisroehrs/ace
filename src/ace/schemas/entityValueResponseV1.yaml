@@ -1,0 +1,32 @@
+title: entityValueResponse
+properties:
+  entityValues:
+    type: array
+    items:
+      type: string
+      $ref: entityValueBasicV1.yaml
+      description: Entity Value
+    description: Entity Values
+  response:
+    properties:
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required:
+          - code
+          - name
+      messages:
+        type: array
+        items:
+          properties:
+            number:
+              type: string
+            name:
+              type: string
+          type: object
+    type: object
+type: object

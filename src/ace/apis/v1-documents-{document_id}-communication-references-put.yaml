@@ -1,0 +1,84 @@
+definition:
+  path: /v1/documents/{document_id}/communication-references
+  verb: put
+  id: imported#/v1/documents/{document_id}/communication-references#put
+  operationId: updateurlandexterreferenceV1
+  summary: Update the Letter URl and External Reference
+  description: ""
+  tags:
+    - General
+  parameters:
+    - in: path
+      name: document_id
+      required: true
+      description: Document ID
+      schema:
+        type: integer
+    - in: query
+      name: effectiveDate
+      required: false
+      description: ""
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      required: false
+      description: ""
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      required: false
+      description: ""
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/updateUrlAndExternalRefV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UpdateUrlAndExtRefResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/UpdateUrlAndExtRefResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: updateurlandexterreferenceV1.yaml
+method: put
+path: /v1/documents/{document_id}/communication-references
+errorHandlers: []
+handlers: []

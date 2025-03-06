@@ -1,0 +1,19 @@
+title: deleteBeneficiaryResponse
+properties:
+  primaryKey:
+    type: integer
+  primaryKeyType:
+    type: integer
+  secondaryKey:
+    type: string
+  secondaryKeyType:
+    type: integer
+  message:
+    properties:
+      code:
+        type: string
+      text:
+        type: string
+    type: object
+    required: []
+type: object

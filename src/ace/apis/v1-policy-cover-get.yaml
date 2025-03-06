@@ -1,0 +1,35 @@
+definition:
+  path: /v1/policy/cover
+  verb: get
+  id: imported#/v1/policy/cover#get
+  operationId: 60b2e35d-d866-4590-aa29-4ec890038a4eV1
+  summary: Fetch Covers Basic Details For Passed Policy Numbers
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: policies
+      description: ""
+      required: true
+      schema:
+        type: array
+        items:
+          type: integer
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseGetPoliciesCoverBasicDataV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseGetPoliciesCoverBasicDataV1"
+  security:
+    - bearerAuth: []
+flow: 60b2e35d-d866-4590-aa29-4ec890038a4eV1.yaml
+method: get
+path: /v1/policy/cover
+errorHandlers: []
+handlers: []

@@ -1,0 +1,54 @@
+definition:
+  path: /v1/general-codes/{code_type}/metadata
+  verb: get
+  id: imported#/v1/general-codes/{code_type}/metadata#get
+  operationId: getGeneralCodesMetadataV1
+  summary: ""
+  description: ""
+  tags:
+    - Metadata
+  parameters:
+    - in: path
+      name: code_type
+      required: true
+      description: ""
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      required: false
+      description: ""
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      required: false
+      description: ""
+      schema:
+        type: string
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseGeneralCodesMetadataV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseGeneralCodesMetadataV1"
+    "404":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getGeneralCodesMetadataV1.yaml
+method: get
+path: /v1/general-codes/{code_type}/metadata
+errorHandlers: []
+handlers: []

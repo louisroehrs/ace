@@ -1,0 +1,317 @@
+title: policyPaymentOrders
+properties:
+  policy:
+    properties:
+      policyNo:
+        type: string
+      externalPolicyNumber:
+        type: string
+    type: object
+  payments:
+    type: array
+    items:
+      properties:
+        internalNumber:
+          type: integer
+        payeeClientId:
+          type: integer
+        payeeName:
+          type: string
+        paymentSource:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        claim:
+          properties:
+            policyNo:
+              type: string
+            claimId:
+              type: string
+            claimType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            claimPaymentOption:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+          type: object
+        refundFromSuspense:
+          properties:
+            clientId:
+              type: string
+            policyNo:
+              type: string
+            numerator:
+              type: string
+          type: object
+        loan:
+          properties:
+            policyNo:
+              type: string
+            loanId:
+              type: string
+            contribution:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            paymentOption:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+          type: object
+        servicePayment:
+          properties:
+            policyNo:
+              type: string
+            claimId:
+              type: string
+            claimType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            claimRequiredDocument:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            cover:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            evidenceType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+          type: object
+        clientAccount:
+          properties:
+            clientId:
+              type: string
+            accountNo:
+              type: string
+          type: object
+        sourceCurrency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        paidCurrency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        company:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        paymentStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        paymentStatusReason:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        product:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        paymentExternalReference:
+          type: string
+        originalAmount:
+          type: integer
+        additionalAmountFromSurplus:
+          type: integer
+        periodicalPayment:
+          type: integer
+        paymentDate:
+          type: string
+        paymentAmountInPaidCurrency:
+          type: integer
+        tax:
+          type: integer
+        paymentArrangement:
+          properties:
+            arrangementId:
+              type: integer
+            "arrangementName ":
+              type: string
+            paymentMethod:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+          type: object
+        paymentInstructionType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        paymentInstructionDetails:
+          properties:
+            paymentAmountType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            periodicalAmount:
+              type: number
+            paymentPeriodStartDate:
+              type: string
+              format: date
+            paymentPeriodEndDate:
+              type: string
+              format: date
+            nextPeriodicalPaymentDate:
+              type: string
+              format: date
+            immediatePayment:
+              type: boolean
+            spousePercentage:
+              type: string
+            spouseId:
+              type: integer
+            spouseName:
+              type: string
+            guaranteedPeriod:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            frequency:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+          type: object
+        paymentMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        chequeNo:
+          type: integer
+        accountType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        accountName:
+          type: string
+        sortCode:
+          type: string
+        bankAccount:
+          type: string
+        bankAccountShortCode:
+          type: integer
+        approvalRegDate:
+          type: string
+          format: date
+        paymentRegDate:
+          type: string
+          format: date
+        glRef:
+          type: string
+        glApprovalRef:
+          type: string
+        sentForPaymentRegDate:
+          type: string
+          format: date
+        transferRefNo:
+          type: string
+        withheldTax:
+          type: number
+        withheldTaxonInterest:
+          type: number
+        overrideUser:
+          type: integer
+        manualInterestFlag:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        interestAmount:
+          type: number
+        interestRate:
+          type: number
+        vatAmount:
+          type: number
+        netAmount:
+          type: number
+        openingUser:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        authorizationUser:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+      type: object
+      required: []
+type: object
+required: []

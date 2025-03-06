@@ -1,0 +1,112 @@
+title: createSubgroupRequest
+properties:
+  subgroup:
+    properties:
+      planSelectionModeCode:
+        type: integer
+      planSelectionModeName:
+        type: string
+      ruleList:
+        type: array
+        items:
+          properties:
+            ruleId:
+              type: integer
+            ruleTypeCode:
+              type: integer
+            ruleTypeName:
+              type: string
+            ruleName:
+              type: string
+            startDate:
+              type: string
+            endDate:
+              type: string
+            ruleLogicList:
+              type: array
+              items:
+                properties:
+                  ruleId:
+                    type: integer
+                  lineNumber:
+                    type: integer
+                  openingParenthesisCode:
+                    type: integer
+                  openingParenthesisName:
+                    type: string
+                  conditionTypeCode:
+                    type: integer
+                  conditionTypeName:
+                    type: string
+                  conditionValue:
+                    type: integer
+                  comparisonOperatorCode:
+                    type: integer
+                  comparisonOperatorName:
+                    type: string
+                  comparedTypeCode:
+                    type: integer
+                  comparedTypeName:
+                    type: string
+                  comparedValue:
+                    type: integer
+                  closingParenthesisCode:
+                    type: integer
+                  closingParenthesisName:
+                    type: string
+                  relationToNextLineCode:
+                    type: integer
+                  relationToNextLineName:
+                    type: string
+                  conditionSubValue1:
+                    type: number
+                  conditionSubValue2:
+                    type: number
+                  comparedSubValue1:
+                    type: number
+                  comparedSubValue2:
+                    type: number
+                type: object
+          type: object
+      clientId:
+        type: integer
+      subGroupName:
+        type: string
+      subGroupDescription:
+        type: string
+      payrollReconciliationTypeCode:
+        type: integer
+      payrollReconciliationTypeName:
+        type: string
+      informationOnlyFlag:
+        type: integer
+      groupStructureFlag:
+        type: boolean
+    type: object
+  managementData:
+    properties:
+      inputParameterList:
+        properties:
+          inputParameter:
+            type: array
+            items:
+              properties:
+                type:
+                  type: string
+                name:
+                  type: string
+                value:
+                  type: string
+              type: object
+              required:
+                - name
+                - type
+                - value
+        type: object
+    type: object
+type: object
+required:
+  - groupId
+  - subgroupName
+  - companyId
+  - planSelectionMode

@@ -1,0 +1,22 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  policyNo: integer
+description: Created by imported openApi schema
+steps:
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policy/{{policyNo}}/calculatePremium"
+        method: GET
+      restRequest: JSON
+      json: {}
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Get the calculated premium for a given policy

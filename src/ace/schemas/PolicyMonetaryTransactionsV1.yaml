@@ -1,0 +1,24 @@
+title: PolicyMonetaryTransactions
+properties:
+  policyNo:
+    type: string
+  contributions:
+    type: array
+    items:
+      properties:
+        contributionTypeMainGroup:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        grossContribution:
+          type: number
+        netContribution:
+          type: number
+      type: object
+      required: []
+type: object
+required: []

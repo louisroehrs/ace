@@ -1,0 +1,9 @@
+title: SavePlanFromTemplateResponse
+properties:
+  number:
+    type: integer
+  message:
+    type: array
+    items:
+      type: string
+type: object

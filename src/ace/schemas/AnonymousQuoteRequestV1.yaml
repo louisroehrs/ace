@@ -1,0 +1,119 @@
+title: AnonymousQuoteRequest
+properties:
+  quickQuoteCalcMode:
+    title: quickQuoteCalcMode
+    type: integer
+    default: "1"
+  product:
+    title: product
+    type: integer
+  version:
+    title: version
+    type: integer
+  paymentFreq:
+    title: paymentFreq
+    type: integer
+  policyCommDate:
+    title: policyCommDate
+    type: string
+    default: YYYY-MM-DD
+  taxFramework:
+    title: taxFramework
+    type: integer
+  coverages:
+    title: coverages
+    type: array
+    items:
+      title: coverage
+      properties:
+        coverage:
+          properties:
+            coverageSysKey:
+              title: coverageSysKey
+              type: integer
+            quickQuoteAmountType:
+              title: quickQuoteAmountType
+              type: integer
+            requestedSumAssuredAmount:
+              title: requestedSumAssuredAmount
+              type: number
+            termAge:
+              title: termAge
+              type: integer
+            role:
+              title: role
+              type: integer
+            coverageItems:
+              title: coverageItems
+              type: array
+              items:
+                properties:
+                  coverageItem:
+                    properties:
+                      mode:
+                        type: integer
+                      code:
+                        type: integer
+                      value:
+                        type: integer
+                      manualFlag:
+                        type: integer
+                    type: object
+                    required:
+                      - mode
+                      - code
+                      - value
+                      - manualFlag
+                type: object
+                required:
+                  - coverageItem
+          type: object
+          required:
+            - coverageSysKey
+            - quickQuoteAmountType
+            - requestedSumAssuredAmount
+            - termAge
+            - coverageItems
+            - role
+      type: object
+  clients:
+    title: clients
+    type: array
+    items:
+      title: client
+      properties:
+        client:
+          title: client
+          properties:
+            dob:
+              title: dob
+              type: string
+              default: YYYY-MM-DD
+            gender:
+              title: gender
+              type: integer
+            smoker:
+              title: smoker
+              type: integer
+            role:
+              title: role
+              type: integer
+          type: object
+          required:
+            - dob
+            - gender
+            - smoker
+            - role
+      type: object
+      required:
+        - client
+type: object
+required:
+  - quickQuoteCalcMode
+  - product
+  - version
+  - paymentFreq
+  - policyCommDate
+  - taxFramework
+  - coverages
+  - clients

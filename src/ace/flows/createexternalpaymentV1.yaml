@@ -1,0 +1,443 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  client:
+    properties:
+      id:
+        type: integer
+      firstName:
+        type: string
+      middleName:
+        type: string
+      surname:
+        type: string
+    type: object
+    required:
+      - id
+      - firstName
+      - middleName
+      - surname
+  brand:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  regDate:
+    type: string
+    format: date
+  bankAccountDate:
+    type: string
+    format: date
+  valueDate:
+    type: string
+    format: date
+  paymentMethod:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  bankAccountShortCode:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  amount:
+    type: number
+  paymentReference:
+    type: string
+  currency:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  source:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  paymentDestinationDetails:
+    type: array
+    items:
+      properties:
+        type:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        subType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        identifierId:
+          type: integer
+        client:
+          properties:
+            id:
+              type: integer
+            firstName:
+              type: string
+            middleName:
+              type: string
+            surname:
+              type: string
+          type: object
+        contributionType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        accountName:
+          type: string
+        layer:
+          type: integer
+        transferFlag:
+          type: boolean
+          default: false
+        transferReference:
+          type: integer
+        duePeriod:
+          type: string
+          format: date
+        moneyValueDate:
+          type: string
+          format: date
+        assignedAmount:
+          type: number
+        expectedAmount:
+          type: number
+        suspendDispersal:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        collectionDate:
+          type: string
+          format: date
+        billReference:
+          type: string
+        status:
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        paymentReconciliationId:
+          type: integer
+        inoviceId:
+          type: integer
+        regDate:
+          type: string
+          format: date
+        originalType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        originalIdentifier:
+          type: string
+      type: object
+      required: []
+  entityItems:
+    type: array
+    items:
+      properties:
+        entitySecondSubType:
+          type: integer
+        entitySubType:
+          type: integer
+        entityType:
+          type: integer
+        entityNo:
+          type: integer
+        value:
+          type: string
+        id:
+          type: integer
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        client:
+          properties:
+            id:
+              type: integer
+            firstName:
+              type: string
+            middleName:
+              type: string
+            surname:
+              type: string
+          type: object
+          required:
+            - id
+            - firstName
+            - middleName
+            - surname
+        brand:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        regDate:
+          type: string
+          format: date
+        bankAccountDate:
+          type: string
+          format: date
+        valueDate:
+          type: string
+          format: date
+        paymentMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        bankAccountShortCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        amount:
+          type: number
+        paymentReference:
+          type: string
+        currency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        source:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        paymentDestinationDetails:
+          type: array
+          items:
+            properties:
+              type:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              subType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                required:
+                  - code
+                  - name
+              identifierId:
+                type: integer
+              client:
+                properties:
+                  id:
+                    type: integer
+                  firstName:
+                    type: string
+                  middleName:
+                    type: string
+                  surname:
+                    type: string
+                type: object
+              contributionType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              accountName:
+                type: string
+              layer:
+                type: integer
+              transferFlag:
+                type: boolean
+                default: false
+              transferReference:
+                type: integer
+              duePeriod:
+                type: string
+                format: date
+              moneyValueDate:
+                type: string
+                format: date
+              assignedAmount:
+                type: number
+              expectedAmount:
+                type: number
+              suspendDispersal:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                required:
+                  - code
+                  - name
+              collectionDate:
+                type: string
+                format: date
+              billReference:
+                type: string
+              status:
+                properties:
+                  code:
+                    type: string
+                  name:
+                    type: string
+                type: object
+                required:
+                  - code
+                  - name
+              paymentReconciliationId:
+                type: integer
+              inoviceId:
+                type: integer
+              regDate:
+                type: string
+                format: date
+              originalType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                required:
+                  - code
+                  - name
+              originalIdentifier:
+                type: string
+            type: object
+            required: []
+        entityItems:
+          type: array
+          items:
+            properties:
+              entitySecondSubType:
+                type: integer
+              entitySubType:
+                type: integer
+              entityType:
+                type: integer
+              entityNo:
+                type: integer
+              value:
+                type: string
+              id:
+                type: integer
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/externalPayments"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Create external payments that can be accepted into the system and
+      later dispersed against the relevant policies

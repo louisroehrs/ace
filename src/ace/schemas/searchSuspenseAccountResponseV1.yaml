@@ -1,0 +1,73 @@
+title: searchSuspenseAccountResponse
+properties:
+  suspenseAccount:
+    type: array
+    items:
+      properties:
+        suspenseEntry:
+          type: string
+          format: date
+        source:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        sourceReference:
+          type: number
+        payer:
+          properties:
+            id:
+              type: number
+            name:
+              type: string
+          type: object
+          required: []
+        contributionType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        suspenseReason:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        destinationType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        destinationID:
+          type: number
+        amountInDestination:
+          type: number
+        moneyDueDate:
+          type: string
+          format: date
+        moneyValuedate:
+          type: string
+          format: date
+        transferReference:
+          type: number
+        allocationToDestinationDescription:
+          type: string
+        allocationToDestinationStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        suspenseExit:
+          type: string
+          format: date
+      type: object
+type: object

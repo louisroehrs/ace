@@ -1,0 +1,60 @@
+title: ResponseGetClientAddress
+properties:
+  clientId:
+    type: integer
+    description: clientId
+  externalclientId:
+    type: integer
+    description: externalClientId
+  addresses:
+    type: array
+    items:
+      properties:
+        addressType:
+          properties:
+            code:
+              type: integer
+              description: Address code.
+            name:
+              type: string
+              description: addressName
+          type: object
+        mainAddressFlag:
+          type: boolean
+          description: Identifies the default address (main address).
+        referenceLine1:
+          type: string
+          description: House name line 1.
+        street:
+          type: string
+          description: Street name for the address.
+        referenceLine2:
+          type: string
+          description: House name line 2.
+        city:
+          type: string
+          description: city
+        county:
+          type: string
+          description: County for the address.
+        postalCode:
+          type: string
+          description: Postcode.
+        country:
+          properties:
+            code:
+              type: integer
+              description: "column property name : countryCode in ResponseClientAddressView"
+            name:
+              type: string
+              description: "column property name : country in ResponseClientAddressView"
+            countryIso:
+              type: string
+              description: "column property name : countryIsoCode in ResponseClientAddressView"
+          type: object
+      type: object
+      required: []
+type: object
+required:
+  - addresses
+description: "table property name : ResponseClientAddressView"

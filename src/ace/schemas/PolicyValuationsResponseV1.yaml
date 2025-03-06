@@ -1,0 +1,8 @@
+title: PolicyValuationsResponse
+properties:
+  result:
+    $ref: ValuationsResponseV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

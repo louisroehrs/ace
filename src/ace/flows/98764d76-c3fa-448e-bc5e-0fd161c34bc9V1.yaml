@@ -1,0 +1,54 @@
+tags:
+  - Client
+sampleInputSchema: ""
+sampleData:
+  client_id: integer
+  contact_id: integer
+  phoneNumber:
+    type: string
+    description: Phone number without the leading zero, e.g. "7624111222"
+  internationalDialCode:
+    type: string
+    description: International dial code, e.g. "44", which represents the United
+      Kingdon, Isle of Man, Jersey, etc.
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        phoneNumber:
+          type: string
+          description: Phone number without the leading zero, e.g. "7624111222"
+        internationalDialCode:
+          type: string
+          description: International dial code, e.g. "44", which represents the United
+            Kingdon, Isle of Man, Jersey, etc.
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/clients/{{client_id}}/contacts/{{contact_id}}"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Updates the phoneNumber of the client

@@ -1,0 +1,40 @@
+title: DividentMethods
+properties:
+  dividendMethod:
+    properties:
+      number:
+        type: integer
+      name:
+        type: string
+    type: object
+  dividendOptions:
+    properties:
+      firstOption:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      secondOption:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+    type: object
+  requestedFund:
+    properties:
+      number:
+        type: integer
+      name:
+        type: string
+      isinCode:
+        type: string
+      externalReference:
+        type: string
+    type: object
+    required: []
+type: object
+required: []

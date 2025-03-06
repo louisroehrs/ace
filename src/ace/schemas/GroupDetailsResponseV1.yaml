@@ -1,0 +1,8 @@
+title: GroupDetailsResponse
+properties:
+  result:
+    $ref: ResponseFindGroupV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

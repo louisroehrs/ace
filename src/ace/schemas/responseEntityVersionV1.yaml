@@ -1,0 +1,7 @@
+title: responseEntityVersion
+properties:
+  version:
+    type: integer
+type: object
+required:
+  - version

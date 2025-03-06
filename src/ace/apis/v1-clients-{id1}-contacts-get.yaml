@@ -1,0 +1,51 @@
+definition:
+  path: /v1/clients/{id1}/contacts
+  verb: get
+  id: imported#/v1/clients/{id1}/contacts#get
+  operationId: cc57f2b7-d999-41ec-9fad-9dfc456b1811V1
+  summary: Retrieves all the Client Contact Related Details
+  tags:
+    - Client
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: id1
+      description: ClientId
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clientContactV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/clientContactV1"
+  security:
+    - bearerAuth: []
+flow: cc57f2b7-d999-41ec-9fad-9dfc456b1811V1.yaml
+method: get
+path: /v1/clients/{id1}/contacts
+errorHandlers: []
+handlers: []

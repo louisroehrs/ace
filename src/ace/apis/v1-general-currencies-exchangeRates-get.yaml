@@ -1,0 +1,63 @@
+definition:
+  path: /v1/general/currencies/exchangeRates
+  verb: get
+  id: imported#/v1/general/currencies/exchangeRates#get
+  operationId: fb0d88dd-65f4-42b6-951c-0205bc3ace86V1
+  summary: Get exchange rates for all currencies
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: date
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: sourceCurrencyNo
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: targetCurrencyNo
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/currencyExchangeRateV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/currencyExchangeRateV1"
+  security:
+    - bearerAuth: []
+flow: fb0d88dd-65f4-42b6-951c-0205bc3ace86V1.yaml
+method: get
+path: /v1/general/currencies/exchangeRates
+errorHandlers: []
+handlers: []

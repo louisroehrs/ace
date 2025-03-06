@@ -1,0 +1,25 @@
+title: FollowUpResponse
+properties:
+  followupId:
+    type: integer
+  followUpActivities:
+    type: array
+    items:
+      properties:
+        followUpActivity:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        followUpActivityStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+      type: object
+type: object
+required: []

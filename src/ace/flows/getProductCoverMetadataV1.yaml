@@ -1,0 +1,41 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  coverId: integer
+  fromEffectiveDate: string
+  toEffectiveDate: string
+  product_id: integer
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"coverId":"coverId","fromEffectiveDate":"fromEffectiveDate","toEffectiveDate":"toEffectiveDate"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/products/{{product_id}}/covers"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: ""

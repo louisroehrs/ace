@@ -1,0 +1,47 @@
+title: generalPensionProfile
+properties:
+  result:
+    properties:
+      investmentProfile:
+        properties:
+          number:
+            type: number
+          name:
+            type: string
+        type: object
+        required:
+          - number
+          - name
+      lifestyleSwitches:
+        type: array
+        items:
+          properties:
+            leadTimeYears:
+              type: number
+              description: List is ordered by lead time (from retirement) ascending
+            targetFundSplits:
+              type: array
+              items:
+                properties:
+                  fund:
+                    properties:
+                      number:
+                        type: number
+                      name:
+                        type: string
+                    type: object
+                    required:
+                      - number
+                      - name
+                  allocationPercentage:
+                    type: number
+                type: object
+                required:
+                  - fund
+                  - allocationPercentage
+              description: List of the funds of this switch
+          type: object
+          required: []
+    type: object
+type: object
+required: []

@@ -1,0 +1,19 @@
+title: policyCoverStatus
+properties:
+  status:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+  internalCoverNumber:
+    type: number
+  activationDate:
+    type: string
+    format: date
+type: object
+required:
+  - activationDate

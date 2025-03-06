@@ -1,0 +1,58 @@
+title: ResponseGetPoliciesCoverBasicData
+properties:
+  policies:
+    type: array
+    items:
+      properties:
+        policy:
+          properties:
+            policyNo:
+              type: integer
+            coverDetails:
+              type: array
+              items:
+                properties:
+                  coverName:
+                    type: string
+                  coverNo:
+                    type: integer
+                  coverSumAssured:
+                    type: number
+                  coverTypeName:
+                    type: string
+                  coverTypeNumber:
+                    type: integer
+                  endDate:
+                    type: string
+                  internalCoverNo:
+                    type: integer
+                  openingStatus:
+                    type: integer
+                  openingStatusName:
+                    type: string
+                  renewalDate:
+                    type: string
+                  startDate:
+                    type: string
+                  totalPremium:
+                    type: number
+                  person:
+                    properties:
+                      personId:
+                        type: integer
+                      externalReferenceId:
+                        type: string
+                      firstName:
+                        type: string
+                      surName:
+                        type: string
+                      roleNumber:
+                        type: integer
+                      roleName:
+                        type: string
+                    type: object
+                type: object
+          type: object
+      type: object
+type: object
+required: []

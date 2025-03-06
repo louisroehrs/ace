@@ -1,0 +1,50 @@
+definition:
+  path: /v1/policies/illustration
+  verb: post
+  id: imported#/v1/policies/illustration#post
+  operationId: 54b5ee40-1704-49a2-a610-66a16a567b8eV1
+  summary: Perform an illustration before starting application process
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: detailedResultFlag
+      description: Controls short or detailed
+      required: true
+      schema:
+        type: boolean
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/illustrationParametersV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/illustrationNoPolicyV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/illustrationNoPolicyV1"
+  security:
+    - bearerAuth: []
+flow: 54b5ee40-1704-49a2-a610-66a16a567b8eV1.yaml
+method: post
+path: /v1/policies/illustration
+errorHandlers: []
+handlers: []

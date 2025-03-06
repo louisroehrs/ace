@@ -1,0 +1,144 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  clientId1: 8705
+  clientId2: 8706
+  policyCommenceDate: 05/04/2020
+  agentId: 756080
+  termLength: 45
+  DOBInsured1: 03/03/1990
+  smoker1: true
+  isJoint: false
+  product:
+    productNo: 100
+    version: 1
+  coversSelected:
+    - id: 2
+      saType: 1
+      sumAssured: "100000"
+      relationCode: 1
+      relatedCoverNo: 3
+      benefitPayPeriodValuesCode: null
+      benefitCalcByFormulaFlag: 0
+      manualSaFlag: 1
+      covers:
+        - id: 5
+          saType: 1
+          relatedCoverNo: 2
+          benefitPayPeriodValuesCode: null
+          benefitCalcByFormulaFlag: 0
+          manualSaFlag: 1
+        - id: 4
+          saType: 1
+          relatedCoverNo: 2
+          benefitPayPeriodValuesCode: null
+          benefitCalcByFormulaFlag: 0
+          manualSaFlag: 1
+    - id: 9
+      saType: 8
+      relationCode: 1
+      benefitPayPeriodValuesCode: 18000
+      benefitCalcByFormulaFlag: 0
+      manualSaFlag: 0
+  contribution:
+    - defFundPercent: 50
+      defaultFund: 64
+      contType: 61
+      premiumAmount: "10000"
+    - defFundPercent: 50
+      defaultFund: 64
+      contType: 62
+      premiumAmount: "20000"
+  benefitType: 1
+  interestRate: 3
+  entityValues:
+    - id: 40
+      value: "1"
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        clientId1:
+          type: integer
+        clientId2:
+          type: integer
+        policyCommenceDate:
+          type: string
+        agentId:
+          type: integer
+        termLength:
+          type: integer
+        DOBInsured1:
+          type: string
+        smoker1:
+          type: boolean
+        isJoint:
+          type: boolean
+        product:
+          type: object
+          properties:
+            productNo:
+              type: integer
+            version:
+              type: integer
+          example:
+            productNo: 100
+            version: 1
+        coversSelected:
+          type: array
+          items:
+            type: object
+        contribution:
+          type: array
+          items:
+            type: object
+        benefitType:
+          type: integer
+        interestRate:
+          type: integer
+        entityValues:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              value:
+                type: string
+            example:
+              id: 40
+              value: "1"
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policy/createQuote"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Creates a policy application for a single / dual insured persons
+      with any number of coverages, contributions and dynamic fields ("Entity
+      Items"). This is a simplified service which calls the native
+      createApplication API.

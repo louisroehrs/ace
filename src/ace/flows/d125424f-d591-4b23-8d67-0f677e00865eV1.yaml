@@ -1,0 +1,280 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  group_id: integer
+  agreement_id: number
+  effectiveDate:
+    type: string
+  agreementName:
+    type: string
+  contractType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  status:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  startDate:
+    type: string
+  unlimitedDuration:
+    type: boolean
+    default: false
+  endDate:
+    type: string
+  externalReference:
+    type: string
+  enrolmentMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  enrolmentStartDays:
+    type: integer
+  enrolmentEndDays:
+    type: integer
+  signatureDate:
+    type: string
+  newBusinessType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  originalStartDate:
+    type: string
+  fundsTransferExpectedFlag:
+    type: boolean
+    default: false
+  transferingCompany:
+    type: integer
+  description:
+    type: string
+  renewalFrequency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  renewalMonth:
+    type: number
+  headsUpDays:
+    type: number
+  preRenewalLeadTime:
+    type: integer
+  renewalRate:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  renewalGroupNotificationFlag:
+    type: boolean
+  daysForNotificationBeforeTermination:
+    type: integer
+  editions:
+    type: array
+    items:
+      properties:
+        editionNo:
+          type: number
+        description:
+          type: string
+        agreementDetailedDocument:
+          type: string
+      type: object
+      required: []
+  parties:
+    type: array
+    items:
+      properties:
+        partyType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        clientId:
+          type: integer
+        clientAccountNo:
+          type: number
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        effectiveDate:
+          type: string
+        agreementName:
+          type: string
+        contractType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        status:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        startDate:
+          type: string
+        unlimitedDuration:
+          type: boolean
+          default: false
+        endDate:
+          type: string
+        externalReference:
+          type: string
+        enrolmentMethod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        enrolmentStartDays:
+          type: integer
+        enrolmentEndDays:
+          type: integer
+        signatureDate:
+          type: string
+        newBusinessType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        originalStartDate:
+          type: string
+        fundsTransferExpectedFlag:
+          type: boolean
+          default: false
+        transferingCompany:
+          type: integer
+        description:
+          type: string
+        renewalFrequency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        renewalMonth:
+          type: number
+        headsUpDays:
+          type: number
+        preRenewalLeadTime:
+          type: integer
+        renewalRate:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        renewalGroupNotificationFlag:
+          type: boolean
+        daysForNotificationBeforeTermination:
+          type: integer
+        editions:
+          type: array
+          items:
+            properties:
+              editionNo:
+                type: number
+              description:
+                type: string
+              agreementDetailedDocument:
+                type: string
+            type: object
+            required: []
+        parties:
+          type: array
+          items:
+            properties:
+              partyType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              clientId:
+                type: integer
+              clientAccountNo:
+                type: number
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/agreements/{{agreement_id}}"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

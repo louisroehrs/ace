@@ -1,0 +1,82 @@
+definition:
+  path: /v1/policies/{policy_id}/claims/{claim_id}/total-payable
+  verb: post
+  id: imported#/v1/policies/{policy_id}/claims/{claim_id}/total-payable#post
+  operationId: getTotalPayableV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policy_id
+      description: Policy Number
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: claim_id
+      description: Claim Id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/totalPayableRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/totalPayableResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/totalPayableResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getTotalPayableV1.yaml
+method: post
+path: /v1/policies/{policy_id}/claims/{claim_id}/total-payable
+errorHandlers: []
+handlers: []

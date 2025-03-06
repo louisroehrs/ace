@@ -1,0 +1,27 @@
+title: searchLetterRequest
+properties:
+  identifier:
+    type: integer
+  id:
+    type: integer
+  requestDate:
+    type: string
+    format: date
+  printDueDate:
+    type: string
+    format: date
+  printDate:
+    type: string
+    format: date
+  communicationType:
+    type: integer
+  reference:
+    type: string
+  printStatus:
+    type: integer
+  recipient:
+    type: integer
+  package:
+    type: integer
+type: object
+required: []

@@ -1,0 +1,36 @@
+title: ResponseGetClientCommunication
+nodeKey: ResponseGetClientCommunication
+properties:
+  clientId:
+    type: integer
+  communications:
+    type: array
+    items:
+      type: object
+      properties:
+        primaryKey:
+          type: integer
+        primaryKeyType:
+          type: string
+        communicationType:
+          type: object
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+        printCode:
+          type: object
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+        communicationReference:
+          type: string
+        effectiveDate:
+          type: string
+          format: date
+        documentationUrl:
+          type: string
+type: object

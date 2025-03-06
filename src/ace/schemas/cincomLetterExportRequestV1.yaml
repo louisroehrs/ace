@@ -1,0 +1,29 @@
+title: cincomLetterExportRequest
+properties:
+  xmlRequest:
+    type: string
+  customerHeaderHolder:
+    title: customerHeaderHolder
+    properties:
+      packId:
+        type: integer
+      documentId:
+        type: integer
+      noInPack:
+        type: integer
+      posInPack:
+        type: string
+      deliveryChannel:
+        type: string
+      printServer:
+        type: string
+      deliveryAddress:
+        type: string
+      date:
+        type: string
+      letterCode:
+        type: integer
+      letterName:
+        type: integer
+    type: object
+type: object

@@ -1,0 +1,198 @@
+tags:
+  - groups
+sampleInputSchema: ""
+sampleData:
+  group_id: string
+  employee_id: string
+  leaveType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  leaveReason:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  leaveStatus:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  notificationDate:
+    type: string
+  leavingDate:
+    type: string
+  effectiveDate:
+    type: string
+  requiredDocuments:
+    type: array
+    items:
+      properties:
+        documentTitle:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        requestDate:
+          type: string
+        receivedDate:
+          type: string
+        note:
+          type: string
+        mandatoryFlag:
+          type: boolean
+        docStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+      type: object
+  certificates:
+    type: array
+    items:
+      properties:
+        planNo:
+          type: integer
+        claimType:
+          type: array
+          items:
+            properties:
+              number:
+                type: integer
+              name:
+                type: string
+            type: object
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        leaveType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        leaveReason:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        leaveStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        notificationDate:
+          type: string
+        leavingDate:
+          type: string
+        effectiveDate:
+          type: string
+        requiredDocuments:
+          type: array
+          items:
+            properties:
+              documentTitle:
+                properties:
+                  number:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              requestDate:
+                type: string
+              receivedDate:
+                type: string
+              note:
+                type: string
+              mandatoryFlag:
+                type: boolean
+              docStatus:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+            type: object
+        certificates:
+          type: array
+          items:
+            properties:
+              planNo:
+                type: integer
+              claimType:
+                type: array
+                items:
+                  properties:
+                    number:
+                      type: integer
+                    name:
+                      type: string
+                  type: object
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/employees/{{employee_id}}/termination"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

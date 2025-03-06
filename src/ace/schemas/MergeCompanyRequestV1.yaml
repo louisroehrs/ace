@@ -1,0 +1,42 @@
+title: MergeCompanyRequest
+properties:
+  effectiveDate:
+    type: string
+    format: date
+  destinationGroup:
+    type: integer
+  groupFlag:
+    type: boolean
+    default: false
+  sourceSubgroups:
+    type: array
+    items:
+      properties:
+        sourceSubgroupNo:
+          type: integer
+        closedForNewMember:
+          type: boolean
+          default: false
+        sourcePlan:
+          type: array
+          items:
+            properties:
+              sourcePlanId:
+                type: integer
+              destinationAgreement:
+                type: integer
+            type: object
+            required:
+              - sourcePlanId
+              - destinationAgreement
+        includeParent:
+          type: boolean
+          default: false
+      type: object
+      required:
+        - sourceSubgroupNo
+        - sourcePlan
+type: object
+required:
+  - destinationGroup
+  - sourceSubgroups

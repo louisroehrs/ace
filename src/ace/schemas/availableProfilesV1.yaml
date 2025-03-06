@@ -1,0 +1,60 @@
+title: availableProfiles
+properties:
+  result:
+    properties:
+      product:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      productVersion:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      salesChannel:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      investmentProfiles:
+        type: array
+        items:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+    type: object
+    required: []
+  response:
+    properties:
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required:
+          - code
+          - name
+      messages:
+        type: array
+        items:
+          properties:
+            number:
+              type: string
+            name:
+              type: string
+          type: object
+    type: object
+type: object
+required: []

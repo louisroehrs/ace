@@ -1,0 +1,62 @@
+definition:
+  path: /v1/groups/{group_id}/plans/{plan_id}/subgroups/{subgroup_id}
+  verb: post
+  id: imported#/v1/groups/{group_id}/plans/{plan_id}/subgroups/{subgroup_id}#post
+  operationId: 054615aa-4731-481d-99f0-aa0548b66c0fV1
+  summary: Get subgroup details under a plan and a group
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: GroupID
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: plan_id
+      description: PlanNo
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: subgroup_id
+      description: SubgroupNo
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: Company Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: User Name
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/MemberPlanSubgroupConnectionV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+  security:
+    - bearerAuth: []
+flow: 054615aa-4731-481d-99f0-aa0548b66c0fV1.yaml
+method: post
+path: /v1/groups/{group_id}/plans/{plan_id}/subgroups/{subgroup_id}
+errorHandlers: []
+handlers: []

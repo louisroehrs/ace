@@ -1,0 +1,113 @@
+definition:
+  path: /v1/policy/createQuickApplication
+  verb: post
+  id: imported#/v1/policy/createQuickApplication#post
+  operationId: a1a549ab-9b7c-4b06-ab88-e2725e9fe7a7V1
+  summary: Creates a quick application with minimal input (product version,
+    covers, insured client and agent)
+  tags:
+    - Policy
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: coresuite-datasource-key
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: coresuite-user-name
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/createQuickApplicationRequestV1"
+  responses:
+    "200":
+      description: The response includes the created Policy Number for the application
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              number:
+                type: integer
+              policyStatusCode:
+                type: integer
+              reference:
+                type: string
+              responseMessageList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code:
+                      type: integer
+                    reference:
+                      type: string
+                    text:
+                      type: string
+                    type:
+                      type: integer
+                  example:
+                    code: 9000289
+                    reference: null
+                    text: Policy status is Pending
+                    type: 0
+            example:
+              number: 15139
+              policyStatusCode: -1
+              reference: null
+              responseMessageList:
+                - code: 9000289
+                  reference: null
+                  text: Policy status is Pending
+                  type: 0
+        application/xml:
+          schema:
+            type: object
+            properties:
+              number:
+                type: integer
+              policyStatusCode:
+                type: integer
+              reference:
+                type: string
+              responseMessageList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code:
+                      type: integer
+                    reference:
+                      type: string
+                    text:
+                      type: string
+                    type:
+                      type: integer
+                  example:
+                    code: 9000289
+                    reference: null
+                    text: Policy status is Pending
+                    type: 0
+            example:
+              number: 15139
+              policyStatusCode: -1
+              reference: null
+              responseMessageList:
+                - code: 9000289
+                  reference: null
+                  text: Policy status is Pending
+                  type: 0
+  security:
+    - bearerAuth: []
+flow: a1a549ab-9b7c-4b06-ab88-e2725e9fe7a7V1.yaml
+method: post
+path: /v1/policy/createQuickApplication
+errorHandlers: []
+handlers: []

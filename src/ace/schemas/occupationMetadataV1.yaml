@@ -1,0 +1,13 @@
+title: occupationMetadata
+properties:
+  occupations:
+    type: array
+    items:
+      properties:
+        label:
+          type: string
+        value:
+          type: integer
+      type: object
+type: object
+required: []

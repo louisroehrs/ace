@@ -1,0 +1,118 @@
+title: MemberPlanSubgroupConn
+properties:
+  startDate:
+    type: string
+  status:
+    properties:
+      code:
+        type: number
+        description: "9"
+      name:
+        type: string
+    type: object
+  description:
+    title: description
+    type: string
+  agentCommission:
+    properties:
+      agentId:
+        type: integer
+        description: "750995"
+      agentAccountNo:
+        type: integer
+        description: "1"
+      commissionStyle:
+        properties:
+          code:
+            type: number
+          name:
+            type: string
+        type: object
+      commissionMultiplier:
+        title: commissionMultiplier
+        type: number
+        description: "1"
+      manualCommissionFlag:
+        title: manualCommissionFlag
+        type: boolean
+        description: "true"
+      manualCommissionRate:
+        title: manualCommissionRate
+        type: string
+        description: "1"
+      fundBasedCommission:
+        properties:
+          code:
+            type: number
+          name:
+            type: string
+        type: object
+      fundBasedCommissionRate:
+        type: integer
+      fundBasedCommissionFormula:
+        properties:
+          code:
+            type: number
+          name:
+            type: string
+        type: object
+      fundBasedCommissionFrequency:
+        properties:
+          code:
+            type: number
+          name:
+            type: string
+        type: object
+      fundBasedCommissionDay:
+        type: number
+      fundBasedCommissionMonth:
+        properties:
+          code:
+            type: number
+          name:
+            type: string
+        type: object
+    type: object
+    required: []
+  paymentArrangement:
+    properties:
+      clientId:
+        type: integer
+      externalClientId:
+        type: integer
+      paymentArrangementId:
+        type: integer
+      insuranceCompanyId:
+        type: number
+      billingTimingMethod:
+        properties:
+          code:
+            type: number
+          name:
+            type: string
+        type: object
+        description: "0"
+      billingBasis:
+        properties:
+          code:
+            type: number
+            description: "1"
+          name:
+            type: string
+        type: object
+    type: object
+    required:
+      - code
+      - name
+type: object
+required:
+  - commissionStyle
+  - fundBasedRenewalCommissionCode
+  - fundBasedRenewalCommissionFixedDay
+  - fundBasedRenewalCommissionFixedMonth
+  - fundBasedRenewalCommissionFormulaNo
+  - fundBasedRenewalCommissionRate
+  - fundBasedRenewalFrequency
+  - insuranceCompany
+  - clientPaymentId
+  - clientPaymentArrangementId

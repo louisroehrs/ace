@@ -1,0 +1,32 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  date: string
+  no1: number
+  no2: number
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"date":"date"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/covers/{{no2}}"
+        method: DELETE
+      restRequest: JSON
+      json: {}
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: delete the cover for given policy.

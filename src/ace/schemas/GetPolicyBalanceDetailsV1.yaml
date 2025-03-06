@@ -1,0 +1,98 @@
+title: GetPolicyBalanceDetails
+properties:
+  "policyNo ":
+    type: integer
+    description: CoreSuite internal policy unique identifiert
+  "externalPolicyNo ":
+    type: string
+    description: This is the corporate partners policy number. It is used to
+      identify the policy by the partner outside the system
+  "balances ":
+    type: array
+    items:
+      properties:
+        "balanceType ":
+          properties:
+            "code ":
+              type: integer
+              description: The type of balance that premium accumulated to (e.g. commission
+                balance)  Balance type identifier
+            name:
+              type: string
+              description: Holds the client account balance type names
+          type: object
+          required:
+            - "code "
+            - name
+        "contributionType ":
+          properties:
+            "number ":
+              type: integer
+              description: Contribution type identifier
+            name:
+              type: string
+              description: The name of the contribution
+            "layer ":
+              type: integer
+              description: Cover layer identifier
+            "dueDate ":
+              type: string
+              description: Due date of the balance
+              format: date
+            "registrationDate ":
+              type: string
+              description: The registered date for this record
+              format: date
+            lastValueDate:
+              type: string
+              description: For interest bearing balance, date to which interest added only for
+                information
+              format: date
+            "amount ":
+              type: number
+              description: The amount that accumulated in the balance  Accumulated balance
+                amount
+            calculatedValue:
+              type: number
+              description: The balance accumulated up to the current system date in the
+                Calculated Value column
+            currency:
+              properties:
+                "number ":
+                  type: integer
+                  description: Currency type identifier
+                name:
+                  type: string
+                  description: Defines currency name
+                "symbol ":
+                  type: string
+                  description: Will contain the currencys symbol e.g. $.t
+                "isoCode ":
+                  type: string
+                  description: Defines currency short description.t
+              type: object
+              required:
+                - "number "
+                - "symbol "
+                - name
+                - "isoCode "
+          type: object
+          required:
+            - "number "
+            - name
+            - "dueDate "
+            - "layer "
+            - "registrationDate "
+            - lastValueDate
+            - "amount "
+            - calculatedValue
+            - currency
+      type: object
+      required:
+        - "balanceType "
+        - "contributionType "
+type: object
+required:
+  - "policyNo "
+  - "externalPolicyNo "
+  - "balances "

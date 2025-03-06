@@ -1,0 +1,63 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  no1: string
+  paymentDay:
+    title: PaymentDay
+    type: integer
+    description: Payment day
+  paymentMonth:
+    title: PaymentMonth
+    type: integer
+    description: Payment month
+  paymentFrequency:
+    title: PaymentFrequency
+    type: integer
+    description: Frequency of payment
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        paymentDay:
+          title: PaymentDay
+          type: integer
+          description: Payment day
+        paymentMonth:
+          title: PaymentMonth
+          type: integer
+          description: Payment month
+        paymentFrequency:
+          title: PaymentFrequency
+          type: integer
+          description: Frequency of payment
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/updatePaymentFrequency"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Update payment frequency for given policy

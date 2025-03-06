@@ -1,0 +1,59 @@
+title: PolicyBillsResponse
+properties:
+  bills:
+    type: array
+    items:
+      properties:
+        billReference:
+          type: string
+        collectionDate:
+          type: string
+          format: date
+        moneyDueDate:
+          type: string
+          format: date
+        immOrTerm:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        issueDate:
+          type: string
+          format: date
+        regularPremiumBilled:
+          type: number
+        unpaidPremiumBilled:
+          type: number
+        totalPremiumBilled:
+          type: number
+        excess:
+          type: number
+        suspense:
+          type: number
+        currency:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+            symbol:
+              type: string
+            isoCode:
+              type: string
+          type: object
+      type: object
+      required:
+        - billReference
+        - collectionDate
+        - moneyDueDate
+        - immOrTerm
+        - issueDate
+        - regularPremiumBilled
+        - unpaidPremiumBilled
+        - totalPremiumBilled
+        - excess
+        - suspense
+        - currency
+type: object

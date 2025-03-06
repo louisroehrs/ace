@@ -1,0 +1,16 @@
+title: CreateNewCommunicationResponse
+properties:
+  documentId:
+    type: string
+    description: Unique identifier for a Letter Request (per recipient).
+  onBaseDocId:
+    type: string
+    description: Letter external reference.
+  message:
+    type: string
+    description: Text for successful response
+type: object
+required:
+  - documentId
+  - onBaseDocId
+  - message

@@ -1,0 +1,32 @@
+title: saveFundPricesRequest
+properties:
+  unitPriceList:
+    type: array
+    items:
+      properties:
+        fundNo:
+          type: number
+        externalFundNo:
+          type: string
+        isinCode:
+          type: string
+        fundBareValue:
+          type: number
+        fundBidValue:
+          type: number
+        fundOfferValue:
+          type: number
+        priceDate:
+          type: string
+          format: date
+      type: object
+      required:
+        - fundNo
+        - externalFundNo
+        - isinCode
+        - fundBareValue
+        - fundBidValue
+        - fundOfferValue
+        - priceDate
+type: object
+required: []

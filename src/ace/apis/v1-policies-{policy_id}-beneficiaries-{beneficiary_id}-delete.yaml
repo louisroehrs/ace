@@ -1,0 +1,59 @@
+definition:
+  path: /v1/policies/{policy_id}/beneficiaries/{beneficiary_id}
+  verb: delete
+  id: imported#/v1/policies/{policy_id}/beneficiaries/{beneficiary_id}#delete
+  operationId: deleteBeneficiaryV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policy_id
+      description: Policy Id
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: beneficiary_id
+      description: Beneficiary Id
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/deleteBeneficiaryFinalResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/deleteBeneficiaryFinalResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: deleteBeneficiaryV1.yaml
+method: delete
+path: /v1/policies/{policy_id}/beneficiaries/{beneficiary_id}
+errorHandlers: []
+handlers: []

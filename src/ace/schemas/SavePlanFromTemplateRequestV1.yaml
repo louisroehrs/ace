@@ -1,0 +1,17 @@
+title: SavePlanFromTemplateRequest
+properties:
+  templateNo:
+    type: integer
+  planName:
+    type: string
+  agreementNo:
+    type: integer
+  typeOfContract:
+    properties:
+      number:
+        type: integer
+      name:
+        type: string
+    type: object
+type: object
+required: []

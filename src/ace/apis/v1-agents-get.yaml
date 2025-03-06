@@ -1,0 +1,93 @@
+definition:
+  path: /v1/agents
+  verb: get
+  id: imported#/v1/agents#get
+  operationId: searchAgentV1
+  summary: Service to search person on provided parameter
+  tags:
+    - Agent
+  parameters:
+    - in: query
+      name: agentId
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: firstName
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: lastName
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: agentType
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: agentStatus
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: postalCode
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: additionalNameLine
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: brand
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: idReference
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchAgentResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/searchAgentResponseV1"
+  security:
+    - bearerAuth: []
+flow: searchAgentV1.yaml
+method: get
+path: /v1/agents
+errorHandlers: []
+handlers: []

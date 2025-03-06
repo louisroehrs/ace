@@ -1,0 +1,56 @@
+title: Communication
+properties:
+  identifier:
+    type: integer
+  identifierId:
+    type: integer
+  communicationType:
+    type: integer
+  printStatus:
+    type: integer
+  printDate:
+    type: string
+    format: date
+  printDueDate:
+    type: string
+    format: date
+  dataRetrievedFlag:
+    type: integer
+  dataRetrievedDate:
+    type: string
+    format: date
+  secondaryKeyType:
+    type: integer
+  secondaryKey:
+    type: string
+  senderUserId:
+    type: integer
+  tertiaryKeyType:
+    type: integer
+  tertiaryKey:
+    type: string
+  recipientDetails:
+    type: array
+    items:
+      properties:
+        recipientType:
+          type: integer
+        role:
+          type: integer
+        recipientId:
+          type: integer
+        addressType:
+          type: integer
+        source:
+          type: integer
+        communication:
+          type: integer
+        email:
+          type: integer
+        fax:
+          type: integer
+      type: object
+  printOption:
+    type: string
+type: object
+required: []

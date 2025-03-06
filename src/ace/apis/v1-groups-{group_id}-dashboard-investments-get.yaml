@@ -1,0 +1,54 @@
+definition:
+  path: /v1/groups/{group_id}/dashboard/investments
+  verb: get
+  id: imported#/v1/groups/{group_id}/dashboard/investments#get
+  operationId: 80ca4453-bd2b-4b02-b708-31382deb3052V1
+  summary: Get investment information for group dashboard
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: groupId
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GroupDashBoardInvestmentsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/GroupDashBoardInvestmentsResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 80ca4453-bd2b-4b02-b708-31382deb3052V1.yaml
+method: get
+path: /v1/groups/{group_id}/dashboard/investments
+errorHandlers: []
+handlers: []

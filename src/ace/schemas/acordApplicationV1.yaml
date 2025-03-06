@@ -1,0 +1,12 @@
+title: acordApplication
+properties:
+  acord:
+    type: string
+  acordType:
+    type: integer
+    enum:
+      - 1
+      - 2
+    default: 2
+type: object
+required: []

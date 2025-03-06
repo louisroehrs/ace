@@ -1,0 +1,44 @@
+definition:
+  path: /v1/clients/{client_id}/linkages
+  verb: get
+  id: imported#/v1/clients/{client_id}/linkages#get
+  operationId: getClientLinkageV1
+  tags:
+    - client
+  parameters:
+    - in: path
+      name: client_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/getClientLinkageResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/getClientLinkageResponseV1"
+  security:
+    - bearerAuth: []
+flow: getClientLinkageV1.yaml
+method: get
+path: /v1/clients/{client_id}/linkages
+errorHandlers: []
+handlers: []

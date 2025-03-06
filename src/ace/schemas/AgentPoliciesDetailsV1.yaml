@@ -1,0 +1,35 @@
+title: AgentPoliciesDetails
+properties:
+  agentId:
+    type: integer
+  accountId:
+    type: integer
+  policyNo:
+    type: integer
+  product:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  status:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  commissionOption:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  split:
+    type: number
+type: object
+required:
+  - agentId
+  - accountId

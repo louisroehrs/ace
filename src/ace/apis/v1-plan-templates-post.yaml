@@ -1,0 +1,43 @@
+definition:
+  path: /v1/plan/templates
+  verb: post
+  id: imported#/v1/plan/templates#post
+  operationId: 5c5655eb-01a3-49ab-a81d-9ef91682da81V1
+  tags:
+    - Group
+  parameters:
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/CreatePlanRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CreatePlanResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/CreatePlanResponseV1"
+  security:
+    - bearerAuth: []
+flow: 5c5655eb-01a3-49ab-a81d-9ef91682da81V1.yaml
+method: post
+path: /v1/plan/templates
+errorHandlers: []
+handlers: []

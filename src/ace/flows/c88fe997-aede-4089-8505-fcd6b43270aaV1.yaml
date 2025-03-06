@@ -1,0 +1,22 @@
+tags:
+  - Client
+sampleInputSchema: ""
+sampleData:
+  id1: number
+description: Created by imported openApi schema
+steps:
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/clients/{{id1}}/paymentArrangements"
+        method: GET
+      restRequest: JSON
+      json: {}
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Retrieves the payment arrangements corresponding to a given Payer ID.

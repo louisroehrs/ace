@@ -1,0 +1,328 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  externalPolicyIdIndicator: boolean
+  policy_id: string
+  effectiveDate:
+    type: string
+    format: date
+    nullable: true
+  cover:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    nullable: true
+  role:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  sumAssuredType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  sumAssured:
+    type: number
+  premiumTermAge:
+    type: number
+    nullable: true
+  premiumTerm:
+    type: string
+    nullable: true
+    format: date
+  requestedPremium:
+    type: number
+    nullable: true
+  annualPremium:
+    type: number
+    nullable: true
+  termDate:
+    type: string
+    format: date
+    nullable: true
+  termAge:
+    type: number
+  normalRetirementAge:
+    type: number
+    nullable: true
+  wholeLife:
+    type: boolean
+    default: false
+    nullable: true
+  termYears:
+    type: number
+    nullable: true
+  termMonths:
+    type: number
+    nullable: true
+  termDays:
+    type: number
+    nullable: true
+  escalationMethod:
+    properties:
+      code:
+        type: number
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  fixedRate:
+    type: number
+    nullable: true
+  indexType:
+    properties:
+      code:
+        type: number
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  deferredPeriod:
+    properties:
+      code:
+        type: number
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  benefitType:
+    properties:
+      code:
+        type: number
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  benefitPaymentPeriod:
+    type: number
+    nullable: true
+  entityItems:
+    type: array
+    items:
+      properties:
+        type:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        id:
+          type: integer
+          nullable: true
+        value:
+          type: number
+          nullable: true
+        valueDescription:
+          type: string
+          nullable: true
+        manualFlag:
+          type: integer
+          nullable: true
+        mandatoryFlag:
+          type: integer
+          nullable: true
+      type: object
+      nullable: true
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        effectiveDate:
+          type: string
+          format: date
+          nullable: true
+        cover:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          nullable: true
+        role:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        sumAssuredType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        sumAssured:
+          type: number
+        premiumTermAge:
+          type: number
+          nullable: true
+        premiumTerm:
+          type: string
+          nullable: true
+          format: date
+        requestedPremium:
+          type: number
+          nullable: true
+        annualPremium:
+          type: number
+          nullable: true
+        termDate:
+          type: string
+          format: date
+          nullable: true
+        termAge:
+          type: number
+        normalRetirementAge:
+          type: number
+          nullable: true
+        wholeLife:
+          type: boolean
+          default: false
+          nullable: true
+        termYears:
+          type: number
+          nullable: true
+        termMonths:
+          type: number
+          nullable: true
+        termDays:
+          type: number
+          nullable: true
+        escalationMethod:
+          properties:
+            code:
+              type: number
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        fixedRate:
+          type: number
+          nullable: true
+        indexType:
+          properties:
+            code:
+              type: number
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        deferredPeriod:
+          properties:
+            code:
+              type: number
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        benefitType:
+          properties:
+            code:
+              type: number
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        benefitPaymentPeriod:
+          type: number
+          nullable: true
+        entityItems:
+          type: array
+          items:
+            properties:
+              type:
+                properties:
+                  code:
+                    type: integer
+                    nullable: true
+                  name:
+                    type: string
+                    nullable: true
+                type: object
+                nullable: true
+              id:
+                type: integer
+                nullable: true
+              value:
+                type: number
+                nullable: true
+              valueDescription:
+                type: string
+                nullable: true
+              manualFlag:
+                type: integer
+                nullable: true
+              mandatoryFlag:
+                type: integer
+                nullable: true
+            type: object
+            nullable: true
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"externalPolicyIdIndicator":"externalPolicyIdIndicator"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policy_id}}/covers"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Add new covers on existing policy

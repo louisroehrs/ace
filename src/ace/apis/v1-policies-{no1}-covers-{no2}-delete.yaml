@@ -1,0 +1,57 @@
+definition:
+  path: /v1/policies/{no1}/covers/{no2}
+  verb: delete
+  id: imported#/v1/policies/{no1}/covers/{no2}#delete
+  operationId: 8cb23f24-1a1f-4609-99b1-7e5177de3c43V1
+  summary: delete the cover for given policy.
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: date
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: no1
+      description: ""
+      required: true
+      schema:
+        type: number
+    - in: path
+      name: no2
+      description: ""
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/responseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/responseV1"
+  security:
+    - bearerAuth: []
+flow: 8cb23f24-1a1f-4609-99b1-7e5177de3c43V1.yaml
+method: delete
+path: /v1/policies/{no1}/covers/{no2}
+errorHandlers: []
+handlers: []

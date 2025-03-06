@@ -1,0 +1,861 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  group_id: string
+  groupName:
+    type: string
+  companyId:
+    type: number
+  status:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  groupType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  currency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  assignedAdministrator:
+    properties:
+      code:
+        type: string
+      name:
+        type: string
+    type: object
+  numberOfPotentialMembers:
+    type: number
+  activationMask:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  activationRatio:
+    type: number
+  description:
+    type: string
+  directSalesFlag:
+    type: boolean
+  quoteDataSource:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  defaultAgentId:
+    type: number
+  introductoryCommissionFlag:
+    type: boolean
+  retirementAge:
+    type: number
+  parties:
+    type: array
+    items:
+      properties:
+        entityId:
+          type: number
+        partyType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        clientId:
+          type: number
+        clientAccountNumber:
+          type: number
+      type: object
+  salaryVariabilityLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  salaryVariabilityMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  duePeriodMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  memberAttributes:
+    type: array
+    items:
+      properties:
+        attributeId:
+          type: number
+        attributeType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        attributeName:
+          type: string
+        isClassFlag:
+          type: boolean
+        attributeValues:
+          type: array
+          items:
+            properties:
+              attributeValue:
+                type: number
+              attributeValueName:
+                type: string
+            type: object
+      type: object
+  costModel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  subgroupTransferApproval:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  detailsLeaverApprovalCode:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  invoiceCreatedFlag:
+    type: boolean
+  invoiceLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  invoiceRegenOnUpdate:
+    type: boolean
+  midPeriodInvoice:
+    type: boolean
+  memberLevelPayrollExpected:
+    type: boolean
+  payrollSplitByPeriod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  billingBasis:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  billingTimingMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  reconciliationLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  reconciliationType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  forwardCover:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  companyPolicyHolderFlag:
+    type: boolean
+  salesChannel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  marketAgreement:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  gracePeriodForMemberUpdates:
+    type: number
+  payerId:
+    type: number
+  payerPaymentArrangementId:
+    type: number
+  groupAdHocFeeMains:
+    type: array
+    items:
+      properties:
+        adHocFeeId:
+          type: number
+        feeLevel:
+          type: number
+        feeType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeFrequency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeStartDate:
+          type: string
+        feeEndDate:
+          type: string
+        feeAdvisor:
+          type: number
+        adHocFees:
+          type: array
+          items:
+            properties:
+              internalAdHocFeeNo:
+                type: number
+              feeAmount:
+                type: number
+              feeAmountType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              adHocFeeFunds:
+                type: array
+                items:
+                  properties:
+                    fund:
+                      type: number
+                    fundPercentage:
+                      type: number
+                    profile:
+                      type: number
+                  type: object
+              adHocFeeAdvisors:
+                type: array
+                items:
+                  properties:
+                    advisorId:
+                      type: number
+                    advisorPercentage:
+                      type: number
+                    advisorAccountId:
+                      type: number
+                  type: object
+            type: object
+      type: object
+  policyAdHocFeeMains:
+    type: array
+    items:
+      properties:
+        adHocFeeId:
+          type: number
+        feeLevel:
+          type: number
+        feeType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeFrequency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeStartDate:
+          type: string
+        feeEndDate:
+          type: string
+        feeAdvisor:
+          type: number
+        adHocFees:
+          type: array
+          items:
+            properties:
+              internalAdHocFeeNo:
+                type: number
+              feeAmount:
+                type: number
+              feeAmountType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              adHocFeeFunds:
+                type: array
+                items:
+                  properties:
+                    fund:
+                      type: number
+                    fundPercentage:
+                      type: number
+                    profile:
+                      type: number
+                  type: object
+              adHocFeeAdvisors:
+                type: array
+                items:
+                  properties:
+                    advisorId:
+                      type: number
+                    advisorPercentage:
+                      type: number
+                    advisorAccountId:
+                      type: number
+                  type: object
+            type: object
+      type: object
+  underWriting:
+    type: array
+    items:
+      properties:
+        uwGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        uwRoleGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        uwFreeCoverCode:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        uwMaxSA:
+          type: number
+        uwFclChangeApplied:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        freeCoverAmount:
+          type: number
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        groupName:
+          type: string
+        companyId:
+          type: number
+        status:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        groupType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        currency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        assignedAdministrator:
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+          type: object
+        numberOfPotentialMembers:
+          type: number
+        activationMask:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        activationRatio:
+          type: number
+        description:
+          type: string
+        directSalesFlag:
+          type: boolean
+        quoteDataSource:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        defaultAgentId:
+          type: number
+        introductoryCommissionFlag:
+          type: boolean
+        retirementAge:
+          type: number
+        parties:
+          type: array
+          items:
+            properties:
+              entityId:
+                type: number
+              partyType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              clientId:
+                type: number
+              clientAccountNumber:
+                type: number
+            type: object
+        salaryVariabilityLevel:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        salaryVariabilityMethod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        duePeriodMethod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        memberAttributes:
+          type: array
+          items:
+            properties:
+              attributeId:
+                type: number
+              attributeType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              attributeName:
+                type: string
+              isClassFlag:
+                type: boolean
+              attributeValues:
+                type: array
+                items:
+                  properties:
+                    attributeValue:
+                      type: number
+                    attributeValueName:
+                      type: string
+                  type: object
+            type: object
+        costModel:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        subgroupTransferApproval:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        detailsLeaverApprovalCode:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        invoiceCreatedFlag:
+          type: boolean
+        invoiceLevel:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        invoiceRegenOnUpdate:
+          type: boolean
+        midPeriodInvoice:
+          type: boolean
+        memberLevelPayrollExpected:
+          type: boolean
+        payrollSplitByPeriod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        billingBasis:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        billingTimingMethod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        reconciliationLevel:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        reconciliationType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        forwardCover:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        companyPolicyHolderFlag:
+          type: boolean
+        salesChannel:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        marketAgreement:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        gracePeriodForMemberUpdates:
+          type: number
+        payerId:
+          type: number
+        payerPaymentArrangementId:
+          type: number
+        groupAdHocFeeMains:
+          type: array
+          items:
+            properties:
+              adHocFeeId:
+                type: number
+              feeLevel:
+                type: number
+              feeType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              feeFrequency:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              feeStatus:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              feeStartDate:
+                type: string
+              feeEndDate:
+                type: string
+              feeAdvisor:
+                type: number
+              adHocFees:
+                type: array
+                items:
+                  properties:
+                    internalAdHocFeeNo:
+                      type: number
+                    feeAmount:
+                      type: number
+                    feeAmountType:
+                      properties:
+                        code:
+                          type: number
+                        name:
+                          type: string
+                      type: object
+                    adHocFeeFunds:
+                      type: array
+                      items:
+                        properties:
+                          fund:
+                            type: number
+                          fundPercentage:
+                            type: number
+                          profile:
+                            type: number
+                        type: object
+                    adHocFeeAdvisors:
+                      type: array
+                      items:
+                        properties:
+                          advisorId:
+                            type: number
+                          advisorPercentage:
+                            type: number
+                          advisorAccountId:
+                            type: number
+                        type: object
+                  type: object
+            type: object
+        policyAdHocFeeMains:
+          type: array
+          items:
+            properties:
+              adHocFeeId:
+                type: number
+              feeLevel:
+                type: number
+              feeType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              feeFrequency:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              feeStatus:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              feeStartDate:
+                type: string
+              feeEndDate:
+                type: string
+              feeAdvisor:
+                type: number
+              adHocFees:
+                type: array
+                items:
+                  properties:
+                    internalAdHocFeeNo:
+                      type: number
+                    feeAmount:
+                      type: number
+                    feeAmountType:
+                      properties:
+                        code:
+                          type: number
+                        name:
+                          type: string
+                      type: object
+                    adHocFeeFunds:
+                      type: array
+                      items:
+                        properties:
+                          fund:
+                            type: number
+                          fundPercentage:
+                            type: number
+                          profile:
+                            type: number
+                        type: object
+                    adHocFeeAdvisors:
+                      type: array
+                      items:
+                        properties:
+                          advisorId:
+                            type: number
+                          advisorPercentage:
+                            type: number
+                          advisorAccountId:
+                            type: number
+                        type: object
+                  type: object
+            type: object
+        underWriting:
+          type: array
+          items:
+            properties:
+              uwGroup:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              uwRoleGroup:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              uwFreeCoverCode:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              uwMaxSA:
+                type: number
+              uwFclChangeApplied:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              freeCoverAmount:
+                type: number
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Get group details

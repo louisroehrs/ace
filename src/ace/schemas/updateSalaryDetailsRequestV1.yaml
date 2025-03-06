@@ -1,0 +1,12 @@
+title: updateSalaryDetailsRequest
+properties:
+  employerId:
+    type: integer
+  employeeId:
+    type: integer
+  salaryBasis:
+    type: integer
+type: object
+required:
+  - employerId
+  - employeeId

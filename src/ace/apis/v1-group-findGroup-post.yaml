@@ -1,0 +1,1032 @@
+definition:
+  path: /v1/group/findGroup
+  verb: post
+  id: imported#/v1/group/findGroup#post
+  operationId: adc67304-95f0-4bc6-b266-19ab080a9227V1
+  summary: Retrieves the group details of a particular group policy from the group id.
+  tags:
+    - Group
+  parameters: []
+  requestBody:
+    description: body param generated from provided JSON request example
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            groupId:
+              type: integer
+          example:
+            groupId: 542
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              groupId:
+                type: integer
+              groupDetails:
+                type: object
+                properties:
+                  agentId:
+                    type: integer
+                  approveSubgroupTransferImmediately:
+                    type: integer
+                  assignedUserId:
+                    type: string
+                  billingBasis:
+                    type: string
+                  billingDelayMaximumPeriod:
+                    type: string
+                  billingTimingMethod:
+                    type: string
+                  calculationStatus:
+                    type: integer
+                  clientId:
+                    type: integer
+                  closingEffectiveDate:
+                    type: string
+                  closingReference:
+                    type: string
+                  closingRegistrationDate:
+                    type: string
+                  closingStatus:
+                    type: integer
+                  companyPolicyHolderFlag:
+                    type: boolean
+                  currency:
+                    type: integer
+                  description:
+                    type: string
+                  directSalesFlag:
+                    type: boolean
+                  duePeriodMethod:
+                    type: string
+                  entityItemList:
+                    type: array
+                    items:
+                      type: object
+                  femaleRetirementAge:
+                    type: string
+                  forwardCoverMask:
+                    type: string
+                  generalGroupAdHocFeeMainList:
+                    type: array
+                    items:
+                      type: object
+                  generalPolicyAdHocFeeMainList:
+                    type: string
+                  groupAccountNumber:
+                    type: string
+                  groupAccountPayer:
+                    type: string
+                  groupAccountPaymentArrangementId:
+                    type: string
+                  groupActivationMask:
+                    type: integer
+                  groupActivationOverrideFlag:
+                    type: boolean
+                  groupActivationRatio:
+                    type: string
+                  groupInceptionDate:
+                    type: string
+                  groupPartyList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        closingEffectiveDate:
+                          type: string
+                        closingReference:
+                          type: string
+                        closingRegistrationDate:
+                          type: string
+                        closingStatus:
+                          type: integer
+                        entityId:
+                          type: integer
+                        entityType:
+                          type: integer
+                        openingEffectiveDate:
+                          type: string
+                        openingReference:
+                          type: string
+                        openingRegistrationDate:
+                          type: string
+                        openingStatus:
+                          type: integer
+                        originalClosingEffectiveDate:
+                          type: string
+                        originalClosingReference:
+                          type: string
+                        originalClosingRegistrationDate:
+                          type: string
+                        originalClosingStatus:
+                          type: string
+                        partyClientAccountNumber:
+                          type: integer
+                        partyClientId:
+                          type: integer
+                        partyType:
+                          type: integer
+                        uniqueId:
+                          type: integer
+                        userId:
+                          type: integer
+                      example:
+                        closingEffectiveDate: 3000-01-01
+                        closingReference: ""
+                        closingRegistrationDate: 3000-01-01
+                        closingStatus: 0
+                        entityId: 2797
+                        entityType: 8
+                        openingEffectiveDate: 2020-01-01
+                        openingReference: "128321"
+                        openingRegistrationDate: 2020-01-01
+                        openingStatus: 10
+                        originalClosingEffectiveDate: null
+                        originalClosingReference: null
+                        originalClosingRegistrationDate: null
+                        originalClosingStatus: null
+                        partyClientAccountNumber: 0
+                        partyClientId: 100002277
+                        partyType: 4
+                        uniqueId: 1046
+                        userId: 230
+                  groupType:
+                    type: integer
+                  inaccurateCollectionCode:
+                    type: string
+                  instructionRecordCode:
+                    type: integer
+                  introductoryCommissionFlag:
+                    type: boolean
+                  invoiceCode:
+                    type: string
+                  invoiceLevel:
+                    type: string
+                  invoiceRegenerationOnUpdate:
+                    type: string
+                  memberGroupAttributeList:
+                    type: array
+                    items:
+                      type: object
+                  memberUnderWritingGroupList:
+                    type: array
+                    items:
+                      type: object
+                  middlePeriodInvoice:
+                    type: integer
+                  minimumRetirementAge:
+                    type: string
+                  name:
+                    type: string
+                  numberOfMembers:
+                    type: string
+                  openingEffectiveDate:
+                    type: string
+                  openingReference:
+                    type: string
+                  openingRegistrationDate:
+                    type: string
+                  openingStatus:
+                    type: integer
+                  overrideModelMap:
+                    type: string
+                  paymentReconciliationLevel:
+                    type: string
+                  payrollCode:
+                    type: string
+                  payrollReconciliationType:
+                    type: string
+                  payrollSplitByPeriodMethod:
+                    type: string
+                  retirementAge:
+                    type: string
+                  salaryVariabilityLevel:
+                    type: string
+                  salaryVariabilityMethod:
+                    type: string
+                  systemVersion:
+                    type: string
+                  uniqueId:
+                    type: integer
+                  userId:
+                    type: integer
+                example:
+                  agentId: 750995
+                  approveSubgroupTransferImmediately: 3
+                  assignedUserId: null
+                  billingBasis: null
+                  billingDelayMaximumPeriod: null
+                  billingTimingMethod: null
+                  calculationStatus: 1
+                  clientId: 100000065
+                  closingEffectiveDate: 3000-01-01
+                  closingReference: ""
+                  closingRegistrationDate: 3000-01-01
+                  closingStatus: 0
+                  companyPolicyHolderFlag: false
+                  currency: 5
+                  description: null
+                  directSalesFlag: true
+                  duePeriodMethod: null
+                  entityItemList:
+                    - closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      entityNo: 2797
+                      entitySecondSubType: 0
+                      entitySubNo: 0
+                      entitySubType: 8
+                      entityType: 8
+                      id: 3
+                      manualFlag: true
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128308"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      rowNumber: 0
+                      uniqueId: 305977
+                      value: 2020-01-01
+                    - closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      entityNo: 2797
+                      entitySecondSubType: 0
+                      entitySubNo: 0
+                      entitySubType: 8
+                      entityType: 8
+                      id: 2
+                      manualFlag: true
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128308"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      rowNumber: 0
+                      uniqueId: 305978
+                      value: ""
+                  femaleRetirementAge: null
+                  forwardCoverMask: null
+                  generalGroupAdHocFeeMainList: []
+                  generalPolicyAdHocFeeMainList: null
+                  groupAccountNumber: null
+                  groupAccountPayer: null
+                  groupAccountPaymentArrangementId: null
+                  groupActivationMask: 0
+                  groupActivationOverrideFlag: false
+                  groupActivationRatio: null
+                  groupInceptionDate: 2020-01-01
+                  groupPartyList:
+                    - closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      entityId: 2797
+                      entityType: 8
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128321"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      originalClosingEffectiveDate: null
+                      originalClosingReference: null
+                      originalClosingRegistrationDate: null
+                      originalClosingStatus: null
+                      partyClientAccountNumber: 0
+                      partyClientId: 100002277
+                      partyType: 4
+                      uniqueId: 1046
+                      userId: 230
+                  groupType: 1
+                  inaccurateCollectionCode: null
+                  instructionRecordCode: 0
+                  introductoryCommissionFlag: false
+                  invoiceCode: null
+                  invoiceLevel: null
+                  invoiceRegenerationOnUpdate: null
+                  memberGroupAttributeList:
+                    - attributeId: 1
+                      attributeName: loan
+                      attributeType: 2
+                      closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      isClassFlag: false
+                      memberGroupAttributeValueList: []
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128308"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      originalClosingEffectiveDate: null
+                      originalClosingReference: null
+                      originalClosingRegistrationDate: null
+                      originalClosingStatus: null
+                      uniqueId: 5175
+                      userId: 230
+                    - attributeId: 2
+                      attributeName: ""
+                      attributeType: 1
+                      closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      isClassFlag: false
+                      memberGroupAttributeValueList: []
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128308"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      originalClosingEffectiveDate: null
+                      originalClosingReference: null
+                      originalClosingRegistrationDate: null
+                      originalClosingStatus: null
+                      uniqueId: 5176
+                      userId: 230
+                  memberUnderWritingGroupList: []
+                  middlePeriodInvoice: 0
+                  minimumRetirementAge: null
+                  name: testContributionPkg
+                  numberOfMembers: null
+                  openingEffectiveDate: 2020-01-01
+                  openingReference: "174154"
+                  openingRegistrationDate: 2020-01-01
+                  openingStatus: 10
+                  overrideModelMap: null
+                  paymentReconciliationLevel: null
+                  payrollCode: null
+                  payrollReconciliationType: null
+                  payrollSplitByPeriodMethod: null
+                  retirementAge: null
+                  salaryVariabilityLevel: null
+                  salaryVariabilityMethod: null
+                  systemVersion: null
+                  uniqueId: 15665
+                  userId: 230
+            example:
+              groupId: 2797
+              groupDetails:
+                agentId: 750995
+                approveSubgroupTransferImmediately: 3
+                assignedUserId: null
+                billingBasis: null
+                billingDelayMaximumPeriod: null
+                billingTimingMethod: null
+                calculationStatus: 1
+                clientId: 100000065
+                closingEffectiveDate: 3000-01-01
+                closingReference: ""
+                closingRegistrationDate: 3000-01-01
+                closingStatus: 0
+                companyPolicyHolderFlag: false
+                currency: 5
+                description: null
+                directSalesFlag: true
+                duePeriodMethod: null
+                entityItemList:
+                  - closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    entityNo: 2797
+                    entitySecondSubType: 0
+                    entitySubNo: 0
+                    entitySubType: 8
+                    entityType: 8
+                    id: 3
+                    manualFlag: true
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128308"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    rowNumber: 0
+                    uniqueId: 305977
+                    value: 2020-01-01
+                  - closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    entityNo: 2797
+                    entitySecondSubType: 0
+                    entitySubNo: 0
+                    entitySubType: 8
+                    entityType: 8
+                    id: 2
+                    manualFlag: true
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128308"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    rowNumber: 0
+                    uniqueId: 305978
+                    value: ""
+                femaleRetirementAge: null
+                forwardCoverMask: null
+                generalGroupAdHocFeeMainList: []
+                generalPolicyAdHocFeeMainList: null
+                groupAccountNumber: null
+                groupAccountPayer: null
+                groupAccountPaymentArrangementId: null
+                groupActivationMask: 0
+                groupActivationOverrideFlag: false
+                groupActivationRatio: null
+                groupInceptionDate: 2020-01-01
+                groupPartyList:
+                  - closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    entityId: 2797
+                    entityType: 8
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128321"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    originalClosingEffectiveDate: null
+                    originalClosingReference: null
+                    originalClosingRegistrationDate: null
+                    originalClosingStatus: null
+                    partyClientAccountNumber: 0
+                    partyClientId: 100002277
+                    partyType: 4
+                    uniqueId: 1046
+                    userId: 230
+                groupType: 1
+                inaccurateCollectionCode: null
+                instructionRecordCode: 0
+                introductoryCommissionFlag: false
+                invoiceCode: null
+                invoiceLevel: null
+                invoiceRegenerationOnUpdate: null
+                memberGroupAttributeList:
+                  - attributeId: 1
+                    attributeName: loan
+                    attributeType: 2
+                    closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    isClassFlag: false
+                    memberGroupAttributeValueList: []
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128308"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    originalClosingEffectiveDate: null
+                    originalClosingReference: null
+                    originalClosingRegistrationDate: null
+                    originalClosingStatus: null
+                    uniqueId: 5175
+                    userId: 230
+                  - attributeId: 2
+                    attributeName: ""
+                    attributeType: 1
+                    closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    isClassFlag: false
+                    memberGroupAttributeValueList: []
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128308"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    originalClosingEffectiveDate: null
+                    originalClosingReference: null
+                    originalClosingRegistrationDate: null
+                    originalClosingStatus: null
+                    uniqueId: 5176
+                    userId: 230
+                memberUnderWritingGroupList: []
+                middlePeriodInvoice: 0
+                minimumRetirementAge: null
+                name: testContributionPkg
+                numberOfMembers: null
+                openingEffectiveDate: 2020-01-01
+                openingReference: "174154"
+                openingRegistrationDate: 2020-01-01
+                openingStatus: 10
+                overrideModelMap: null
+                paymentReconciliationLevel: null
+                payrollCode: null
+                payrollReconciliationType: null
+                payrollSplitByPeriodMethod: null
+                retirementAge: null
+                salaryVariabilityLevel: null
+                salaryVariabilityMethod: null
+                systemVersion: null
+                uniqueId: 15665
+                userId: 230
+        application/xml:
+          schema:
+            type: object
+            properties:
+              groupId:
+                type: integer
+              groupDetails:
+                type: object
+                properties:
+                  agentId:
+                    type: integer
+                  approveSubgroupTransferImmediately:
+                    type: integer
+                  assignedUserId:
+                    type: string
+                  billingBasis:
+                    type: string
+                  billingDelayMaximumPeriod:
+                    type: string
+                  billingTimingMethod:
+                    type: string
+                  calculationStatus:
+                    type: integer
+                  clientId:
+                    type: integer
+                  closingEffectiveDate:
+                    type: string
+                  closingReference:
+                    type: string
+                  closingRegistrationDate:
+                    type: string
+                  closingStatus:
+                    type: integer
+                  companyPolicyHolderFlag:
+                    type: boolean
+                  currency:
+                    type: integer
+                  description:
+                    type: string
+                  directSalesFlag:
+                    type: boolean
+                  duePeriodMethod:
+                    type: string
+                  entityItemList:
+                    type: array
+                    items:
+                      type: object
+                  femaleRetirementAge:
+                    type: string
+                  forwardCoverMask:
+                    type: string
+                  generalGroupAdHocFeeMainList:
+                    type: array
+                    items:
+                      type: object
+                  generalPolicyAdHocFeeMainList:
+                    type: string
+                  groupAccountNumber:
+                    type: string
+                  groupAccountPayer:
+                    type: string
+                  groupAccountPaymentArrangementId:
+                    type: string
+                  groupActivationMask:
+                    type: integer
+                  groupActivationOverrideFlag:
+                    type: boolean
+                  groupActivationRatio:
+                    type: string
+                  groupInceptionDate:
+                    type: string
+                  groupPartyList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        closingEffectiveDate:
+                          type: string
+                        closingReference:
+                          type: string
+                        closingRegistrationDate:
+                          type: string
+                        closingStatus:
+                          type: integer
+                        entityId:
+                          type: integer
+                        entityType:
+                          type: integer
+                        openingEffectiveDate:
+                          type: string
+                        openingReference:
+                          type: string
+                        openingRegistrationDate:
+                          type: string
+                        openingStatus:
+                          type: integer
+                        originalClosingEffectiveDate:
+                          type: string
+                        originalClosingReference:
+                          type: string
+                        originalClosingRegistrationDate:
+                          type: string
+                        originalClosingStatus:
+                          type: string
+                        partyClientAccountNumber:
+                          type: integer
+                        partyClientId:
+                          type: integer
+                        partyType:
+                          type: integer
+                        uniqueId:
+                          type: integer
+                        userId:
+                          type: integer
+                      example:
+                        closingEffectiveDate: 3000-01-01
+                        closingReference: ""
+                        closingRegistrationDate: 3000-01-01
+                        closingStatus: 0
+                        entityId: 2797
+                        entityType: 8
+                        openingEffectiveDate: 2020-01-01
+                        openingReference: "128321"
+                        openingRegistrationDate: 2020-01-01
+                        openingStatus: 10
+                        originalClosingEffectiveDate: null
+                        originalClosingReference: null
+                        originalClosingRegistrationDate: null
+                        originalClosingStatus: null
+                        partyClientAccountNumber: 0
+                        partyClientId: 100002277
+                        partyType: 4
+                        uniqueId: 1046
+                        userId: 230
+                  groupType:
+                    type: integer
+                  inaccurateCollectionCode:
+                    type: string
+                  instructionRecordCode:
+                    type: integer
+                  introductoryCommissionFlag:
+                    type: boolean
+                  invoiceCode:
+                    type: string
+                  invoiceLevel:
+                    type: string
+                  invoiceRegenerationOnUpdate:
+                    type: string
+                  memberGroupAttributeList:
+                    type: array
+                    items:
+                      type: object
+                  memberUnderWritingGroupList:
+                    type: array
+                    items:
+                      type: object
+                  middlePeriodInvoice:
+                    type: integer
+                  minimumRetirementAge:
+                    type: string
+                  name:
+                    type: string
+                  numberOfMembers:
+                    type: string
+                  openingEffectiveDate:
+                    type: string
+                  openingReference:
+                    type: string
+                  openingRegistrationDate:
+                    type: string
+                  openingStatus:
+                    type: integer
+                  overrideModelMap:
+                    type: string
+                  paymentReconciliationLevel:
+                    type: string
+                  payrollCode:
+                    type: string
+                  payrollReconciliationType:
+                    type: string
+                  payrollSplitByPeriodMethod:
+                    type: string
+                  retirementAge:
+                    type: string
+                  salaryVariabilityLevel:
+                    type: string
+                  salaryVariabilityMethod:
+                    type: string
+                  systemVersion:
+                    type: string
+                  uniqueId:
+                    type: integer
+                  userId:
+                    type: integer
+                example:
+                  agentId: 750995
+                  approveSubgroupTransferImmediately: 3
+                  assignedUserId: null
+                  billingBasis: null
+                  billingDelayMaximumPeriod: null
+                  billingTimingMethod: null
+                  calculationStatus: 1
+                  clientId: 100000065
+                  closingEffectiveDate: 3000-01-01
+                  closingReference: ""
+                  closingRegistrationDate: 3000-01-01
+                  closingStatus: 0
+                  companyPolicyHolderFlag: false
+                  currency: 5
+                  description: null
+                  directSalesFlag: true
+                  duePeriodMethod: null
+                  entityItemList:
+                    - closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      entityNo: 2797
+                      entitySecondSubType: 0
+                      entitySubNo: 0
+                      entitySubType: 8
+                      entityType: 8
+                      id: 3
+                      manualFlag: true
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128308"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      rowNumber: 0
+                      uniqueId: 305977
+                      value: 2020-01-01
+                    - closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      entityNo: 2797
+                      entitySecondSubType: 0
+                      entitySubNo: 0
+                      entitySubType: 8
+                      entityType: 8
+                      id: 2
+                      manualFlag: true
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128308"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      rowNumber: 0
+                      uniqueId: 305978
+                      value: ""
+                  femaleRetirementAge: null
+                  forwardCoverMask: null
+                  generalGroupAdHocFeeMainList: []
+                  generalPolicyAdHocFeeMainList: null
+                  groupAccountNumber: null
+                  groupAccountPayer: null
+                  groupAccountPaymentArrangementId: null
+                  groupActivationMask: 0
+                  groupActivationOverrideFlag: false
+                  groupActivationRatio: null
+                  groupInceptionDate: 2020-01-01
+                  groupPartyList:
+                    - closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      entityId: 2797
+                      entityType: 8
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128321"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      originalClosingEffectiveDate: null
+                      originalClosingReference: null
+                      originalClosingRegistrationDate: null
+                      originalClosingStatus: null
+                      partyClientAccountNumber: 0
+                      partyClientId: 100002277
+                      partyType: 4
+                      uniqueId: 1046
+                      userId: 230
+                  groupType: 1
+                  inaccurateCollectionCode: null
+                  instructionRecordCode: 0
+                  introductoryCommissionFlag: false
+                  invoiceCode: null
+                  invoiceLevel: null
+                  invoiceRegenerationOnUpdate: null
+                  memberGroupAttributeList:
+                    - attributeId: 1
+                      attributeName: loan
+                      attributeType: 2
+                      closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      isClassFlag: false
+                      memberGroupAttributeValueList: []
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128308"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      originalClosingEffectiveDate: null
+                      originalClosingReference: null
+                      originalClosingRegistrationDate: null
+                      originalClosingStatus: null
+                      uniqueId: 5175
+                      userId: 230
+                    - attributeId: 2
+                      attributeName: ""
+                      attributeType: 1
+                      closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      isClassFlag: false
+                      memberGroupAttributeValueList: []
+                      openingEffectiveDate: 2020-01-01
+                      openingReference: "128308"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      originalClosingEffectiveDate: null
+                      originalClosingReference: null
+                      originalClosingRegistrationDate: null
+                      originalClosingStatus: null
+                      uniqueId: 5176
+                      userId: 230
+                  memberUnderWritingGroupList: []
+                  middlePeriodInvoice: 0
+                  minimumRetirementAge: null
+                  name: testContributionPkg
+                  numberOfMembers: null
+                  openingEffectiveDate: 2020-01-01
+                  openingReference: "174154"
+                  openingRegistrationDate: 2020-01-01
+                  openingStatus: 10
+                  overrideModelMap: null
+                  paymentReconciliationLevel: null
+                  payrollCode: null
+                  payrollReconciliationType: null
+                  payrollSplitByPeriodMethod: null
+                  retirementAge: null
+                  salaryVariabilityLevel: null
+                  salaryVariabilityMethod: null
+                  systemVersion: null
+                  uniqueId: 15665
+                  userId: 230
+            example:
+              groupId: 2797
+              groupDetails:
+                agentId: 750995
+                approveSubgroupTransferImmediately: 3
+                assignedUserId: null
+                billingBasis: null
+                billingDelayMaximumPeriod: null
+                billingTimingMethod: null
+                calculationStatus: 1
+                clientId: 100000065
+                closingEffectiveDate: 3000-01-01
+                closingReference: ""
+                closingRegistrationDate: 3000-01-01
+                closingStatus: 0
+                companyPolicyHolderFlag: false
+                currency: 5
+                description: null
+                directSalesFlag: true
+                duePeriodMethod: null
+                entityItemList:
+                  - closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    entityNo: 2797
+                    entitySecondSubType: 0
+                    entitySubNo: 0
+                    entitySubType: 8
+                    entityType: 8
+                    id: 3
+                    manualFlag: true
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128308"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    rowNumber: 0
+                    uniqueId: 305977
+                    value: 2020-01-01
+                  - closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    entityNo: 2797
+                    entitySecondSubType: 0
+                    entitySubNo: 0
+                    entitySubType: 8
+                    entityType: 8
+                    id: 2
+                    manualFlag: true
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128308"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    rowNumber: 0
+                    uniqueId: 305978
+                    value: ""
+                femaleRetirementAge: null
+                forwardCoverMask: null
+                generalGroupAdHocFeeMainList: []
+                generalPolicyAdHocFeeMainList: null
+                groupAccountNumber: null
+                groupAccountPayer: null
+                groupAccountPaymentArrangementId: null
+                groupActivationMask: 0
+                groupActivationOverrideFlag: false
+                groupActivationRatio: null
+                groupInceptionDate: 2020-01-01
+                groupPartyList:
+                  - closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    entityId: 2797
+                    entityType: 8
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128321"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    originalClosingEffectiveDate: null
+                    originalClosingReference: null
+                    originalClosingRegistrationDate: null
+                    originalClosingStatus: null
+                    partyClientAccountNumber: 0
+                    partyClientId: 100002277
+                    partyType: 4
+                    uniqueId: 1046
+                    userId: 230
+                groupType: 1
+                inaccurateCollectionCode: null
+                instructionRecordCode: 0
+                introductoryCommissionFlag: false
+                invoiceCode: null
+                invoiceLevel: null
+                invoiceRegenerationOnUpdate: null
+                memberGroupAttributeList:
+                  - attributeId: 1
+                    attributeName: loan
+                    attributeType: 2
+                    closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    isClassFlag: false
+                    memberGroupAttributeValueList: []
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128308"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    originalClosingEffectiveDate: null
+                    originalClosingReference: null
+                    originalClosingRegistrationDate: null
+                    originalClosingStatus: null
+                    uniqueId: 5175
+                    userId: 230
+                  - attributeId: 2
+                    attributeName: ""
+                    attributeType: 1
+                    closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    isClassFlag: false
+                    memberGroupAttributeValueList: []
+                    openingEffectiveDate: 2020-01-01
+                    openingReference: "128308"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    originalClosingEffectiveDate: null
+                    originalClosingReference: null
+                    originalClosingRegistrationDate: null
+                    originalClosingStatus: null
+                    uniqueId: 5176
+                    userId: 230
+                memberUnderWritingGroupList: []
+                middlePeriodInvoice: 0
+                minimumRetirementAge: null
+                name: testContributionPkg
+                numberOfMembers: null
+                openingEffectiveDate: 2020-01-01
+                openingReference: "174154"
+                openingRegistrationDate: 2020-01-01
+                openingStatus: 10
+                overrideModelMap: null
+                paymentReconciliationLevel: null
+                payrollCode: null
+                payrollReconciliationType: null
+                payrollSplitByPeriodMethod: null
+                retirementAge: null
+                salaryVariabilityLevel: null
+                salaryVariabilityMethod: null
+                systemVersion: null
+                uniqueId: 15665
+                userId: 230
+  security:
+    - bearerAuth: []
+flow: adc67304-95f0-4bc6-b266-19ab080a9227V1.yaml
+method: post
+path: /v1/group/findGroup
+errorHandlers: []
+handlers: []

@@ -1,0 +1,116 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  group_id: string
+  subgroup_id: string
+  subgroup:
+    properties:
+      planSelectionModeCode:
+        type: integer
+      planSelectionModeName:
+        type: string
+      subGroupName:
+        type: string
+      subGroupDescription:
+        type: string
+      payrollReconciliationTypeCode:
+        type: integer
+      payrollReconciliationTypeName:
+        type: string
+      groupStructureFlag:
+        type: boolean
+    type: object
+  managementData:
+    properties:
+      inputParameterList:
+        properties:
+          inputParameter:
+            type: array
+            items:
+              properties:
+                type:
+                  type: string
+                name:
+                  type: string
+                value:
+                  type: string
+              type: object
+              required:
+                - name
+                - type
+                - value
+        type: object
+    type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        subgroup:
+          properties:
+            planSelectionModeCode:
+              type: integer
+            planSelectionModeName:
+              type: string
+            subGroupName:
+              type: string
+            subGroupDescription:
+              type: string
+            payrollReconciliationTypeCode:
+              type: integer
+            payrollReconciliationTypeName:
+              type: string
+            groupStructureFlag:
+              type: boolean
+          type: object
+        managementData:
+          properties:
+            inputParameterList:
+              properties:
+                inputParameter:
+                  type: array
+                  items:
+                    properties:
+                      type:
+                        type: string
+                      name:
+                        type: string
+                      value:
+                        type: string
+                    type: object
+                    required:
+                      - name
+                      - type
+                      - value
+              type: object
+          type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/subgroups/{{subgroup_id}}"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

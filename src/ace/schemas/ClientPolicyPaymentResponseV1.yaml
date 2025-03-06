@@ -1,0 +1,8 @@
+title: ClientPolicyPaymentResponse
+properties:
+  result:
+    $ref: ClientPolicyPaymentV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

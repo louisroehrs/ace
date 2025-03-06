@@ -1,0 +1,66 @@
+definition:
+  path: /v1/policies/{policy_id}/roles
+  verb: get
+  id: imported#/v1/policies/{policy_id}/roles#get
+  operationId: 9acf0799-66d4-485f-a0e0-87aa422d4636V1
+  summary: get roles by policy number
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: clientId
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: roleCode
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: path
+      name: policy_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RolesByPolicyNumberResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/RolesByPolicyNumberResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 9acf0799-66d4-485f-a0e0-87aa422d4636V1.yaml
+method: get
+path: /v1/policies/{policy_id}/roles
+errorHandlers: []
+handlers: []

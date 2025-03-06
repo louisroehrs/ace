@@ -1,0 +1,254 @@
+title: AdminClaimResponse
+properties:
+  client:
+    properties:
+      clientId:
+        type: number
+      externalClientId:
+        type: number
+      firstName:
+        type: string
+      middleName:
+        type: string
+      lastName:
+        type: string
+      secondLastName:
+        type: string
+    type: object
+  claimTypeMainGroup:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  claimType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  claimSubType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  requestorId:
+    type: number
+  requestDate:
+    type: string
+    format: date
+  receivedDate:
+    type: string
+    format: date
+  effectiveDate:
+    type: string
+    format: date
+  valueDate:
+    type: string
+    format: date
+  maxRetroDate:
+    type: string
+    format: date
+  stage:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  initialReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  approvalReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  entityItems:
+    type: array
+    items:
+      properties:
+        entityType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        item:
+          properties:
+            id:
+              type: number
+            name:
+              type: string
+            value:
+              type: string
+            valueDescription:
+              type: string
+            manualFlag:
+              type: boolean
+              default: false
+            mandatoryFlag:
+              type: number
+          type: object
+      type: object
+  refunds:
+    type: array
+    items:
+      properties:
+        balanceType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        benefitGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        amount:
+          type: number
+        description:
+          type: string
+      type: object
+  paymentOrders:
+    type: array
+    items:
+      properties:
+        payeeId:
+          type: number
+        internalNumber:
+          type: number
+        requestType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        requestAmount:
+          type: number
+        originalAmount:
+          type: number
+        paymentStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        paymentDueDate:
+          type: string
+          format: date
+        additionalAmountFromSurplus:
+          type: number
+        paymentOption:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        paymentMethod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        destinationReference:
+          type: string
+        sourceCurrency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+            symbol:
+              type: string
+          type: object
+        paidCurrency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+            symbol:
+              type: string
+          type: object
+        transitNumber:
+          type: number
+        accountNumber:
+          type: string
+        accountType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        accountName:
+          type: string
+        manualInterestFlag:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        interestAmount:
+          type: number
+        interestRate:
+          type: number
+        overrideUser:
+          type: number
+        openingUser:
+          type: number
+        authorizationUser:
+          type: number
+      type: object
+  requiredDocuments:
+    type: array
+    items:
+      properties:
+        documentTitle:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        requestDate:
+          type: string
+          format: date
+        status:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        receivedDate:
+          type: string
+          format: date
+        freeDescription:
+          type: string
+        mustFlag:
+          type: boolean
+          default: false
+      type: object
+type: object

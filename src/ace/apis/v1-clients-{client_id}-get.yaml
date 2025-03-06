@@ -1,0 +1,54 @@
+definition:
+  path: /v1/clients/{client_id}
+  verb: get
+  id: imported#/v1/clients/{client_id}#get
+  operationId: 60f2fb15-2892-4c24-afcc-23930745a799V1
+  summary: Service to fetch details for specific client
+  tags:
+    - Client
+  parameters:
+    - in: path
+      name: client_id
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GetClientDetailResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/GetClientDetailResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 60f2fb15-2892-4c24-afcc-23930745a799V1.yaml
+method: get
+path: /v1/clients/{client_id}
+errorHandlers: []
+handlers: []

@@ -1,0 +1,81 @@
+title: RequestAdminClaim
+properties:
+  clientId:
+    type: number
+  claimType:
+    type: number
+  claimSubType:
+    type: number
+  requestorId:
+    type: number
+  requestDate:
+    type: string
+    format: date
+  receivedDate:
+    type: string
+    format: date
+  effectiveDate:
+    type: string
+    format: date
+  valueDate:
+    type: string
+    format: date
+  status:
+    type: number
+  initialReason:
+    type: number
+  approvalReason:
+    type: number
+  entityItems:
+    type: array
+    items:
+      properties:
+        id:
+          type: number
+        value:
+          type: string
+        manualFlag:
+          type: number
+      type: object
+  paymentOrders:
+    type: array
+    items:
+      properties:
+        payeeId:
+          type: number
+        requestType:
+          type: number
+        requestAmount:
+          type: number
+        paymentStatus:
+          type: number
+        paymentDueDate:
+          type: string
+          format: date
+        additionalAmountFromSurplus:
+          type: number
+        paymentOption:
+          type: number
+        paymentMethod:
+          type: number
+        destinationReference:
+          type: string
+        bankAccount:
+          properties:
+            transitNumber:
+              type: number
+            accountNumber:
+              type: string
+            accountType:
+              type: number
+            accountName:
+              type: string
+          type: object
+        manualInterestFlag:
+          type: number
+        interestAmount:
+          type: number
+        interestRate:
+          type: number
+      type: object
+type: object

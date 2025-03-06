@@ -1,0 +1,21 @@
+title: responseGroupEntityItems
+properties:
+  groupId:
+    type: string
+  entityItems:
+    type: array
+    items:
+      properties:
+        entityId:
+          type: number
+        value:
+          type: string
+        name:
+          type: string
+        valueName:
+          type: string
+        manualFlag:
+          type: boolean
+          default: false
+      type: object
+type: object

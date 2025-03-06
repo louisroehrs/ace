@@ -1,0 +1,93 @@
+title: RequestUpdateRole
+properties:
+  role:
+    properties:
+      name:
+        type: string
+    type: object
+    required:
+      - name
+  client:
+    properties:
+      title:
+        type: string
+      firstName:
+        type: string
+      middleName:
+        type: string
+      surname:
+        type: string
+    type: object
+    required:
+      - firstName
+      - middleName
+      - surname
+      - title
+  effectiveDate:
+    type: string
+  reference:
+    type: integer
+  smokerStatus:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  occupation:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  addressTypeOverride:
+    type: integer
+  insuredRelation:
+    title: Relation to Insured
+    properties:
+      code:
+        title: code
+        type: integer
+      name:
+        title: name
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  entityItem:
+    type: array
+    items:
+      properties:
+        ID:
+          type: integer
+        value:
+          type: string
+        itemName:
+          type: string
+        manualFlag:
+          type: boolean
+      type: object
+      required:
+        - ID
+        - value
+        - manualFlag
+        - itemName
+type: object
+required:
+  - role
+  - client
+  - effectiveDate
+  - reference
+  - smokerStatus
+  - occupation
+  - addressTypeOverride
+  - entityItem
+  - insuredRelation

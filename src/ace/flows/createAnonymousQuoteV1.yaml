@@ -1,0 +1,252 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  quickQuoteCalcMode:
+    title: quickQuoteCalcMode
+    type: integer
+    default: "1"
+  product:
+    title: product
+    type: integer
+  version:
+    title: version
+    type: integer
+  paymentFreq:
+    title: paymentFreq
+    type: integer
+  policyCommDate:
+    title: policyCommDate
+    type: string
+    default: YYYY-MM-DD
+  taxFramework:
+    title: taxFramework
+    type: integer
+  coverages:
+    title: coverages
+    type: array
+    items:
+      title: coverage
+      properties:
+        coverage:
+          properties:
+            coverageSysKey:
+              title: coverageSysKey
+              type: integer
+            quickQuoteAmountType:
+              title: quickQuoteAmountType
+              type: integer
+            requestedSumAssuredAmount:
+              title: requestedSumAssuredAmount
+              type: number
+            termAge:
+              title: termAge
+              type: integer
+            role:
+              title: role
+              type: integer
+            coverageItems:
+              title: coverageItems
+              type: array
+              items:
+                properties:
+                  coverageItem:
+                    properties:
+                      mode:
+                        type: integer
+                      code:
+                        type: integer
+                      value:
+                        type: integer
+                      manualFlag:
+                        type: integer
+                    type: object
+                    required:
+                      - mode
+                      - code
+                      - value
+                      - manualFlag
+                type: object
+                required:
+                  - coverageItem
+          type: object
+          required:
+            - coverageSysKey
+            - quickQuoteAmountType
+            - requestedSumAssuredAmount
+            - termAge
+            - coverageItems
+            - role
+      type: object
+  clients:
+    title: clients
+    type: array
+    items:
+      title: client
+      properties:
+        client:
+          title: client
+          properties:
+            dob:
+              title: dob
+              type: string
+              default: YYYY-MM-DD
+            gender:
+              title: gender
+              type: integer
+            smoker:
+              title: smoker
+              type: integer
+            role:
+              title: role
+              type: integer
+          type: object
+          required:
+            - dob
+            - gender
+            - smoker
+            - role
+      type: object
+      required:
+        - client
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        quickQuoteCalcMode:
+          title: quickQuoteCalcMode
+          type: integer
+          default: "1"
+        product:
+          title: product
+          type: integer
+        version:
+          title: version
+          type: integer
+        paymentFreq:
+          title: paymentFreq
+          type: integer
+        policyCommDate:
+          title: policyCommDate
+          type: string
+          default: YYYY-MM-DD
+        taxFramework:
+          title: taxFramework
+          type: integer
+        coverages:
+          title: coverages
+          type: array
+          items:
+            title: coverage
+            properties:
+              coverage:
+                properties:
+                  coverageSysKey:
+                    title: coverageSysKey
+                    type: integer
+                  quickQuoteAmountType:
+                    title: quickQuoteAmountType
+                    type: integer
+                  requestedSumAssuredAmount:
+                    title: requestedSumAssuredAmount
+                    type: number
+                  termAge:
+                    title: termAge
+                    type: integer
+                  role:
+                    title: role
+                    type: integer
+                  coverageItems:
+                    title: coverageItems
+                    type: array
+                    items:
+                      properties:
+                        coverageItem:
+                          properties:
+                            mode:
+                              type: integer
+                            code:
+                              type: integer
+                            value:
+                              type: integer
+                            manualFlag:
+                              type: integer
+                          type: object
+                          required:
+                            - mode
+                            - code
+                            - value
+                            - manualFlag
+                      type: object
+                      required:
+                        - coverageItem
+                type: object
+                required:
+                  - coverageSysKey
+                  - quickQuoteAmountType
+                  - requestedSumAssuredAmount
+                  - termAge
+                  - coverageItems
+                  - role
+            type: object
+        clients:
+          title: clients
+          type: array
+          items:
+            title: client
+            properties:
+              client:
+                title: client
+                properties:
+                  dob:
+                    title: dob
+                    type: string
+                    default: YYYY-MM-DD
+                  gender:
+                    title: gender
+                    type: integer
+                  smoker:
+                    title: smoker
+                    type: integer
+                  role:
+                    title: role
+                    type: integer
+                type: object
+                required:
+                  - dob
+                  - gender
+                  - smoker
+                  - role
+            type: object
+            required:
+              - client
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/anonymous-quotes"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: create Anonymous Quote

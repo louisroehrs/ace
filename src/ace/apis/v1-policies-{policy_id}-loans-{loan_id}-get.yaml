@@ -1,0 +1,51 @@
+definition:
+  path: /v1/policies/{policy_id}/loans/{loan_id}
+  verb: get
+  id: imported#/v1/policies/{policy_id}/loans/{loan_id}#get
+  operationId: 63b6c884-def6-4153-8190-60ac7c34670aV1
+  summary: get policy loan by policy number and loan id
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policy_id
+      description: policy number
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: loan_id
+      description: loan Id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/PolicyLoanDetailsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/PolicyLoanDetailsV1"
+  security:
+    - bearerAuth: []
+flow: 63b6c884-def6-4153-8190-60ac7c34670aV1.yaml
+method: get
+path: /v1/policies/{policy_id}/loans/{loan_id}
+errorHandlers: []
+handlers: []

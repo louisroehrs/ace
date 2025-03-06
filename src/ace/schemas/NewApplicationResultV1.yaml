@@ -1,0 +1,29 @@
+title: NewApplicationResult
+properties:
+  policyNo:
+    type: number
+  status:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  message:
+    properties:
+      code:
+        type: number
+      text:
+        type: string
+    type: object
+    required:
+      - code
+      - text
+type: object
+required:
+  - policyNo
+  - status
+  - message

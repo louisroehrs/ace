@@ -1,0 +1,57 @@
+definition:
+  path: /v1/policies/{no1}/fundSwitches/{id1}
+  verb: get
+  id: imported#/v1/policies/{no1}/fundSwitches/{id1}#get
+  operationId: f162ae0d-03e4-411e-8def-2c514caa59f8V1
+  summary: Get the fund switch details for a specific switch
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: no1
+      description: Policy Number
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: id1
+      description: Switch reference number for a specific switch record
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/investmentSwitchDetailsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/investmentSwitchDetailsResponseV1"
+  security:
+    - bearerAuth: []
+flow: f162ae0d-03e4-411e-8def-2c514caa59f8V1.yaml
+method: get
+path: /v1/policies/{no1}/fundSwitches/{id1}
+errorHandlers: []
+handlers: []

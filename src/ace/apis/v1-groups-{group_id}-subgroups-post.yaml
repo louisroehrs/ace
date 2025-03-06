@@ -1,0 +1,52 @@
+definition:
+  path: /v1/groups/{group_id}/subgroups
+  verb: post
+  id: imported#/v1/groups/{group_id}/subgroups#post
+  operationId: 586fa67e-dd34-485b-8486-eef029193282V1
+  summary: Creating a new subgroup under a group
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: Group Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/createSubgroupRequestV1"
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+        application/xml:
+          schema:
+            type: object
+            example: {}
+  security:
+    - bearerAuth: []
+flow: 586fa67e-dd34-485b-8486-eef029193282V1.yaml
+method: post
+path: /v1/groups/{group_id}/subgroups
+errorHandlers: []
+handlers: []

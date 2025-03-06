@@ -1,0 +1,15 @@
+title: updateFundSwitchStatusRequest
+properties:
+  updatedStatus:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+type: object
+required:
+  - updatedStatus

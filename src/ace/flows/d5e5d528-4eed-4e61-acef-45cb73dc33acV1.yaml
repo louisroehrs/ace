@@ -1,0 +1,71 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  group_id: string
+  effectiveDate:
+    type: integer
+  subgroup:
+    properties:
+      fromSubgroupNo:
+        type: integer
+      toSubgroupNo:
+        type: integer
+    type: object
+  interfaceRunNumber:
+    properties:
+      fromInterfaceRunNo:
+        type: integer
+      toInterfaceRunNo:
+        type: integer
+    type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        effectiveDate:
+          type: integer
+        subgroup:
+          properties:
+            fromSubgroupNo:
+              type: integer
+            toSubgroupNo:
+              type: integer
+          type: object
+        interfaceRunNumber:
+          properties:
+            fromInterfaceRunNo:
+              type: integer
+            toInterfaceRunNo:
+              type: integer
+          type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/illustrations"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: this Api for group illustration

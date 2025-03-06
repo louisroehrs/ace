@@ -1,0 +1,13 @@
+title: updatePhoneNumberRequest
+properties:
+  phoneNumber:
+    type: string
+    description: Phone number without the leading zero, e.g. "7624111222"
+  internationalDialCode:
+    type: string
+    description: International dial code, e.g. "44", which represents the United
+      Kingdon, Isle of Man, Jersey, etc.
+type: object
+required:
+  - phoneNumber
+  - internationalDialCode

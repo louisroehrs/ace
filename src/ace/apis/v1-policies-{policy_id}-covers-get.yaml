@@ -1,0 +1,52 @@
+definition:
+  path: /v1/policies/{policy_id}/covers
+  verb: get
+  id: imported#/v1/policies/{policy_id}/covers#get
+  operationId: getAwdPolicyCoversV1
+  summary: policy covers details with client data and currency.
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyNoIndicator
+      description: External policy Id Indicator
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: policy_id
+      description: policyNo
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AWDPolicyCoverResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/AWDPolicyCoverResponseV1"
+  security:
+    - bearerAuth: []
+flow: getAwdPolicyCoversV1.yaml
+method: get
+path: /v1/policies/{policy_id}/covers
+errorHandlers: []
+handlers: []

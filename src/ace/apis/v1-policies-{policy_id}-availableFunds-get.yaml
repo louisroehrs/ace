@@ -1,0 +1,68 @@
+definition:
+  path: /v1/policies/{policy_id}/availableFunds
+  verb: get
+  id: imported#/v1/policies/{policy_id}/availableFunds#get
+  operationId: getAvailableFundsForPolicyV1
+  summary: The service gets policy number and returns a list of all funds that are
+    available for it, according to the product and version
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyNoIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: policy_id
+      description: Policy Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/policyAvailableFundsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/policyAvailableFundsV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getAvailableFundsForPolicyV1.yaml
+method: get
+path: /v1/policies/{policy_id}/availableFunds
+errorHandlers: []
+handlers: []

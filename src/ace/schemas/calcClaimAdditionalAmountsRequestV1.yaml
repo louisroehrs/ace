@@ -1,0 +1,80 @@
+title: calcClaimAdditionalAmountsRequest
+properties:
+  claimId:
+    type: integer
+  effectiveDate:
+    type: string
+  valueDate:
+    type: string
+  requestType:
+    type: integer
+  advanced:
+    type: integer
+  totalAmountToBePaid:
+    type: integer
+  coversDetails:
+    type: array
+    items:
+      properties:
+        benefitGroup:
+          type: integer
+        coverNo:
+          type: integer
+        role:
+          type: integer
+        coverCommencementDate:
+          type: string
+        finalAmount:
+          type: integer
+        sumAssured:
+          type: integer
+        sumAssuredClaimedPart:
+          type: integer
+        internalClaimId:
+          type: number
+      type: object
+      required:
+        - coverCommencementDate
+        - sumAssured
+        - finalAmount
+  fundsDetails:
+    type: array
+    items:
+      type: array
+      items:
+        properties: {}
+        type: object
+  refundsDetails:
+    type: array
+    items:
+      properties: {}
+      type: object
+  additionalAmountsDetails:
+    type: array
+    items:
+      properties:
+        benefitGroup:
+          type: integer
+        balanceType:
+          type: integer
+        balanceContType:
+          type: integer
+        balanceContLayer:
+          type: integer
+        originalAmount:
+          type: integer
+        finalAmount:
+          type: integer
+        manualAmountFlag:
+          type: integer
+        reference:
+          type: string
+        description:
+          type: string
+        internalClaimId:
+          type: number
+      type: object
+      required: []
+type: object
+required:
+  - valueDate

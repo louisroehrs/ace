@@ -1,0 +1,39 @@
+title: ftniRequest
+properties:
+  username:
+    title: userName
+    type: string
+  password:
+    title: password
+    type: string
+  epayCustomerId:
+    title: epayCustomerId
+    type: integer
+  customerId:
+    title: customerId
+    type: string
+  clientName:
+    title: clientName
+    type: string
+  cardToken:
+    title: cardToken
+    type: string
+  amount:
+    type: number
+  statusQueue:
+    title: statusQueue
+    type: integer
+  runAuth:
+    title: runAuth
+    type: boolean
+type: object
+required:
+  - username
+  - password
+  - epayCustomerId
+  - customerId
+  - clientName
+  - amount
+  - statusQueue
+  - runAuth
+  - cardToken

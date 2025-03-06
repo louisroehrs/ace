@@ -1,0 +1,49 @@
+title: policyAvailableFunds
+properties:
+  result:
+    properties:
+      policyNo:
+        type: integer
+        description: The application created
+      externalPolicyNo:
+        type: string
+      product:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      productVersion:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      funds:
+        type: array
+        items:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+            isinCode:
+              type: string
+            externalReference:
+              type: string
+            assetClass:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+          type: object
+          required: []
+    type: object
+    required: []
+type: object
+required: []

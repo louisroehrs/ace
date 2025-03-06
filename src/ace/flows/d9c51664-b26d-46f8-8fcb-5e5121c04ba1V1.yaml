@@ -1,0 +1,211 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  no1: integer
+  role:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - id
+      - name
+  client:
+    properties:
+      title:
+        type: string
+      id:
+        type: integer
+      firstName:
+        type: string
+      middleName:
+        type: string
+      surname:
+        type: string
+    type: object
+    required:
+      - id
+      - firstName
+      - middleName
+      - surname
+      - title
+  effectiveDate:
+    type: string
+  reference:
+    type: integer
+  smokerStatus:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  occupation:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  addressTypeOverride:
+    type: integer
+  insuredRelation:
+    title: Relation to Insured
+    properties:
+      code:
+        title: code
+        type: integer
+      name:
+        title: name
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  entityItem:
+    type: array
+    items:
+      properties:
+        ID:
+          type: integer
+        value:
+          type: string
+        itemName:
+          type: string
+        manualFlag:
+          type: boolean
+      type: object
+      required:
+        - ID
+        - value
+        - manualFlag
+        - itemName
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        role:
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - id
+            - name
+        client:
+          properties:
+            title:
+              type: string
+            id:
+              type: integer
+            firstName:
+              type: string
+            middleName:
+              type: string
+            surname:
+              type: string
+          type: object
+          required:
+            - id
+            - firstName
+            - middleName
+            - surname
+            - title
+        effectiveDate:
+          type: string
+        reference:
+          type: integer
+        smokerStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        occupation:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        addressTypeOverride:
+          type: integer
+        insuredRelation:
+          title: Relation to Insured
+          properties:
+            code:
+              title: code
+              type: integer
+            name:
+              title: name
+              type: string
+          type: object
+          required:
+            - code
+            - name
+        entityItem:
+          type: array
+          items:
+            properties:
+              ID:
+                type: integer
+              value:
+                type: string
+              itemName:
+                type: string
+              manualFlag:
+                type: boolean
+            type: object
+            required:
+              - ID
+              - value
+              - manualFlag
+              - itemName
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/roles"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: adding role to a policy

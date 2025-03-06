@@ -1,0 +1,92 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  no1: integer
+  effectiveDate:
+    type: string
+    format: date
+  investments:
+    type: array
+    items:
+      properties:
+        profileNo:
+          type: integer
+        fund:
+          properties:
+            number:
+              type: integer
+              description: GPF - only fund number
+            isinCode:
+              type: string
+            externalReference:
+              type: string
+          type: object
+          required: []
+        allocationPercentage:
+          type: number
+      type: object
+      required:
+        - allocationPercentage
+      description: Should have either profile or fund in each occurrence
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        effectiveDate:
+          type: string
+          format: date
+        investments:
+          type: array
+          items:
+            properties:
+              profileNo:
+                type: integer
+              fund:
+                properties:
+                  number:
+                    type: integer
+                    description: GPF - only fund number
+                  isinCode:
+                    type: string
+                  externalReference:
+                    type: string
+                type: object
+                required: []
+              allocationPercentage:
+                type: number
+            type: object
+            required:
+              - allocationPercentage
+            description: Should have either profile or fund in each occurrence
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/investmentRedirections"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+        CoreSuite-Monitoring-Token: "{{$headers.CoreSuite-Monitoring-Token}}"
+      targetPath: result
+    description: Perform fund and pension profile redirection on the policy

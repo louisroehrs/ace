@@ -1,0 +1,94 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  unitPriceList:
+    type: array
+    items:
+      properties:
+        fundNo:
+          type: number
+        externalFundNo:
+          type: string
+        isinCode:
+          type: string
+        fundBareValue:
+          type: number
+        fundBidValue:
+          type: number
+        fundOfferValue:
+          type: number
+        priceDate:
+          type: string
+          format: date
+      type: object
+      required:
+        - fundNo
+        - externalFundNo
+        - isinCode
+        - fundBareValue
+        - fundBidValue
+        - fundOfferValue
+        - priceDate
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        unitPriceList:
+          type: array
+          items:
+            properties:
+              fundNo:
+                type: number
+              externalFundNo:
+                type: string
+              isinCode:
+                type: string
+              fundBareValue:
+                type: number
+              fundBidValue:
+                type: number
+              fundOfferValue:
+                type: number
+              priceDate:
+                type: string
+                format: date
+            type: object
+            required:
+              - fundNo
+              - externalFundNo
+              - isinCode
+              - fundBareValue
+              - fundBidValue
+              - fundOfferValue
+              - priceDate
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/general/fund-prices"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Saves fund prices into the system per a specific effective date

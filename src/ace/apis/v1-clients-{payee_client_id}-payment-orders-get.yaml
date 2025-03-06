@@ -1,0 +1,111 @@
+definition:
+  path: /v1/clients/{payee_client_id}/payment-orders
+  verb: get
+  id: imported#/v1/clients/{payee_client_id}/payment-orders#get
+  operationId: getClientPaymentOrdersV1
+  tags:
+    - Client
+  parameters:
+    - in: query
+      name: externalClientIdIndicator
+      description: External Client Number
+      required: false
+      schema:
+        type: boolean
+        default: "false"
+    - in: query
+      name: insuranceCompany
+      description: Company
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: fromPaymentDueDate
+      description: Min Payment Due Date
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: toPaymentDueDate
+      description: Max Payment Due Date
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: paymentOrderType
+      description: Payment Order Type
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: claim_id
+      description: Claim Number
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: internal_id
+      description: Internal No
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: paymentStatus
+      description: Payment Status
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: minAmount
+      description: Min Amount
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: maximumAmount
+      description: Maximum Amount
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: paidCurrency
+      description: Paid Currency
+      required: false
+      schema:
+        type: number
+    - in: path
+      name: payee_client_id
+      description: Payee ID
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clientPaymentOrdersV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/clientPaymentOrdersV1"
+  security:
+    - bearerAuth: []
+flow: getClientPaymentOrdersV1.yaml
+method: get
+path: /v1/clients/{payee_client_id}/payment-orders
+errorHandlers: []
+handlers: []

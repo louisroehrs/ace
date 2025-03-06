@@ -1,0 +1,28 @@
+title: stopCollectionActivities
+properties:
+  stopCollectionActivities:
+    type: array
+    items:
+      properties:
+        fromDate:
+          type: string
+          format: date
+          description: Start of stop Collection activity.
+        toDate:
+          type: string
+          format: date
+          description: End of stop Collection activity.
+        status:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          description: The status of stop Collection activity.
+        message:
+          type: string
+      type: object
+    description: Stop Collection Activities List
+type: object
+required: []

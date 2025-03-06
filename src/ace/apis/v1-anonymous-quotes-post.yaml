@@ -1,0 +1,44 @@
+definition:
+  path: /v1/anonymous-quotes
+  verb: post
+  id: imported#/v1/anonymous-quotes#post
+  operationId: createAnonymousQuoteV1
+  summary: create Anonymous Quote
+  tags:
+    - General
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/AnonymousQuoteRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AnonymousQuoteResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/AnonymousQuoteResponseV1"
+  security:
+    - bearerAuth: []
+flow: createAnonymousQuoteV1.yaml
+method: post
+path: /v1/anonymous-quotes
+errorHandlers: []
+handlers: []

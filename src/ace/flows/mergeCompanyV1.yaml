@@ -1,0 +1,111 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  group_id: integer
+  effectiveDate:
+    type: string
+    format: date
+  destinationGroup:
+    type: integer
+  groupFlag:
+    type: boolean
+    default: false
+  sourceSubgroups:
+    type: array
+    items:
+      properties:
+        sourceSubgroupNo:
+          type: integer
+        closedForNewMember:
+          type: boolean
+          default: false
+        sourcePlan:
+          type: array
+          items:
+            properties:
+              sourcePlanId:
+                type: integer
+              destinationAgreement:
+                type: integer
+            type: object
+            required:
+              - sourcePlanId
+              - destinationAgreement
+        includeParent:
+          type: boolean
+          default: false
+      type: object
+      required:
+        - sourceSubgroupNo
+        - sourcePlan
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        effectiveDate:
+          type: string
+          format: date
+        destinationGroup:
+          type: integer
+        groupFlag:
+          type: boolean
+          default: false
+        sourceSubgroups:
+          type: array
+          items:
+            properties:
+              sourceSubgroupNo:
+                type: integer
+              closedForNewMember:
+                type: boolean
+                default: false
+              sourcePlan:
+                type: array
+                items:
+                  properties:
+                    sourcePlanId:
+                      type: integer
+                    destinationAgreement:
+                      type: integer
+                  type: object
+                  required:
+                    - sourcePlanId
+                    - destinationAgreement
+              includeParent:
+                type: boolean
+                default: false
+            type: object
+            required:
+              - sourceSubgroupNo
+              - sourcePlan
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/transfer"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+      targetPath: result
+    description: ""

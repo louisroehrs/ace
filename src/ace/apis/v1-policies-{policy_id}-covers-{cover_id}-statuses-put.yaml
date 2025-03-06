@@ -1,0 +1,68 @@
+definition:
+  path: /v1/policies/{policy_id}/covers/{cover_id}/statuses
+  verb: put
+  id: imported#/v1/policies/{policy_id}/covers/{cover_id}/statuses#put
+  operationId: updatePolicyCoverStatusV1
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: internalCoverNo
+      description: Internal Cover Number
+      required: false
+      schema:
+        type: integer
+    - in: path
+      name: policy_id
+      description: Policy Number
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: cover_id
+      description: Cover Number
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/policyCoverStatusV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+  security:
+    - bearerAuth: []
+flow: updatePolicyCoverStatusV1.yaml
+method: put
+path: /v1/policies/{policy_id}/covers/{cover_id}/statuses
+errorHandlers: []
+handlers: []

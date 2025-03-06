@@ -1,0 +1,54 @@
+title: agentCommissionDetailsResponse
+properties:
+  agentId:
+    type: integer
+  externalAgentId:
+    type: integer
+  commissionDetails:
+    type: array
+    items:
+      properties:
+        accountNumber:
+          type: integer
+        registrationDate:
+          type: string
+          format: date
+        balanceType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        movementType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        tax:
+          type: boolean
+          default: false
+        earnedCommission:
+          type: number
+        payableCommission:
+          type: number
+        policyNo:
+          type: integer
+        insuredName:
+          type: string
+        policyDate:
+          type: string
+          format: date
+        currency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+            symbol:
+              type: string
+          type: object
+      type: object
+type: object

@@ -1,0 +1,79 @@
+title: coverBeneficiary
+properties:
+  beneficiaryEventType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  clauseType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  client:
+    properties:
+      clientNo:
+        type: integer
+        nullable: true
+      clientName:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  beneficiaryReferenceRole:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  beneficiaryType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  priority:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  amountType:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  amount:
+    type: number
+    nullable: true
+  clauseText:
+    type: string
+    nullable: true
+type: object

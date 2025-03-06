@@ -1,0 +1,24 @@
+title: updateMappedCompanyResponse
+properties:
+  result:
+    properties:
+      message:
+        properties:
+          text:
+            type: string
+        type: object
+      response:
+        properties:
+          status:
+            type: integer
+            description: http code
+          messages:
+            type: array
+            items:
+              properties:
+                text:
+                  type: string
+              type: object
+        type: object
+    type: object
+type: object

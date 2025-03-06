@@ -1,0 +1,41 @@
+title: SearchPersonResponse
+properties:
+  clients:
+    type: array
+    items:
+      properties:
+        firstName:
+          type: string
+        surname:
+          type: string
+        dob:
+          type: string
+          format: date
+        clientAddress:
+          type: array
+          items:
+            properties:
+              addressType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              state:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              city:
+                type: string
+            type: object
+            required: []
+        coreSuiteReference:
+          type: integer
+        idReference:
+          type: string
+      type: object
+type: object

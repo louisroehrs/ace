@@ -1,0 +1,70 @@
+definition:
+  path: /v1/onBase/communications
+  verb: post
+  id: imported#/v1/onBase/communications#post
+  operationId: createNewCommunicationV1
+  summary: ""
+  description: ""
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: externalPolicyIdIndicator
+      required: false
+      description: ""
+      schema:
+        type: boolean
+        default: true
+    - in: header
+      name: coresuite-datasource-key
+      required: false
+      description: ""
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      required: false
+      description: ""
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/CreateNewCommunicationRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CreateNewCommunicationResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/CreateNewCommunicationResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: createNewCommunicationV1.yaml
+method: post
+path: /v1/onBase/communications
+errorHandlers: []
+handlers: []

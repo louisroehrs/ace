@@ -1,0 +1,140 @@
+title: investmentSwitchDetailsResponse
+properties:
+  result:
+    properties:
+      type:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      policyNo:
+        type: integer
+        description: The requested
+      externalPolicyNo:
+        type: string
+      policyCurrency:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+          symbol:
+            type: string
+          isoCode:
+            type: string
+            description: ISO code (3 letters) from ISO 4217
+        type: object
+      effectiveDate:
+        type: string
+        format: date
+      switchReference:
+        type: integer
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+      fundsToSwitchOut:
+        type: array
+        items:
+          properties:
+            fund:
+              properties:
+                number:
+                  type: integer
+                isinCode:
+                  type: string
+                externalReference:
+                  type: string
+                name:
+                  type: string
+              type: object
+            units:
+              type: number
+            unitPrice:
+              type: number
+            exchangeRate:
+              type: number
+            currency:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+                symbol:
+                  type: string
+                isoCode:
+                  type: string
+                  description: ISO code (3 letters) from ISO 4217
+              type: object
+            value:
+              type: number
+          type: object
+          required: []
+      fundsToSwitchIn:
+        type: array
+        items:
+          properties:
+            fund:
+              properties:
+                number:
+                  type: integer
+                isinCode:
+                  type: string
+                externalReference:
+                  type: string
+                name:
+                  type: string
+              type: object
+            units:
+              type: number
+            unitPrice:
+              type: number
+            exchangeRate:
+              type: number
+            currency:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+                symbol:
+                  type: string
+                isoCode:
+                  type: string
+                  description: ISO code (3 letters) from ISO 4217
+              type: object
+              required: []
+            value:
+              type: number
+          type: object
+          required: []
+    type: object
+  response:
+    properties:
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required:
+          - code
+          - name
+      messages:
+        type: array
+        items:
+          properties:
+            number:
+              type: string
+            name:
+              type: string
+          type: object
+    type: object
+type: object
+required: []

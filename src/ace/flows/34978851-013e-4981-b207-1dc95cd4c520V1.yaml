@@ -1,0 +1,219 @@
+tags:
+  - Client
+sampleInputSchema: ""
+sampleData:
+  id1: string
+  companyId:
+    type: number
+  externalRef:
+    type: string
+  company:
+    properties:
+      client:
+        properties:
+          companyName:
+            type: string
+          alternativeName:
+            type: string
+          companyNationalId:
+            type: string
+          clientType:
+            type: number
+          preferredLanguage:
+            type: number
+          vatregistered:
+            type: number
+          vatregisteredno:
+            type: string
+          addressDetails:
+            type: array
+            items:
+              properties:
+                addressLine1:
+                  type: string
+                addressType:
+                  type: number
+                countryCode:
+                  type: number
+                houseNumber:
+                  type: string
+                zipCode:
+                  type: string
+                mainAddressCode:
+                  type: boolean
+                city:
+                  type: string
+                state:
+                  type: string
+                addressLine2:
+                  type: string
+                houseName:
+                  type: string
+                country:
+                  type: integer
+                province:
+                  type: string
+                poBox:
+                  type: string
+              type: object
+              required: []
+          contactDetails:
+            type: array
+            items:
+              properties:
+                contactType:
+                  type: number
+                phone:
+                  type: string
+                mobile:
+                  type: string
+                email:
+                  type: string
+                fax:
+                  type: string
+                countryCode:
+                  type: number
+                preferredContactMethod:
+                  type: number
+                mainContactFlag:
+                  type: boolean
+              type: object
+              required:
+                - mainContactFlag
+        type: object
+        required:
+          - vatregisteredno
+          - contactDetails
+      natureOfBusiness:
+        type: number
+      companyType:
+        type: number
+      companyRegistrationNumber:
+        type: string
+    type: object
+    required:
+      - companyId
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        companyId:
+          type: number
+        externalRef:
+          type: string
+        company:
+          properties:
+            client:
+              properties:
+                companyName:
+                  type: string
+                alternativeName:
+                  type: string
+                companyNationalId:
+                  type: string
+                clientType:
+                  type: number
+                preferredLanguage:
+                  type: number
+                vatregistered:
+                  type: number
+                vatregisteredno:
+                  type: string
+                addressDetails:
+                  type: array
+                  items:
+                    properties:
+                      addressLine1:
+                        type: string
+                      addressType:
+                        type: number
+                      countryCode:
+                        type: number
+                      houseNumber:
+                        type: string
+                      zipCode:
+                        type: string
+                      mainAddressCode:
+                        type: boolean
+                      city:
+                        type: string
+                      state:
+                        type: string
+                      addressLine2:
+                        type: string
+                      houseName:
+                        type: string
+                      country:
+                        type: integer
+                      province:
+                        type: string
+                      poBox:
+                        type: string
+                    type: object
+                    required: []
+                contactDetails:
+                  type: array
+                  items:
+                    properties:
+                      contactType:
+                        type: number
+                      phone:
+                        type: string
+                      mobile:
+                        type: string
+                      email:
+                        type: string
+                      fax:
+                        type: string
+                      countryCode:
+                        type: number
+                      preferredContactMethod:
+                        type: number
+                      mainContactFlag:
+                        type: boolean
+                    type: object
+                    required:
+                      - mainContactFlag
+              type: object
+              required:
+                - vatregisteredno
+                - contactDetails
+            natureOfBusiness:
+              type: number
+            companyType:
+              type: number
+            companyRegistrationNumber:
+              type: string
+          type: object
+          required:
+            - companyId
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/clients/companies/{{id1}}"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Update an existing company

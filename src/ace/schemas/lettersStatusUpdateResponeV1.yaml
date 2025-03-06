@@ -1,0 +1,11 @@
+title: lettersStatusUpdateRespone
+type: object
+properties:
+  docUID:
+    type: integer
+  outputRequestID:
+    type: integer
+  jobID:
+    type: integer
+  letterUpdateStatus:
+    type: integer

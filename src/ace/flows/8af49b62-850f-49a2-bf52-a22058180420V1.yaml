@@ -1,0 +1,118 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  externalPolicyIdIndicator: boolean
+  policy_id: string
+  claimType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  claimSubType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  requestorId:
+    type: integer
+    nullable: true
+  clientId:
+    type: integer
+  requestDate:
+    type: string
+    format: date
+  effectiveDate:
+    type: string
+    format: date
+  clientEventNo:
+    type: integer
+    nullable: true
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        claimType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+          required:
+            - code
+        claimSubType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+          required:
+            - code
+        requestorId:
+          type: integer
+          nullable: true
+        clientId:
+          type: integer
+        requestDate:
+          type: string
+          format: date
+        effectiveDate:
+          type: string
+          format: date
+        clientEventNo:
+          type: integer
+          nullable: true
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"externalPolicyIdIndicator":"externalPolicyIdIndicator"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policy_id}}/claims/notification"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Report a new insurance (excluding withdrawal) claim and policy
+      cancellation (admin related activities) on a policy in order to set a
+      claim to state as initial notification.

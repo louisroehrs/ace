@@ -1,0 +1,31 @@
+title: redirectionInput
+properties:
+  effectiveDate:
+    type: string
+    format: date
+  investments:
+    type: array
+    items:
+      properties:
+        profileNo:
+          type: integer
+        fund:
+          properties:
+            number:
+              type: integer
+              description: GPF - only fund number
+            isinCode:
+              type: string
+            externalReference:
+              type: string
+          type: object
+          required: []
+        allocationPercentage:
+          type: number
+      type: object
+      required:
+        - allocationPercentage
+      description: Should have either profile or fund in each occurrence
+type: object
+required:
+  - effectiveDate

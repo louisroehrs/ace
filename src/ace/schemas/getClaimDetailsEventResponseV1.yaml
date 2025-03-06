@@ -1,0 +1,199 @@
+title: getClaimDetailsEventResponse
+properties:
+  client:
+    properties:
+      clientId:
+        type: integer
+      externalClientId:
+        type: integer
+      firstName:
+        type: string
+      middleName:
+        type: string
+      lastName:
+        type: string
+      secondLastName:
+        type: string
+    type: object
+    required:
+      - clientId
+      - externalClientId
+      - firstName
+      - middleName
+      - lastName
+      - secondLastName
+  claimTypeMainGroup:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  claimType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  claimSubType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  requestor:
+    properties:
+      requestorId:
+        type: integer
+      externalRequestorId:
+        type: integer
+      firstName:
+        type: string
+      middleName:
+        type: string
+      lastName:
+        type: string
+      secondLastName:
+        type: string
+    type: object
+    required:
+      - requestorId
+      - externalRequestorId
+      - firstName
+      - middleName
+      - lastName
+      - secondLastName
+  requestDate:
+    type: string
+    format: date
+  receivedDate:
+    type: string
+    format: date
+  effectiveDate:
+    type: string
+    format: date
+  claimEventDate:
+    type: string
+    format: date
+  valueDate:
+    type: string
+    format: date
+  maxRetroDate:
+    type: string
+    format: date
+  stage:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  initialReason:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  approvalReason:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  primaryMedicalReason:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  entityItems:
+    type: array
+    items:
+      properties: {}
+      type: object
+  covers:
+    type: array
+    items:
+      properties: {}
+      type: object
+  contributions:
+    type: array
+    items:
+      properties: {}
+      type: object
+  waivers:
+    type: array
+    items:
+      properties: {}
+      type: object
+  additionalAmounts:
+    type: array
+    items:
+      properties: {}
+      type: object
+  paymentOrders:
+    type: array
+    items:
+      properties: {}
+      type: object
+  requiredDocument:
+    type: array
+    items:
+      properties: {}
+      type: object
+  evidences:
+    type: array
+    items:
+      properties: {}
+      type: object
+type: object
+required:
+  - client
+  - claimTypeMainGroup
+  - claimType
+  - claimSubType
+  - requestor
+  - requestDate
+  - receivedDate
+  - effectiveDate
+  - claimEventDate
+  - valueDate
+  - maxRetroDate
+  - stage
+  - initialReason
+  - approvalReason
+  - primaryMedicalReason
+  - entityItems
+  - covers
+  - contributions
+  - waivers
+  - additionalAmounts
+  - paymentOrders
+  - requiredDocument
+  - evidences

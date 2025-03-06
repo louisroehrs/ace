@@ -1,0 +1,71 @@
+definition:
+  path: /v1/policies/{policy_id}/fund-switches/{switch_id}
+  verb: put
+  id: imported#/v1/policies/{policy_id}/fund-switches/{switch_id}#put
+  operationId: updateFundSwitchStatusV1
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyNoIndicator
+      description: External policy Id Indicator
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: policy_id
+      description: policyNo
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: switch_id
+      description: Switch ID
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/updateFundSwitchStatusRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/updateResponseWithCodeV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/updateResponseWithCodeV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: updateFundSwitchStatusV1.yaml
+method: put
+path: /v1/policies/{policy_id}/fund-switches/{switch_id}
+errorHandlers: []
+handlers: []

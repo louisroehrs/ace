@@ -1,0 +1,215 @@
+title: searchAdvanceCompanyResponce
+properties:
+  companies:
+    type: array
+    items:
+      properties:
+        generalInformation:
+          properties:
+            insuranceCompany:
+              properties:
+                code:
+                  type: integer
+                stringCode:
+                  type: string
+                name:
+                  type: string
+              type: object
+            "code ":
+              type: integer
+            stringCode:
+              type: string
+            name:
+              type: string
+            companyId:
+              type: integer
+            companyName:
+              type: string
+            clientExternalRef:
+              type: string
+            tin:
+              type: string
+            ssn:
+              type: string
+            companyType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            natureOfBusiness:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            companyRegistrationNumber:
+              type: string
+          type: object
+        companyContacts:
+          type: array
+          items:
+            properties:
+              contactType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              phone:
+                type: string
+              email:
+                type: string
+                format: email
+              contactMainCode:
+                type: integer
+            type: object
+        companyAddressDetails:
+          type: array
+          items:
+            properties:
+              "addressType ":
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              addressLine1:
+                type: string
+              addressLine2:
+                type: string
+              addressLine3:
+                type: string
+              city:
+                type: string
+              state:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              zipCode:
+                type: integer
+              plus4:
+                type: integer
+              country:
+                properties:
+                  code:
+                    type: integer
+                  isoCode:
+                    type: string
+                  name:
+                    type: string
+                type: object
+              addressMainCode:
+                type: integer
+            type: object
+        companyEntityItems:
+          type: array
+          items:
+            properties:
+              itemId:
+                type: integer
+              itemName:
+                type: string
+              itemValue:
+                type: string
+              itemValueName:
+                type: string
+            type: object
+        policies:
+          type: array
+          items:
+            properties:
+              policyNo:
+                type: integer
+              externalPolicyNumber:
+                type: string
+              clientRoles:
+                type: array
+                items:
+                  properties:
+                    code:
+                      type: integer
+                    name:
+                      type: string
+                  type: object
+              product:
+                properties:
+                  number:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              "productVersion ":
+                properties:
+                  number:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              policyEntityItems:
+                type: array
+                items:
+                  properties:
+                    itemId:
+                      type: integer
+                    itemName:
+                      type: string
+                    itemValue:
+                      type: string
+                    itemValueName:
+                      type: string
+                  type: object
+              covers:
+                type: array
+                items:
+                  properties:
+                    coverNo:
+                      type: integer
+                    coverName:
+                      type: string
+                    currency:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                        symbol:
+                          type: string
+                      type: object
+                    faceAmount:
+                      type: number
+                    totalPremium:
+                      type: number
+                    loadings:
+                      type: array
+                      items:
+                        properties:
+                          loadingType:
+                            properties:
+                              code:
+                                type: integer
+                              name:
+                                type: string
+                            type: object
+                          durationInMonths:
+                            type: integer
+                          loadingPercentage:
+                            type: number
+                          loadingRate:
+                            type: number
+                          table:
+                            type: string
+                        type: object
+                  type: object
+            type: object
+      type: object
+      required: []
+type: object
+required: []

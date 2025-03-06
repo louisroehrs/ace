@@ -1,0 +1,54 @@
+definition:
+  path: /v1/groups/{group_id}/dashboard/general-information
+  verb: get
+  id: imported#/v1/groups/{group_id}/dashboard/general-information#get
+  operationId: 156399ee-7700-4be7-b530-d579597b4babV1
+  summary: Get general information for group dashboard
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: groupId
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GroupGeneralInformationResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/GroupGeneralInformationResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 156399ee-7700-4be7-b530-d579597b4babV1.yaml
+method: get
+path: /v1/groups/{group_id}/dashboard/general-information
+errorHandlers: []
+handlers: []

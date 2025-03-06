@@ -1,0 +1,50 @@
+definition:
+  path: /v1/policies/{no1}/availableinvestmentprofiles
+  verb: get
+  id: imported#/v1/policies/{no1}/availableinvestmentprofiles#get
+  operationId: getAvailableProfilesForPolicyV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: no1
+      description: Policy No
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/policyAvailableProfilesV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/policyAvailableProfilesV1"
+  security:
+    - bearerAuth: []
+flow: getAvailableProfilesForPolicyV1.yaml
+method: get
+path: /v1/policies/{no1}/availableinvestmentprofiles
+errorHandlers: []
+handlers: []

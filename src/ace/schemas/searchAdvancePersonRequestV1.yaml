@@ -1,0 +1,20 @@
+title: searchAdvancePersonRequest
+properties:
+  companyId:
+    type: integer
+  idReference:
+    type: string
+    description: idReference or dob has to be sent
+  dob:
+    type: string
+    format: date
+    description: idReference or dob has to be sent
+  surname:
+    type: string
+  firstName:
+    type: string
+  zipCode:
+    type: string
+type: object
+required:
+  - companyId

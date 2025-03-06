@@ -1,0 +1,51 @@
+title: clientPolicies
+properties:
+  policies:
+    type: array
+    items:
+      properties:
+        roles:
+          type: array
+          items:
+            properties:
+              roleCode:
+                type: number
+              roleName:
+                type: string
+            type: object
+        commencementDate:
+          type: string
+        currencyCode:
+          type: integer
+        currencyName:
+          type: string
+        currencySymbol:
+          type: string
+        externalPolicyNo:
+          type: string
+        nextRenewalDate:
+          type: string
+        openingStatusName:
+          type: string
+        openingStatusNumber:
+          type: integer
+        openingEffecDate:
+          type: string
+        policyNo:
+          type: integer
+        policyType:
+          type: integer
+        policyTypeName:
+          type: string
+        productName:
+          type: string
+        productNo:
+          type: integer
+        productVersionName:
+          type: string
+        productVersionNo:
+          type: integer
+        terminationDate:
+          type: string
+      type: object
+type: object

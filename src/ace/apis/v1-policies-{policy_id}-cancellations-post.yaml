@@ -1,0 +1,50 @@
+definition:
+  path: /v1/policies/{policy_id}/cancellations
+  verb: post
+  id: imported#/v1/policies/{policy_id}/cancellations#post
+  operationId: createAdminClaimV1
+  summary: cancelling a admin claim policy.
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policy_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/RequestAdminClaimV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CreateServiceGenericResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/CreateServiceGenericResponseV1"
+  security:
+    - bearerAuth: []
+flow: createAdminClaimV1.yaml
+method: post
+path: /v1/policies/{policy_id}/cancellations
+errorHandlers: []
+handlers: []

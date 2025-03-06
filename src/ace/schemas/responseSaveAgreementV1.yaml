@@ -1,0 +1,5 @@
+title: responseSaveAgreement
+properties:
+  agreementNumber:
+    type: number
+type: object

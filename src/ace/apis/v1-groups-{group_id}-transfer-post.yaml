@@ -1,0 +1,49 @@
+definition:
+  path: /v1/groups/{group_id}/transfer
+  verb: post
+  id: imported#/v1/groups/{group_id}/transfer#post
+  operationId: mergeCompanyV1
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: groupId
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/MergeCompanyRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/MergeCompanyResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/MergeCompanyResponseV1"
+  security:
+    - bearerAuth: []
+flow: mergeCompanyV1.yaml
+method: post
+path: /v1/groups/{group_id}/transfer
+errorHandlers: []
+handlers: []

@@ -1,0 +1,57 @@
+definition:
+  path: /v1/employers/{id1}/employees/{id2}
+  verb: get
+  id: imported#/v1/employers/{id1}/employees/{id2}#get
+  operationId: 57e101bd-b01a-405b-8da7-8edee997db5bV1
+  summary: Get employment details for given employee under employer
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: YYYY-MM-DD
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: id1
+      description: Employer Id
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: id2
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: Company Id
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: User Name
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/employmentDetailsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/employmentDetailsResponseV1"
+  security:
+    - bearerAuth: []
+flow: 57e101bd-b01a-405b-8da7-8edee997db5bV1.yaml
+method: get
+path: /v1/employers/{id1}/employees/{id2}
+errorHandlers: []
+handlers: []

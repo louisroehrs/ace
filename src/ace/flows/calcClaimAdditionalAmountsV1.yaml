@@ -1,0 +1,190 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  policy_id: integer
+  claim_type: integer
+  claimId:
+    type: integer
+  effectiveDate:
+    type: string
+  valueDate:
+    type: string
+  requestType:
+    type: integer
+  advanced:
+    type: integer
+  totalAmountToBePaid:
+    type: integer
+  coversDetails:
+    type: array
+    items:
+      properties:
+        benefitGroup:
+          type: integer
+        coverNo:
+          type: integer
+        role:
+          type: integer
+        coverCommencementDate:
+          type: string
+        finalAmount:
+          type: integer
+        sumAssured:
+          type: integer
+        sumAssuredClaimedPart:
+          type: integer
+        internalClaimId:
+          type: number
+      type: object
+      required:
+        - coverCommencementDate
+        - sumAssured
+        - finalAmount
+  fundsDetails:
+    type: array
+    items:
+      type: array
+      items:
+        properties: {}
+        type: object
+  refundsDetails:
+    type: array
+    items:
+      properties: {}
+      type: object
+  additionalAmountsDetails:
+    type: array
+    items:
+      properties:
+        benefitGroup:
+          type: integer
+        balanceType:
+          type: integer
+        balanceContType:
+          type: integer
+        balanceContLayer:
+          type: integer
+        originalAmount:
+          type: integer
+        finalAmount:
+          type: integer
+        manualAmountFlag:
+          type: integer
+        reference:
+          type: string
+        description:
+          type: string
+        internalClaimId:
+          type: number
+      type: object
+      required: []
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        claimId:
+          type: integer
+        effectiveDate:
+          type: string
+        valueDate:
+          type: string
+        requestType:
+          type: integer
+        advanced:
+          type: integer
+        totalAmountToBePaid:
+          type: integer
+        coversDetails:
+          type: array
+          items:
+            properties:
+              benefitGroup:
+                type: integer
+              coverNo:
+                type: integer
+              role:
+                type: integer
+              coverCommencementDate:
+                type: string
+              finalAmount:
+                type: integer
+              sumAssured:
+                type: integer
+              sumAssuredClaimedPart:
+                type: integer
+              internalClaimId:
+                type: number
+            type: object
+            required:
+              - coverCommencementDate
+              - sumAssured
+              - finalAmount
+        fundsDetails:
+          type: array
+          items:
+            type: array
+            items:
+              properties: {}
+              type: object
+        refundsDetails:
+          type: array
+          items:
+            properties: {}
+            type: object
+        additionalAmountsDetails:
+          type: array
+          items:
+            properties:
+              benefitGroup:
+                type: integer
+              balanceType:
+                type: integer
+              balanceContType:
+                type: integer
+              balanceContLayer:
+                type: integer
+              originalAmount:
+                type: integer
+              finalAmount:
+                type: integer
+              manualAmountFlag:
+                type: integer
+              reference:
+                type: string
+              description:
+                type: string
+              internalClaimId:
+                type: number
+            type: object
+            required: []
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policy_id}}/claims/{{claim_type}}/calc-additional-amounts"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

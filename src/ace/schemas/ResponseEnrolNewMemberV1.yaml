@@ -1,0 +1,20 @@
+title: ResponseEnrolNewMember
+properties:
+  activityReference:
+    type: string
+  code:
+    type: number
+  responseMessageList:
+    type: array
+    items:
+      properties:
+        type:
+          type: number
+        code:
+          type: number
+        reference:
+          type: number
+        text:
+          type: string
+      type: object
+type: object

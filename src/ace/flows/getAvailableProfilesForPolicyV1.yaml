@@ -1,0 +1,31 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  no1: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/availableinvestmentprofiles"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+        CoreSuite-Monitoring-Token: "{{$headers.CoreSuite-Monitoring-Token}}"
+      targetPath: result
+    description: ""

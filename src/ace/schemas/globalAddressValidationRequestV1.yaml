@@ -1,0 +1,47 @@
+title: globalAddressValidationRequest
+properties:
+  transmissionReference:
+    type: string
+  licenseKey:
+    type: string
+  options:
+    type: string
+  organization:
+    type: string
+  addressLine1:
+    type: string
+  addressLine2:
+    type: string
+  addressLine3:
+    type: string
+  addressLine4:
+    type: string
+  addressLine5:
+    type: string
+  addressLine6:
+    type: string
+  addressLine7:
+    type: string
+  addressLine8:
+    type: string
+  doubleDependentLocality:
+    type: string
+  dependentLocality:
+    type: string
+  locality:
+    type: string
+  subAdministrativeArea:
+    type: string
+  administrativeArea:
+    type: string
+  subNationalArea:
+    type: string
+  postalCode:
+    type: string
+  country:
+    type: string
+type: object
+required:
+  - licenseKey
+  - addressLine1
+  - country

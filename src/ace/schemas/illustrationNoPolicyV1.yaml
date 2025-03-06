@@ -1,0 +1,31 @@
+title: illustrationNoPolicy
+properties:
+  result:
+    properties:
+      retirementDate:
+        type: string
+        format: date
+      illustratedYears:
+        type: array
+        items:
+          properties:
+            yearCounter:
+              type: number
+              description: "#year"
+            calendarYear:
+              type: number
+            scenario3value:
+              type: number
+            scenario3AdjustedPolicyValue:
+              type: number
+            scenario2value:
+              type: number
+            scenario2AdjustedPolicyValue:
+              type: number
+            scenario1value:
+              type: number
+            scenario1AdjustedPolicyValue:
+              type: number
+          type: object
+    type: object
+type: object

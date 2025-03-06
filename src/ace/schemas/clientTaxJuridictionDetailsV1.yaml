@@ -1,0 +1,53 @@
+title: clientTaxJuridictionDetails
+properties:
+  result:
+    properties:
+      taxJurisdictionDetails:
+        type: array
+        items:
+          properties:
+            taxJurisdiction:
+              properties:
+                code:
+                  type: number
+                name:
+                  type: string
+              type: object
+            foreignIdType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            foreignIdDescription:
+              type: string
+            reasonNoTin:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            additionalInformation:
+              type: string
+            foreignEffectiveDate:
+              type: string
+              format: date
+            foreignExpiryDate:
+              type: string
+              format: date
+            foreignCountryOfIdIssue:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            foreignFtrStatus:
+              type: string
+            foreignFtrClassification:
+              type: string
+          type: object
+    type: object
+type: object

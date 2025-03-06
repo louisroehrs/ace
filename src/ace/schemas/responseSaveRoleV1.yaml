@@ -1,0 +1,19 @@
+title: responseSaveRole
+properties:
+  result:
+    properties:
+      messages:
+        type: array
+        items:
+          properties:
+            message:
+              type: string
+          type: object
+          required:
+            - message
+    type: object
+    required:
+      - messages
+type: object
+required:
+  - result

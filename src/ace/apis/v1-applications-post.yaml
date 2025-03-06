@@ -1,0 +1,44 @@
+definition:
+  path: /v1/applications
+  verb: post
+  id: imported#/v1/applications#post
+  operationId: createApplicationOrQuoteV1
+  summary: create application or quote service
+  tags:
+    - Policy
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/applicationV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NewApplicationResultV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/NewApplicationResultV1"
+  security:
+    - bearerAuth: []
+flow: createApplicationOrQuoteV1.yaml
+method: post
+path: /v1/applications
+errorHandlers: []
+handlers: []

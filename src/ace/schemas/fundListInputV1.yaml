@@ -1,0 +1,30 @@
+title: fundListInput
+properties:
+  investment:
+    properties:
+      funds:
+        type: array
+        items:
+          properties:
+            allocationPercentage:
+              type: number
+            fund:
+              properties:
+                number:
+                  type: integer
+                isinCode:
+                  type: string
+                externalReference:
+                  type: string
+              type: object
+          type: object
+      profileNo:
+        type: integer
+    type: object
+    required: []
+  premium:
+    type: number
+  retirementDate:
+    type: string
+    format: date
+type: object

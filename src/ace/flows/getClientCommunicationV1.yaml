@@ -1,0 +1,32 @@
+tags: []
+sampleInputSchema: ""
+sampleData:
+  client_id: string
+  externalClientIdIndicator: boolean
+  fromPrintDate: string
+  toPrintDate: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"externalClientIdIndicator":"externalClientIdIndicator","fromPrintDate":"fromPrintDate","toPrintDate":"toPrintDate"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/clients/{{client_id}}/communications"
+        method: GET
+      restRequest: JSON
+      json: {}
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Get Details of all communications with a client

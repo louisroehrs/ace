@@ -1,0 +1,57 @@
+definition:
+  path: /v1/clients/{client_id}/statuses
+  verb: get
+  id: imported#/v1/clients/{client_id}/statuses#get
+  operationId: getClientStatusV1
+  tags:
+    - Client
+  parameters:
+    - in: query
+      name: externalClientIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: "false"
+    - in: query
+      name: effectiveDate
+      description: Effective Date
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: client_id
+      description: Client ID
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clientStatusV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/clientStatusV1"
+  security:
+    - bearerAuth: []
+flow: getClientStatusV1.yaml
+method: get
+path: /v1/clients/{client_id}/statuses
+errorHandlers: []
+handlers: []

@@ -1,0 +1,22 @@
+title: PolicyPaymentArrangement
+properties:
+  paymentFrequency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required: []
+  paymentDay:
+    type: number
+  paymentMonth:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required: []
+type: object
+required: []

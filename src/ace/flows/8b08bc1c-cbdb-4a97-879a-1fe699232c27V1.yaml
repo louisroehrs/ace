@@ -1,0 +1,41 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  policyNo: integer
+  fromMoneyDueDate: string
+  toMoneyDueDate: string
+  id1: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"policyNo":"policyNo","fromMoneyDueDate":"fromMoneyDueDate","toMoneyDueDate":"toMoneyDueDate"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/clients/{{id1}}/payments"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: get client policy payments Information

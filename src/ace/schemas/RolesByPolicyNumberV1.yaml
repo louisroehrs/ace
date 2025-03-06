@@ -1,0 +1,82 @@
+title: RolesByPolicyNumber
+properties:
+  role:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  client:
+    properties:
+      id:
+        type: integer
+      firstName:
+        type: string
+      middleName:
+        type: string
+      surname:
+        type: string
+    type: object
+    required: []
+  effectiveDate:
+    type: string
+  reference:
+    type: integer
+  smokerStatus:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  occupation:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  addressTypeOverride:
+    type: integer
+  insuredRelation:
+    properties:
+      code:
+        type: integer
+      name:
+        title: name
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  entityItems:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        value:
+          type: string
+        itemName:
+          type: string
+        manualFlag:
+          type: boolean
+      type: object
+type: object
+required:
+  - role
+  - client
+  - effectiveDate
+  - reference
+  - smokerStatus
+  - occupation
+  - addressTypeOverride
+  - entityItem
+  - insuredRelation

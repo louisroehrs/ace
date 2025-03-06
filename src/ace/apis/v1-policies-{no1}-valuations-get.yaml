@@ -1,0 +1,54 @@
+definition:
+  path: /v1/policies/{no1}/valuations
+  verb: get
+  id: imported#/v1/policies/{no1}/valuations#get
+  operationId: e5d6a435-1d09-41c0-9ae4-d62b2b8f0b87V1
+  summary: Get valuation details for the specified policy
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: no1
+      description: PolicyNo
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/PolicyValuationsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/PolicyValuationsResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: e5d6a435-1d09-41c0-9ae4-d62b2b8f0b87V1.yaml
+method: get
+path: /v1/policies/{no1}/valuations
+errorHandlers: []
+handlers: []

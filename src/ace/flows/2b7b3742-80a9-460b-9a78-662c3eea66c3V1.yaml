@@ -1,0 +1,238 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  group_id: string
+  uploadeAsFile:
+    type: number
+  subgroupNo:
+    type: number
+  processType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  processSubType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  fileType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  fileName:
+    type: string
+  fileRecordDelimiter:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  fileDateFormat:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  frequency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  month:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  day:
+    type: number
+  records:
+    type: array
+    items:
+      properties:
+        recordType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        recordLength:
+          type: number
+        recordIdentifier:
+          type: string
+        recordMaxNumberOfFields:
+          type: number
+        fieldDefinitions:
+          type: array
+          items:
+            properties:
+              fieldId:
+                type: string
+              fieldName:
+                type: string
+              fieldPosition:
+                type: number
+              fieldMandatoryFlag:
+                type: boolean
+              manipulationRule:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              defaultValue:
+                type: string
+              displayFlag:
+                type: boolean
+            type: object
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        uploadeAsFile:
+          type: number
+        subgroupNo:
+          type: number
+        processType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        processSubType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        fileType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        fileName:
+          type: string
+        fileRecordDelimiter:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        fileDateFormat:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        frequency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        month:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        day:
+          type: number
+        records:
+          type: array
+          items:
+            properties:
+              recordType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              recordLength:
+                type: number
+              recordIdentifier:
+                type: string
+              recordMaxNumberOfFields:
+                type: number
+              fieldDefinitions:
+                type: array
+                items:
+                  properties:
+                    fieldId:
+                      type: string
+                    fieldName:
+                      type: string
+                    fieldPosition:
+                      type: number
+                    fieldMandatoryFlag:
+                      type: boolean
+                    manipulationRule:
+                      properties:
+                        code:
+                          type: number
+                        name:
+                          type: string
+                      type: object
+                    defaultValue:
+                      type: string
+                    displayFlag:
+                      type: boolean
+                  type: object
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/inputDefinitions"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: As a Group external user/portal I want to be able to save new input
+      definition.

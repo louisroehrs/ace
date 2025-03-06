@@ -1,0 +1,63 @@
+title: ftniResponse
+properties:
+  transDate:
+    title: transDate
+    type: string
+  transTime:
+    title: transTime
+    type: string
+  referenceNumber:
+    title: referenceNumber
+    type: string
+  responseCode:
+    title: responseCode
+    type: string
+  approvalCode:
+    title: approvalCode
+    type: string
+  avsResponse:
+    title: avsResponse
+    type: string
+  traceNumber:
+    title: traceNumber
+    type: string
+  cvv2Response:
+    title: cvv2Response
+    type: string
+  reversalData:
+    title: reversalData
+    type: string
+  authSourceCode:
+    title: authSourceCode
+    type: string
+  ftniAuthCode:
+    title: ftniAuthCode
+    type: string
+  ftniApprovalCode:
+    title: ftniApprovalCode
+    type: string
+  status:
+    title: status
+    type: integer
+  processingInstruction:
+    title: processingInstruction
+    type: integer
+  itemNumber:
+    title: itemNumber
+    type: integer
+  paymentToken:
+    title: paymentToken
+    type: integer
+  transactionAmount:
+    title: transactionAmount
+    type: string
+  maskedCardnumber:
+    title: maskedCardnumber
+    type: string
+  ePayCustomerID:
+    title: ePayCustomerID
+    type: integer
+  customerID:
+    title: customerID
+    type: string
+type: object

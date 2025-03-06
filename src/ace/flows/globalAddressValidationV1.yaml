@@ -1,0 +1,116 @@
+tags:
+  - Client
+sampleInputSchema: ""
+sampleData:
+  transmissionReference:
+    type: string
+  licenseKey:
+    type: string
+  options:
+    type: string
+  organization:
+    type: string
+  addressLine1:
+    type: string
+  addressLine2:
+    type: string
+  addressLine3:
+    type: string
+  addressLine4:
+    type: string
+  addressLine5:
+    type: string
+  addressLine6:
+    type: string
+  addressLine7:
+    type: string
+  addressLine8:
+    type: string
+  doubleDependentLocality:
+    type: string
+  dependentLocality:
+    type: string
+  locality:
+    type: string
+  subAdministrativeArea:
+    type: string
+  administrativeArea:
+    type: string
+  subNationalArea:
+    type: string
+  postalCode:
+    type: string
+  country:
+    type: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        transmissionReference:
+          type: string
+        licenseKey:
+          type: string
+        options:
+          type: string
+        organization:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        addressLine4:
+          type: string
+        addressLine5:
+          type: string
+        addressLine6:
+          type: string
+        addressLine7:
+          type: string
+        addressLine8:
+          type: string
+        doubleDependentLocality:
+          type: string
+        dependentLocality:
+          type: string
+        locality:
+          type: string
+        subAdministrativeArea:
+          type: string
+        administrativeArea:
+          type: string
+        subNationalArea:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/melissa/address-validation"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers: {}
+      targetPath: result
+    description: ""

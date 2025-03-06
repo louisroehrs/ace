@@ -1,0 +1,17 @@
+title: entityValueUpdateRequest
+properties:
+  entityItems:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        value:
+          type: string
+        manualFlag:
+          type: boolean
+        rowNumber:
+          type: integer
+      type: object
+type: object
+required: []

@@ -1,0 +1,70 @@
+definition:
+  path: /v1/batches/runs/{no1}/audit
+  verb: get
+  id: imported#/v1/batches/runs/{no1}/audit#get
+  operationId: d899fb6d-9798-487b-bcab-7d62c5490853V1
+  summary: Get the audit log of a particular batch execution
+  tags:
+    - Batch
+  parameters:
+    - in: query
+      name: orderByAscending
+      description: "Boolean ex: true | false"
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: taskId
+      description: Task Id
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: numberOfRows
+      description: Input number to return specific row result
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: entryType
+      description: Describes the batch audit record type(e.g. :1- start ; 2= end; 3-
+        In progress)
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: no1
+      description: The batch run number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: true
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/batchAuditResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/batchAuditResponseV1"
+  security:
+    - bearerAuth: []
+flow: d899fb6d-9798-487b-bcab-7d62c5490853V1.yaml
+method: get
+path: /v1/batches/runs/{no1}/audit
+errorHandlers: []
+handlers: []

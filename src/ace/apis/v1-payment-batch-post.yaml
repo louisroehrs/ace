@@ -1,0 +1,52 @@
+definition:
+  path: /v1/payment-batch
+  verb: post
+  id: imported#/v1/payment-batch#post
+  operationId: createPaymentBatchV1
+  tags:
+    - General
+  parameters:
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/CreatePaymentBatchV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CreatePaymentBatchResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/CreatePaymentBatchResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: createPaymentBatchV1.yaml
+method: post
+path: /v1/payment-batch
+errorHandlers: []
+handlers: []

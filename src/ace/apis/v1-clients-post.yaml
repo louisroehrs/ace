@@ -1,0 +1,53 @@
+definition:
+  path: /v1/clients
+  verb: post
+  id: imported#/v1/clients#post
+  operationId: createClientsV1
+  summary: service for creating client
+  tags:
+    - Client
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/clientRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CreateClientResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/CreateClientResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: createClientsV1.yaml
+method: post
+path: /v1/clients
+errorHandlers: []
+handlers: []

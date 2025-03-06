@@ -1,0 +1,86 @@
+title: fundAllocationHistory
+properties:
+  result:
+    properties:
+      policyNo:
+        type: integer
+        description: The requested
+      externalPolicyNo:
+        type: string
+      fundAllocations:
+        type: array
+        items:
+          properties:
+            contributions:
+              type: array
+              items:
+                properties:
+                  contributionType:
+                    properties:
+                      number:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                  layers:
+                    type: array
+                    items:
+                      properties:
+                        layerNo:
+                          type: integer
+                        splits:
+                          type: array
+                          items:
+                            properties:
+                              effectiveDate:
+                                type: string
+                                format: date
+                              funds:
+                                type: array
+                                items:
+                                  properties:
+                                    fund:
+                                      properties:
+                                        number:
+                                          type: integer
+                                        isinCode:
+                                          type: string
+                                        externalReference:
+                                          type: string
+                                        name:
+                                          type: string
+                                      type: object
+                                    allocationPercentage:
+                                      type: string
+                                  type: object
+                            type: object
+                      type: object
+                type: object
+                required: []
+          type: object
+          required: []
+    type: object
+  response:
+    properties:
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required:
+          - code
+          - name
+      messages:
+        type: array
+        items:
+          properties:
+            number:
+              type: string
+            name:
+              type: string
+          type: object
+    type: object
+type: object
+required: []

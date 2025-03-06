@@ -1,0 +1,38 @@
+definition:
+  path: /v1/letters
+  verb: post
+  id: imported#/v1/letters#post
+  operationId: smartCommGenerateLetterV1
+  summary: ""
+  description: ""
+  tags: []
+  parameters: []
+  requestBody:
+    content:
+      application/json: {}
+  responses:
+    "400":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: smartCommGenerateLetterV1.yaml
+method: post
+path: /v1/letters
+errorHandlers: []
+handlers: []

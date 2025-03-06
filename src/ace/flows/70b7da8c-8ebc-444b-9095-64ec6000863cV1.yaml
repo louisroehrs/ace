@@ -1,0 +1,69 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  effectiveDate: string
+  id1: string
+  id2: string
+  employeeExternalNumber:
+    type: number
+  hireDate:
+    type: string
+  pensionableServiceStartDate:
+    type: string
+  partTimePercentage:
+    type: number
+  memberHasAdditionalSalary:
+    type: boolean
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        employeeExternalNumber:
+          type: number
+        hireDate:
+          type: string
+        pensionableServiceStartDate:
+          type: string
+        partTimePercentage:
+          type: number
+        memberHasAdditionalSalary:
+          type: boolean
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"effectiveDate":"effectiveDate"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/employers/{{id1}}/employees/{{id2}}/EmploymentDetail"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

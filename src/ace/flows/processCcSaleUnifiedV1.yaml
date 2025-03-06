@@ -1,0 +1,88 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  username:
+    title: userName
+    type: string
+  password:
+    title: password
+    type: string
+  epayCustomerId:
+    title: epayCustomerId
+    type: integer
+  customerId:
+    title: customerId
+    type: string
+  clientName:
+    title: clientName
+    type: string
+  cardToken:
+    title: cardToken
+    type: string
+  amount:
+    type: number
+  statusQueue:
+    title: statusQueue
+    type: integer
+  runAuth:
+    title: runAuth
+    type: boolean
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        username:
+          title: userName
+          type: string
+        password:
+          title: password
+          type: string
+        epayCustomerId:
+          title: epayCustomerId
+          type: integer
+        customerId:
+          title: customerId
+          type: string
+        clientName:
+          title: clientName
+          type: string
+        cardToken:
+          title: cardToken
+          type: string
+        amount:
+          type: number
+        statusQueue:
+          title: statusQueue
+          type: integer
+        runAuth:
+          title: runAuth
+          type: boolean
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/ftni/cc-approval"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers: {}
+      targetPath: result
+    description: ""

@@ -1,0 +1,7 @@
+title: PhoneNumberRespone
+properties:
+  result:
+    $ref: updateResponseWithCodeV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object

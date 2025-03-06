@@ -1,0 +1,68 @@
+title: AWDPolicyCoverResponse
+properties:
+  policyNo:
+    type: number
+  externalPolicyNo:
+    type: string
+  Covers:
+    type: array
+    items:
+      properties:
+        coverNo:
+          type: number
+        coverName:
+          type: string
+        internalCoverNo:
+          type: number
+        coverSumAssured:
+          type: number
+        coverCommencementDate:
+          type: string
+          format: date
+        coverTermDate:
+          type: string
+          format: date
+        totalPremium:
+          type: number
+        status:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        currency:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+            symbol:
+              type: string
+            isoCode:
+              type: string
+          type: object
+        clientRoles:
+          type: array
+          items:
+            properties:
+              clientId:
+                type: number
+              externalId:
+                type: string
+              firstName:
+                type: string
+              surname:
+                type: string
+              roles:
+                type: array
+                items:
+                  properties:
+                    number:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+            type: object
+      type: object
+type: object

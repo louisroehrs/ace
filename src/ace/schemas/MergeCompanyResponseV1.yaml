@@ -1,0 +1,33 @@
+title: MergeCompanyResponse
+properties:
+  primaryKey:
+    type: integer
+  primaryKeyType:
+    type: integer
+  secondaryKey:
+    type: integer
+  secondaryKeyType:
+    type: integer
+  responseMessage:
+    properties:
+      code:
+        type: integer
+      text:
+        type: string
+    type: object
+    required:
+      - code
+      - text
+  additionalMessages:
+    type: array
+    items:
+      properties:
+        code:
+          type: integer
+        text:
+          type: string
+      type: object
+      required:
+        - code
+        - text
+type: object

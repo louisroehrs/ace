@@ -1,0 +1,54 @@
+definition:
+  path: /v1/group/{group_id}
+  verb: get
+  id: imported#/v1/group/{group_id}#get
+  operationId: e0b4b067-d9dd-4397-a844-351999161e2dV1
+  summary: Get Group Details
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: Group Id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GroupDetailsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/GroupDetailsResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: e0b4b067-d9dd-4397-a844-351999161e2dV1.yaml
+method: get
+path: /v1/group/{group_id}
+errorHandlers: []
+handlers: []

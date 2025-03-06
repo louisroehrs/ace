@@ -1,0 +1,9 @@
+title: ResponseGetGroupDashBoardInvestments
+properties:
+  groupId:
+    type: number
+  assetsUnderInvestment:
+    type: number
+  totalContributions:
+    type: number
+type: object

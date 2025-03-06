@@ -1,0 +1,25 @@
+title: CreateServiceGenericResponse
+properties:
+  primaryKey:
+    type: string
+  primaryKeyType:
+    type: number
+  secondaryKey:
+    type: string
+  secondaryKeyType:
+    type: number
+  claimStatus:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  message:
+    properties:
+      code:
+        type: number
+      text:
+        type: string
+    type: object
+type: object

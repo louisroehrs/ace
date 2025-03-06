@@ -1,0 +1,16 @@
+title: applictionStatusResponse
+properties:
+  result:
+    properties:
+      message:
+        type: string
+      status:
+        properties:
+          code:
+            type: number
+          name:
+            type: string
+        type: object
+    type: object
+type: object
+required: []

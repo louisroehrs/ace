@@ -1,0 +1,43 @@
+definition:
+  path: /v1/quotes
+  verb: post
+  id: imported#/v1/quotes#post
+  operationId: create quote service V1
+  tags:
+    - Policy
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: coresuite datasource key
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: coresuite user name
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/applicationV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NewApplicationResultV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/NewApplicationResultV1"
+  security:
+    - bearerAuth: []
+flow: createquoteserviceV1.yaml
+method: post
+path: /v1/quotes
+errorHandlers: []
+handlers: []

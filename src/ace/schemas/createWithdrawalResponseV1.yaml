@@ -1,0 +1,8 @@
+title: createWithdrawalResponse
+properties:
+  result:
+    $ref: createWithdrawalsResponseV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

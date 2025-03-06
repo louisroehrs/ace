@@ -1,0 +1,104 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  detailedResultFlag: boolean
+  no1: string
+  investment:
+    properties:
+      funds:
+        type: array
+        items:
+          properties:
+            allocationPercentage:
+              type: number
+            fund:
+              properties:
+                number:
+                  type: integer
+                isinCode:
+                  type: string
+                externalReference:
+                  type: string
+              type: object
+          type: object
+      profileNo:
+        type: integer
+    type: object
+    required: []
+  premium:
+    type: number
+  retirementDate:
+    type: string
+    format: date
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        investment:
+          properties:
+            funds:
+              type: array
+              items:
+                properties:
+                  allocationPercentage:
+                    type: number
+                  fund:
+                    properties:
+                      number:
+                        type: integer
+                      isinCode:
+                        type: string
+                      externalReference:
+                        type: string
+                    type: object
+                type: object
+            profileNo:
+              type: integer
+          type: object
+          required: []
+        premium:
+          type: number
+        retirementDate:
+          type: string
+          format: date
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"detailedResultFlag":"detailedResultFlag"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/illustration"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+        CoreSuite-Monitoring-Token: "{{$headers.CoreSuite-Monitoring-Token}}"
+      targetPath: result
+    description: Perform an illustration for payable pension on retirement, given
+      various changes

@@ -1,0 +1,54 @@
+definition:
+  path: /v1/policies/{no1}/dividendMethods
+  verb: get
+  id: imported#/v1/policies/{no1}/dividendMethods#get
+  operationId: a4610a45-888f-4a53-a28c-a3ddf35eb241V1
+  summary: Get Dividend Methods for a given policy
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: no1
+      description: Policy No
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coreSuiteUserName
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/DividentMethodsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/DividentMethodsResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: a4610a45-888f-4a53-a28c-a3ddf35eb241V1.yaml
+method: get
+path: /v1/policies/{no1}/dividendMethods
+errorHandlers: []
+handlers: []

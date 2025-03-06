@@ -1,0 +1,72 @@
+definition:
+  path: /v1/clients/{client_id}/payment-arrangements/{payment_arrangement_id}
+  verb: put
+  id: imported#/v1/clients/{client_id}/payment-arrangements/{payment_arrangement_id}#put
+  operationId: updateClientPaymentArrangementDetailsV1
+  summary: " Service to update Payment Arrangement Details to the client."
+  tags:
+    - Client
+  parameters:
+    - in: query
+      name: externalClientIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: client_id
+      description: Client ID
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: payment_arrangement_id
+      description: Payment Arrangement ID
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/paymentArrangementDetailsV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: updateClientPaymentArrangementDetailsV1.yaml
+method: put
+path: /v1/clients/{client_id}/payment-arrangements/{payment_arrangement_id}
+errorHandlers: []
+handlers: []

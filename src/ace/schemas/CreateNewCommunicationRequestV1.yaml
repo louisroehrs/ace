@@ -1,0 +1,25 @@
+title: CreateNewCommunicationRequest
+properties:
+  docType:
+    type: integer
+    description: The list of letters configured for the current product.
+  onBaseDocId:
+    type: string
+    description: Letter external reference.
+  policyId:
+    type: string
+    description: The policy number
+  docPopUrl:
+    type: string
+    description: URL for viewing the final document
+  printDueDate:
+    type: string
+    description: Print due date
+    format: date
+type: object
+required:
+  - docType
+  - printDueDate
+  - docPopUrl
+  - policyId
+  - onBaseDocId

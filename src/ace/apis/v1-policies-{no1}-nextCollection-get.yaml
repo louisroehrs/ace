@@ -1,0 +1,51 @@
+definition:
+  path: /v1/policies/{no1}/nextCollection
+  verb: get
+  id: imported#/v1/policies/{no1}/nextCollection#get
+  operationId: 62dd4bbb-f6e2-4e75-85af-17e2494b91b7V1
+  summary: Get the next collection details for a given policy
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyNoIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+    - in: path
+      name: no1
+      description: Requested policyNo
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/PolicyNextCollectionDetailsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/PolicyNextCollectionDetailsV1"
+  security:
+    - bearerAuth: []
+flow: 62dd4bbb-f6e2-4e75-85af-17e2494b91b7V1.yaml
+method: get
+path: /v1/policies/{no1}/nextCollection
+errorHandlers: []
+handlers: []

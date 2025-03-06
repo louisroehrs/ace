@@ -1,0 +1,50 @@
+definition:
+  path: /v1/policies/{no1}/roles
+  verb: post
+  id: imported#/v1/policies/{no1}/roles#post
+  operationId: d9c51664-b26d-46f8-8fcb-5e5121c04ba1V1
+  summary: adding role to a policy
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: no1
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/RequestAddRoleV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/responseSaveRoleV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/responseSaveRoleV1"
+  security:
+    - bearerAuth: []
+flow: d9c51664-b26d-46f8-8fcb-5e5121c04ba1V1.yaml
+method: post
+path: /v1/policies/{no1}/roles
+errorHandlers: []
+handlers: []

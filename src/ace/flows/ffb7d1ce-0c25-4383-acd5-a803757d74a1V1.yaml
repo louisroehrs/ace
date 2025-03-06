@@ -1,0 +1,79 @@
+tags:
+  - Batch
+sampleInputSchema: ""
+sampleData:
+  id1: string
+  tasks:
+    type: array
+    items:
+      properties:
+        parameters:
+          type: array
+          items:
+            properties:
+              Value1:
+                type: string
+                format: date
+              Value2:
+                type: string
+                format: date
+              parameterId:
+                type: integer
+            type: object
+        taskId:
+          type: integer
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        tasks:
+          type: array
+          items:
+            properties:
+              parameters:
+                type: array
+                items:
+                  properties:
+                    Value1:
+                      type: string
+                      format: date
+                    Value2:
+                      type: string
+                      format: date
+                    parameterId:
+                      type: integer
+                  type: object
+              taskId:
+                type: integer
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/batches/{{id1}}/run"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Trigger list of tasks under specified batch id

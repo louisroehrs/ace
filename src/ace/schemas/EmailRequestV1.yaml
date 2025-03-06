@@ -1,0 +1,8 @@
+title: EmailRequest
+properties:
+  emailAddress:
+    type: string
+    format: email
+type: object
+required:
+  - emailAddress

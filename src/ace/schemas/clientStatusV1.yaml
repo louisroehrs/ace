@@ -1,0 +1,16 @@
+title: clientStatus
+properties:
+  status:
+    properties:
+      code:
+        type: boolean
+      name:
+        type: string
+    type: object
+    required:
+      - code
+  activationDate:
+    type: string
+    format: date
+type: object
+required: []

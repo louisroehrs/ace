@@ -1,0 +1,44 @@
+title: agentAccountListResponse
+properties:
+  agentAccounts:
+    properties:
+      agentId:
+        type: integer
+      externalAgentRef:
+        type: string
+      agentName:
+        properties:
+          firstName:
+            type: string
+          surname:
+            type: string
+        type: object
+      accounts:
+        type: array
+        items:
+          properties:
+            accountId:
+              type: number
+            accountName:
+              type: string
+            accountStatus:
+              properties:
+                code:
+                  type: number
+                name:
+                  type: string
+              type: object
+            statusDate:
+              type: string
+              format: date
+            insuranceCompany:
+              properties:
+                code:
+                  type: number
+                name:
+                  type: string
+              type: object
+          type: object
+    type: object
+    required: []
+type: object

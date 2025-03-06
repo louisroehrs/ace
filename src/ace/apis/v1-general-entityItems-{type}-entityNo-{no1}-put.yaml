@@ -1,0 +1,83 @@
+definition:
+  path: /v1/general/entityItems/{type}/entityNo/{no1}
+  verb: put
+  id: imported#/v1/general/entityItems/{type}/entityNo/{no1}#put
+  operationId: d2daa23b-1948-49bf-9ea9-ae49f51d8e92V1
+  summary: The API to update entity items for provided entity type.
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: The effective date for the retrieval (defaults to the current
+        system date)
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: entitySubType
+      description: Code to indicate the sub category or subtype for this record.
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: entitySecondSubType
+      description: Record entity second sub type.
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: entityId
+      description: The Entity Id
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: type
+      description: Entity Level, e.g. "policies","clients","group"
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: no1
+      description: Entity ID, e.g. Policy Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/entityValueUpdateRequestV1"
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+        application/xml:
+          schema:
+            type: object
+            example: {}
+  security:
+    - bearerAuth: []
+flow: d2daa23b-1948-49bf-9ea9-ae49f51d8e92V1.yaml
+method: put
+path: /v1/general/entityItems/{type}/entityNo/{no1}
+errorHandlers: []
+handlers: []

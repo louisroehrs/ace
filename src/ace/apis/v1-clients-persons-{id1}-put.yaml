@@ -1,0 +1,50 @@
+definition:
+  path: /v1/clients/persons/{id1}
+  verb: put
+  id: imported#/v1/clients/persons/{id1}#put
+  operationId: 0dec2d2a-8d49-44ba-a04f-7e18b241511eV1
+  summary: Update an existing person
+  tags:
+    - Person
+  parameters:
+    - in: path
+      name: id1
+      description: person Id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/updateMappedPersonRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+  security:
+    - bearerAuth: []
+flow: 0dec2d2a-8d49-44ba-a04f-7e18b241511eV1.yaml
+method: put
+path: /v1/clients/persons/{id1}
+errorHandlers: []
+handlers: []

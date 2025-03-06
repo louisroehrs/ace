@@ -1,0 +1,12 @@
+title: ResponseCreateGroupView
+properties:
+  groupId:
+    type: number
+  groupStatus:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+type: object

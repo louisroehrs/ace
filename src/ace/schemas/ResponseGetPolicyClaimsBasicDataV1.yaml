@@ -1,0 +1,38 @@
+title: ResponseGetPolicyClaimsBasicData
+properties:
+  claims:
+    type: array
+    items:
+      properties:
+        claimId:
+          type: integer
+        claimType:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        claimTypeGroup:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        effectiveDate:
+          type: string
+          format: date
+        status:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+      type: object
+      required: []
+type: object
+required: []

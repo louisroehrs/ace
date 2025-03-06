@@ -1,0 +1,38 @@
+definition:
+  path: /v1/metadata/underwriting-loadings
+  verb: get
+  id: imported#/v1/metadata/underwriting-loadings#get
+  operationId: getCoverLoadingTypesV1
+  summary: ""
+  description: ""
+  tags: []
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      required: false
+      description: ""
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      required: false
+      description: ""
+      schema:
+        type: string
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/coverLoadingTypesV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/coverLoadingTypesV1"
+  security:
+    - bearerAuth: []
+flow: getCoverLoadingTypesV1.yaml
+method: get
+path: /v1/metadata/underwriting-loadings
+errorHandlers: []
+handlers: []

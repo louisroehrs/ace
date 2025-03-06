@@ -1,0 +1,154 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  no1: string
+  effectiveDate:
+    type: string
+    format: date
+  switchStatusCode:
+    type: integer
+    description: Default Value = 10 (Approved)
+  switchTypeNo:
+    type: integer
+    description: Default Value =1 (Regular Switch)
+  switchValueCalcMethodNo:
+    type: integer
+    description: 1=Gross,  2=Net
+  redirectionFlag:
+    type: boolean
+    description: True = Include redirection with fund switch
+  fundsToSwitchOut:
+    type: array
+    items:
+      properties:
+        fund:
+          properties:
+            number:
+              type: integer
+            isinCode:
+              type: string
+            externalReference:
+              type: string
+          type: object
+          required: []
+        amountTypeNo:
+          type: integer
+          description: Default Value -1, 1= Percentage, 2 = Amount, 3 = Units
+        amount:
+          type: number
+      type: object
+      required: []
+  fundsToSwitchIn:
+    type: array
+    items:
+      properties:
+        fund:
+          properties:
+            number:
+              type: integer
+            isinCode:
+              type: string
+            externalReference:
+              type: string
+          type: object
+          required: []
+        profileNo:
+          type: integer
+        allocationPercentage:
+          type: number
+          description: Total for all fund(s) should be 100
+      type: object
+      required: []
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        effectiveDate:
+          type: string
+          format: date
+        switchStatusCode:
+          type: integer
+          description: Default Value = 10 (Approved)
+        switchTypeNo:
+          type: integer
+          description: Default Value =1 (Regular Switch)
+        switchValueCalcMethodNo:
+          type: integer
+          description: 1=Gross,  2=Net
+        redirectionFlag:
+          type: boolean
+          description: True = Include redirection with fund switch
+        fundsToSwitchOut:
+          type: array
+          items:
+            properties:
+              fund:
+                properties:
+                  number:
+                    type: integer
+                  isinCode:
+                    type: string
+                  externalReference:
+                    type: string
+                type: object
+                required: []
+              amountTypeNo:
+                type: integer
+                description: Default Value -1, 1= Percentage, 2 = Amount, 3 = Units
+              amount:
+                type: number
+            type: object
+            required: []
+        fundsToSwitchIn:
+          type: array
+          items:
+            properties:
+              fund:
+                properties:
+                  number:
+                    type: integer
+                  isinCode:
+                    type: string
+                  externalReference:
+                    type: string
+                type: object
+                required: []
+              profileNo:
+                type: integer
+              allocationPercentage:
+                type: number
+                description: Total for all fund(s) should be 100
+            type: object
+            required: []
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/fundSwitches"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+        CoreSuite-Monitoring-Token: "{{$headers.CoreSuite-Monitoring-Token}}"
+      targetPath: result
+    description: Creates a fund switch request using input from the portal

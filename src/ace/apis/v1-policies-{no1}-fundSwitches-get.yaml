@@ -1,0 +1,63 @@
+definition:
+  path: /v1/policies/{no1}/fundSwitches
+  verb: get
+  id: imported#/v1/policies/{no1}/fundSwitches#get
+  operationId: 6c4be196-28d7-41c6-9216-60dadbc714e3V1
+  summary: Get the investment switch history records for a policy
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: fromDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: toDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: no1
+      description: Policy number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/switchHistoryResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/switchHistoryResponseV1"
+  security:
+    - bearerAuth: []
+flow: 6c4be196-28d7-41c6-9216-60dadbc714e3V1.yaml
+method: get
+path: /v1/policies/{no1}/fundSwitches
+errorHandlers: []
+handlers: []

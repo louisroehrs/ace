@@ -1,0 +1,50 @@
+definition:
+  path: /v1/batches/{id1}/run
+  verb: post
+  id: imported#/v1/batches/{id1}/run#post
+  operationId: ffb7d1ce-0c25-4383-acd5-a803757d74a1V1
+  summary: Trigger list of tasks under specified batch id
+  tags:
+    - Batch
+  parameters:
+    - in: path
+      name: id1
+      description: The Batch Id to trigger
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/triggerBatchRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/triggerBatchResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/triggerBatchResponseV1"
+  security:
+    - bearerAuth: []
+flow: ffb7d1ce-0c25-4383-acd5-a803757d74a1V1.yaml
+method: post
+path: /v1/batches/{id1}/run
+errorHandlers: []
+handlers: []

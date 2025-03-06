@@ -1,0 +1,51 @@
+definition:
+  path: /v1/groups/{group_id}/inputDefinitions
+  verb: post
+  id: imported#/v1/groups/{group_id}/inputDefinitions#post
+  operationId: 2b7b3742-80a9-460b-9a78-662c3eea66c3V1
+  summary: As a Group external user/portal I want to be able to save new input
+    definition.
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: GroupID
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/RequestGeneralFileTypeV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseGeneralFileTypeV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseGeneralFileTypeV1"
+  security:
+    - bearerAuth: []
+flow: 2b7b3742-80a9-460b-9a78-662c3eea66c3V1.yaml
+method: post
+path: /v1/groups/{group_id}/inputDefinitions
+errorHandlers: []
+handlers: []

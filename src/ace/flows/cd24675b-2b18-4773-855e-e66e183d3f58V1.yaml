@@ -1,0 +1,19 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData: {}
+description: Created by imported openApi schema
+steps:
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/group/findPlan"
+        method: POST
+      restRequest: JSON
+      json: {}
+      queryParams: {}
+      headers: {}
+      targetPath: result
+    description: Retrieves a Group's Plan details for a given Group ID and Plan Number.

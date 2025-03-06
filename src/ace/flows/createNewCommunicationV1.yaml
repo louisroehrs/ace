@@ -1,0 +1,79 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  externalPolicyIdIndicator: boolean
+  docType:
+    type: integer
+    description: The list of letters configured for the current product.
+  onBaseDocId:
+    type: string
+    description: Letter external reference.
+  policyId:
+    type: string
+    description: The policy number
+  docPopUrl:
+    type: string
+    description: URL for viewing the final document
+  printDueDate:
+    type: string
+    description: Print due date
+    format: date
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        docType:
+          type: integer
+          description: The list of letters configured for the current product.
+        onBaseDocId:
+          type: string
+          description: Letter external reference.
+        policyId:
+          type: string
+          description: The policy number
+        docPopUrl:
+          type: string
+          description: URL for viewing the final document
+        printDueDate:
+          type: string
+          description: Print due date
+          format: date
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"externalPolicyIdIndicator":"externalPolicyIdIndicator"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/onBase/communications"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

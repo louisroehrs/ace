@@ -1,0 +1,34 @@
+tags:
+  - Agent
+sampleInputSchema: ""
+sampleData:
+  fromDate: string
+  toDate: string
+  statusGroup: integer
+  id1: integer
+  id2: number
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"fromDate":"fromDate","toDate":"toDate","statusGroup":"statusGroup"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/agents/{{id1}}/accounts/{{id2}}/policies"
+        method: GET
+      restRequest: JSON
+      json: {}
+      queryParams: "{{queryParams}}"
+      headers:
+        coreSuite-DataSource-Key: "{{$headers.coreSuite-DataSource-Key}}"
+        coreSuite-User-Name: "{{$headers.coreSuite-User-Name}}"
+      targetPath: result
+    description: ""

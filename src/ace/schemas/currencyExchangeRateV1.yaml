@@ -1,0 +1,42 @@
+title: currencyExchangeRate
+properties:
+  result:
+    properties:
+      sourceCurrency:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+          symbol:
+            type: string
+          isoCode:
+            type: string
+        type: object
+      targetCurrency:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+          symbol:
+            type: string
+          isoCode:
+            type: string
+        type: object
+      exchangeRate:
+        properties:
+          buyValue:
+            type: number
+          sellValue:
+            type: number
+          marketValue:
+            type: number
+        type: object
+        required: []
+      effectiveDate:
+        type: string
+        format: date
+    type: object
+    required: []
+type: object

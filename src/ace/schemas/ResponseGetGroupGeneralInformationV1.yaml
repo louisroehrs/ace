@@ -1,0 +1,46 @@
+title: ResponseGetGroupGeneralInformation
+properties:
+  groupId:
+    type: number
+  groupName:
+    type: string
+  status:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+    required: []
+  startDate:
+    type: string
+    format: date
+  numberOfAgreements:
+    type: integer
+  groupActivationMask:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  groupActivationRatio:
+    type: number
+  productGroup:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  nextRenewalDate:
+    type: string
+    format: date
+  numberOfPlans:
+    type: integer
+  numberOfSubgroups:
+    type: integer
+  pendingAlterations:
+    type: integer
+type: object
+required: []

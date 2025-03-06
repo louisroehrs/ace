@@ -1,0 +1,67 @@
+title: entityValueBasic
+properties:
+  entityType:
+    properties:
+      number:
+        type: integer
+        description: Number
+      name:
+        type: string
+        description: Name
+    type: object
+    required:
+      - number
+    description: Code to indicate the category or type for this record (GC 15511).
+  entityNumber:
+    type: integer
+    description: ALIS id number of the entity to which this record relates (e.g.
+      agent number, client number, policy number, etc.).
+  entitySubType:
+    properties:
+      number:
+        type: integer
+        description: Number
+      name:
+        type: string
+        description: Name
+    type: object
+    required:
+      - number
+    description: Code to indicate the sub category or subtype for this record.
+  entitySubNumber:
+    type: integer
+    description: Record entity sub number, based on the entity sub type.
+  id:
+    type: integer
+    description: Code to indicate which piece of data is being stored.
+  value:
+    type: string
+    description: Entity item value.
+  entitySecondSubType:
+    properties:
+      number:
+        type: integer
+        description: Number
+      name:
+        type: string
+        description: Name
+    type: object
+    required:
+      - number
+    description: Record entity sub type, from t_entity_type.
+  manualFlag:
+    type: boolean
+    description: Indicates if record value was changed manually.
+  rowNumber:
+    type: integer
+    description: Relevant when entity_type = 4 (Agency) .
+type: object
+required:
+  - entityType
+  - id
+  - entityNo
+  - value
+  - entitySecondSubType
+  - entitySubNumber
+  - rowNumber
+description: "table property name : GeneralBatchAuditView"

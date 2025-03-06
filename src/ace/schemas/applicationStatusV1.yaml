@@ -1,0 +1,17 @@
+title: applicationStatus
+properties:
+  status:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+  activationDate:
+    type: string
+    format: date
+type: object
+required:
+  - activationDate

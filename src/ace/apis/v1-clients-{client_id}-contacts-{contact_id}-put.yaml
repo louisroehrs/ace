@@ -1,0 +1,74 @@
+definition:
+  path: /v1/clients/{client_id}/contacts/{contact_id}
+  verb: put
+  id: imported#/v1/clients/{client_id}/contacts/{contact_id}#put
+  operationId: 98764d76-c3fa-448e-bc5e-0fd161c34bc9V1
+  summary: Updates the phoneNumber of the client
+  tags:
+    - Client
+  parameters:
+    - in: path
+      name: client_id
+      description: Client ID
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: contact_id
+      description: Contact ID
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/updatePhoneNumberRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/PhoneNumberResponeV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/PhoneNumberResponeV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 98764d76-c3fa-448e-bc5e-0fd161c34bc9V1.yaml
+method: put
+path: /v1/clients/{client_id}/contacts/{contact_id}
+errorHandlers: []
+handlers: []

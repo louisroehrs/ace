@@ -1,0 +1,189 @@
+title: policyBasicData
+properties:
+  result:
+    properties:
+      policyNo:
+        type: integer
+        description: As requested
+      externalPolicyNo:
+        type: string
+        description: "The requested "
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+      product:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      productVersion:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      previousProduct:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+        required: []
+      previousProductCode:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      commencementDate:
+        type: string
+        format: date
+      intendedRetirementAge:
+        type: integer
+      termEndDate:
+        type: string
+        description: The date the policy ends
+        format: date
+      nextAnniversaryDate:
+        type: string
+        format: date
+        description: Taken from renewal date
+      policyFundValue:
+        type: number
+        description: Unit link value
+      moneyInSuspense:
+        type: number
+        description: Money not yet dispersed
+      moneyToBeInvested:
+        type: number
+        description: Money that was dispersed to the policy but not yet invested
+      totalGrowthValue:
+        type: number
+        description: "**Value in discussion**"
+      modalPremium:
+        type: number
+        description: From regular contributions
+      paymentFrequency:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required: []
+      paymentMethod:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+        required: []
+      paymentMethodGroup:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required: []
+      paidToDate:
+        type: string
+        format: date
+      totalUnpaidBills:
+        type: number
+      clientRoles:
+        type: array
+        items:
+          properties:
+            title:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            clientId:
+              type: integer
+            clientExternalId:
+              type: string
+            firstName:
+              type: string
+            lastName:
+              type: string
+            roles:
+              type: array
+              items:
+                properties:
+                  number:
+                    type: string
+                  name:
+                    type: string
+                type: object
+          type: object
+      agentRoles:
+        type: array
+        items:
+          properties:
+            title:
+              properties:
+                number:
+                  type: number
+                name:
+                  type: string
+              type: object
+              required: []
+            agentNo:
+              type: integer
+            agentExternalNo:
+              type: string
+            firstName:
+              type: string
+            lastName:
+              type: string
+            roles:
+              type: array
+              items:
+                properties:
+                  number:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+          type: object
+      beneficiaries:
+        type: array
+        items:
+          properties:
+            title:
+              properties:
+                number:
+                  type: number
+                name:
+                  type: string
+              type: object
+              required: []
+            clientId:
+              type: integer
+            clientExternalId:
+              type: string
+              description: GK part_ref
+            firstName:
+              type: string
+            lastName:
+              type: string
+            benefitPercentageSplit:
+              type: integer
+          type: object
+    type: object
+type: object
+required: []

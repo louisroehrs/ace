@@ -1,0 +1,143 @@
+definition:
+  path: /v1/general/payment-orders
+  verb: get
+  id: imported#/v1/general/payment-orders#get
+  operationId: getPaymentOrdersV1
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: insuranceCompany
+      description: Company
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: externalPolicyIdIndicator
+      description: External Policy Number
+      required: false
+      schema:
+        type: boolean
+        default: "false"
+    - in: query
+      name: policy_id
+      description: Policy Number
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: externalAgentIdIndicator
+      description: External Agent Number
+      required: false
+      schema:
+        type: boolean
+        default: "false"
+    - in: query
+      name: agent_id
+      description: Agent Number
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: paymentStatus
+      description: Payment Status
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: claim_id
+      description: Claim Number
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: externalClientIdIndicator
+      description: External Client Number
+      required: false
+      schema:
+        type: boolean
+        default: "false"
+    - in: query
+      name: payee_client_id
+      description: Payee ID
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: fromPaymentDueDate
+      description: Min Payment Due Date
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: toPaymentDueDate
+      description: Max Payment Due Date
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: paymentOrderType
+      description: Payment Order Type
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: minAmount
+      description: Min Amount
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: maximumAmount
+      description: Maximum Amount
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: paidCurrency
+      description: Paid Currency
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: internal_id
+      description: Internal Number
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: maxRows
+      description: Show Rows
+      required: false
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/paymentOrdersV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/paymentOrdersV1"
+  security:
+    - bearerAuth: []
+flow: getPaymentOrdersV1.yaml
+method: get
+path: /v1/general/payment-orders
+errorHandlers: []
+handlers: []

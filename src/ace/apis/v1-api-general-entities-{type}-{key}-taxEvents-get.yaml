@@ -1,0 +1,79 @@
+definition:
+  path: /v1/api/general/entities/{type}/{key}/taxEvents
+  verb: get
+  id: imported#/v1/api/general/entities/{type}/{key}/taxEvents#get
+  operationId: bdb677d8-7383-4b0e-9e0f-152f0fd922f6V1
+  summary: Retrieves the tax events for a given policy.
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: fromEffectiveDate
+      description: The effective date to retrieve the data from (e.g.
+        '2020-12-31').  Defaults to current system date.
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: toEffectiveDate
+      description: The effective date to retrieve the data to (e.g.
+        '2020-12-31').  Defaults to current system date.
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: activityType
+      description: "The activity type required (default: all activity types)"
+      required: false
+      schema:
+        type: integer
+    - in: path
+      name: type
+      description: Entity Level, e.g. "policies" / "clients".
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: key
+      description: Entity ID, e.g. Policy Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/TaxEventsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/TaxEventsResponseV1"
+  security:
+    - bearerAuth: []
+flow: bdb677d8-7383-4b0e-9e0f-152f0fd922f6V1.yaml
+method: get
+path: /v1/api/general/entities/{type}/{key}/taxEvents
+errorHandlers: []
+handlers: []

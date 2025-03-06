@@ -1,0 +1,159 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  group_id: integer
+  participationDate:
+    type: string
+  enrollmentDate:
+    type: string
+  memberId:
+    properties:
+      clientId:
+        type: number
+      externalClientId:
+        type: string
+    type: object
+  groupAttributes:
+    type: array
+    items:
+      properties:
+        attributeId:
+          type: number
+        attributeValue:
+          type: number
+      type: object
+  employments:
+    type: array
+    items:
+      properties:
+        employeeId:
+          type: number
+        employerId:
+          type: number
+        hireDate:
+          type: string
+        pensionableStartDate:
+          type: string
+        partTimePercentage:
+          type: number
+        additionalSalaryFlag:
+          type: number
+        payrollNumber:
+          type: number
+        employmentType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+      type: object
+  subgroups:
+    type: array
+    items:
+      properties:
+        subgroupId:
+          type: number
+        plans:
+          type: array
+          items:
+            properties:
+              planNo:
+                type: number
+            type: object
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        participationDate:
+          type: string
+        enrollmentDate:
+          type: string
+        memberId:
+          properties:
+            clientId:
+              type: number
+            externalClientId:
+              type: string
+          type: object
+        groupAttributes:
+          type: array
+          items:
+            properties:
+              attributeId:
+                type: number
+              attributeValue:
+                type: number
+            type: object
+        employments:
+          type: array
+          items:
+            properties:
+              employeeId:
+                type: number
+              employerId:
+                type: number
+              hireDate:
+                type: string
+              pensionableStartDate:
+                type: string
+              partTimePercentage:
+                type: number
+              additionalSalaryFlag:
+                type: number
+              payrollNumber:
+                type: number
+              employmentType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+            type: object
+        subgroups:
+          type: array
+          items:
+            properties:
+              subgroupId:
+                type: number
+              plans:
+                type: array
+                items:
+                  properties:
+                    planNo:
+                      type: number
+                  type: object
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/members/enrollment"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: " Add a member to a group through manual enrollment"

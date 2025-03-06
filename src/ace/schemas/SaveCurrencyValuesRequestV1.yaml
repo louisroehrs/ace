@@ -1,0 +1,34 @@
+title: SaveCurrencyValuesRequest
+properties:
+  currencyValueList:
+    title: currencyValueList
+    type: array
+    items:
+      properties:
+        fromCurrency:
+          type: string
+          description: From currency ISO code
+        toCurrency:
+          type: string
+          description: From currency ISO code
+        currencyValue:
+          type: number
+          description: Currency market value
+        currencyBuyValue:
+          type: number
+          description: Currency buy value
+        currencySellValue:
+          type: number
+          description: Currency sell value
+      type: object
+      required:
+        - fromCurrency
+        - toCurrency
+        - currencyValue
+  fromEffectiveDate:
+    type: string
+    description: Date exchange rate is valid for
+type: object
+required:
+  - currencyValueList
+  - fromEffectiveDate

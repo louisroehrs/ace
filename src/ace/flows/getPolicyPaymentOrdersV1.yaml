@@ -1,0 +1,49 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  externalPolicyIdIndicator: boolean
+  insuranceCompany: integer
+  fromPaymentDueDate: string
+  toPaymentDueDate: string
+  paymentOrderType: integer
+  claim_id: integer
+  internal_id: integer
+  paymentStatus: number
+  minAmount: integer
+  maximumAmount: integer
+  paidCurrency: number
+  policy_id: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"externalPolicyIdIndicator":"externalPolicyIdIndicator","insuranceCompany":"insuranceCompany","fromPaymentDueDate":"fromPaymentDueDate","toPaymentDueDate":"toPaymentDueDate","paymentOrderType":"paymentOrderType","claim_id":"claim_id","internal_id":"internal_id","paymentStatus":"paymentStatus","minAmount":"minAmount","maximumAmount":"maximumAmount","paidCurrency":"paidCurrency"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policy_id}}/payment-orders"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

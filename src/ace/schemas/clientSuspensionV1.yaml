@@ -1,0 +1,39 @@
+title: clientSuspension
+properties:
+  effectiveDate:
+    type: string
+    format: date
+    description: The date from which this set of details is effective. This may be
+      before, after or on the date on which the data was actually set up
+      originally or changed.
+  activity:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+    description: Type of suspension.
+  fromDate:
+    type: string
+    format: date
+    description: Start of activity suspension period.
+  toDate:
+    type: string
+    format: date
+    description: End of activity suspension period.
+  suspensionReasonCode:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    description: This field stores the origin of the suspension of the client.
+  suspensionDescription:
+    type: string
+    description: This field stores the description of the suspension of the client.
+type: object
+required: []

@@ -1,0 +1,54 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  insuranceCompany: integer
+  externalPolicyIdIndicator: boolean
+  policy_id: string
+  externalAgentIdIndicator: boolean
+  agent_id: string
+  paymentStatus: number
+  claim_id: integer
+  externalClientIdIndicator: boolean
+  payee_client_id: string
+  fromPaymentDueDate: string
+  toPaymentDueDate: string
+  paymentOrderType: integer
+  minAmount: integer
+  maximumAmount: integer
+  paidCurrency: number
+  internal_id: integer
+  maxRows: integer
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"insuranceCompany":"insuranceCompany","externalPolicyIdIndicator":"externalPolicyIdIndicator","policy_id":"policy_id","externalAgentIdIndicator":"externalAgentIdIndicator","agent_id":"agent_id","paymentStatus":"paymentStatus","claim_id":"claim_id","externalClientIdIndicator":"externalClientIdIndicator","payee_client_id":"payee_client_id","fromPaymentDueDate":"fromPaymentDueDate","toPaymentDueDate":"toPaymentDueDate","paymentOrderType":"paymentOrderType","minAmount":"minAmount","maximumAmount":"maximumAmount","paidCurrency":"paidCurrency","internal_id":"internal_id","maxRows":"maxRows"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/general/payment-orders"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

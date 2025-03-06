@@ -1,0 +1,11 @@
+title: ResponseMessages
+properties:
+  messages:
+    type: array
+    items:
+      properties:
+        message:
+          type: string
+      type: object
+type: object
+required: []

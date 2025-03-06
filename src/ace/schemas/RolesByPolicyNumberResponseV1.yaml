@@ -1,0 +1,8 @@
+title: RolesByPolicyNumberResponse
+properties:
+  result:
+    $ref: RolesByPolicyNumberV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

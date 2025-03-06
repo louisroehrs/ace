@@ -1,0 +1,43 @@
+title: RequestClaimInitialNotification
+properties:
+  claimType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  claimSubType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  requestorId:
+    type: integer
+    nullable: true
+  clientId:
+    type: integer
+  requestDate:
+    type: string
+    format: date
+  effectiveDate:
+    type: string
+    format: date
+  clientEventNo:
+    type: integer
+    nullable: true
+type: object
+required:
+  - claimType
+  - claimSubType
+  - clientId
+  - requestDate
+  - effectiveDate

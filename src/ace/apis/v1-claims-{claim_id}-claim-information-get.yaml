@@ -1,0 +1,53 @@
+definition:
+  path: /v1/claims/{claim_id}/claim-information
+  verb: get
+  id: imported#/v1/claims/{claim_id}/claim-information#get
+  operationId: getClaimsInformationV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: claim_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/getClaimsInformationV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/getClaimsInformationV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getClaimsInformationV1.yaml
+method: get
+path: /v1/claims/{claim_id}/claim-information
+errorHandlers: []
+handlers: []

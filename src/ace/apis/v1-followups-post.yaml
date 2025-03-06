@@ -1,0 +1,68 @@
+definition:
+  path: /v1/followups
+  verb: post
+  id: imported#/v1/followups#post
+  operationId: addFollowUpV1
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: externalEntityIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: "true"
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/followUpRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FollowUpResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/FollowUpResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: addFollowUpV1.yaml
+method: post
+path: /v1/followups
+errorHandlers: []
+handlers: []

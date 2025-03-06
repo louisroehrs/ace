@@ -1,0 +1,45 @@
+definition:
+  path: /v1/policy/{policyNo}/calculatePremium
+  verb: get
+  id: imported#/v1/policy/{policyNo}/calculatePremium#get
+  operationId: 9bb46055-dcda-4994-bd6e-d3eb97782903V1
+  summary: Get the calculated premium for a given policy
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policyNo
+      description: Policy Number
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseCalculatePremiumV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseCalculatePremiumV1"
+  security:
+    - bearerAuth: []
+flow: 9bb46055-dcda-4994-bd6e-d3eb97782903V1.yaml
+method: get
+path: /v1/policy/{policyNo}/calculatePremium
+errorHandlers: []
+handlers: []

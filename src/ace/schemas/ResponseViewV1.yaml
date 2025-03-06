@@ -1,0 +1,18 @@
+title: ResponseView
+properties:
+  number:
+    type: integer
+    description: "column property name : number in ResponseView"
+    format: int32
+  reference:
+    type: string
+    description: "column property name : reference in ResponseView"
+  responseMessageList:
+    type: array
+    description: "column property name : responseMessageList in ResponseView"
+    xml:
+      wrapped: true
+    items:
+      $ref: ResponseMessageViewV1.yaml
+type: object
+description: "table property name : ResponseView"

@@ -1,0 +1,84 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  identifier:
+    type: integer
+  id:
+    type: integer
+  requestDate:
+    type: string
+    format: date
+  printDueDate:
+    type: string
+    format: date
+  printDate:
+    type: string
+    format: date
+  communicationType:
+    type: integer
+  reference:
+    type: string
+  printStatus:
+    type: integer
+  recipient:
+    type: integer
+  package:
+    type: integer
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        identifier:
+          type: integer
+        id:
+          type: integer
+        requestDate:
+          type: string
+          format: date
+        printDueDate:
+          type: string
+          format: date
+        printDate:
+          type: string
+          format: date
+        communicationType:
+          type: integer
+        reference:
+          type: string
+        printStatus:
+          type: integer
+        recipient:
+          type: integer
+        package:
+          type: integer
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/Communications"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: search letters based on parameters

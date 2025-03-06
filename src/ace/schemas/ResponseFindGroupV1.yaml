@@ -1,0 +1,274 @@
+title: ResponseFindGroup
+properties:
+  groupId:
+    type: number
+  groupName:
+    type: string
+  status:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  groupType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  currency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  assignedAdministrator:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  numberOfPotentialMembers:
+    type: number
+  activationMask:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  activationRatio:
+    type: number
+  description:
+    type: string
+  directSalesFlag:
+    type: boolean
+  quoteDataSource:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  defaultAgentId:
+    type: number
+  agentName:
+    type: string
+  introductoryCommissionFlag:
+    type: boolean
+  retirementAge:
+    type: number
+  parties:
+    type: array
+    items:
+      properties:
+        partyType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        clientId:
+          type: number
+        clientName:
+          type: string
+        clientAccountNumber:
+          type: number
+      type: object
+  salaryVariabilityLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  salaryVariabilityMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  duePeriodMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  attributes:
+    type: array
+    items:
+      properties:
+        attributeType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        attributeId:
+          type: number
+        attributeName:
+          type: string
+        categoryFlag:
+          type: boolean
+      type: object
+  subgroupTransferApproval:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  detailsLeaverApprovalCode:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  invoiceCreatedFlag:
+    type: boolean
+  invoiceLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  invoiceRegenOnUpdate:
+    type: boolean
+  midPeriodInvoice:
+    type: boolean
+  memberLevelPayrollExpected:
+    type: boolean
+  payrollSplitByPeriod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  billingBasis:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  billingTimingMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  gracePeriodForMemberUpdates:
+    type: string
+  inaccurateCollectionFlag:
+    type: boolean
+  reconciliationLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  reconciliationType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  payerId:
+    type: number
+  payerPaymentArrangementId:
+    type: number
+  fees:
+    type: array
+    items:
+      properties:
+        feeType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeLevel:
+          type: number
+        feeFrequency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeStartDate:
+          type: string
+        feeEndDate:
+          type: string
+        feeRequestType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeAmount:
+          type: number
+        feeAdvisor:
+          type: number
+      type: object
+  forwardCover:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  underwriting:
+    type: array
+    items:
+      properties:
+        uwGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        uwRoleGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        uwFreeCoverCode:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        uwFreeCoverAmount:
+          type: number
+        uwMaxSA:
+          type: number
+      type: object
+type: object

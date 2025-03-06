@@ -1,0 +1,19 @@
+title: RequestUpdatePaymentMethodView
+properties:
+  paymentDay:
+    title: PaymentDay
+    type: integer
+    description: Payment day
+  paymentMonth:
+    title: PaymentMonth
+    type: integer
+    description: Payment month
+  paymentFrequency:
+    title: PaymentFrequency
+    type: integer
+    description: Frequency of payment
+type: object
+required:
+  - paymentDay
+  - paymentMonth
+  - paymentFrequency

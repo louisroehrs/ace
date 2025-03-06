@@ -1,0 +1,768 @@
+definition:
+  path: /v1/group/findPlan
+  verb: post
+  id: imported#/v1/group/findPlan#post
+  operationId: cd24675b-2b18-4773-855e-e66e183d3f58V1
+  summary: Retrieves a Group's Plan details for a given Group ID and Plan Number.
+  tags:
+    - Group
+  requestBody: null
+  responses:
+    "200":
+      description: A single Plan's details.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              doc:
+                type: object
+                properties:
+                  groupId:
+                    type: integer
+                  planNo:
+                    type: integer
+                  overrideDataRequiredFlag:
+                    type: boolean
+                  result:
+                    type: object
+                    properties:
+                      planData:
+                        type: object
+                        properties:
+                          adHocFeeMainList:
+                            type: array
+                            items:
+                              type: object
+                          agreementNo:
+                            type: integer
+                          alterFromInception:
+                            type: string
+                          alterationType:
+                            type: string
+                          automaticPremiumOption:
+                            type: string
+                          benefitClaimEscalationDate:
+                            type: string
+                          benefitClaimEscalationTimingType:
+                            type: string
+                          benefitSelectionMode:
+                            type: integer
+                          calculationStatus:
+                            type: integer
+                          closingEffectiveDate:
+                            type: string
+                          closingReference:
+                            type: string
+                          closingRegistrationDate:
+                            type: string
+                          closingStatus:
+                            type: integer
+                          currency:
+                            type: string
+                          dividendFirstOption:
+                            type: string
+                          dividendSecondOption:
+                            type: string
+                          entityItemList:
+                            type: array
+                            items:
+                              type: object
+                          escalationMethod:
+                            type: integer
+                          fixedRate:
+                            type: string
+                          indexType:
+                            type: string
+                          individualLegalContractsFlag:
+                            type: boolean
+                          instructionRecordCode:
+                            type: integer
+                          investmentsAllocationLevel:
+                            type: integer
+                          managementFee:
+                            type: integer
+                          name:
+                            type: string
+                          nonForfeitureOption:
+                            type: string
+                          obligatoryCode:
+                            type: integer
+                          openingEffectiveDate:
+                            type: string
+                          openingReference:
+                            type: string
+                          openingRegistrationDate:
+                            type: string
+                          openingStatus:
+                            type: integer
+                          optOutDays:
+                            type: string
+                          overrideModelMap:
+                            type: string
+                          packageList:
+                            type: array
+                            items:
+                              type: object
+                          participationRatio:
+                            type: string
+                          planActivationOverrideFlag:
+                            type: string
+                          planBinderFeeList:
+                            type: array
+                            items:
+                              type: object
+                          planEndOfMarketing:
+                            type: string
+                          planMembershipList:
+                            type: string
+                          planSubgroupConnectionList:
+                            type: string
+                          portabilityExpenseDiscount:
+                            type: string
+                          product:
+                            type: integer
+                          reinsuranceMethod:
+                            type: integer
+                          ruleList:
+                            type: array
+                            items:
+                              type: object
+                          templateFlag:
+                            type: boolean
+                          templateId:
+                            type: integer
+                          transferFlag:
+                            type: string
+                          treaty:
+                            type: integer
+                          underwritingAccordingTo:
+                            type: integer
+                          uniqueId:
+                            type: integer
+                          userId:
+                            type: integer
+                          verificationDate:
+                            type: string
+                          verificationUser:
+                            type: string
+                          version:
+                            type: integer
+                        example:
+                          adHocFeeMainList: []
+                          agreementNo: 1
+                          alterFromInception: null
+                          alterationType: null
+                          automaticPremiumOption: null
+                          benefitClaimEscalationDate: null
+                          benefitClaimEscalationTimingType: null
+                          benefitSelectionMode: 2
+                          calculationStatus: 1
+                          closingEffectiveDate: 3000-01-01
+                          closingReference: ""
+                          closingRegistrationDate: 3000-01-01
+                          closingStatus: 0
+                          currency: null
+                          dividendFirstOption: null
+                          dividendSecondOption: null
+                          entityItemList: []
+                          escalationMethod: 0
+                          fixedRate: null
+                          indexType: null
+                          individualLegalContractsFlag: true
+                          instructionRecordCode: 0
+                          investmentsAllocationLevel: 0
+                          managementFee: 0
+                          name: Plan
+                          nonForfeitureOption: null
+                          obligatoryCode: 3
+                          openingEffectiveDate: 02/01/20
+                          openingReference: "87836"
+                          openingRegistrationDate: 2020-01-01
+                          openingStatus: 10
+                          optOutDays: null
+                          overrideModelMap: null
+                          packageList: []
+                          participationRatio: null
+                          planActivationOverrideFlag: null
+                          planBinderFeeList: []
+                          planEndOfMarketing: null
+                          planMembershipList: null
+                          planSubgroupConnectionList: null
+                          portabilityExpenseDiscount: null
+                          product: 5000
+                          reinsuranceMethod: 0
+                          ruleList: []
+                          templateFlag: false
+                          templateId: 0
+                          transferFlag: null
+                          treaty: 0
+                          underwritingAccordingTo: 1
+                          uniqueId: 6154
+                          userId: 230
+                          verificationDate: null
+                          verificationUser: null
+                          version: 1
+                    example:
+                      planData:
+                        adHocFeeMainList: []
+                        agreementNo: 1
+                        alterFromInception: null
+                        alterationType: null
+                        automaticPremiumOption: null
+                        benefitClaimEscalationDate: null
+                        benefitClaimEscalationTimingType: null
+                        benefitSelectionMode: 2
+                        calculationStatus: 1
+                        closingEffectiveDate: 3000-01-01
+                        closingReference: ""
+                        closingRegistrationDate: 3000-01-01
+                        closingStatus: 0
+                        currency: null
+                        dividendFirstOption: null
+                        dividendSecondOption: null
+                        entityItemList: []
+                        escalationMethod: 0
+                        fixedRate: null
+                        indexType: null
+                        individualLegalContractsFlag: true
+                        instructionRecordCode: 0
+                        investmentsAllocationLevel: 0
+                        managementFee: 0
+                        name: Plan
+                        nonForfeitureOption: null
+                        obligatoryCode: 3
+                        openingEffectiveDate: 02/01/20
+                        openingReference: "87836"
+                        openingRegistrationDate: 2020-01-01
+                        openingStatus: 10
+                        optOutDays: null
+                        overrideModelMap: null
+                        packageList: []
+                        participationRatio: null
+                        planActivationOverrideFlag: null
+                        planBinderFeeList: []
+                        planEndOfMarketing: null
+                        planMembershipList: null
+                        planSubgroupConnectionList: null
+                        portabilityExpenseDiscount: null
+                        product: 5000
+                        reinsuranceMethod: 0
+                        ruleList: []
+                        templateFlag: false
+                        templateId: 0
+                        transferFlag: null
+                        treaty: 0
+                        underwritingAccordingTo: 1
+                        uniqueId: 6154
+                        userId: 230
+                        verificationDate: null
+                        verificationUser: null
+                        version: 1
+                example:
+                  groupId: 552
+                  planNo: 1
+                  overrideDataRequiredFlag: false
+                  result:
+                    planData:
+                      adHocFeeMainList: []
+                      agreementNo: 1
+                      alterFromInception: null
+                      alterationType: null
+                      automaticPremiumOption: null
+                      benefitClaimEscalationDate: null
+                      benefitClaimEscalationTimingType: null
+                      benefitSelectionMode: 2
+                      calculationStatus: 1
+                      closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      currency: null
+                      dividendFirstOption: null
+                      dividendSecondOption: null
+                      entityItemList: []
+                      escalationMethod: 0
+                      fixedRate: null
+                      indexType: null
+                      individualLegalContractsFlag: true
+                      instructionRecordCode: 0
+                      investmentsAllocationLevel: 0
+                      managementFee: 0
+                      name: Plan
+                      nonForfeitureOption: null
+                      obligatoryCode: 3
+                      openingEffectiveDate: 02/01/20
+                      openingReference: "87836"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      optOutDays: null
+                      overrideModelMap: null
+                      packageList: []
+                      participationRatio: null
+                      planActivationOverrideFlag: null
+                      planBinderFeeList: []
+                      planEndOfMarketing: null
+                      planMembershipList: null
+                      planSubgroupConnectionList: null
+                      portabilityExpenseDiscount: null
+                      product: 5000
+                      reinsuranceMethod: 0
+                      ruleList: []
+                      templateFlag: false
+                      templateId: 0
+                      transferFlag: null
+                      treaty: 0
+                      underwritingAccordingTo: 1
+                      uniqueId: 6154
+                      userId: 230
+                      verificationDate: null
+                      verificationUser: null
+                      version: 1
+              errors:
+                type: array
+                items:
+                  type: object
+            example:
+              doc:
+                groupId: 552
+                planNo: 1
+                overrideDataRequiredFlag: false
+                result:
+                  planData:
+                    adHocFeeMainList: []
+                    agreementNo: 1
+                    alterFromInception: null
+                    alterationType: null
+                    automaticPremiumOption: null
+                    benefitClaimEscalationDate: null
+                    benefitClaimEscalationTimingType: null
+                    benefitSelectionMode: 2
+                    calculationStatus: 1
+                    closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    currency: null
+                    dividendFirstOption: null
+                    dividendSecondOption: null
+                    entityItemList: []
+                    escalationMethod: 0
+                    fixedRate: null
+                    indexType: null
+                    individualLegalContractsFlag: true
+                    instructionRecordCode: 0
+                    investmentsAllocationLevel: 0
+                    managementFee: 0
+                    name: Plan
+                    nonForfeitureOption: null
+                    obligatoryCode: 3
+                    openingEffectiveDate: 02/01/20
+                    openingReference: "87836"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    optOutDays: null
+                    overrideModelMap: null
+                    packageList: []
+                    participationRatio: null
+                    planActivationOverrideFlag: null
+                    planBinderFeeList: []
+                    planEndOfMarketing: null
+                    planMembershipList: null
+                    planSubgroupConnectionList: null
+                    portabilityExpenseDiscount: null
+                    product: 5000
+                    reinsuranceMethod: 0
+                    ruleList: []
+                    templateFlag: false
+                    templateId: 0
+                    transferFlag: null
+                    treaty: 0
+                    underwritingAccordingTo: 1
+                    uniqueId: 6154
+                    userId: 230
+                    verificationDate: null
+                    verificationUser: null
+                    version: 1
+              errors: []
+        application/xml:
+          schema:
+            type: object
+            properties:
+              doc:
+                type: object
+                properties:
+                  groupId:
+                    type: integer
+                  planNo:
+                    type: integer
+                  overrideDataRequiredFlag:
+                    type: boolean
+                  result:
+                    type: object
+                    properties:
+                      planData:
+                        type: object
+                        properties:
+                          adHocFeeMainList:
+                            type: array
+                            items:
+                              type: object
+                          agreementNo:
+                            type: integer
+                          alterFromInception:
+                            type: string
+                          alterationType:
+                            type: string
+                          automaticPremiumOption:
+                            type: string
+                          benefitClaimEscalationDate:
+                            type: string
+                          benefitClaimEscalationTimingType:
+                            type: string
+                          benefitSelectionMode:
+                            type: integer
+                          calculationStatus:
+                            type: integer
+                          closingEffectiveDate:
+                            type: string
+                          closingReference:
+                            type: string
+                          closingRegistrationDate:
+                            type: string
+                          closingStatus:
+                            type: integer
+                          currency:
+                            type: string
+                          dividendFirstOption:
+                            type: string
+                          dividendSecondOption:
+                            type: string
+                          entityItemList:
+                            type: array
+                            items:
+                              type: object
+                          escalationMethod:
+                            type: integer
+                          fixedRate:
+                            type: string
+                          indexType:
+                            type: string
+                          individualLegalContractsFlag:
+                            type: boolean
+                          instructionRecordCode:
+                            type: integer
+                          investmentsAllocationLevel:
+                            type: integer
+                          managementFee:
+                            type: integer
+                          name:
+                            type: string
+                          nonForfeitureOption:
+                            type: string
+                          obligatoryCode:
+                            type: integer
+                          openingEffectiveDate:
+                            type: string
+                          openingReference:
+                            type: string
+                          openingRegistrationDate:
+                            type: string
+                          openingStatus:
+                            type: integer
+                          optOutDays:
+                            type: string
+                          overrideModelMap:
+                            type: string
+                          packageList:
+                            type: array
+                            items:
+                              type: object
+                          participationRatio:
+                            type: string
+                          planActivationOverrideFlag:
+                            type: string
+                          planBinderFeeList:
+                            type: array
+                            items:
+                              type: object
+                          planEndOfMarketing:
+                            type: string
+                          planMembershipList:
+                            type: string
+                          planSubgroupConnectionList:
+                            type: string
+                          portabilityExpenseDiscount:
+                            type: string
+                          product:
+                            type: integer
+                          reinsuranceMethod:
+                            type: integer
+                          ruleList:
+                            type: array
+                            items:
+                              type: object
+                          templateFlag:
+                            type: boolean
+                          templateId:
+                            type: integer
+                          transferFlag:
+                            type: string
+                          treaty:
+                            type: integer
+                          underwritingAccordingTo:
+                            type: integer
+                          uniqueId:
+                            type: integer
+                          userId:
+                            type: integer
+                          verificationDate:
+                            type: string
+                          verificationUser:
+                            type: string
+                          version:
+                            type: integer
+                        example:
+                          adHocFeeMainList: []
+                          agreementNo: 1
+                          alterFromInception: null
+                          alterationType: null
+                          automaticPremiumOption: null
+                          benefitClaimEscalationDate: null
+                          benefitClaimEscalationTimingType: null
+                          benefitSelectionMode: 2
+                          calculationStatus: 1
+                          closingEffectiveDate: 3000-01-01
+                          closingReference: ""
+                          closingRegistrationDate: 3000-01-01
+                          closingStatus: 0
+                          currency: null
+                          dividendFirstOption: null
+                          dividendSecondOption: null
+                          entityItemList: []
+                          escalationMethod: 0
+                          fixedRate: null
+                          indexType: null
+                          individualLegalContractsFlag: true
+                          instructionRecordCode: 0
+                          investmentsAllocationLevel: 0
+                          managementFee: 0
+                          name: Plan
+                          nonForfeitureOption: null
+                          obligatoryCode: 3
+                          openingEffectiveDate: 02/01/20
+                          openingReference: "87836"
+                          openingRegistrationDate: 2020-01-01
+                          openingStatus: 10
+                          optOutDays: null
+                          overrideModelMap: null
+                          packageList: []
+                          participationRatio: null
+                          planActivationOverrideFlag: null
+                          planBinderFeeList: []
+                          planEndOfMarketing: null
+                          planMembershipList: null
+                          planSubgroupConnectionList: null
+                          portabilityExpenseDiscount: null
+                          product: 5000
+                          reinsuranceMethod: 0
+                          ruleList: []
+                          templateFlag: false
+                          templateId: 0
+                          transferFlag: null
+                          treaty: 0
+                          underwritingAccordingTo: 1
+                          uniqueId: 6154
+                          userId: 230
+                          verificationDate: null
+                          verificationUser: null
+                          version: 1
+                    example:
+                      planData:
+                        adHocFeeMainList: []
+                        agreementNo: 1
+                        alterFromInception: null
+                        alterationType: null
+                        automaticPremiumOption: null
+                        benefitClaimEscalationDate: null
+                        benefitClaimEscalationTimingType: null
+                        benefitSelectionMode: 2
+                        calculationStatus: 1
+                        closingEffectiveDate: 3000-01-01
+                        closingReference: ""
+                        closingRegistrationDate: 3000-01-01
+                        closingStatus: 0
+                        currency: null
+                        dividendFirstOption: null
+                        dividendSecondOption: null
+                        entityItemList: []
+                        escalationMethod: 0
+                        fixedRate: null
+                        indexType: null
+                        individualLegalContractsFlag: true
+                        instructionRecordCode: 0
+                        investmentsAllocationLevel: 0
+                        managementFee: 0
+                        name: Plan
+                        nonForfeitureOption: null
+                        obligatoryCode: 3
+                        openingEffectiveDate: 02/01/20
+                        openingReference: "87836"
+                        openingRegistrationDate: 2020-01-01
+                        openingStatus: 10
+                        optOutDays: null
+                        overrideModelMap: null
+                        packageList: []
+                        participationRatio: null
+                        planActivationOverrideFlag: null
+                        planBinderFeeList: []
+                        planEndOfMarketing: null
+                        planMembershipList: null
+                        planSubgroupConnectionList: null
+                        portabilityExpenseDiscount: null
+                        product: 5000
+                        reinsuranceMethod: 0
+                        ruleList: []
+                        templateFlag: false
+                        templateId: 0
+                        transferFlag: null
+                        treaty: 0
+                        underwritingAccordingTo: 1
+                        uniqueId: 6154
+                        userId: 230
+                        verificationDate: null
+                        verificationUser: null
+                        version: 1
+                example:
+                  groupId: 552
+                  planNo: 1
+                  overrideDataRequiredFlag: false
+                  result:
+                    planData:
+                      adHocFeeMainList: []
+                      agreementNo: 1
+                      alterFromInception: null
+                      alterationType: null
+                      automaticPremiumOption: null
+                      benefitClaimEscalationDate: null
+                      benefitClaimEscalationTimingType: null
+                      benefitSelectionMode: 2
+                      calculationStatus: 1
+                      closingEffectiveDate: 3000-01-01
+                      closingReference: ""
+                      closingRegistrationDate: 3000-01-01
+                      closingStatus: 0
+                      currency: null
+                      dividendFirstOption: null
+                      dividendSecondOption: null
+                      entityItemList: []
+                      escalationMethod: 0
+                      fixedRate: null
+                      indexType: null
+                      individualLegalContractsFlag: true
+                      instructionRecordCode: 0
+                      investmentsAllocationLevel: 0
+                      managementFee: 0
+                      name: Plan
+                      nonForfeitureOption: null
+                      obligatoryCode: 3
+                      openingEffectiveDate: 02/01/20
+                      openingReference: "87836"
+                      openingRegistrationDate: 2020-01-01
+                      openingStatus: 10
+                      optOutDays: null
+                      overrideModelMap: null
+                      packageList: []
+                      participationRatio: null
+                      planActivationOverrideFlag: null
+                      planBinderFeeList: []
+                      planEndOfMarketing: null
+                      planMembershipList: null
+                      planSubgroupConnectionList: null
+                      portabilityExpenseDiscount: null
+                      product: 5000
+                      reinsuranceMethod: 0
+                      ruleList: []
+                      templateFlag: false
+                      templateId: 0
+                      transferFlag: null
+                      treaty: 0
+                      underwritingAccordingTo: 1
+                      uniqueId: 6154
+                      userId: 230
+                      verificationDate: null
+                      verificationUser: null
+                      version: 1
+              errors:
+                type: array
+                items:
+                  type: object
+            example:
+              doc:
+                groupId: 552
+                planNo: 1
+                overrideDataRequiredFlag: false
+                result:
+                  planData:
+                    adHocFeeMainList: []
+                    agreementNo: 1
+                    alterFromInception: null
+                    alterationType: null
+                    automaticPremiumOption: null
+                    benefitClaimEscalationDate: null
+                    benefitClaimEscalationTimingType: null
+                    benefitSelectionMode: 2
+                    calculationStatus: 1
+                    closingEffectiveDate: 3000-01-01
+                    closingReference: ""
+                    closingRegistrationDate: 3000-01-01
+                    closingStatus: 0
+                    currency: null
+                    dividendFirstOption: null
+                    dividendSecondOption: null
+                    entityItemList: []
+                    escalationMethod: 0
+                    fixedRate: null
+                    indexType: null
+                    individualLegalContractsFlag: true
+                    instructionRecordCode: 0
+                    investmentsAllocationLevel: 0
+                    managementFee: 0
+                    name: Plan
+                    nonForfeitureOption: null
+                    obligatoryCode: 3
+                    openingEffectiveDate: 02/01/20
+                    openingReference: "87836"
+                    openingRegistrationDate: 2020-01-01
+                    openingStatus: 10
+                    optOutDays: null
+                    overrideModelMap: null
+                    packageList: []
+                    participationRatio: null
+                    planActivationOverrideFlag: null
+                    planBinderFeeList: []
+                    planEndOfMarketing: null
+                    planMembershipList: null
+                    planSubgroupConnectionList: null
+                    portabilityExpenseDiscount: null
+                    product: 5000
+                    reinsuranceMethod: 0
+                    ruleList: []
+                    templateFlag: false
+                    templateId: 0
+                    transferFlag: null
+                    treaty: 0
+                    underwritingAccordingTo: 1
+                    uniqueId: 6154
+                    userId: 230
+                    verificationDate: null
+                    verificationUser: null
+                    version: 1
+              errors: []
+  security:
+    - bearerAuth: []
+flow: cd24675b-2b18-4773-855e-e66e183d3f58V1.yaml
+method: post
+path: /v1/group/findPlan
+errorHandlers: []
+handlers: []

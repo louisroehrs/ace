@@ -1,0 +1,7 @@
+title: systemRegDate
+properties:
+  regDate:
+    type: string
+type: object
+required:
+  - regDate

@@ -1,0 +1,68 @@
+tags:
+  - Client
+sampleInputSchema: ""
+sampleData:
+  companyId:
+    type: integer
+  idReference:
+    type: string
+    description: idReference or dob has to be sent
+  dob:
+    type: string
+    format: date
+    description: idReference or dob has to be sent
+  surname:
+    type: string
+  firstName:
+    type: string
+  zipCode:
+    type: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        companyId:
+          type: integer
+        idReference:
+          type: string
+          description: idReference or dob has to be sent
+        dob:
+          type: string
+          format: date
+          description: idReference or dob has to be sent
+        surname:
+          type: string
+        firstName:
+          type: string
+        zipCode:
+          type: string
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/clients/search-person-advanced"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

@@ -1,0 +1,8 @@
+title: ClientPaymentArrangementsResponse
+properties:
+  result:
+    $ref: ResponseClientPaymentArrangementsV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

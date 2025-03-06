@@ -1,0 +1,41 @@
+title: calcClaimAdditionalAmountsResponse
+properties:
+  AdditionalAmountsDetails:
+    type: array
+    items:
+      properties:
+        benefitGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        balanceType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        contributionType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        layer:
+          type: string
+        originalAmount:
+          type: integer
+        manualAmountFlag:
+          type: boolean
+        finalAmount:
+          type: integer
+        reference:
+          type: string
+        description:
+          type: string
+      type: object
+type: object

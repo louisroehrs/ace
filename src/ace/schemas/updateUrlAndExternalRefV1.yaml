@@ -1,0 +1,12 @@
+title: updateUrlAndExternalRef
+properties:
+  docUrl:
+    title: locationUrl
+    type: string
+    description: document location
+  letterExtRef:
+    title: externalRef
+    type: string
+    description: externalRef
+type: object
+description: Update Url and External Ref

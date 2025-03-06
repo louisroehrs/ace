@@ -1,0 +1,33 @@
+title: PolicyNextCollectionDetails
+properties:
+  result:
+    properties:
+      policyNo:
+        type: integer
+      payment:
+        properties:
+          nextCollectionAmount:
+            type: number
+          nextCollectionDate:
+            type: string
+            format: date
+          paymentMethod:
+            properties:
+              number:
+                type: number
+              name:
+                type: string
+            type: object
+          paymentFrequency:
+            properties:
+              code:
+                type: number
+              name:
+                type: string
+            type: object
+        type: object
+        required: []
+    type: object
+    required: []
+type: object
+required: []

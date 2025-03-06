@@ -1,0 +1,53 @@
+definition:
+  path: /v1/clients/{external_client_id}/internal-ids
+  verb: get
+  id: imported#/v1/clients/{external_client_id}/internal-ids#get
+  operationId: getInternalClientIdFromExternalNoV1
+  tags:
+    - Client
+  parameters:
+    - in: path
+      name: external_client_id
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/getInternalEntityNoFromExternalNoResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/getInternalEntityNoFromExternalNoResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getInternalClientIdFromExternalNoV1.yaml
+method: get
+path: /v1/clients/{external_client_id}/internal-ids
+errorHandlers: []
+handlers: []

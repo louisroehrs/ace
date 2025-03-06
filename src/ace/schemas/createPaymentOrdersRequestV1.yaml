@@ -1,0 +1,101 @@
+title: createPaymentOrdersRequest
+properties:
+  paymentOrders:
+    type: array
+    items:
+      properties:
+        paymentAmount:
+          type: integer
+        payeeId:
+          type: integer
+        benefitGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required:
+            - code
+        requestType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required:
+            - code
+        percentage:
+          type: integer
+        originalAmount:
+          type: integer
+        paymentStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required:
+            - code
+        paymentDate:
+          type: string
+        additionalAmountfromSurplus:
+          type: integer
+        paymentOption:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        paymentMethod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        destinationReference:
+          type: string
+        paymentOrderType:
+          type: number
+        bankAccount:
+          properties:
+            transitRoutingNumber:
+              type: string
+            accountNumber:
+              type: string
+            accountType:
+              properties:
+                code:
+                  type: number
+                name:
+                  type: string
+              type: object
+            accountName:
+              type: string
+          type: object
+        manualInterest:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        interestAmount:
+          type: integer
+        interestRate:
+          type: integer
+        overrideUser:
+          type: integer
+        openingUser:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+      type: object
+type: object

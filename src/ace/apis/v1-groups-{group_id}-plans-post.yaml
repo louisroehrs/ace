@@ -1,0 +1,50 @@
+definition:
+  path: /v1/groups/{group_id}/plans
+  verb: post
+  id: imported#/v1/groups/{group_id}/plans#post
+  operationId: 13289ded-f4a7-4843-90e7-5501ba8ddb1cV1
+  summary: ACE service for create plan
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/CreatePlanRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CreatePlanResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/CreatePlanResponseV1"
+  security:
+    - bearerAuth: []
+flow: 13289ded-f4a7-4843-90e7-5501ba8ddb1cV1.yaml
+method: post
+path: /v1/groups/{group_id}/plans
+errorHandlers: []
+handlers: []

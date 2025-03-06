@@ -1,0 +1,65 @@
+definition:
+  path: /v1/metadata/products/{product_id}/versions/{version_id}/availableFunds
+  verb: get
+  id: imported#/v1/metadata/products/{product_id}/versions/{version_id}/availableFunds#get
+  operationId: getAvailableFundsforProductAndVersionV1
+  tags:
+    - metadata
+  parameters:
+    - in: path
+      name: product_id
+      description: product
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: version_id
+      description: Version
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/availableFundsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/availableFundsV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getAvailableFundsforProductAndVersionV1.yaml
+method: get
+path: /v1/metadata/products/{product_id}/versions/{version_id}/availableFunds
+errorHandlers: []
+handlers: []

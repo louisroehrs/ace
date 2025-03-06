@@ -1,0 +1,6 @@
+title: UpdateUrlAndExtRefResponse
+properties:
+  result:
+    $ref: updateResponseV1.yaml
+type: object
+required: []

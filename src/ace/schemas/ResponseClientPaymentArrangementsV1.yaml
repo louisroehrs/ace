@@ -1,0 +1,35 @@
+title: ResponseClientPaymentArrangements
+properties:
+  clientId:
+    type: string
+  paymentArrangements:
+    type: array
+    items:
+      properties:
+        paymentArrangementId:
+          type: number
+        paymentArrangementName:
+          type: string
+        paymentMethod:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        paymentFrequency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        insuranceCompany:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+      type: object
+type: object

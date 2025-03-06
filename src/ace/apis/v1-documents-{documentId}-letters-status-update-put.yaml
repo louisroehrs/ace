@@ -1,0 +1,60 @@
+definition:
+  path: /v1/documents/{documentId}/letters-status-update
+  verb: put
+  id: imported#/v1/documents/{documentId}/letters-status-update#put
+  operationId: updateLetterStatusV1
+  summary: Letters Status Update
+  description: ""
+  tags:
+    - General
+  parameters:
+    - in: path
+      name: documentId
+      required: true
+      description: ""
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      required: false
+      description: ""
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      required: false
+      description: ""
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/lettersStatusUpdateRequestV1"
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/lettersStatusUpdateResponeV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/lettersStatusUpdateResponeV1"
+    "400":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: updateLetterStatusV1.yaml
+method: put
+path: /v1/documents/{documentId}/letters-status-update
+errorHandlers: []
+handlers: []

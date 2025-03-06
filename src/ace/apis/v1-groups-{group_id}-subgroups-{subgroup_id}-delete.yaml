@@ -1,0 +1,66 @@
+definition:
+  path: /v1/groups/{group_id}/subgroups/{subgroup_id}
+  verb: delete
+  id: imported#/v1/groups/{group_id}/subgroups/{subgroup_id}#delete
+  operationId: deleteSubgroupV1
+  tags:
+    - Group
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: path
+      name: group_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: subgroup_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/updateResponseWithCodeV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/updateResponseWithCodeV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: deleteSubgroupV1.yaml
+method: delete
+path: /v1/groups/{group_id}/subgroups/{subgroup_id}
+errorHandlers: []
+handlers: []

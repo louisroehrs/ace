@@ -1,0 +1,53 @@
+title: createWithdrawalsRequest
+properties:
+  claimType:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  claimSubType:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  requestorId:
+    type: integer
+  notificationDate:
+    type: string
+    format: date
+  effectiveDate:
+    type: string
+    format: date
+  priceDate:
+    type: string
+    format: date
+  surrenderRequestType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  requestedAmount:
+    type: number
+  funds:
+    type: array
+    items:
+      properties:
+        number:
+          type: integer
+        name:
+          type: string
+        isinCode:
+          type: string
+        externalReference:
+          type: string
+        requestedAmount:
+          type: number
+      type: object
+type: object
+required: []

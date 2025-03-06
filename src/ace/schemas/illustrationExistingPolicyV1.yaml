@@ -1,0 +1,13 @@
+title: illustrationExistingPolicy
+properties:
+  illustrationType:
+    type: integer
+  annuityType:
+    type: integer
+  annuitantAge:
+    type: integer
+type: object
+required:
+  - illustrationType
+  - annuityType
+  - annuitantAge

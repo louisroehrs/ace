@@ -1,0 +1,105 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  Product:
+    type: number
+    description: Product number
+  Version:
+    type: number
+    description: Product version number
+  EffecDate:
+    type: string
+    description: Effective date (and application's commencement date)
+  DOB:
+    type: string
+    description: Main insured's date of birth
+  ClientId:
+    type: number
+    description: Main insured's ID
+  AgentId:
+    type: number
+    description: Main agent's ID
+  CoverList:
+    type: array
+    items:
+      type: number
+    description: List of cover types requested
+  CoverSumList:
+    type: array
+    items:
+      type: number
+    description: List of sums requested per cover
+  FundList:
+    type: array
+    items:
+      type: number
+    description: List of funds requested per cover
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        Product:
+          type: number
+          description: Product number
+        Version:
+          type: number
+          description: Product version number
+        EffecDate:
+          type: string
+          description: Effective date (and application's commencement date)
+        DOB:
+          type: string
+          description: Main insured's date of birth
+        ClientId:
+          type: number
+          description: Main insured's ID
+        AgentId:
+          type: number
+          description: Main agent's ID
+        CoverList:
+          type: array
+          items:
+            type: number
+          description: List of cover types requested
+        CoverSumList:
+          type: array
+          items:
+            type: number
+          description: List of sums requested per cover
+        FundList:
+          type: array
+          items:
+            type: number
+          description: List of funds requested per cover
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policy/createQuickApplication"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Creates a quick application with minimal input (product version,
+      covers, insured client and agent)

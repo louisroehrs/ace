@@ -1,0 +1,296 @@
+title: RequestCreateGroupView
+properties:
+  groupName:
+    type: string
+  companyId:
+    type: number
+  groupType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  currency:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  assignedAdministrator:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  numberOfPotentialMembers:
+    type: number
+  activationMask:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  activationRatio:
+    type: number
+  description:
+    type: string
+  directSalesFlag:
+    type: boolean
+  quoteDataSource:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  defaultAgentId:
+    type: number
+  introductoryCommissionFlag:
+    type: boolean
+  retirementAge:
+    type: number
+  parties:
+    type: array
+    items:
+      properties:
+        partyType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        clientId:
+          type: number
+        clientAccountNumber:
+          type: number
+      type: object
+  salaryVariabilityLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  salaryVariabilityMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  duePeriodMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  memberAttributes:
+    type: array
+    items:
+      properties:
+        attributeType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        attributeName:
+          type: string
+        categoryFlag:
+          type: boolean
+      type: object
+  costModel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  subgroupTransferApproval:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  detailsLeaverApprovalCode:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  invoiceCreatedFlag:
+    type: boolean
+  invoiceLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  invoiceRegenOnUpdate:
+    type: boolean
+  midPeriodInvoice:
+    type: boolean
+  memberLevelPayrollExpected:
+    type: boolean
+  payrollSplitByPeriod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  billingBasis:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  billingTimingMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  inaccurateCollectionFlag:
+    type: boolean
+  reconciliationLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  reconciliationType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  payerId:
+    type: integer
+  payerPaymentArrangementId:
+    type: integer
+  forwardCover:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  companyPolicyHolderFlag:
+    type: boolean
+  salesChannel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  marketAgreement:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  groupIsASubgroupFlag:
+    type: boolean
+  numericValue:
+    type: number
+  dateValue:
+    type: string
+  gracePeriodForMemberUpdates:
+    type: number
+  fees:
+    type: array
+    items:
+      properties:
+        feeType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeFrequency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeStartDate:
+          type: string
+        feeEndDate:
+          type: string
+        feeRequestType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        feeAmount:
+          type: number
+        feeAdvisor:
+          type: number
+      type: object
+  underWriting:
+    type: array
+    items:
+      properties:
+        uwGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        uwRoleGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        uwFreeCoverCode:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        uwMaxSA:
+          type: number
+        uwFclChangeApplied:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        freeCoverAmount:
+          type: number
+      type: object
+type: object
+required: []

@@ -1,0 +1,910 @@
+title: getPlanResponse
+properties:
+  effectiveDate:
+    type: string
+    format: date
+  product:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+      version:
+        type: number
+    type: object
+  planName:
+    type: string
+  planStatus:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  currency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  agreementNo:
+    type: number
+  typeOfContract:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  lastDayForProductMarketing:
+    type: string
+    format: date
+  collectedFrom:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  financedBy:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  dispersalLevel:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  obligatoryCode:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  benefitSelectionMode:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  memberBenefitStatementFlag:
+    type: boolean
+    default: false
+  illustrationAcceptanceRequiredFlag:
+    type: boolean
+    default: false
+  allowManualPartialDispersalFlag:
+    type: boolean
+    default: false
+  nonForfeitureOption:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  automaticPremiumOption:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  manualCostModelFlag:
+    type: boolean
+    default: false
+  costModel:
+    properties:
+      number:
+        type: integer
+      name:
+        type: string
+    type: object
+  expenses:
+    type: array
+    items:
+      properties:
+        expenseType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        adjusmentType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        adjusmentAmount:
+          type: integer
+        adjusmentPercentage:
+          type: integer
+      type: object
+  advisorFee:
+    type: array
+    items:
+      properties:
+        feeId:
+          type: integer
+        feeType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        feeFrequency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        feeStartDate:
+          type: string
+          format: date
+        feeEndDate:
+          type: string
+          format: date
+        feeStatus:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        feeRequestType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        feePercentageAmount:
+          type: number
+        feeMonetaryAmount:
+          type: number
+        internalAdHocFeeNo:
+          type: integer
+        advisors:
+          type: array
+          items:
+            properties:
+              id:
+                type: integer
+              advisorAccountId:
+                type: integer
+              percentage:
+                type: integer
+            type: object
+      type: object
+  reinsuranceRequiredFlag:
+    type: boolean
+    default: false
+  reinsuranceArrangement:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  entityItems:
+    type: array
+    items:
+      properties:
+        type:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        id:
+          type: number
+        value:
+          type: string
+        valueDescription:
+          type: string
+        name:
+          type: string
+      type: object
+  allowPortabilityFromThePlanFlag:
+    type: boolean
+    default: false
+  portabilityProduct:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  portabilityProductVersion:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  portabilityExpenseDiscount:
+    type: integer
+  rules:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        ruleType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        ruleName:
+          type: string
+        ruleLogic:
+          type: array
+          items:
+            properties:
+              id:
+                type: integer
+              openingParenthesis:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              conditionType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              conditionValue:
+                type: integer
+              conditionSubValue:
+                type: integer
+              operator:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              comparedType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              comparedValue:
+                type: integer
+              comparedSubValue:
+                type: integer
+              closingParenthesis:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              relation:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              lineNumber:
+                type: integer
+            type: object
+      type: object
+  certificateCommencementBackdatingLimit:
+    type: integer
+  certificateCommencementPostdatingLimit:
+    type: integer
+  minEntryAge:
+    type: integer
+  maxEntryAge:
+    type: integer
+  memberCertificateTermOption:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  defaultTermMethod:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  terminationAge:
+    type: integer
+  defaultTermYyPeriod:
+    type: integer
+  defaultTermMmPeriod:
+    type: integer
+  defaultTermDdPeriod:
+    type: integer
+  wholeLifeTermAge:
+    type: integer
+  memberUnderwriting:
+    type: boolean
+    default: false
+  underwritingMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  forceManualUnderwriting:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  uwProcessIncludes:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  underwritingAccordingTo:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  noActivationWithPendingUnderwritingFlag:
+    type: boolean
+    default: false
+  questionnaire:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      type: object
+  escalationTiming:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  escalationDate:
+    type: string
+    format: date
+  roles:
+    type: array
+    items:
+      properties:
+        role:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        requiredCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        minAge:
+          type: integer
+        maxAge:
+          type: integer
+      type: object
+  covers:
+    type: array
+    items:
+      properties:
+        cover:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        requiredCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        state:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        allowedRoles:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        roleGroup:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        deferredPeriod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        benefitPaymentPeriod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        benefitPaymentToAge:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        collectedFrom:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        financedBy:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        premiumDispersalLevel:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        ageAtEndOfTerm:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        terminationAge:
+          type: integer
+        taperPeriodYears:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        taperPeriodFrequency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        waitingPeriodInMonths:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        premiumMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        premiumType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        premiumFrequency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        premiumSalaryType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        premium:
+          type: number
+        rate:
+          type: number
+        premiumSalaryAdjustmentFormat:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        formula:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        productRateTable:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        adjustment:
+          type: integer
+        premiumDiscountforPortabilityPolicy:
+          type: integer
+        sumAssuredMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        sumAssuredType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        sumAssuredAmount:
+          type: integer
+        benefitSalaryType:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        salaryAdjustmentFormat:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        maximumSumAssured:
+          type: integer
+        minimumSumAssured:
+          type: integer
+        sumAssuredPercentage:
+          type: integer
+        defaultSumAssured:
+          type: integer
+        defaultSumAssuredPercent:
+          type: integer
+        incrementsIn:
+          type: integer
+        incrementsInPercent:
+          type: integer
+        minimum:
+          type: integer
+        maximum:
+          type: integer
+        minimumPercent:
+          type: integer
+        maximumPercent:
+          type: integer
+        freeCoverMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        freeCoverAmount:
+          type: integer
+        claimEscalation:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        escalationMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        escalationPercentage:
+          type: integer
+        indexType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        indexCap:
+          type: integer
+        entityItems:
+          type: array
+          items:
+            properties:
+              type:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              id:
+                type: number
+              value:
+                type: string
+              valueDescription:
+                type: string
+              name:
+                type: string
+            type: object
+        loadings:
+          type: array
+          items:
+            properties:
+              loadingType:
+                properties:
+                  number:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              calculationMethod:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              amount:
+                type: integer
+              premiumType:
+                properties:
+                  number:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+            type: object
+      type: object
+  investmentsProfiles:
+    type: array
+    items:
+      properties:
+        investmentsProfileID:
+          type: integer
+      type: object
+  funds:
+    type: array
+    items:
+      properties:
+        fundNumber:
+          type: integer
+      type: object
+  investmentDefinitionMode:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  investments:
+    type: array
+    items:
+      properties:
+        allocateBy:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        assestClassProfile:
+          type: integer
+        allocationMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        allocationPercent:
+          type: integer
+      type: object
+  payments:
+    type: array
+    items:
+      properties:
+        contribution:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        requiredCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        premiumMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        matchedContributionType:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        percentMatch:
+          type: integer
+        minContributionForMatch:
+          type: integer
+        maxMatchingContribution:
+          type: integer
+        premiumType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        durationDate:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        premiumByFormula:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        minimumPremium:
+          type: integer
+        maximumPremium:
+          type: integer
+        defaultValue:
+          type: integer
+        incrementsIn:
+          type: integer
+        salaryType:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        salaryAdjustmentFormat:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        monthlyPremium:
+          type: integer
+        tiered:
+          properties:
+            keyType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            calculationMethod:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            description:
+              type: string
+            tieredDetails:
+              type: array
+              items:
+                properties:
+                  id:
+                    type: integer
+                  fromKeyValue:
+                    type: integer
+                  toKeyValue:
+                    type: integer
+                  monthlyPremium:
+                    type: integer
+                type: object
+          type: object
+        investments:
+          type: array
+          items:
+            properties:
+              assestClassProfile:
+                type: integer
+              allocateBy:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              allocationMethod:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              allocationPercent:
+                type: integer
+            type: object
+      type: object
+type: object

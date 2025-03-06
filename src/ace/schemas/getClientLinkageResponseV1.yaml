@@ -1,0 +1,31 @@
+title: getClientLinkageResponse
+properties:
+  linkages:
+    type: array
+    items:
+      properties:
+        linkageType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        linkageClientClass:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        linkageClient:
+          type: integer
+        effectiveDate:
+          type: string
+          format: date
+      type: object
+      required: []
+type: object
+required:
+  - linkages

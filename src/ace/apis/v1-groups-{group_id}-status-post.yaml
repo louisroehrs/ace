@@ -1,0 +1,50 @@
+definition:
+  path: /v1/groups/{group_id}/status
+  verb: post
+  id: imported#/v1/groups/{group_id}/status#post
+  operationId: 758f7024-2b3a-417a-95e1-3ad1e0f176eeV1
+  summary: Updates the group status according to the parameters
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: GroupId
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: CoreSuite-DataSource-Key
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: CoreSuite-User-Name
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/updateGroupStatusV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+  security:
+    - bearerAuth: []
+flow: 758f7024-2b3a-417a-95e1-3ad1e0f176eeV1.yaml
+method: post
+path: /v1/groups/{group_id}/status
+errorHandlers: []
+handlers: []

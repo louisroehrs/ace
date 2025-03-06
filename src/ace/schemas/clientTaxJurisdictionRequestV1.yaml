@@ -1,0 +1,39 @@
+title: clientTaxJurisdictionRequest
+properties:
+  foreignIdType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  foreignIdDescription:
+    type: string
+  reasonNoTin:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  additionalInformation:
+    type: string
+  foreignEffectiveDate:
+    type: string
+    format: date
+  foreignExpiryDate:
+    type: string
+    format: date
+  foreignCountryOfIdIssue:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  foreignFtrStatus:
+    type: string
+  foreignFtrClassification:
+    type: string
+type: object
+required: []

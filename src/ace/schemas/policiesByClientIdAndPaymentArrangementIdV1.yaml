@@ -1,0 +1,79 @@
+title: policiesByClientIdAndPaymentArrangementId
+properties:
+  policies:
+    type: array
+    items:
+      properties:
+        policyNo:
+          type: integer
+        externalPolicyNo:
+          type: string
+        commencementDate:
+          type: string
+          format: date
+        product:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        version:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        status:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        premiumForLayer:
+          properties:
+            amount:
+              type: number
+            currency:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+                symbol:
+                  type: string
+              type: object
+              required:
+                - symbol
+            premiumInPercentFlag:
+              type: boolean
+              default: false
+          type: object
+        paymentFrequency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        paymentArrangement:
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+          type: object
+      type: object
+type: object
+required:
+  - Policy Number
+  - External Policy Number
+  - Commencement Date
+  - Product
+  - Version
+  - Status
+  - "Premium for layer\t"
+  - "Payment Frequency\t"
+  - "Payment Arrangement\t"

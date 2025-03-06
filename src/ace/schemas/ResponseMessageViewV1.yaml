@@ -1,0 +1,18 @@
+title: ResponseMessageView
+properties:
+  type:
+    type: integer
+    description: "column property name : type in ResponseMessageView"
+    format: int32
+  text:
+    type: string
+    description: "column property name : text in ResponseMessageView"
+  code:
+    type: integer
+    description: "column property name : code in ResponseMessageView"
+    format: int32
+  reference:
+    type: string
+    description: "column property name : reference in ResponseMessageView"
+type: object
+description: "table property name : ResponseMessageView"

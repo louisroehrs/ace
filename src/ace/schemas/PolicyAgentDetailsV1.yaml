@@ -1,0 +1,23 @@
+title: PolicyAgentDetails
+properties:
+  agentDetails:
+    type: array
+    items:
+      properties:
+        agentNumber:
+          type: string
+        externalAgentNumber:
+          type: string
+        firstName:
+          type: string
+        surname:
+          type: string
+        role:
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+          type: object
+      type: object
+type: object

@@ -1,0 +1,55 @@
+definition:
+  path: /v1/groups/{group_id}/agreements/{agreement_id}
+  verb: put
+  id: imported#/v1/groups/{group_id}/agreements/{agreement_id}#put
+  operationId: d125424f-d591-4b23-8d67-0f677e00865eV1
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: groupId
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: agreement_id
+      description: agreementNo
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/requestUpdateAgreementV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+  security:
+    - bearerAuth: []
+flow: d125424f-d591-4b23-8d67-0f677e00865eV1.yaml
+method: put
+path: /v1/groups/{group_id}/agreements/{agreement_id}
+errorHandlers: []
+handlers: []

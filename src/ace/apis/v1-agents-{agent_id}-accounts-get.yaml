@@ -1,0 +1,78 @@
+definition:
+  path: /v1/agents/{agent_id}/accounts
+  verb: get
+  id: imported#/v1/agents/{agent_id}/accounts#get
+  operationId: getAgentAccountListV1
+  tags:
+    - Agent
+  parameters:
+    - in: query
+      name: externalAgentIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: agent_id
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/agentAccountListResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/agentAccountListResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getAgentAccountListV1.yaml
+method: get
+path: /v1/agents/{agent_id}/accounts
+errorHandlers: []
+handlers: []

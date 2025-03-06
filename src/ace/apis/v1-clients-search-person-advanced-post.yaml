@@ -1,0 +1,52 @@
+definition:
+  path: /v1/clients/search-person-advanced
+  verb: post
+  id: imported#/v1/clients/search-person-advanced#post
+  operationId: searchPersonAdvancedV1
+  tags:
+    - Client
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/searchAdvancePersonRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchAdvancePersonResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/searchAdvancePersonResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: searchPersonAdvancedV1.yaml
+method: post
+path: /v1/clients/search-person-advanced
+errorHandlers: []
+handlers: []

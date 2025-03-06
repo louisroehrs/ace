@@ -1,0 +1,61 @@
+definition:
+  path: /v1/policies/{policy_id}/claims/notification
+  verb: post
+  id: imported#/v1/policies/{policy_id}/claims/notification#post
+  operationId: 8af49b62-850f-49a2-bf52-a22058180420V1
+  summary: Report a new insurance (excluding withdrawal) claim and policy
+    cancellation (admin related activities) on a policy in order to set a claim
+    to state as initial notification.
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: policy_id
+      description: policyNo
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/RequestClaimInitialNotificationV1"
+  responses:
+    "200":
+      description: claim custom resp
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+        application/xml:
+          schema:
+            type: object
+            example: {}
+  security:
+    - bearerAuth: []
+flow: 8af49b62-850f-49a2-bf52-a22058180420V1.yaml
+method: post
+path: /v1/policies/{policy_id}/claims/notification
+errorHandlers: []
+handlers: []

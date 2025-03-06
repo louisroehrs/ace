@@ -1,0 +1,54 @@
+definition:
+  path: /v1/groups/{groupId}/agreements
+  verb: get
+  id: imported#/v1/groups/{groupId}/agreements#get
+  operationId: 36911a8c-5355-4fe4-8b16-c58917a02f88V1
+  summary: Get all agreements of a given group
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: groupId
+      description: Group Id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/findAgreementsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/findAgreementsResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 36911a8c-5355-4fe4-8b16-c58917a02f88V1.yaml
+method: get
+path: /v1/groups/{groupId}/agreements
+errorHandlers: []
+handlers: []

@@ -1,0 +1,63 @@
+definition:
+  path: /v1/policies/{no1}/investmentTransactions/{id1}
+  verb: get
+  id: imported#/v1/policies/{no1}/investmentTransactions/{id1}#get
+  operationId: d9b70cac-6d85-4c53-86f5-8d3971ce25e5V1
+  summary: Get investment transaction details for a given transaction
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: transactionTypeNo
+      description: transactionTypeNo
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: no1
+      description: Policy No
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: id1
+      description: "Transaction reference "
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/investmentTransactionGeneralV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/investmentTransactionGeneralV1"
+  security:
+    - bearerAuth: []
+flow: d9b70cac-6d85-4c53-86f5-8d3971ce25e5V1.yaml
+method: get
+path: /v1/policies/{no1}/investmentTransactions/{id1}
+errorHandlers: []
+handlers: []

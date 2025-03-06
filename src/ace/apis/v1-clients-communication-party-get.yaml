@@ -1,0 +1,60 @@
+definition:
+  path: /v1/clients/communication-party
+  verb: get
+  id: imported#/v1/clients/communication-party#get
+  operationId: getClientCommunicationPartyDetailsV1
+  tags:
+    - Client
+  parameters:
+    - in: query
+      name: client_id
+      description: The Person , Agent or Company ID
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: externalClientIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clientCommunicationPartyDetailsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/clientCommunicationPartyDetailsV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getClientCommunicationPartyDetailsV1.yaml
+method: get
+path: /v1/clients/communication-party
+errorHandlers: []
+handlers: []

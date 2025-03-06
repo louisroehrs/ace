@@ -1,0 +1,6 @@
+title: findAgreementsResponse
+properties:
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

@@ -1,0 +1,19 @@
+title: ResponseGetGroupDashBoardMemberAlerts
+properties:
+  groupId:
+    type: number
+  followUps:
+    type: number
+  pendingIndividualAlterations:
+    type: number
+  memberReconciliationFailure:
+    type: array
+    items:
+      properties:
+        reconciliationId:
+          type: number
+        numberOfMembers:
+          type: number
+      type: object
+      required: []
+type: object

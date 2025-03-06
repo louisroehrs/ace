@@ -1,0 +1,56 @@
+definition:
+  path: /v1/policies/{no1}/investmentRedirections
+  verb: post
+  id: imported#/v1/policies/{no1}/investmentRedirections#post
+  operationId: 51884d97-3ccf-4554-908c-db47dc3c8d4cV1
+  summary: Perform fund and pension profile redirection on the policy
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: no1
+      description: Policy No
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/redirectionInputV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/redirectionResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/redirectionResponseV1"
+  security:
+    - bearerAuth: []
+flow: 51884d97-3ccf-4554-908c-db47dc3c8d4cV1.yaml
+method: post
+path: /v1/policies/{no1}/investmentRedirections
+errorHandlers: []
+handlers: []

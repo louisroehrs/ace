@@ -1,0 +1,76 @@
+definition:
+  path: /v1/general/entityItems/{type}/entityNo/{no1}
+  verb: get
+  id: imported#/v1/general/entityItems/{type}/entityNo/{no1}#get
+  operationId: 17a3a2e6-e8e6-4f24-a6b7-34afa611fcfaV1
+  summary: The API to fetch entity items for specific entity type.
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: The effective date for the retrieval (defaults to the current
+        system date)
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: entitySubType
+      description: Code to indicate the sub category or subtype for this record.
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: entitySecondSubType
+      description: Record entity sub type, from t_entity_type.
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: entityId
+      description: Entity id
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: type
+      description: Entity Types, e.g."policies","clients","group"
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: no1
+      description: Entity ID, e.g. Policy Number, Group Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: true
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/entityValueResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/entityValueResponseV1"
+  security:
+    - bearerAuth: []
+flow: 17a3a2e6-e8e6-4f24-a6b7-34afa611fcfaV1.yaml
+method: get
+path: /v1/general/entityItems/{type}/entityNo/{no1}
+errorHandlers: []
+handlers: []

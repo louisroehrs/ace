@@ -1,0 +1,56 @@
+title: illustrationParameters
+properties:
+  productNo:
+    type: integer
+  productVersionNo:
+    type: integer
+    description: Default to 1
+  amounts:
+    properties:
+      modalPremium:
+        properties:
+          premium:
+            type: number
+          frequencyNo:
+            type: integer
+            description: Can be any frequency, 0 for lump sum (single) if no regular premium
+        type: object
+      singlePremium:
+        type: number
+    type: object
+  birthDate:
+    type: string
+    format: date
+  retirementAge:
+    type: integer
+    description: Must be one of the two - age or date
+  retirementDate:
+    type: string
+    description: Must be one of the two - age or date
+    format: date
+  investments:
+    properties:
+      profileNo:
+        type: integer
+      funds:
+        type: array
+        items:
+          properties:
+            fund:
+              properties:
+                number:
+                  type: integer
+                isinCode:
+                  type: string
+                externalReference:
+                  type: string
+              type: object
+            allocationPercentage:
+              type: number
+          type: object
+    type: object
+type: object
+required:
+  - productNo
+  - productVersionNo
+  - birthDate

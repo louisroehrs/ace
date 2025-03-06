@@ -1,0 +1,65 @@
+definition:
+  path: /v1/employers/{id1}/employees/{id2}/salaries
+  verb: get
+  id: imported#/v1/employers/{id1}/employees/{id2}/salaries#get
+  operationId: c22389e2-7b76-4e5a-89cd-c4bed267d57dV1
+  summary: Get salary details of an employee
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: fromDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: toDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: path
+      name: id1
+      description: Employer Id
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: id2
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/EmployeeSalaryDetailsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/EmployeeSalaryDetailsV1"
+  security:
+    - bearerAuth: []
+flow: c22389e2-7b76-4e5a-89cd-c4bed267d57dV1.yaml
+method: get
+path: /v1/employers/{id1}/employees/{id2}/salaries
+errorHandlers: []
+handlers: []

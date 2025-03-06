@@ -1,0 +1,49 @@
+definition:
+  path: /v1/clients/{client_id}/client-events
+  verb: post
+  id: imported#/v1/clients/{client_id}/client-events#post
+  operationId: 7539252a-6386-4ed2-916c-844619f21b6fV1
+  tags:
+    - Client
+  parameters:
+    - in: path
+      name: client_id
+      description: Client ID
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/clientEventRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clientEventResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/clientEventResponseV1"
+  security:
+    - bearerAuth: []
+flow: 7539252a-6386-4ed2-916c-844619f21b6fV1.yaml
+method: post
+path: /v1/clients/{client_id}/client-events
+errorHandlers: []
+handlers: []

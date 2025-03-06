@@ -1,0 +1,5 @@
+title: GetClientDetailResponse
+properties:
+  result:
+    $ref: clientRequestV1.yaml
+type: object

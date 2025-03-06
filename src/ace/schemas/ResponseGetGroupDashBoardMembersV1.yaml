@@ -1,0 +1,47 @@
+title: ResponseGetGroupDashBoardMembers
+properties:
+  groupId:
+    type: number
+  futureEnrolmentMembers:
+    properties:
+      expectedJoiners:
+        type: number
+      expectedLeavers:
+        type: number
+      notEligible:
+        type: number
+    type: object
+  lastEnrolmentMembersData:
+    type: array
+    items:
+      properties:
+        period:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        membersJoined:
+          type: number
+        membersLeft:
+          type: number
+        membersNotEligible:
+          type: number
+      type: object
+      required:
+        - membersJoined
+        - membersLeft
+        - membersNotEligible
+  activeMembers:
+    type: number
+  draftMembers:
+    type: number
+  liveInsured:
+    type: number
+  openIssues:
+    type: number
+  membersRequiredUnderwriting:
+    type: number
+type: object
+required: []

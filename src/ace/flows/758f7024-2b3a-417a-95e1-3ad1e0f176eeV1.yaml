@@ -1,0 +1,63 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  group_id: integer
+  groupId:
+    title: GroupId
+    type: number
+    description: "2870"
+  openingStatus:
+    title: openingStatus
+    type: number
+    description: "-1"
+  effectiveDate:
+    title: filterDate
+    type: string
+    description: 2020-01-01
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        groupId:
+          title: GroupId
+          type: number
+          description: "2870"
+        openingStatus:
+          title: openingStatus
+          type: number
+          description: "-1"
+        effectiveDate:
+          title: filterDate
+          type: string
+          description: 2020-01-01
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/status"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Updates the group status according to the parameters

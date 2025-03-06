@@ -1,0 +1,40 @@
+definition:
+  path: /v1/general/currencies/exchangeRates
+  verb: post
+  id: imported#/v1/general/currencies/exchangeRates#post
+  operationId: ff8fcf10-94bd-4bd1-9993-28a84bd0f3a3V1
+  summary: Saves new exchange rates for a specific date
+  tags:
+    - General
+  parameters:
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/SaveCurrencyValuesRequestV1"
+  responses:
+    "200":
+      description: Standard success/failure message
+      content:
+        application/json: {}
+        application/xml: {}
+  security:
+    - bearerAuth: []
+flow: ff8fcf10-94bd-4bd1-9993-28a84bd0f3a3V1.yaml
+method: post
+path: /v1/general/currencies/exchangeRates
+errorHandlers: []
+handlers: []

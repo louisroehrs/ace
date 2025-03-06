@@ -1,0 +1,47 @@
+title: EmployeeSalaryDetails
+properties:
+  salaryDetails:
+    type: array
+    items:
+      properties:
+        type:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        method:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        basis:
+          type: number
+        basedOnSalaryType:
+          type: integer
+        amount:
+          type: number
+        frequency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        periodStartDate:
+          type: string
+          format: date
+        fromDate:
+          type: string
+          format: date
+        toDate:
+          type: string
+          format: date
+      type: object
+type: object
+required: []

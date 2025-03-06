@@ -1,0 +1,46 @@
+definition:
+  path: /v1/general/clientCommunications/{id1}/url
+  verb: put
+  id: imported#/v1/general/clientCommunications/{id1}/url#put
+  operationId: 3364195e-0c5f-4c7b-a31a-ac5f9b5f52b2V1
+  summary: Update the Letter URl
+  tags:
+    - General
+  parameters:
+    - in: path
+      name: id1
+      description: Document ID
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/clientCommunicationInboundV1"
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json: {}
+        application/xml: {}
+  security:
+    - bearerAuth: []
+flow: 3364195e-0c5f-4c7b-a31a-ac5f9b5f52b2V1.yaml
+method: put
+path: /v1/general/clientCommunications/{id1}/url
+errorHandlers: []
+handlers: []

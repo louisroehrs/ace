@@ -1,0 +1,30 @@
+definition:
+  path: /v1/group/findAgreements
+  verb: post
+  id: imported#/v1/group/findAgreements#post
+  operationId: dfe49545-2b9c-48b7-8bfe-f6ecc3695f12V1
+  summary: Retrieves the agreement details of an agreement in a group.
+  tags:
+    - Group
+  parameters: []
+  requestBody:
+    description: body param generated from provided JSON request example
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          example: {}
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json: {}
+        application/xml: {}
+  security:
+    - bearerAuth: []
+flow: dfe49545-2b9c-48b7-8bfe-f6ecc3695f12V1.yaml
+method: post
+path: /v1/group/findAgreements
+errorHandlers: []
+handlers: []

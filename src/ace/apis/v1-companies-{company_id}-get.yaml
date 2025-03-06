@@ -1,0 +1,60 @@
+definition:
+  path: /v1/companies/{company_id}
+  verb: get
+  id: imported#/v1/companies/{company_id}#get
+  operationId: df59cc94-0e49-40f9-95ad-3864874341d5V1
+  tags:
+    - Company
+  parameters:
+    - in: query
+      name: externalClientIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: company_id
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/companyDetailsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/companyDetailsV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: df59cc94-0e49-40f9-95ad-3864874341d5V1.yaml
+method: get
+path: /v1/companies/{company_id}
+errorHandlers: []
+handlers: []

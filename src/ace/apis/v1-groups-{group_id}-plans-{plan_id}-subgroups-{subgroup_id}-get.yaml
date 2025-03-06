@@ -1,0 +1,57 @@
+definition:
+  path: /v1/groups/{group_id}/plans/{plan_id}/subgroups/{subgroup_id}
+  verb: get
+  id: imported#/v1/groups/{group_id}/plans/{plan_id}/subgroups/{subgroup_id}#get
+  operationId: 31a7974a-e7bd-4cf9-9119-77754e6b52a1V1
+  summary: "findPlanSubgroupConnection by plan/subgroup id's "
+  tags:
+    - groups
+  parameters:
+    - in: path
+      name: group_id
+      description: group id
+      required: true
+      schema:
+        type: number
+    - in: path
+      name: plan_id
+      description: plan no
+      required: true
+      schema:
+        type: number
+    - in: path
+      name: subgroup_id
+      description: subgroup no
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponsePlanSubGrpConnectionV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponsePlanSubGrpConnectionV1"
+  security:
+    - bearerAuth: []
+flow: 31a7974a-e7bd-4cf9-9119-77754e6b52a1V1.yaml
+method: get
+path: /v1/groups/{group_id}/plans/{plan_id}/subgroups/{subgroup_id}
+errorHandlers: []
+handlers: []

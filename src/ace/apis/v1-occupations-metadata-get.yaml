@@ -1,0 +1,44 @@
+definition:
+  path: /v1/occupations/metadata
+  verb: get
+  id: imported#/v1/occupations/metadata#get
+  operationId: getOccupationMetadataV1
+  tags:
+    - Metadata
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: Effective Date
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/occupationMetadataV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/occupationMetadataV1"
+  security:
+    - bearerAuth: []
+flow: getOccupationMetadataV1.yaml
+method: get
+path: /v1/occupations/metadata
+errorHandlers: []
+handlers: []

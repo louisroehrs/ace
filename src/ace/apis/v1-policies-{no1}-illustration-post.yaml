@@ -1,0 +1,63 @@
+definition:
+  path: /v1/policies/{no1}/illustration
+  verb: post
+  id: imported#/v1/policies/{no1}/illustration#post
+  operationId: b5df82dc-817b-417c-b593-fedfa9054313V1
+  summary: Perform an illustration for payable pension on retirement, given
+    various changes
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: detailedResultFlag
+      description: ""
+      required: true
+      schema:
+        type: boolean
+    - in: path
+      name: no1
+      description: Internal or External Policy No
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/fundListInputV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/pensionPrognosisV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/pensionPrognosisV1"
+  security:
+    - bearerAuth: []
+flow: b5df82dc-817b-417c-b593-fedfa9054313V1.yaml
+method: post
+path: /v1/policies/{no1}/illustration
+errorHandlers: []
+handlers: []

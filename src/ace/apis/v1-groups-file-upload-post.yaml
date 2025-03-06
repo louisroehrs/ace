@@ -1,0 +1,39 @@
+definition:
+  path: /v1/groups/file-upload
+  verb: post
+  id: imported#/v1/groups/file-upload#post
+  operationId: 0c76c21b-da12-4c7c-a361-6395128d5817V1
+  summary: To trigger the upload
+  tags:
+    - Group
+  parameters: []
+  requestBody:
+    description: body param generated from provided JSON request example
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+        application/xml:
+          schema:
+            type: array
+            items:
+              type: object
+  security:
+    - bearerAuth: []
+flow: 0c76c21b-da12-4c7c-a361-6395128d5817V1.yaml
+method: post
+path: /v1/groups/file-upload
+errorHandlers: []
+handlers: []

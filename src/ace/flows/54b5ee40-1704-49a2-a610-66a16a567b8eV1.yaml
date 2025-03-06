@@ -1,0 +1,145 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  detailedResultFlag: boolean
+  productNo:
+    type: integer
+  productVersionNo:
+    type: integer
+    description: Default to 1
+  amounts:
+    properties:
+      modalPremium:
+        properties:
+          premium:
+            type: number
+          frequencyNo:
+            type: integer
+            description: Can be any frequency, 0 for lump sum (single) if no regular premium
+        type: object
+      singlePremium:
+        type: number
+    type: object
+  birthDate:
+    type: string
+    format: date
+  retirementAge:
+    type: integer
+    description: Must be one of the two - age or date
+  retirementDate:
+    type: string
+    description: Must be one of the two - age or date
+    format: date
+  investments:
+    properties:
+      profileNo:
+        type: integer
+      funds:
+        type: array
+        items:
+          properties:
+            fund:
+              properties:
+                number:
+                  type: integer
+                isinCode:
+                  type: string
+                externalReference:
+                  type: string
+              type: object
+            allocationPercentage:
+              type: number
+          type: object
+    type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        productNo:
+          type: integer
+        productVersionNo:
+          type: integer
+          description: Default to 1
+        amounts:
+          properties:
+            modalPremium:
+              properties:
+                premium:
+                  type: number
+                frequencyNo:
+                  type: integer
+                  description: Can be any frequency, 0 for lump sum (single) if no regular premium
+              type: object
+            singlePremium:
+              type: number
+          type: object
+        birthDate:
+          type: string
+          format: date
+        retirementAge:
+          type: integer
+          description: Must be one of the two - age or date
+        retirementDate:
+          type: string
+          description: Must be one of the two - age or date
+          format: date
+        investments:
+          properties:
+            profileNo:
+              type: integer
+            funds:
+              type: array
+              items:
+                properties:
+                  fund:
+                    properties:
+                      number:
+                        type: integer
+                      isinCode:
+                        type: string
+                      externalReference:
+                        type: string
+                    type: object
+                  allocationPercentage:
+                    type: number
+                type: object
+          type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"detailedResultFlag":"detailedResultFlag"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/illustration"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Perform an illustration before starting application process

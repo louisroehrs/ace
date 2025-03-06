@@ -1,0 +1,44 @@
+definition:
+  path: /v1/clients/persons
+  verb: post
+  id: imported#/v1/clients/persons#post
+  operationId: ac6c4a0e-5e9d-4729-875d-24d65141c942V1
+  summary: Create a new person
+  tags:
+    - Person
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/createMappedPersonRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseViewV1"
+  security:
+    - bearerAuth: []
+flow: ac6c4a0e-5e9d-4729-875d-24d65141c942V1.yaml
+method: post
+path: /v1/clients/persons
+errorHandlers: []
+handlers: []

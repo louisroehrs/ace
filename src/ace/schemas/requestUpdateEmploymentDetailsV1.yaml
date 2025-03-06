@@ -1,0 +1,13 @@
+title: requestUpdateEmploymentDetails
+properties:
+  employeeExternalNumber:
+    type: number
+  hireDate:
+    type: string
+  pensionableServiceStartDate:
+    type: string
+  partTimePercentage:
+    type: number
+  memberHasAdditionalSalary:
+    type: boolean
+type: object

@@ -1,0 +1,51 @@
+definition:
+  path: /v1/groups/{group_id}/subgroups
+  verb: get
+  id: imported#/v1/groups/{group_id}/subgroups#get
+  operationId: f4774fec-4e98-4809-814c-98328831dd67V1
+  summary: get the subgroup list by the groupId
+  tags:
+    - Group
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: group_id
+      description: groupId
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/getSubGroupListV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/getSubGroupListV1"
+  security:
+    - bearerAuth: []
+flow: f4774fec-4e98-4809-814c-98328831dd67V1.yaml
+method: get
+path: /v1/groups/{group_id}/subgroups
+errorHandlers: []
+handlers: []

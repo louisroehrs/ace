@@ -1,0 +1,87 @@
+definition:
+  path: /v1/funds
+  verb: get
+  id: imported#/v1/funds#get
+  operationId: searchAllInvestmentFundsV1
+  tags:
+    - Metadata
+  parameters:
+    - in: query
+      name: fundId
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: fundType
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: fundGroup
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: isinCode
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: registrationDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: assetClass
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: externalFundId
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/allInvestmentFundV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/allInvestmentFundV1"
+  security:
+    - bearerAuth: []
+flow: searchAllInvestmentFundsV1.yaml
+method: get
+path: /v1/funds
+errorHandlers: []
+handlers: []

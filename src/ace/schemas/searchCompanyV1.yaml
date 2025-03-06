@@ -1,0 +1,44 @@
+title: searchCompany
+properties:
+  companies:
+    type: array
+    items:
+      properties:
+        companyId:
+          type: integer
+          description: The Company ID
+        companyName:
+          type: string
+          description: The entity name for company or scheme clients
+        companyType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          description: Client Type
+        natureOfBusiness:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          description: Nature of Business
+        companyRegistrationNumber:
+          type: string
+          description: Company Registration Number
+        tinNumbers:
+          type: array
+          items:
+            properties:
+              tin:
+                type: string
+            type: object
+            description: The actual TIN ID number of the client
+        clientExternalReference:
+          type: string
+          description: Client External Reference
+      type: object
+type: object

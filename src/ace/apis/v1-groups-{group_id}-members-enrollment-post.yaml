@@ -1,0 +1,50 @@
+definition:
+  path: /v1/groups/{group_id}/members/enrollment
+  verb: post
+  id: imported#/v1/groups/{group_id}/members/enrollment#post
+  operationId: 1f04865e-7675-4c5f-b70e-22c7f2401ca3V1
+  summary: " Add a member to a group through manual enrollment"
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: group id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/RequestEnrolNewMemberV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseEnrolNewMemberV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseEnrolNewMemberV1"
+  security:
+    - bearerAuth: []
+flow: 1f04865e-7675-4c5f-b70e-22c7f2401ca3V1.yaml
+method: post
+path: /v1/groups/{group_id}/members/enrollment
+errorHandlers: []
+handlers: []

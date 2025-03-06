@@ -1,0 +1,25 @@
+title: ValuationsResponse
+properties:
+  valuation:
+    type: array
+    items:
+      title: ValuationDetail
+      properties:
+        valuationAmount:
+          type: number
+        currency:
+          type: string
+        valuationType:
+          type: string
+        valuationDateTime:
+          type: string
+          format: date-time
+      type: object
+      required:
+        - valuationAmount
+        - currency
+        - valuationType
+        - valuationDateTime
+type: object
+required:
+  - valuation

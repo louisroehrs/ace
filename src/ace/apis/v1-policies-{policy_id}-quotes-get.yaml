@@ -1,0 +1,78 @@
+definition:
+  path: /v1/policies/{policy_id}/quotes
+  verb: get
+  id: imported#/v1/policies/{policy_id}/quotes#get
+  operationId: get quoteV1
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: policy_id
+      description: ""
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/applicationV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/applicationV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getquoteV1.yaml
+method: get
+path: /v1/policies/{policy_id}/quotes
+errorHandlers: []
+handlers: []

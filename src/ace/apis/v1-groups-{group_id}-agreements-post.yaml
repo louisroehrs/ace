@@ -1,0 +1,56 @@
+definition:
+  path: /v1/groups/{group_id}/agreements
+  verb: post
+  id: imported#/v1/groups/{group_id}/agreements#post
+  operationId: d1b60221-9ccb-448c-8a8e-c8ae1b6c2817V1
+  summary: Create new agreement for a given group
+  tags:
+    - Group
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: YYYY-MM-DD
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: group_id
+      description: Group Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: coresuite-datasource-key
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: coresuite-user-name
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/requestSaveAgreementV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/responseSaveAgreementV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/responseSaveAgreementV1"
+  security:
+    - bearerAuth: []
+flow: d1b60221-9ccb-448c-8a8e-c8ae1b6c2817V1.yaml
+method: post
+path: /v1/groups/{group_id}/agreements
+errorHandlers: []
+handlers: []

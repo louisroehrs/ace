@@ -1,0 +1,555 @@
+title: policyCoversDetails
+properties:
+  coverName:
+    type: string
+  role:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  commencementDate:
+    type: string
+    format: date
+  status:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  internalCoverNumber:
+    type: number
+  coverLayersList:
+    type: array
+    items:
+      properties:
+        layer:
+          type: number
+        sumAssured:
+          type: integer
+        layerEffectiveDate:
+          type: string
+          format: date
+        layerStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        coverPremiumDetails:
+          type: array
+          items:
+            properties:
+              altPremiumType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              loading:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              internalLoadingNo:
+                type: number
+              premiumLayer:
+                type: number
+              effectiveDate:
+                type: string
+                format: date
+              annualizedPremium:
+                type: integer
+              annualPremium:
+                type: integer
+              description:
+                type: string
+            type: object
+        reinsuranceDetails:
+          type: array
+          items:
+            properties:
+              reinsuranceLayer:
+                type: number
+              cession:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              treaty:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              "requestedTreaty ":
+                type: integer
+              requestedTreatyAmount:
+                type: integer
+              manualReinsType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              calc:
+                type: integer
+              calcAmount:
+                type: integer
+              client:
+                properties:
+                  clientNo:
+                    type: integer
+                  clientName:
+                    type: string
+                type: object
+              premium:
+                type: integer
+              cessionReference:
+                type: string
+              annualReinsurancePremium:
+                type: integer
+              manualActTableFlag:
+                type: boolean
+              actuaryTable:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              actuaryTableEdition:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              effectiveDate:
+                type: string
+                format: date
+              registrationDate:
+                type: string
+                format: date
+              status:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              openingReference:
+                type: string
+            type: object
+        evidencesDetails:
+          type: array
+          items:
+            properties:
+              layer:
+                type: number
+              evidence:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              client:
+                type: integer
+              statusDate:
+                type: string
+                format: date
+              status:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              validationPeriod:
+                type: string
+                format: date
+              supplierType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              supplierClass:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              recipient:
+                type: integer
+              recipientName:
+                type: string
+              paymentStatus:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              fee:
+                type: integer
+              manualFeeOverrideFlag:
+                type: boolean
+              reason:
+                type: string
+              text1:
+                type: string
+              text2:
+                type: string
+              text3:
+                type: string
+              text4:
+                type: string
+            type: object
+        loadingsDetails:
+          type: array
+          items:
+            properties:
+              layer:
+                type: number
+              loadingType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              client:
+                type: integer
+              loadingCommencementDate:
+                type: string
+                format: date
+              percLoading:
+                type: integer
+              table:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              rateOfSa:
+                type: integer
+              ageLoading:
+                type: number
+              amount:
+                type: integer
+              stdRateFlag:
+                type: boolean
+              oneOffPremium:
+                type: integer
+              durationY:
+                type: integer
+              durationM:
+                type: integer
+              description:
+                type: string
+              manual Flag:
+                type: boolean
+              commencementDate:
+                type: string
+                format: date
+              regDate:
+                type: string
+                format: date
+              status:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              alterationRef:
+                type: string
+            type: object
+        underwritingClauseDetails:
+          type: array
+          items:
+            properties:
+              layer:
+                type: number
+              client:
+                properties:
+                  clientNo:
+                    type: integer
+                  clientName:
+                    type: string
+                type: object
+              exclusionClauseNo:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+            type: object
+        beneficiariesClauseDetails:
+          type: array
+          items:
+            properties:
+              event:
+                properties:
+                  code:
+                    type: number
+                  " name":
+                    type: string
+                type: object
+              clauseType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              clause:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              beneficiaryId:
+                type: integer
+              beneficiaryType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              priority:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              requestType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              amount:
+                type: integer
+              clauseText:
+                type: string
+            type: object
+        administrativeClausesDetails:
+          type: array
+          items:
+            properties:
+              client:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              clauseType:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              clause:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              layer:
+                type: number
+              clauseText:
+                type: string
+            type: object
+        notes:
+          type: array
+          items:
+            properties:
+              date:
+                type: string
+                format: date
+              user:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              status:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              noteText:
+                type: string
+            type: object
+      type: object
+  sumAssuredType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  sumAssured:
+    type: number
+  calculatedSumAssured:
+    type: integer
+  monthlySumAssured:
+    type: number
+  benefitAmount:
+    type: integer
+  frequency:
+    type: number
+  premiumTermDate:
+    type: string
+    format: date
+  premiumTermAge:
+    type: number
+  premiumTermYear:
+    type: number
+  requestedPremium:
+    type: integer
+  annualPremium:
+    type: integer
+  budgetPremium:
+    type: number
+  premiumRateBasis:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  paidByCode:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  paidByCont:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  termDate:
+    type: string
+  termAge:
+    type: number
+  normalRetirementAge:
+    type: number
+  wholeLife:
+    type: boolean
+    default: false
+  termYears:
+    type: number
+  termMonths:
+    type: number
+  termDays:
+    type: number
+  escalationMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  fixedRate:
+    type: integer
+  indexType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  deferredPeriod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  benefitType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  benefitPaymentPeriod:
+    type: number
+  subStatus:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  reason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  subReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  entityItems:
+    type: array
+    items:
+      properties:
+        type:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        id:
+          type: integer
+        value:
+          type: string
+        valueDescription:
+          type: string
+        manualFlag:
+          type: boolean
+          default: false
+        mandatoryFlag:
+          type: number
+      type: object
+type: object
+required: []

@@ -1,0 +1,43 @@
+definition:
+  path: /v1/customer-communication
+  verb: post
+  id: imported#/v1/customer-communication#post
+  operationId: createCommunicationV1
+  tags:
+    - General
+  parameters:
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/CommunicationV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/communicationResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/communicationResponseV1"
+  security:
+    - bearerAuth: []
+flow: createCommunicationV1.yaml
+method: post
+path: /v1/customer-communication
+errorHandlers: []
+handlers: []

@@ -1,0 +1,42 @@
+title: clientContact
+properties:
+  result:
+    properties:
+      contacts:
+        type: array
+        items:
+          properties:
+            phoneNumber:
+              type: number
+            mobileNumber:
+              type: number
+            emailAddress:
+              type: string
+            faxNumber:
+              type: number
+            mainFlag:
+              type: boolean
+            preferredContact:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            contactType:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+              type: object
+          type: object
+          required: []
+      clientId:
+        type: integer
+      clientExternalId:
+        type: string
+    type: object
+    required: []
+type: object
+required: []

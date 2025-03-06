@@ -1,0 +1,139 @@
+title: policyIllustration
+properties:
+  illustrationType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  contTypeResults:
+    type: array
+    items:
+      properties:
+        effectiveDate:
+          type: string
+          format: date
+        contType:
+          type: string
+        layer:
+          type: integer
+        openingEffecDateLayerAge:
+          type: string
+          format: date
+        fund:
+          type: integer
+        premium:
+          type: number
+        annualDividend:
+          type: integer
+        guaranteedCashValue:
+          type: integer
+        nonGuaranteedCashValue:
+          type: integer
+        guaranteedDeathBenefit:
+          type: number
+        nonGuaranteedDeathBenefit:
+          type: number
+        premiumTwo:
+          type: number
+        paidUpValue:
+          type: number
+        ScenarioId:
+          type: integer
+        year:
+          type: integer
+      type: object
+      required:
+        - effectiveDate
+        - contType
+        - layer
+        - openingEffecDateLayerAge
+        - premium
+        - fund
+        - nonGuaranteedCashValue
+        - guaranteedCashValue
+        - annualDividend
+        - nonGuaranteedDeathBenefit
+        - guaranteedDeathBenefit
+        - premiumTwo
+        - year
+        - ScenarioId
+        - paidUpValue
+  coversResults:
+    type: array
+    items:
+      properties:
+        coverName:
+          type: string
+        effecDate:
+          type: string
+          format: date
+        faceAmount:
+          type: number
+        sumAtRisk:
+          type: number
+        ScenarioId:
+          type: integer
+        year:
+          type: integer
+      type: object
+      required:
+        - coverName
+        - effecDate
+        - faceAmount
+        - sumAtRisk
+        - ScenarioId
+        - year
+  expensesResults:
+    type: array
+    items:
+      properties:
+        effecDate:
+          type: string
+          format: date
+        "expenseKey\t":
+          type: integer
+        expenseType:
+          type: integer
+        expenseSeconoryKey:
+          type: integer
+        ScenarioId:
+          type: integer
+        year:
+          type: integer
+      type: object
+      required:
+        - effecDate
+        - "expenseKey\t"
+        - expenseType
+        - expenseSeconoryKey
+        - ScenarioId
+        - year
+  response:
+    properties:
+      status:
+        type: integer
+      messages:
+        type: array
+        items:
+          properties:
+            text:
+              type: string
+          type: object
+          required:
+            - text
+    type: object
+    required:
+      - status
+      - messages
+type: object
+required:
+  - illustrationType
+  - contTypeResults
+  - coversResults
+  - expensesResults
+  - response

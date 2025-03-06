@@ -1,0 +1,50 @@
+title: agentDetails
+properties:
+  result:
+    properties:
+      title:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+        required: []
+      firstName:
+        type: string
+      middleName:
+        type: string
+      lastName:
+        type: string
+      gender:
+        properties:
+          code:
+            type: number
+          name:
+            type: string
+        type: object
+        required: []
+      nationalInsuranceId:
+        type: string
+      nationalInsuranceType:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+      nationalInsuranceCountry:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+        required: []
+      agentNo:
+        type: number
+      externalAgentNo:
+        type: string
+    type: object
+type: object
+required: []

@@ -1,0 +1,134 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  externalPolicyIdIndicator: boolean
+  policy_id: string
+  suspendActivities:
+    type: array
+    items:
+      properties:
+        effectiveDate:
+          type: string
+          format: date
+          description: The date from which this set of details is effective. This may be
+            before, after or on the date on which the data was actually set up
+            originally or changed.
+        suspendCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required:
+            - code
+          description: Type of suspension.
+        suspensionReasonCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          description: The reason of policy suspension.
+        fromDate:
+          type: string
+          format: date
+          description: Start of activity suspension period.
+        toDate:
+          type: string
+          format: date
+          description: End of activity suspension period.
+        description:
+          type: string
+          description: Free text description.
+      type: object
+      required:
+        - suspendCode
+    description: Suspend Activities List
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        suspendActivities:
+          type: array
+          items:
+            properties:
+              effectiveDate:
+                type: string
+                format: date
+                description: The date from which this set of details is effective. This may be
+                  before, after or on the date on which the data was actually
+                  set up originally or changed.
+              suspendCode:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                required:
+                  - code
+                description: Type of suspension.
+              suspensionReasonCode:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                description: The reason of policy suspension.
+              fromDate:
+                type: string
+                format: date
+                description: Start of activity suspension period.
+              toDate:
+                type: string
+                format: date
+                description: End of activity suspension period.
+              description:
+                type: string
+                description: Free text description.
+            type: object
+            required:
+              - suspendCode
+          description: Suspend Activities List
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"externalPolicyIdIndicator":"externalPolicyIdIndicator"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policy_id}}/suspend-activities"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

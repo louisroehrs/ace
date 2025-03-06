@@ -1,0 +1,308 @@
+title: productCoverMetadata
+properties:
+  version:
+    title: productVersion
+    properties:
+      code:
+        title: code
+        type: integer
+      name:
+        title: name
+        type: string
+    type: object
+  covers:
+    type: array
+    items:
+      title: covers
+      properties:
+        mainDetails:
+          properties:
+            cover:
+              title: cover
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            paidByCode:
+              title: paidByCode
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            paidByContributionType:
+              title: paidByContributionType
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            investmentDeductionSyncCode:
+              title: investmentDeductionSyncCode
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            investmentSyncDeductAltMvmt:
+              title: investmentSyncDeductAltMvmt
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            coverRequiredFlag:
+              title: coverRequiredFlag
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            displayOrderForPolicyValues:
+              title: displayOrderForPolicyValues
+              type: integer
+            typeofDeathBenefitMask:
+              title: typeofDeathBenefitMask
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            "fundSplitPerLayerMethod\t":
+              title: fundSplitPerLayerMethod
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            manualSumAssured:
+              title: manualSumAssured
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            manualPremium:
+              title: manualPremium
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            manualPremiumMode:
+              title: manualPremiumMode
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            partialChargePeriodMethod:
+              title: partialChargePeriodMethod
+              properties:
+                code:
+                  title: "\tcode"
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            relationCode:
+              title: relationCode
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            contractAmountCode:
+              title: contractAmountCode
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            budgetPremiumCode:
+              title: budgetPremiumCode
+              properties:
+                code:
+                  title: "\tcode"
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            benefitGroup:
+              title: benefitGroup
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            groupCode:
+              title: groupCode
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            freeCoverOption:
+              title: freeCoverOption
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            singleLife:
+              title: singleLife
+              type: boolean
+            multipleCoverAllowed:
+              title: multipleCoverAllowed
+              type: boolean
+            applyFrequencyAdjustment:
+              title: applyFrequencyAdjustment
+              type: boolean
+            chargingDay:
+              title: chargingDay
+              type: boolean
+          type: object
+        limitsAndDefaults:
+          title: limitsAndDefaults
+          properties:
+            sumAssuredTypeValuesCode:
+              title: sumAssuredTypeValuesCode
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            alternativeMovementTypeforSA:
+              title: alternativeMovementTypeforSA
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            sumAssuredGeneralCode:
+              title: Sum Assured General Code
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            sumAssuredFormula:
+              title: sumAssuredFormula
+              properties:
+                code:
+                  title: "\tcode"
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            sumAssuredValidationCode:
+              title: sumAssuredValidationCode
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            sumAssuredListGeneralCode:
+              title: sumAssuredListGeneralCode
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            sumAssuredUnitAmount:
+              title: sumAssuredUnitAmount
+              type: integer
+            sumAssuredMultiplybyItem:
+              title: sumAssuredMultiplybyItem
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+            riderToLimitBasicSACode:
+              title: ridertoLimitBasicSAAmount
+              type: number
+            waiverBenefitMethod:
+              title: waiverBenefitMethod
+              properties:
+                code:
+                  title: code
+                  type: integer
+                name:
+                  title: name
+                  type: string
+              type: object
+          type: object
+      type: object
+type: object
+required: []

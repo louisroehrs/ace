@@ -1,0 +1,21 @@
+title: ResponsePolicyPaymentArrangement
+properties:
+  response:
+    properties:
+      status:
+        type: integer
+      primaryKey:
+        type: integer
+      secondaryKey:
+        type: string
+      message:
+        properties:
+          text:
+            type: string
+          code:
+            type: string
+        type: object
+        required: []
+    type: object
+    required: []
+type: object

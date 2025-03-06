@@ -1,0 +1,22 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  no1: string
+description: Created by imported openApi schema
+steps:
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/valuations"
+        method: GET
+      restRequest: JSON
+      json: {}
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Get valuation details for the specified policy

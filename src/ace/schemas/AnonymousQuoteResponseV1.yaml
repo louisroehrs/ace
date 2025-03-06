@@ -1,0 +1,52 @@
+title: AnonymousQuoteResponse
+properties:
+  coverages:
+    title: coverages
+    type: array
+    items:
+      properties:
+        coverNo:
+          title: coverNo
+          type: integer
+        coverName:
+          title: coverName
+          type: string
+        internalCoverNo:
+          title: internalCoverNo
+          type: integer
+        role:
+          title: role
+          type: integer
+        paymentFreq:
+          title: paymentFreq
+          type: integer
+        faceAmount:
+          title: faceAmount
+          type: number
+        premiumAmount:
+          title: premiumAmount
+          type: number
+        policyFee:
+          title: policyFee
+          type: number
+      type: object
+      required:
+        - coverNo
+        - coverName
+        - internalCoverNo
+        - role
+        - paymentFreq
+        - faceAmount
+        - premiumAmount
+        - policyFee
+  message:
+    properties:
+      code:
+        type: string
+      text:
+        type: string
+    type: object
+type: object
+required:
+  - coverages
+  - message

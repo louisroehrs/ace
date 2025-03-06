@@ -1,0 +1,103 @@
+title: searchLetterResponse
+properties:
+  communications:
+    type: array
+    items:
+      properties:
+        documentLink:
+          type: string
+        reference:
+          type: string
+        id:
+          type: integer
+        identifier:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        requestDate:
+          type: string
+          format: date
+        communication:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        secondaryKeyType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        secondaryKey:
+          type: string
+        tertiaryKeyType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        tertiaryKey:
+          type: string
+        recipient:
+          properties:
+            id:
+              type: integer
+            externalId:
+              type: string
+            firstName:
+              type: string
+            middleName:
+              type: string
+            lastName:
+              type: string
+            secondLastName:
+              type: string
+            role:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            addressType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            fax:
+              type: string
+            email:
+              type: string
+          type: object
+        printStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        fileStore:
+          type: integer
+        package:
+          type: integer
+        printDueDate:
+          type: string
+          format: date
+        deliveryChannel:
+          type: integer
+        duplicateCount:
+          type: integer
+      type: object
+type: object

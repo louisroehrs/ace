@@ -1,0 +1,51 @@
+definition:
+  path: /v1/general/entityType/{type}/entityNo/{no1}
+  verb: get
+  id: imported#/v1/general/entityType/{type}/entityNo/{no1}#get
+  operationId: b3ecbc56-4461-4bd9-9420-73713bec94efV1
+  summary: find the latest version of the entity by entity id and lock type
+  tags:
+    - General
+  parameters:
+    - in: path
+      name: type
+      description: ""
+      required: true
+      schema:
+        type: number
+    - in: path
+      name: no1
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/responseEntityVersionV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/responseEntityVersionV1"
+  security:
+    - bearerAuth: []
+flow: b3ecbc56-4461-4bd9-9420-73713bec94efV1.yaml
+method: get
+path: /v1/general/entityType/{type}/entityNo/{no1}
+errorHandlers: []
+handlers: []

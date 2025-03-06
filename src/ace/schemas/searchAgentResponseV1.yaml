@@ -1,0 +1,26 @@
+title: searchAgentResponse
+properties: {}
+type: array
+items:
+  properties:
+    agent:
+      properties:
+        id:
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        postalCode:
+          type: string
+        externalAgentRef:
+          type: integer
+        status:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+      type: object
+  type: object

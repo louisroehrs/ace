@@ -1,0 +1,15 @@
+title: CountriesMetaData
+properties:
+  countries:
+    type: array
+    items:
+      type: string
+  countryId:
+    type: integer
+  name:
+    type: string
+type: object
+required:
+  - countries
+  - countryId
+  - name

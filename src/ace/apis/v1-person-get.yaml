@@ -1,0 +1,88 @@
+definition:
+  path: /v1/person
+  verb: get
+  id: imported#/v1/person#get
+  operationId: searchPersonV1
+  summary: Service to search person on provided paramenter
+  tags:
+    - Person
+  parameters:
+    - in: query
+      name: firstName
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: surname
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: idReference
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: coreSuiteReference
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: externalIdReference
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: dob
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: zipCode
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: insuranceCompany
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/SearchPersonResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/SearchPersonResponseV1"
+  security:
+    - bearerAuth: []
+flow: searchPersonV1.yaml
+method: get
+path: /v1/person
+errorHandlers: []
+handlers: []

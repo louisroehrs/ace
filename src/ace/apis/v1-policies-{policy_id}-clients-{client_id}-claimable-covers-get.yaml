@@ -1,0 +1,56 @@
+definition:
+  path: /v1/policies/{policy_id}/clients/{client_id}/claimable-covers
+  verb: get
+  id: imported#/v1/policies/{policy_id}/clients/{client_id}/claimable-covers#get
+  operationId: getClaimableCoversV1
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: claimType
+      description: Claim Type
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: policy_id
+      description: Policy Number
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: client_id
+      description: Client Id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ClaimableCoversV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ClaimableCoversV1"
+  security:
+    - bearerAuth: []
+flow: getClaimableCoversV1.yaml
+method: get
+path: /v1/policies/{policy_id}/clients/{client_id}/claimable-covers
+errorHandlers: []
+handlers: []

@@ -1,0 +1,52 @@
+definition:
+  path: /v1/policies/{no1}/agentDetails
+  verb: get
+  id: imported#/v1/policies/{no1}/agentDetails#get
+  operationId: 5c9dc751-85cf-4e2c-abb2-8959a2e36f73V1
+  summary: Get Agent Details w.r.to the mentioned policy
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: path
+      name: no1
+      description: Policy Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/PolicyAgentDetailsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/PolicyAgentDetailsV1"
+  security:
+    - bearerAuth: []
+flow: 5c9dc751-85cf-4e2c-abb2-8959a2e36f73V1.yaml
+method: get
+path: /v1/policies/{no1}/agentDetails
+errorHandlers: []
+handlers: []

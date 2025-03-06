@@ -1,0 +1,38 @@
+definition:
+  path: /v1/banks-metadata
+  verb: get
+  id: imported#/v1/banks-metadata#get
+  operationId: getBanksMetaDataV1
+  tags:
+    - General
+  parameters:
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/banksMetadataV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/banksMetadataV1"
+  security:
+    - bearerAuth: []
+flow: getBanksMetaDataV1.yaml
+method: get
+path: /v1/banks-metadata
+errorHandlers: []
+handlers: []

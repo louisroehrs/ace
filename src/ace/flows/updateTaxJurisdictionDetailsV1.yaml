@@ -1,0 +1,118 @@
+tags:
+  - client
+sampleInputSchema: ""
+sampleData:
+  taxJurisdictionNo: integer
+  client_id: integer
+  foreignIdType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  foreignIdDescription:
+    type: string
+  reasonNoTin:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  additionalInformation:
+    type: string
+  foreignEffectiveDate:
+    type: string
+    format: date
+  foreignExpiryDate:
+    type: string
+    format: date
+  foreignCountryOfIdIssue:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  foreignFtrStatus:
+    type: string
+  foreignFtrClassification:
+    type: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        foreignIdType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        foreignIdDescription:
+          type: string
+        reasonNoTin:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        additionalInformation:
+          type: string
+        foreignEffectiveDate:
+          type: string
+          format: date
+        foreignExpiryDate:
+          type: string
+          format: date
+        foreignCountryOfIdIssue:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        foreignFtrStatus:
+          type: string
+        foreignFtrClassification:
+          type: string
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"taxJurisdictionNo":"taxJurisdictionNo"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/clients/{{client_id}}/tax-jurisdiction-details"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Check if client is valid and update the client taxes

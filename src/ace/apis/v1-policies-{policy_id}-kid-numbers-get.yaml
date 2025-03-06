@@ -1,0 +1,78 @@
+definition:
+  path: /v1/policies/{policy_id}/kid-numbers
+  verb: get
+  id: imported#/v1/policies/{policy_id}/kid-numbers#get
+  operationId: getPolicyKidNumberV1
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: policy_id
+      description: policyNo
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/policyKidNumberV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/policyKidNumberV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getPolicyKidNumberV1.yaml
+method: get
+path: /v1/policies/{policy_id}/kid-numbers
+errorHandlers: []
+handlers: []

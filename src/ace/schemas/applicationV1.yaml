@@ -1,0 +1,1101 @@
+title: application
+properties:
+  policyId:
+    type: integer
+  externalPolicyNumber:
+    type: string
+  brand:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  product:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  version:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  source:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  requestChannel:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  taxFramework:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  quoteEffecDate:
+    type: string
+    format: date
+    nullable: true
+  quoteValidTill:
+    type: string
+    format: date
+    nullable: true
+  proposalDate:
+    type: string
+    format: date
+    nullable: true
+  commencementDate:
+    type: string
+    format: date
+  policyMainCommencementDate:
+    type: string
+    format: date
+    nullable: true
+  currency:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+      symbol:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  status:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  reason:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  normalRetirementAge:
+    type: integer
+    nullable: true
+  termDdPeriod:
+    type: integer
+    nullable: true
+  renewalDate:
+    type: string
+    format: date
+    nullable: true
+  budgetPremiumAmount:
+    type: number
+    nullable: true
+  escalationMethod:
+    type: integer
+    nullable: true
+  escalationPerc:
+    type: number
+    nullable: true
+  escalationIndexType:
+    type: integer
+    nullable: true
+  terminationBasis:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    required: []
+  paymentArrangementId:
+    type: integer
+  clients:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+          nullable: true
+        role:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        smoker:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+          required:
+            - number
+        occupation:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+        insuredRelation:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        roleItems:
+          type: array
+          items:
+            properties:
+              itemCode:
+                type: integer
+              itemName:
+                type: string
+              itemValue:
+                type: string
+              keyId:
+                type: integer
+                nullable: true
+            type: object
+      type: object
+  agents:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        role:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        commStyle:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        agentAccountNo:
+          type: integer
+          nullable: true
+        agentLayer:
+          type: integer
+          nullable: true
+        bilocInitCommType:
+          type: integer
+          nullable: true
+        bilocRenewalOrLevelCommissionType:
+          type: integer
+          nullable: true
+        commissionFormat:
+          type: integer
+          nullable: true
+        lautroPercenatge:
+          type: number
+          nullable: true
+        mainAgentPercent:
+          type: number
+          nullable: true
+        mainLayer:
+          type: integer
+          nullable: true
+        percOfPremForIndemnity:
+          type: number
+          nullable: true
+      type: object
+      required:
+        - id
+  beneficiaries:
+    type: array
+    nullable: true
+    items:
+      properties:
+        id:
+          type: integer
+          nullable: true
+        clauseType:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+        beneficiaryType:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        beneficiaryEventType:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        beneficiaryReferenceRole:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        amountType:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        amount:
+          type: number
+          nullable: true
+        priority:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+      type: object
+      nullable: true
+  covers:
+    type: array
+    nullable: true
+    items:
+      properties:
+        cover:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        sumAssuredAmount:
+          type: number
+          nullable: true
+        termYears:
+          type: integer
+          nullable: true
+        termMonths:
+          type: integer
+          nullable: true
+        termDays:
+          type: integer
+          nullable: true
+        paidByContType:
+          properties:
+            number:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        deathBenefitType:
+          type: integer
+          nullable: true
+        termAge:
+          type: integer
+          nullable: true
+        annEscalationMethod:
+          type: integer
+          nullable: true
+        fixedRate:
+          type: number
+          nullable: true
+        indexType:
+          type: integer
+          nullable: true
+        basicPremPaidByCode:
+          type: integer
+          nullable: true
+        benefitPaymentPeriodType:
+          type: integer
+          nullable: true
+        benefitPaymentType:
+          type: integer
+          nullable: true
+        calculatedSaBasedOnBudget:
+          type: number
+          nullable: true
+        commencementDate:
+          type: string
+          format: date
+          nullable: true
+        dateAtEndOfTerm:
+          type: string
+          format: date
+          nullable: true
+        dateOfFinalPremium:
+          type: string
+          format: date
+          nullable: true
+        entryAge:
+          type: integer
+          nullable: true
+        manualAnnualPremiumFlag:
+          type: integer
+          nullable: true
+        manualSumAssuredFlag:
+          type: integer
+          nullable: true
+        manualTermOrAgeCode:
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          default: 0
+        premiumPaymentPeriod:
+          type: integer
+          nullable: true
+        premiumTermAge:
+          type: integer
+          nullable: true
+        premiumRateBasis:
+          type: integer
+          nullable: true
+        coverQuoteEffecDate:
+          type: string
+          format: date
+          nullable: true
+        rateGuaranteePeriod:
+          type: integer
+          nullable: true
+        relatedCoverNo:
+          type: integer
+          nullable: true
+        requestedSumAssuredType:
+          type: integer
+          nullable: true
+        sumAssuredType:
+          type: integer
+          nullable: true
+        wholeLifeFlag:
+          type: integer
+          nullable: true
+        relatedInternalCoverNo:
+          type: integer
+          nullable: true
+        coverageRole:
+          type: integer
+          nullable: true
+        internalCoverNo:
+          type: integer
+          nullable: true
+        coverLayers:
+          type: array
+          nullable: true
+          items:
+            properties:
+              layerStatus:
+                properties:
+                  code:
+                    type: number
+                    nullable: true
+                  name:
+                    type: string
+                    nullable: true
+                type: object
+                nullable: true
+              evidencesDetails:
+                type: array
+                items:
+                  properties:
+                    evidence:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                      type: object
+                      required:
+                        - code
+                        - name
+                    client:
+                      properties:
+                        clientNo:
+                          type: integer
+                          nullable: true
+                        clientName:
+                          type: string
+                          nullable: true
+                      type: object
+                    statusDate:
+                      type: string
+                      format: date
+                      nullable: true
+                    validationPeriod:
+                      type: string
+                      format: date
+                      nullable: true
+                    recipientName:
+                      type: string
+                      nullable: true
+                    paymentStatus:
+                      properties:
+                        code:
+                          type: integer
+                          nullable: true
+                        name:
+                          type: string
+                          nullable: true
+                      type: object
+                    fee:
+                      type: number
+                      nullable: true
+                    manualFeeOverrideFlag:
+                      type: integer
+                      nullable: true
+                    status:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                      type: object
+                    supplierType:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                      type: object
+                    supplierClass:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                      type: object
+                    recipient:
+                      type: integer
+                    reason:
+                      type: string
+                      nullable: true
+                    text1:
+                      type: string
+                      nullable: true
+                    text2:
+                      type: string
+                      nullable: true
+                    text3:
+                      type: string
+                      nullable: true
+                    text4:
+                      type: string
+                      nullable: true
+                    text5:
+                      type: string
+                      nullable: true
+                  type: object
+                  required:
+                    - evidence
+                    - status
+                    - supplierType
+                    - recipient
+                    - supplierClass
+              loadingsDetails:
+                type: array
+                items:
+                  properties:
+                    loadingType:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                      type: object
+                    client:
+                      properties:
+                        clientNo:
+                          type: integer
+                          nullable: true
+                        clientName:
+                          type: string
+                          nullable: true
+                      type: object
+                    table:
+                      properties:
+                        code:
+                          type: integer
+                          nullable: true
+                        name:
+                          type: string
+                          nullable: true
+                      type: object
+                    loadingCommencementDate:
+                      type: string
+                      format: date
+                      nullable: true
+                    percLoading:
+                      type: number
+                    rateOfSa:
+                      type: number
+                      nullable: true
+                    ageLoading:
+                      type: integer
+                      nullable: true
+                    amount:
+                      type: integer
+                      nullable: true
+                    oneOffPremium:
+                      type: number
+                      nullable: true
+                    stdRateFlag:
+                      type: boolean
+                      default: false
+                      nullable: true
+                    durationY:
+                      type: integer
+                      nullable: true
+                    durationM:
+                      type: integer
+                      nullable: true
+                    description:
+                      type: string
+                      nullable: true
+                    regDate:
+                      type: string
+                      format: date
+                      nullable: true
+                    manualFlag:
+                      type: integer
+                      nullable: true
+                    commencementDate:
+                      type: string
+                      format: date
+                      nullable: true
+                    status:
+                      properties:
+                        code:
+                          type: integer
+                          nullable: true
+                        name:
+                          type: string
+                          nullable: true
+                      type: object
+                    alterationRef:
+                      type: string
+                      nullable: true
+                  type: object
+              underwritingClauseDetails:
+                type: array
+                items:
+                  properties:
+                    exclusionClauseNo:
+                      properties:
+                        code:
+                          type: integer
+                          nullable: true
+                        name:
+                          type: string
+                          nullable: true
+                      type: object
+                      nullable: true
+                    description:
+                      type: string
+                      nullable: true
+                    manualClauseEndDate:
+                      type: string
+                      format: date
+                      nullable: true
+                    client:
+                      properties:
+                        clientNo:
+                          type: integer
+                          nullable: true
+                        clientName:
+                          type: string
+                          nullable: true
+                      type: object
+                  type: object
+              beneficiaryClausesDetails:
+                type: array
+                items:
+                  properties:
+                    beneficiaryEventType:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                      type: object
+                    clauseType:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                      type: object
+                    client:
+                      properties:
+                        clientNo:
+                          type: integer
+                          nullable: true
+                        clientName:
+                          type: string
+                          nullable: true
+                      type: object
+                      nullable: true
+                    beneficiaryReferenceRole:
+                      properties:
+                        code:
+                          type: integer
+                          nullable: true
+                        name:
+                          type: string
+                          nullable: true
+                      type: object
+                      nullable: true
+                    beneficiaryType:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                      type: object
+                    priority:
+                      properties:
+                        code:
+                          type: integer
+                          nullable: true
+                        name:
+                          type: string
+                          nullable: true
+                      type: object
+                      nullable: true
+                    amountType:
+                      properties:
+                        code:
+                          type: integer
+                          nullable: true
+                        name:
+                          type: string
+                          nullable: true
+                      type: object
+                      nullable: true
+                    amount:
+                      type: number
+                      nullable: true
+                    clauseText:
+                      type: string
+                      nullable: true
+                    internalReference:
+                      type: number
+                  type: object
+                  required:
+                    - beneficiaryEventType
+                    - beneficiaryType
+                    - clauseType
+              sumAssured:
+                type: number
+                nullable: true
+              layerEffectiveDate:
+                type: string
+                format: date
+                nullable: true
+              layerNo:
+                type: integer
+                nullable: true
+              administrativeClause:
+                properties:
+                  client:
+                    properties:
+                      code:
+                        type: integer
+                        nullable: true
+                      name:
+                        type: string
+                        nullable: true
+                    type: object
+                  clauseType:
+                    properties:
+                      code:
+                        type: integer
+                        nullable: true
+                      name:
+                        type: string
+                        nullable: true
+                    type: object
+                  clause:
+                    properties:
+                      code:
+                        type: integer
+                        nullable: true
+                      name:
+                        type: string
+                        nullable: true
+                    type: object
+                  clauseText:
+                    type: string
+                    nullable: true
+                type: object
+            type: object
+            required: []
+            nullable: true
+        deferredPeriod:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        benefitPaymentPeriod:
+          type: integer
+          nullable: true
+      type: object
+      nullable: true
+  coverItemList:
+    type: array
+    nullable: true
+    items:
+      properties:
+        coverNo:
+          type: integer
+          nullable: true
+        coverItemCode:
+          type: integer
+          nullable: true
+        coverItemValue:
+          type: string
+          nullable: true
+      type: object
+      nullable: true
+  contributions:
+    type: array
+    items:
+      properties:
+        contributionType:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+          required:
+            - number
+        contributorId:
+          type: integer
+        contLayer:
+          type: integer
+          nullable: true
+        anniversaryIndexationMethod:
+          type: integer
+          nullable: true
+        contributionBasis:
+          type: integer
+          nullable: true
+        currency:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+            symbol:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        contributionMaturityTermDd:
+          type: integer
+          nullable: true
+        ContributionMaturityTermMm:
+          type: integer
+          nullable: true
+        ContributionMaturityTermYy:
+          type: integer
+          nullable: true
+        transferDetails:
+          properties:
+            companyName:
+              type: string
+              nullable: true
+            companyNo:
+              type: integer
+              nullable: true
+            previousEmployerNo:
+              type: integer
+              nullable: true
+            postTEFRACostBasis:
+              type: integer
+              nullable: true
+            postTEFRACostBasisEarnings:
+              type: integer
+              nullable: true
+            preTEFRACostBasis:
+              type: integer
+              nullable: true
+            preTEFRACostBasisIncome:
+              type: integer
+              nullable: true
+            totalAmount:
+              type: number
+              nullable: true
+            formSignedDate:
+              type: string
+              format: date
+              nullable: true
+            transferRef:
+              type: integer
+              nullable: true
+            transferSourceCode:
+              type: integer
+              nullable: true
+            transferType:
+              type: integer
+              nullable: true
+          type: object
+          nullable: true
+        investments:
+          type: array
+          nullable: true
+          items:
+            properties:
+              fundNumber:
+                type: integer
+                nullable: true
+              profileNo:
+                type: integer
+                nullable: true
+              fundIsinCode:
+                type: string
+                nullable: true
+              name:
+                type: string
+                nullable: true
+              fundExternalReference:
+                type: string
+                nullable: true
+              allocationPercentage:
+                type: number
+                nullable: true
+              fundAllocationType:
+                type: integer
+                nullable: true
+              illustrationScenarios:
+                properties:
+                  scenarioId:
+                    type: string
+                    nullable: true
+                  rate:
+                    type: number
+                    nullable: true
+                type: object
+                nullable: true
+            type: object
+            nullable: true
+        openingEffecDateLayerAge:
+          type: string
+          format: date
+          nullable: true
+        premiumTermDd:
+          type: integer
+          nullable: true
+        premiumTermMm:
+          type: integer
+          nullable: true
+        premiumTermYy:
+          type: integer
+          nullable: true
+        wolFlag:
+          type: integer
+          nullable: true
+        premiumAmount:
+          type: number
+          nullable: true
+        nextBillingDate:
+          type: string
+          format: date
+          nullable: true
+        escalationMethod:
+          type: integer
+          nullable: true
+        fixedRate:
+          type: number
+          nullable: true
+        indexType:
+          type: integer
+          nullable: true
+      type: object
+  entityItems:
+    type: array
+    nullable: true
+    items:
+      properties:
+        entitySecondSubType:
+          type: integer
+          nullable: true
+        entitySubType:
+          type: integer
+          nullable: true
+        entityType:
+          type: integer
+          nullable: true
+        id:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          required: []
+          nullable: true
+        entityNo:
+          type: integer
+          nullable: true
+        value:
+          type: string
+          nullable: true
+        valueName:
+          type: string
+          nullable: true
+      type: object
+      nullable: true
+  illustrationParameters:
+    properties:
+      illustrationType:
+        type: integer
+        nullable: true
+      illustrationTermDate:
+        type: string
+        format: date
+        nullable: true
+      dateCalcAge:
+        type: integer
+        nullable: true
+      requestedAnnuityOption:
+        type: integer
+        nullable: true
+      taxRelief:
+        type: number
+        nullable: true
+    type: object
+    nullable: true
+  medicalUnderwriting:
+    type: array
+    items:
+      properties:
+        clientId:
+          type: integer
+          nullable: true
+        height1:
+          type: number
+        height2:
+          type: number
+        weight:
+          type: number
+        questionAnswerList:
+          type: array
+          items:
+            properties:
+              questionId:
+                type: integer
+                nullable: true
+              answerId:
+                type: integer
+            type: object
+            required:
+              - answerId
+      type: object
+      required:
+        - height1
+        - height2
+        - weight
+type: object
+required:
+  - commencementDate

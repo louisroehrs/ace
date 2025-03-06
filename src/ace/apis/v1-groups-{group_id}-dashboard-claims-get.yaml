@@ -1,0 +1,54 @@
+definition:
+  path: /v1/groups/{group_id}/dashboard/claims
+  verb: get
+  id: imported#/v1/groups/{group_id}/dashboard/claims#get
+  operationId: 4934bbfd-f4e2-4874-83ea-61adf19436abV1
+  summary: Get claim information for group dashboard
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: groupId
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GroupDashBoardClaimsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/GroupDashBoardClaimsResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 4934bbfd-f4e2-4874-83ea-61adf19436abV1.yaml
+method: get
+path: /v1/groups/{group_id}/dashboard/claims
+errorHandlers: []
+handlers: []

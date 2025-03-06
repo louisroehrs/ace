@@ -1,0 +1,5 @@
+title: UpdateClientDetailResponse
+properties:
+  result:
+    $ref: CreateClientResponseV1.yaml
+type: object

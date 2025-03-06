@@ -1,0 +1,297 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  regDate:
+    type: string
+    format: date
+    description: The date on which this set of details was opened. This will be the
+      logical system date on which the change is made.
+  brand:
+    type: string
+    description: The company receiving the payment.
+  paymentMethod:
+    type: string
+    description: Used to distinguish type of payment
+  currency:
+    type: string
+    description: The currency that applies to this record.
+  batchStatus:
+    type: string
+    description: Indicates what CoreSuite should do upon clicking the Save button.
+      Ready for Validation must be selected in order to add the payment records
+      to suspense.
+  batchDescription:
+    type: string
+    description: Option for the user adding any details for the new payment
+  bankAccountShortCode:
+    type: string
+    description: A short code to identify the bank account e.g. General account
+  billReference:
+    type: string
+    description: Informational reference for payment
+  immediateDispersal:
+    type: string
+    description: Selection indicates to disperse a payment immediately upon saving
+      rather than waiting for the dispersal batch to run.
+  paymentDestinationDetails:
+    title: Payment Destination Details
+    type: array
+    items:
+      properties:
+        destinationType:
+          type: integer
+          description: Money allocation destination entity key type e.g. policy, client etc
+        destinationNumber:
+          type: integer
+          description: Money allocation destination entity key value, according to
+            dest_primary_key_type  e.g. when dest_primary_key_type = policy,
+            this is policy number. When agent, this is agent Id
+        secondaryKey:
+          type: integer
+          description: Money allocation destination second key value, according to
+            dest_primary_key_type  e.g. when dest_primary_key_type = policy,
+            this is contribution type  When agent, this is agent account number
+        thirdKey:
+          type: integer
+        transferFlag:
+          type: boolean
+          description: Indicates whether money allocation is sourced from an
+            internal/external transfer
+        transferReference:
+          type: integer
+          description: Identifier of a transfer. Indication of a transfer ref, will relate
+            the money to this policy transfer record.
+        amount:
+          type: number
+          description: Amount received for the payment destination
+        accountType:
+          type: integer
+          description: Type of account
+        accountName:
+          type: string
+          description: The account name specified for the bank account.
+        accountNumber:
+          type: string
+          description: Bank Account No
+        transitRoutingNumber:
+          type: string
+          description: Transit/Routing number also known as Sort Code, is used for
+            identifying the financial institution
+        commissionDeductionType:
+          type: integer
+          description: Indicates the type of deductible commission (amount /percentage)
+            based on company defaults "payment commission deductible method ".
+        commissionDeductable:
+          type: number
+          description: The deductible commission part of the bill.
+        taxYear:
+          type: integer
+          description: Tax year of payment.
+        fundSource:
+          type: integer
+        moneyValueDate:
+          type: string
+          format: date
+          description: The date on which money becomes real to the company, for example,
+            the date when a cheque is cleared or a direct debit will have been
+            collected from the clients bank.
+        paymentReceivedDate:
+          type: string
+          format: date
+          description: The date cash received was linked to the payment request.
+        duePeriod:
+          type: string
+          format: date
+          description: Date the policy is due to be charged.
+        suspendDispersal:
+          type: integer
+          description: Indicates whether the money in the suspense account should be
+            dispersed or stay in suspense
+        payerId:
+          type: string
+          description: Unique identifier for source payment client
+      type: object
+      required:
+        - destinationType
+        - destinationNumber
+        - secondaryKey
+        - paymentReceivedDate
+        - moneyValueDate
+        - duePeriod
+  entityItems:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        value:
+          type: string
+      type: object
+      required:
+        - value
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        regDate:
+          type: string
+          format: date
+          description: The date on which this set of details was opened. This will be the
+            logical system date on which the change is made.
+        brand:
+          type: string
+          description: The company receiving the payment.
+        paymentMethod:
+          type: string
+          description: Used to distinguish type of payment
+        currency:
+          type: string
+          description: The currency that applies to this record.
+        batchStatus:
+          type: string
+          description: Indicates what CoreSuite should do upon clicking the Save button.
+            Ready for Validation must be selected in order to add the payment
+            records to suspense.
+        batchDescription:
+          type: string
+          description: Option for the user adding any details for the new payment
+        bankAccountShortCode:
+          type: string
+          description: A short code to identify the bank account e.g. General account
+        billReference:
+          type: string
+          description: Informational reference for payment
+        immediateDispersal:
+          type: string
+          description: Selection indicates to disperse a payment immediately upon saving
+            rather than waiting for the dispersal batch to run.
+        paymentDestinationDetails:
+          title: Payment Destination Details
+          type: array
+          items:
+            properties:
+              destinationType:
+                type: integer
+                description: Money allocation destination entity key type e.g. policy, client
+                  etc
+              destinationNumber:
+                type: integer
+                description: Money allocation destination entity key value, according to
+                  dest_primary_key_type  e.g. when dest_primary_key_type =
+                  policy, this is policy number. When agent, this is agent Id
+              secondaryKey:
+                type: integer
+                description: Money allocation destination second key value, according to
+                  dest_primary_key_type  e.g. when dest_primary_key_type =
+                  policy, this is contribution type  When agent, this is agent
+                  account number
+              thirdKey:
+                type: integer
+              transferFlag:
+                type: boolean
+                description: Indicates whether money allocation is sourced from an
+                  internal/external transfer
+              transferReference:
+                type: integer
+                description: Identifier of a transfer. Indication of a transfer ref, will relate
+                  the money to this policy transfer record.
+              amount:
+                type: number
+                description: Amount received for the payment destination
+              accountType:
+                type: integer
+                description: Type of account
+              accountName:
+                type: string
+                description: The account name specified for the bank account.
+              accountNumber:
+                type: string
+                description: Bank Account No
+              transitRoutingNumber:
+                type: string
+                description: Transit/Routing number also known as Sort Code, is used for
+                  identifying the financial institution
+              commissionDeductionType:
+                type: integer
+                description: Indicates the type of deductible commission (amount /percentage)
+                  based on company defaults "payment commission deductible
+                  method ".
+              commissionDeductable:
+                type: number
+                description: The deductible commission part of the bill.
+              taxYear:
+                type: integer
+                description: Tax year of payment.
+              fundSource:
+                type: integer
+              moneyValueDate:
+                type: string
+                format: date
+                description: The date on which money becomes real to the company, for example,
+                  the date when a cheque is cleared or a direct debit will have
+                  been collected from the clients bank.
+              paymentReceivedDate:
+                type: string
+                format: date
+                description: The date cash received was linked to the payment request.
+              duePeriod:
+                type: string
+                format: date
+                description: Date the policy is due to be charged.
+              suspendDispersal:
+                type: integer
+                description: Indicates whether the money in the suspense account should be
+                  dispersed or stay in suspense
+              payerId:
+                type: string
+                description: Unique identifier for source payment client
+            type: object
+            required:
+              - destinationType
+              - destinationNumber
+              - secondaryKey
+              - paymentReceivedDate
+              - moneyValueDate
+              - duePeriod
+        entityItems:
+          type: array
+          items:
+            properties:
+              id:
+                type: integer
+              value:
+                type: string
+            type: object
+            required:
+              - value
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/payment-batch"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: ""

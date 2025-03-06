@@ -1,0 +1,106 @@
+title: followUpRequest
+properties:
+  followUpProcedure:
+    properties:
+      number:
+        type: integer
+        default: "-1"
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - number
+  priority:
+    properties:
+      code:
+        type: integer
+        default: "-1"
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  entityType:
+    properties:
+      number:
+        type: integer
+        default: "-1"
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - number
+  entityId:
+    type: string
+  dueDate:
+    type: string
+    format: date
+    default: YYYY-MM-DD
+  openingDescription:
+    type: string
+    nullable: true
+  processDescription:
+    type: string
+    nullable: true
+  assignedUserTeam:
+    properties:
+      number:
+        type: integer
+        default: "-1"
+      name:
+        type: string
+        nullable: true
+    type: object
+  assignedUserRole:
+    properties:
+      number:
+        type: integer
+        default: "-1"
+      name:
+        type: string
+        nullable: true
+    type: object
+  assigendUser:
+    properties:
+      id:
+        type: integer
+        default: "-1"
+      name:
+        type: string
+        nullable: true
+    type: object
+  externalReference:
+    type: string
+    nullable: true
+  attachmentUrl:
+    type: string
+    nullable: true
+  closingMainRef:
+    type: string
+    default: string
+  closingSubRef:
+    type: string
+    default: string
+  closingDescription:
+    type: string
+    nullable: true
+  followUpStatus:
+    title: followUpStatus
+    properties:
+      code:
+        type: integer
+        default: "-1"
+      name:
+        type: string
+        nullable: true
+    type: object
+type: object
+required:
+  - followUpProcedure
+  - priority
+  - entityType
+  - entityId
+  - dueDate

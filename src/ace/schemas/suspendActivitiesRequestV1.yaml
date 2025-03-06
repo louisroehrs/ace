@@ -1,0 +1,33 @@
+title: suspendActivitiesRequest
+properties:
+  suspendActivities:
+    type: array
+    items:
+      properties:
+        suspendCode:
+          type: integer
+          description: Type of suspension.
+        suspensionReasonCode:
+          type: integer
+          description: The reason of policy suspension.
+        fromDate:
+          type: string
+          format: date
+          description: Start of activity suspension period.
+        toDate:
+          type: string
+          format: date
+          description: End of activity suspension period.
+        description:
+          type: string
+          description: Free text description.
+      type: object
+      required:
+        - suspendCode
+        - suspensionReasonCode
+        - fromDate
+        - toDate
+    description: Suspend Activities List
+type: object
+required:
+  - suspendActivities

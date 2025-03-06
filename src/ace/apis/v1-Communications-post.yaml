@@ -1,0 +1,62 @@
+definition:
+  path: /v1/Communications
+  verb: post
+  id: imported#/v1/Communications#post
+  operationId: searchLetterV1
+  summary: search letters based on parameters
+  tags:
+    - General
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: coresuite-datasource-key
+      required: false
+      schema:
+        type: number
+    - in: header
+      name: coresuite-user-name
+      description: coresuite-user-name
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/searchLetterRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchLetterResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/searchLetterResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: searchLetterV1.yaml
+method: post
+path: /v1/Communications
+errorHandlers: []
+handlers: []

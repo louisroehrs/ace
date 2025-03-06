@@ -1,0 +1,70 @@
+title: fundHoldings
+properties:
+  policyNo:
+    type: integer
+    description: Requested
+  externalPolicyNo:
+    type: string
+    description: By requested policy no
+  policyCurrency:
+    properties:
+      number:
+        type: integer
+      name:
+        type: string
+      symbol:
+        type: string
+      isoCode:
+        type: string
+        description: ISO code (3 letters) from ISO 4217
+    type: object
+    required: []
+  fundHoldings:
+    type: array
+    items:
+      properties:
+        fund:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+            isinCode:
+              type: string
+            externalReference:
+              type: string
+          type: object
+        totalUnits:
+          type: number
+        lastUnitPrice:
+          type: number
+          description: In fund Currency
+        lastPriceDate:
+          type: string
+          format: date
+        fundCurrency:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+            symbol:
+              type: string
+            isoCode:
+              type: string
+              description: ISO code (3 letters) from ISO 4217
+          type: object
+          required: []
+        lastExchangeRate:
+          type: number
+          description: last  exchange rate between fund currency and policy currency
+        valueByPolicyCurrency:
+          type: number
+        allocationPercentage:
+          type: number
+          description: Split in requirement
+      type: object
+      required: []
+    description: List of all policy's funds holdings
+type: object
+required: []

@@ -1,0 +1,210 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  effectiveDate: string
+  group_id: string
+  agreementNo:
+    type: integer
+  agreementName:
+    type: string
+  status:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  startDate:
+    type: string
+  endDate:
+    type: string
+  signatureDate:
+    type: string
+  contractType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  enrolmentPeriodMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  newBusinessType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  originalStartDate:
+    type: string
+  fundsTransferExpectedFlag:
+    type: boolean
+  transferringCompanyId:
+    type: number
+  description:
+    type: string
+  renewalFrequency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  headsUpDays:
+    type: number
+  preRenewalLeadTime:
+    type: number
+  renewalGroupNotificationFlag:
+    type: boolean
+  externalAgreementNo:
+    type: string
+  cancellationLeadTime:
+    type: number
+  renewalMonth:
+    type: number
+  parties:
+    type: array
+    items:
+      properties:
+        partyType:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        clientId:
+          type: number
+        clientAccountNo:
+          type: number
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        agreementNo:
+          type: integer
+        agreementName:
+          type: string
+        status:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        startDate:
+          type: string
+        endDate:
+          type: string
+        signatureDate:
+          type: string
+        contractType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        enrolmentPeriodMethod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        newBusinessType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        originalStartDate:
+          type: string
+        fundsTransferExpectedFlag:
+          type: boolean
+        transferringCompanyId:
+          type: number
+        description:
+          type: string
+        renewalFrequency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        headsUpDays:
+          type: number
+        preRenewalLeadTime:
+          type: number
+        renewalGroupNotificationFlag:
+          type: boolean
+        externalAgreementNo:
+          type: string
+        cancellationLeadTime:
+          type: number
+        renewalMonth:
+          type: number
+        parties:
+          type: array
+          items:
+            properties:
+              partyType:
+                properties:
+                  number:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              clientId:
+                type: number
+              clientAccountNo:
+                type: number
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"effectiveDate":"effectiveDate"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/agreements"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Create new agreement for a given group

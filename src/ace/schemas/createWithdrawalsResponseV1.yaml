@@ -1,0 +1,48 @@
+title: createWithdrawalsResponse
+properties:
+  message:
+    properties:
+      text:
+        type: string
+    type: object
+  claimId:
+    type: integer
+  status:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  requiredDocuments:
+    type: array
+    items:
+      properties:
+        documentTitle:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        requestDate:
+          type: string
+          format: date
+        status:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        receivedDate:
+          type: string
+          format: date
+        freeDescription:
+          type: string
+        mustFlag:
+          type: boolean
+          default: false
+      type: object
+type: object

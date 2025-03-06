@@ -1,0 +1,40 @@
+title: clientAddresses
+properties:
+  addressDetails:
+    type: array
+    items:
+      properties:
+        effectiveDate:
+          type: string
+          format: date
+        addressType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        mainAddressFlag:
+          type: boolean
+        houseName:
+          type: string
+        street:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        postCode:
+          type: string
+        country:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+            isoCode:
+              type: string
+          type: object
+      type: object
+type: object
+required: []

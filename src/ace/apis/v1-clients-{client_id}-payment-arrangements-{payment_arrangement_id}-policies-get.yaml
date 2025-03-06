@@ -1,0 +1,77 @@
+definition:
+  path: /v1/clients/{client_id}/payment-arrangements/{payment_arrangement_id}/policies
+  verb: get
+  id: imported#/v1/clients/{client_id}/payment-arrangements/{payment_arrangement_id}/policies#get
+  operationId: getPoliciesByPaymentArrangementV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: client_id
+      description: Client Id
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: payment_arrangement_id
+      description: Payment Arrangement Id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/policiesByClientIdAndPaymentArrangementIdV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/policiesByClientIdAndPaymentArrangementIdV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getPoliciesByPaymentArrangementV1.yaml
+method: get
+path: /v1/clients/{client_id}/payment-arrangements/{payment_arrangement_id}/policies
+errorHandlers: []
+handlers: []

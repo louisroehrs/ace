@@ -1,0 +1,66 @@
+definition:
+  path: /v1/clients/{client_id}/payment-arrangements
+  verb: post
+  id: imported#/v1/clients/{client_id}/payment-arrangements#post
+  operationId: addPaymentArrangementV1
+  summary: " Service to add Payment Arrangement Details to the client."
+  tags:
+    - Client
+  parameters:
+    - in: query
+      name: externalClientIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: client_id
+      description: Internal or External Client Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/AddPaymentArrangementDetailsRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: addPaymentArrangementV1.yaml
+method: post
+path: /v1/clients/{client_id}/payment-arrangements
+errorHandlers: []
+handlers: []

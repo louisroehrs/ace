@@ -1,0 +1,40 @@
+definition:
+  path: /v1/general/saveFundPrices
+  verb: post
+  id: imported#/v1/general/saveFundPrices#post
+  operationId: 7da09db8-ff41-4ace-95bc-8f078695d1b6V1
+  summary: Saves fund prices into the system per a specific effective date
+  tags:
+    - General
+  parameters:
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/saveFundPricesRequestV1"
+  responses:
+    "200":
+      description: Standard success/failure message
+      content:
+        application/json: {}
+        application/xml: {}
+  security:
+    - bearerAuth: []
+flow: 7da09db8-ff41-4ace-95bc-8f078695d1b6V1.yaml
+method: post
+path: /v1/general/saveFundPrices
+errorHandlers: []
+handlers: []

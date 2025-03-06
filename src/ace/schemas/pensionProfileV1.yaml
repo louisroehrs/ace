@@ -1,0 +1,64 @@
+title: pensionProfile
+properties:
+  result:
+    properties:
+      policyNo:
+        type: integer
+        description: As requested
+      externalPolicyNo:
+        type: string
+        description: By requested policyNo
+      investmentProfile:
+        properties:
+          number:
+            type: integer
+          name:
+            type: string
+        type: object
+        description: Pension investment profile
+      switchTargetDate:
+        type: string
+        format: date
+      currentFundSplits:
+        type: array
+        items:
+          properties:
+            fund:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+                isinCode:
+                  type: string
+                externalReference:
+                  type: string
+              type: object
+            allocationPercentage:
+              type: number
+              description: Split
+          type: object
+          required: []
+      targetFundSplits:
+        type: array
+        items:
+          properties:
+            fund:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+                externalReference:
+                  type: string
+                isinCode:
+                  type: string
+              type: object
+            allocationPercentage:
+              type: number
+              description: Split
+          type: object
+          required: []
+    type: object
+type: object
+required: []

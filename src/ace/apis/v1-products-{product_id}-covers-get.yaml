@@ -1,0 +1,73 @@
+definition:
+  path: /v1/products/{product_id}/covers
+  verb: get
+  id: imported#/v1/products/{product_id}/covers#get
+  operationId: getProductCoverMetadataV1
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: coverId
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: fromEffectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: toEffectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: path
+      name: product_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/productCoverMetadataV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/productCoverMetadataV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getProductCoverMetadataV1.yaml
+method: get
+path: /v1/products/{product_id}/covers
+errorHandlers: []
+handlers: []

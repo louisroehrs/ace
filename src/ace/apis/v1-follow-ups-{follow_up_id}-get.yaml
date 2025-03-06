@@ -1,0 +1,50 @@
+definition:
+  path: /v1/follow-ups/{follow_up_id}
+  verb: get
+  id: imported#/v1/follow-ups/{follow_up_id}#get
+  operationId: getFollowUpV1
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: followUpActivity
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: path
+      name: follow_up_id
+      description: Follow Up Internal CoreSuite Id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/followUpsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/followUpsV1"
+  security:
+    - bearerAuth: []
+flow: getFollowUpV1.yaml
+method: get
+path: /v1/follow-ups/{follow_up_id}
+errorHandlers: []
+handlers: []

@@ -1,0 +1,40 @@
+definition:
+  path: /v1/general/funds/{no1}/unitPrice
+  verb: get
+  id: imported#/v1/general/funds/{no1}/unitPrice#get
+  operationId: d94a71c6-76c1-405d-a1e6-3e31bdbaffa2V1
+  summary: Get fund price for a given fund
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: Requested price date. Will default to sysdate
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: path
+      name: no1
+      description: Fund no of the fund the price is requested for
+      required: true
+      schema:
+        type: integer
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseUnitPriceV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseUnitPriceV1"
+  security:
+    - bearerAuth: []
+flow: d94a71c6-76c1-405d-a1e6-3e31bdbaffa2V1.yaml
+method: get
+path: /v1/general/funds/{no1}/unitPrice
+errorHandlers: []
+handlers: []

@@ -1,0 +1,11 @@
+title: responseCoverBeneficiary
+properties:
+  message:
+    properties:
+      code:
+        type: integer
+      text:
+        type: string
+    type: object
+    required: []
+type: object

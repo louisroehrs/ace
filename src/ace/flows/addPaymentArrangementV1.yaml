@@ -1,0 +1,466 @@
+tags:
+  - Client
+sampleInputSchema: ""
+sampleData:
+  externalClientIdIndicator: boolean
+  client_id: string
+  paymentArrangementDetails:
+    type: array
+    items:
+      properties:
+        effectiveDate:
+          type: string
+          format: date
+        id:
+          type: integer
+        arrangmentType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        arrangmentName:
+          type: string
+        paymentMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        mainArrangementFlag:
+          type: boolean
+          default: false
+        currency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+            symbol:
+              type: string
+          type: object
+        paymentFrequency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        paymentDay:
+          type: integer
+        paymentMonth:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        brand:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        collectionInAdvanceFlag:
+          type: boolean
+          default: false
+        externalBillingID:
+          type: string
+        billing:
+          properties:
+            notice:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            format:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            billingMethod:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            billingMedia:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            leadTime:
+              type: integer
+          type: object
+          required: []
+        bankAccount:
+          properties:
+            ibanAcctNo:
+              type: string
+            accountName:
+              type: string
+            country:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            accountType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            sortCode:
+              type: string
+            authorization:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            bicCode:
+              type: string
+            bankName:
+              type: string
+            bankBranch:
+              type: integer
+          type: object
+          required: []
+        mandate:
+          properties:
+            mandateType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            mandateStatus:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            mandateId:
+              type: string
+            mandateStartDate:
+              type: string
+              format: date
+            mandateEndDate:
+              type: string
+              format: date
+            mandateReasonCode:
+              type: string
+            mandateBatchSendRef:
+              type: string
+            mandateRefusalBatchRef:
+              type: string
+            soleAuthorisedSignatoryFlag:
+              type: boolean
+              default: false
+          type: object
+          required: []
+        creditCardDetails:
+          properties:
+            cardType:
+              type: integer
+            cardNumber:
+              type: string
+            cardStatus:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+            expiryDate:
+              type: string
+              format: date
+            statusDate:
+              type: string
+              format: date
+          type: object
+          required: []
+      type: object
+      required: []
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        paymentArrangementDetails:
+          type: array
+          items:
+            properties:
+              effectiveDate:
+                type: string
+                format: date
+              id:
+                type: integer
+              arrangmentType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                required: []
+              arrangmentName:
+                type: string
+              paymentMethod:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                required: []
+              mainArrangementFlag:
+                type: boolean
+                default: false
+              currency:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                  symbol:
+                    type: string
+                type: object
+              paymentFrequency:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                required: []
+              paymentDay:
+                type: integer
+              paymentMonth:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                required: []
+              brand:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+                required: []
+              collectionInAdvanceFlag:
+                type: boolean
+                default: false
+              externalBillingID:
+                type: string
+              billing:
+                properties:
+                  notice:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  format:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  billingMethod:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  billingMedia:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  leadTime:
+                    type: integer
+                type: object
+                required: []
+              bankAccount:
+                properties:
+                  ibanAcctNo:
+                    type: string
+                  accountName:
+                    type: string
+                  country:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  accountType:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  sortCode:
+                    type: string
+                  authorization:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  bicCode:
+                    type: string
+                  bankName:
+                    type: string
+                  bankBranch:
+                    type: integer
+                type: object
+                required: []
+              mandate:
+                properties:
+                  mandateType:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  mandateStatus:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  mandateId:
+                    type: string
+                  mandateStartDate:
+                    type: string
+                    format: date
+                  mandateEndDate:
+                    type: string
+                    format: date
+                  mandateReasonCode:
+                    type: string
+                  mandateBatchSendRef:
+                    type: string
+                  mandateRefusalBatchRef:
+                    type: string
+                  soleAuthorisedSignatoryFlag:
+                    type: boolean
+                    default: false
+                type: object
+                required: []
+              creditCardDetails:
+                properties:
+                  cardType:
+                    type: integer
+                  cardNumber:
+                    type: string
+                  cardStatus:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                    required: []
+                  expiryDate:
+                    type: string
+                    format: date
+                  statusDate:
+                    type: string
+                    format: date
+                type: object
+                required: []
+            type: object
+            required: []
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"externalClientIdIndicator":"externalClientIdIndicator"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/clients/{{client_id}}/payment-arrangements"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: " Service to add Payment Arrangement Details to the client."

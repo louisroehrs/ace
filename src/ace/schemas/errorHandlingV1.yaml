@@ -1,0 +1,14 @@
+title: errorHandling
+properties:
+  status:
+    type: integer
+  messages:
+    type: array
+    items:
+      properties:
+        rowNo:
+          type: number
+        text:
+          type: string
+      type: object
+type: object

@@ -1,0 +1,10 @@
+title: clientCommunicationInbound
+properties:
+  documentUrl:
+    title: locationUrl
+    type: string
+    description: document location
+type: object
+required:
+  - documentUrl
+description: Inbound Client Communication

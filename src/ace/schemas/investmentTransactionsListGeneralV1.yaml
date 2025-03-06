@@ -1,0 +1,79 @@
+title: investmentTransactionsListGeneral
+properties:
+  result:
+    properties:
+      policyNo:
+        type: integer
+        description: The requested
+      externalPolicyNo:
+        type: string
+      transactions:
+        type: array
+        items:
+          properties:
+            transactionReference:
+              type: string
+              description: To be used in the transaction details service
+            effectiveDate:
+              type: string
+              format: date
+              description: Date the transaction is set to effect
+            completionEffectiveDate:
+              type: string
+              format: date
+              description: Highest completion date in the transactions rows, only for
+                completed transaction (all rows were completed). Otherwise NULL
+            transactionType:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            contributionType:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            value:
+              type: number
+              description: Cross funds (sum of all transaction rows). When transaction is not
+                completed, this value may be misleading.
+            transactionStatus:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+              required: []
+              description: '"Made up" status:  1 - In Process  2 - Completed'
+          type: object
+          required: []
+    type: object
+  response:
+    properties:
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required:
+          - code
+          - name
+      messages:
+        type: array
+        items:
+          properties:
+            number:
+              type: string
+            name:
+              type: string
+          type: object
+    type: object
+type: object
+required: []

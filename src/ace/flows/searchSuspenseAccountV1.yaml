@@ -1,0 +1,42 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  maxSuspenseEntryDate: string
+  insuranceCompany: integer
+  payerId: integer
+  destinationType: integer
+  destinationId: integer
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"maxSuspenseEntryDate":"maxSuspenseEntryDate","insuranceCompany":"insuranceCompany","payerId":"payerId","destinationType":"destinationType","destinationId":"destinationId"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/suspense-accounts"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Ace service to search suspense Account

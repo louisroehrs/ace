@@ -1,0 +1,18 @@
+title: updateResponse
+properties:
+  primaryKey:
+    type: string
+  primaryKeyType:
+    type: integer
+  secondaryKey:
+    type: string
+  secondaryKeyType:
+    type: integer
+  messages:
+    properties:
+      text:
+        type: string
+    type: object
+    required:
+      - text
+type: object

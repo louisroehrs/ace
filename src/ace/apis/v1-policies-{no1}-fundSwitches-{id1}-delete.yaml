@@ -1,0 +1,57 @@
+definition:
+  path: /v1/policies/{no1}/fundSwitches/{id1}
+  verb: delete
+  id: imported#/v1/policies/{no1}/fundSwitches/{id1}#delete
+  operationId: b76b91b9-d8b5-4745-bf5a-1d849a60e572V1
+  summary: "Undo a fund switch with the given ID "
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: no1
+      description: Policy Number
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: id1
+      description: Switch Reference Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/deleteSwitchResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/deleteSwitchResponseV1"
+  security:
+    - bearerAuth: []
+flow: b76b91b9-d8b5-4745-bf5a-1d849a60e572V1.yaml
+method: delete
+path: /v1/policies/{no1}/fundSwitches/{id1}
+errorHandlers: []
+handlers: []

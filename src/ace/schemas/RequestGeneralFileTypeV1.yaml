@@ -1,0 +1,102 @@
+title: RequestGeneralFileType
+properties:
+  uploadeAsFile:
+    type: number
+  subgroupNo:
+    type: number
+  processType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  processSubType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  fileType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  fileName:
+    type: string
+  fileRecordDelimiter:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  fileDateFormat:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  frequency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  month:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  day:
+    type: number
+  records:
+    type: array
+    items:
+      properties:
+        recordType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        recordLength:
+          type: number
+        recordIdentifier:
+          type: string
+        recordMaxNumberOfFields:
+          type: number
+        fieldDefinitions:
+          type: array
+          items:
+            properties:
+              fieldId:
+                type: string
+              fieldName:
+                type: string
+              fieldPosition:
+                type: number
+              fieldMandatoryFlag:
+                type: boolean
+              manipulationRule:
+                properties:
+                  code:
+                    type: number
+                  name:
+                    type: string
+                type: object
+              defaultValue:
+                type: string
+              displayFlag:
+                type: boolean
+            type: object
+      type: object
+type: object

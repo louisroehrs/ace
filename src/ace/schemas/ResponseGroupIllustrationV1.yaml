@@ -1,0 +1,17 @@
+title: ResponseGroupIllustration
+properties:
+  message:
+    properties:
+      Text:
+        type: string
+    type: object
+  groupStatus:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  batchRunNumber:
+    type: integer
+type: object

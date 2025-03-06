@@ -1,0 +1,61 @@
+title: switchHistoryResponse
+properties:
+  result:
+    properties:
+      policyNo:
+        type: integer
+        description: The requested
+      externalPolicyNumber:
+        type: string
+      fundSwitches:
+        type: array
+        items:
+          properties:
+            type:
+              properties:
+                number:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            switchReference:
+              type: string
+            effectiveDate:
+              type: string
+              format: date
+            status:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+          type: object
+          required: []
+    type: object
+    required:
+      - policyNo
+  response:
+    properties:
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required:
+          - code
+          - name
+      messages:
+        type: array
+        items:
+          properties:
+            number:
+              type: string
+            name:
+              type: string
+          type: object
+    type: object
+type: object
+required: []

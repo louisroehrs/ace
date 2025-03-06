@@ -1,0 +1,109 @@
+title: getSubgroupResponse
+properties:
+  groupId:
+    type: integer
+  groupName:
+    type: string
+  subgroup:
+    properties:
+      uniqueId:
+        type: integer
+      subgroupId:
+        type: integer
+      planSelectionMode:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+      subGroupDescription:
+        type: string
+      companyName:
+        type: string
+      natureOfBusiness:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+      informationOnlyFlag:
+        type: boolean
+      includeInGroupStructureFlag:
+        type: boolean
+      Rules:
+        type: array
+        items:
+          properties:
+            ruleType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            ruleName:
+              type: string
+            Rule Logic:
+              type: array
+              items:
+                properties:
+                  openingParenthesis:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                  conditionType:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                  conditionValue:
+                    type: string
+                  conditionSubValue1:
+                    type: number
+                  conditionSubValue2:
+                    type: number
+                  operator:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                  comparedType:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                  comparedValue:
+                    type: string
+                  comparedSubValue1:
+                    type: number
+                  comparedSubValue2:
+                    type: number
+                  closingParenthesis:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                  relation:
+                    properties:
+                      code:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                type: object
+          type: object
+    type: object
+type: object

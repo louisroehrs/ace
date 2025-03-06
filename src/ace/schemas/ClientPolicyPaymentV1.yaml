@@ -1,0 +1,52 @@
+title: ClientPolicyPayment
+properties:
+  payerId:
+    type: integer
+  payerFirstName:
+    type: string
+  payerLastName:
+    type: string
+  policies:
+    type: array
+    items:
+      properties:
+        policyNo:
+          type: integer
+        moneySource:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        currency:
+          properties:
+            currencyCode:
+              type: integer
+            currencyName:
+              type: string
+            currencySymbol:
+              type: string
+          type: object
+        registrationDate:
+          type: string
+        valueDate:
+          type: string
+        amount:
+          type: number
+        paymentMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        internalNumber:
+          type: integer
+      type: object
+type: object
+required:
+  - payerId
+  - payerFirstName
+  - policies
+  - payerLastName

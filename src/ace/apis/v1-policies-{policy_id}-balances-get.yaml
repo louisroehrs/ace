@@ -1,0 +1,73 @@
+definition:
+  path: /v1/policies/{policy_id}/balances
+  verb: get
+  id: imported#/v1/policies/{policy_id}/balances#get
+  operationId: getPolicyBalanceDetailsV1
+  summary: The Api gets all the balances of the policy
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: regDate
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: externalPolicyIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: policy_id
+      description: policyNo
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GetPolicyBalanceDetailsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/GetPolicyBalanceDetailsV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getPolicyBalanceDetailsV1.yaml
+method: get
+path: /v1/policies/{policy_id}/balances
+errorHandlers: []
+handlers: []

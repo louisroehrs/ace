@@ -1,0 +1,12 @@
+title: saveFundPricesResponse
+properties:
+  result:
+    properties:
+      message:
+        properties:
+          text:
+            type: string
+        type: object
+    type: object
+type: object
+required: []

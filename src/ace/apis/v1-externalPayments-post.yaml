@@ -1,0 +1,54 @@
+definition:
+  path: /v1/externalPayments
+  verb: post
+  id: imported#/v1/externalPayments#post
+  operationId: createexternalpaymentV1
+  summary: Create external payments that can be accepted into the system and later
+    dispersed against the relevant policies
+  tags:
+    - General
+  parameters:
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/CreateExternalPaymentRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CreateExternalPaymentResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/CreateExternalPaymentResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: createexternalpaymentV1.yaml
+method: post
+path: /v1/externalPayments
+errorHandlers: []
+handlers: []

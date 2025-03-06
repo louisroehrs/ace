@@ -1,0 +1,49 @@
+definition:
+  path: /v1/policies/{policy_id}/withdrawals
+  verb: post
+  id: imported#/v1/policies/{policy_id}/withdrawals#post
+  operationId: createFullWithdrawalV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policy_id
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/CreateFullWithdrawalRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CreateServiceGenericResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/CreateServiceGenericResponseV1"
+  security:
+    - bearerAuth: []
+flow: createFullWithdrawalV1.yaml
+method: post
+path: /v1/policies/{policy_id}/withdrawals
+errorHandlers: []
+handlers: []

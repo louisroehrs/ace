@@ -1,0 +1,46 @@
+title: batchAuditResponse
+properties:
+  result:
+    properties:
+      batchAuditEntries:
+        type: array
+        items:
+          properties: {}
+          type: object
+          $ref: batchAuditBasicV1.yaml
+          description: Batch Audit Entry
+        description: The batch audit log entries
+    type: object
+    required:
+      - batchAuditEntries
+  response:
+    properties:
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required:
+          - code
+          - name
+      messages:
+        type: array
+        items:
+          properties:
+            number:
+              type: string
+            name:
+              type: string
+          type: object
+    type: object
+type: object
+required:
+  - entryType
+  - entryTime
+  - description
+  - taskId
+  - batchId
+  - batchRunNumber
+description: "table property name : GeneralBatchAuditView"

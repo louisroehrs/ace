@@ -1,0 +1,19 @@
+title: RequestGroupIllustration
+properties:
+  effectiveDate:
+    type: integer
+  subgroup:
+    properties:
+      fromSubgroupNo:
+        type: integer
+      toSubgroupNo:
+        type: integer
+    type: object
+  interfaceRunNumber:
+    properties:
+      fromInterfaceRunNo:
+        type: integer
+      toInterfaceRunNo:
+        type: integer
+    type: object
+type: object

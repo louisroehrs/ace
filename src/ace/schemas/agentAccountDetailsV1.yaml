@@ -1,0 +1,105 @@
+title: agentAccountDetails
+properties:
+  agentDetails:
+    properties:
+      agentId:
+        type: number
+      agentName:
+        properties:
+          firstName:
+            type: string
+          surname:
+            type: string
+        type: object
+      externalAgentReference:
+        type: number
+      nationalProducerNumber:
+        type: number
+      businessStatus:
+        properties:
+          code:
+            type: number
+          name:
+            type: string
+        type: object
+      agentAccountDetails:
+        type: array
+        items:
+          properties:
+            accountId:
+              type: number
+            insuranceCompany:
+              properties:
+                code:
+                  type: number
+                name:
+                  type: string
+              type: object
+            accountName:
+              type: string
+            accountStatus:
+              properties:
+                code:
+                  type: number
+                name:
+                  type: string
+              type: object
+            currencyOption:
+              properties:
+                code:
+                  type: number
+                name:
+                  type: string
+              type: object
+            currency:
+              properties:
+                code:
+                  type: number
+                name:
+                  type: string
+              type: object
+            roles:
+              type: array
+              items:
+                properties:
+                  agentRole:
+                    properties:
+                      code:
+                        type: number
+                      name:
+                        type: string
+                    type: object
+                  marketClass:
+                    properties:
+                      code:
+                        type: number
+                      name:
+                        type: string
+                    type: object
+                type: object
+            hierarchies:
+              type: array
+              items:
+                properties:
+                  parentAgentId:
+                    type: number
+                  parentAccountId:
+                    type: number
+                  parentAgentRole:
+                    properties:
+                      code:
+                        type: number
+                      name:
+                        type: string
+                    type: object
+                  allLevelCommissionStyle:
+                    properties:
+                      code:
+                        type: number
+                      name:
+                        type: string
+                    type: object
+                type: object
+          type: object
+    type: object
+type: object

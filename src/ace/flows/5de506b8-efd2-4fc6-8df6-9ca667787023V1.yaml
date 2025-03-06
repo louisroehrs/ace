@@ -1,0 +1,32 @@
+tags:
+  - groups
+sampleInputSchema: ""
+sampleData:
+  group_id: integer
+  subgroup_id: integer
+  plan_id: integer
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/subgroups/{{subgroup_id}}/plans/{{plan_id}}"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        aliscompanyid: "{{$headers.aliscompanyid}}"
+        username: "{{$headers.username}}"
+      targetPath: result
+    description: ""

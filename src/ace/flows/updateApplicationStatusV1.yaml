@@ -1,0 +1,72 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  externalPolicyIdIndicator: boolean
+  policy_id: string
+  status:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+  activationDate:
+    type: string
+    format: date
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        status:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required:
+            - code
+        activationDate:
+          type: string
+          format: date
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"externalPolicyIdIndicator":"externalPolicyIdIndicator"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policy_id}}/applications/statuses"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

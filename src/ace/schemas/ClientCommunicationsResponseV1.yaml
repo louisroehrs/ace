@@ -1,0 +1,7 @@
+title: ClientCommunicationsResponse
+nodeKey: ClientCommunicationsResponse
+properties:
+  result:
+    $ref: ResponseGetClientCommunicationV1.yaml
+type: object
+required: []

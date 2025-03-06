@@ -1,0 +1,15 @@
+title: lettersStatusUpdateRequest
+type: object
+properties:
+  deliveryChannel:
+    type: integer
+  deviceName:
+    type: string
+  outputRequestId:
+    type: integer
+  jobId:
+    type: string
+  docStatus:
+    type: string
+  errorMessage:
+    type: string

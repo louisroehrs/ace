@@ -1,0 +1,23 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  no1: string
+description: Created by imported openApi schema
+steps:
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/fundHoldings"
+        method: GET
+      restRequest: JSON
+      json: {}
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+        CoreSuite-Monitoring-Token: "{{$headers.CoreSuite-Monitoring-Token}}"
+      targetPath: result
+    description: Get the ctual fund holdings for the policy

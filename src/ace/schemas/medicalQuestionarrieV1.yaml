@@ -1,0 +1,114 @@
+title: medicalQuestionarrie
+properties:
+  pages:
+    type: array
+    items:
+      properties:
+        questions:
+          type: array
+          items:
+            properties:
+              id:
+                type: string
+              answersOptions:
+                type: array
+                items:
+                  properties:
+                    label:
+                      type: string
+                      description: Hard coded. will always be- . 
+                    value:
+                      type: string
+                      description: Hard coded. will always be- . 154
+                  type: object
+                  required:
+                    - label
+                    - value
+              cssClassName:
+                type: string
+                description: "Set it to “header1” for all the heading.\t"
+              defaultAnswer:
+                type: string
+                description: Hard coded. will always be empty
+              isEditable:
+                type: boolean
+                description: Set it to “False” for all the Heading.
+              isRequired:
+                type: boolean
+                description: Set it to “False” for all the Heading.
+              label:
+                type: string
+              answersType:
+                type: string
+                description: Hard coded. will always be- text
+              questions:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: string
+                    answersOptions:
+                      type: array
+                      items:
+                        properties:
+                          label:
+                            type: string
+                          value:
+                            type: string
+                        type: object
+                        required:
+                          - label
+                          - value
+                    cssClassName:
+                      type: string
+                      description: "Set it to “header1” for all the heading.\t"
+                    defaultAnswer:
+                      type: string
+                    isEditable:
+                      type: boolean
+                      description: Set it to “True” for all the questions.
+                    isRequired:
+                      type: boolean
+                      description: Set it to “True” for all the questions.
+                    label:
+                      type: string
+                    placeholder:
+                      type: string
+                    answersType:
+                      type: string
+                    displayCondition:
+                      properties:
+                        questionId:
+                          type: number
+                        answerValue:
+                          type: string
+                        condition:
+                          type: string
+                      type: object
+                  type: object
+                  required:
+                    - id
+                    - answersOptions
+                    - defaultAnswer
+                    - isEditable
+                    - isRequired
+                    - label
+                    - placeholder
+                    - answersType
+                    - displayCondition
+                    - cssClassName
+            type: object
+            required:
+              - id
+              - label
+              - answersType
+              - isEditable
+              - questions
+              - answersOptions
+              - defaultAnswer
+              - isRequired
+              - cssClassName
+      type: object
+      required:
+        - questions
+type: object

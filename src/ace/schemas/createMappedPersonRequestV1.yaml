@@ -1,0 +1,144 @@
+title: createMappedPersonRequest
+properties:
+  person:
+    properties:
+      title:
+        type: integer
+        description: Client Title
+      firstName:
+        type: string
+        description: Client FirstName
+      middleName:
+        type: string
+        description: Client Middle Name
+      surName:
+        type: string
+        description: Client Last Name
+      secondSurname:
+        type: string
+      gender:
+        type: integer
+        description: Person Gender
+      maidenName:
+        type: string
+        description: Client Maiden Name
+      idCountry:
+        type: integer
+        description: Client National Insurance Country Code
+      clientType:
+        type: integer
+        description: Client Type
+      preferredLanguage:
+        type: integer
+        description: Client Preferred Language
+      vatRegisteredCode:
+        type: integer
+        description: Client VAT Registered Code
+      vatRegistrationNo:
+        type: string
+        description: Client VAT Registration Number
+      idType:
+        type: string
+        description: Person Identity Type
+      id:
+        type: string
+        description: Reference ID
+      dob:
+        type: string
+        description: Person Date Of Birth
+      smokerStatus:
+        type: integer
+        description: Person Smoker Status
+      occupation:
+        type: integer
+        description: Person Occupation
+      personStatus:
+        type: boolean
+        description: Personal Status
+      familyStatus:
+        type: integer
+        description: Person Family Status
+      normalRetirementAge:
+        type: integer
+        description: Person Retirement Age
+      addressDetails:
+        type: array
+        items:
+          properties:
+            addressType:
+              type: integer
+              description: "Address Type "
+            mainAddressCode:
+              type: boolean
+              description: Main Address Flag
+            houseNumber:
+              type: string
+              description: Address House Number
+            houseName:
+              type: string
+              description: Address House Name
+            addressLine1:
+              type: string
+              description: Address  addressLine1(street)
+            addressLine2:
+              type: string
+              description: Address addressLine2
+            city:
+              type: string
+              description: Address City
+            state:
+              type: integer
+              description: Address State
+            zipCode:
+              type: string
+              description: Address Zip Code
+            country:
+              type: integer
+              description: Address Country Code
+            province:
+              type: string
+              description: Address Province
+            poBox:
+              type: string
+              description: Address Post Office Box
+          type: object
+        description: Client Address Details
+      contactDetails:
+        type: array
+        items:
+          properties:
+            contactType:
+              type: integer
+              description: Client Contact Code
+            phone:
+              type: string
+              description: Client Phone Number
+            mobile:
+              type: string
+              description: Client Mobile
+            email:
+              type: string
+              description: Client Email
+            fax:
+              type: string
+              description: Client Fax
+            countryCode:
+              type: integer
+              description: Contact Country Code
+            preferredContactMethod:
+              type: integer
+              description: Preferred Contact Method
+            main:
+              type: boolean
+              description: Main Contact Flag
+          type: object
+          required:
+            - main
+        description: Client Contact Details
+    type: object
+    required:
+      - gender
+      - firstName
+      - surName
+    description: Person Details Object
+type: object

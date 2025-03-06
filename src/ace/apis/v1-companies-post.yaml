@@ -1,0 +1,52 @@
+definition:
+  path: /v1/companies
+  verb: post
+  id: imported#/v1/companies#post
+  operationId: addNewCompanyV1
+  tags:
+    - Policy
+  parameters:
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/createCompanyV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: addNewCompanyV1.yaml
+method: post
+path: /v1/companies
+errorHandlers: []
+handlers: []

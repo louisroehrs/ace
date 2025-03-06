@@ -1,0 +1,85 @@
+title: requestSaveAgreement
+properties:
+  agreementNo:
+    type: integer
+  agreementName:
+    type: string
+  status:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  startDate:
+    type: string
+  endDate:
+    type: string
+  signatureDate:
+    type: string
+  contractType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  enrolmentPeriodMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  newBusinessType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  originalStartDate:
+    type: string
+  fundsTransferExpectedFlag:
+    type: boolean
+  transferringCompanyId:
+    type: number
+  description:
+    type: string
+  renewalFrequency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  headsUpDays:
+    type: number
+  preRenewalLeadTime:
+    type: number
+  renewalGroupNotificationFlag:
+    type: boolean
+  externalAgreementNo:
+    type: string
+  cancellationLeadTime:
+    type: number
+  renewalMonth:
+    type: number
+  parties:
+    type: array
+    items:
+      properties:
+        partyType:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        clientId:
+          type: number
+        clientAccountNo:
+          type: number
+      type: object
+type: object
+required: []

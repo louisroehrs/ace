@@ -1,0 +1,72 @@
+definition:
+  path: /v1/policies/{policy_id}/suspend-activities
+  verb: get
+  id: imported#/v1/policies/{policy_id}/suspend-activities#get
+  operationId: getPolicySuspendActivitiesV1
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyIdIndicator
+      description: Policy External Number Indicator
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: query
+      name: suspendCode
+      description: Suspend Code
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: effectiveDate
+      description: Effective Date
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: policy_id
+      description: Policy Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/suspendActivitiesV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/suspendActivitiesV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getPolicySuspendActivitiesV1.yaml
+method: get
+path: /v1/policies/{policy_id}/suspend-activities
+errorHandlers: []
+handlers: []

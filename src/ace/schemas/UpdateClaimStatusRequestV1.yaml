@@ -1,0 +1,12 @@
+title: UpdateClaimStatusRequest
+properties:
+  currentStatus:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required: []
+type: object
+required: []

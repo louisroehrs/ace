@@ -1,0 +1,55 @@
+definition:
+  path: /v1/groups/{group_id}/agreements/{agreement_id}/termination
+  verb: post
+  id: imported#/v1/groups/{group_id}/agreements/{agreement_id}/termination#post
+  operationId: terminateAgreementV1
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: groupId
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: agreement_id
+      description: agreementNo
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/terminateAgreementV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseMessagesV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseMessagesV1"
+  security:
+    - bearerAuth: []
+flow: terminateAgreementV1.yaml
+method: post
+path: /v1/groups/{group_id}/agreements/{agreement_id}/termination
+errorHandlers: []
+handlers: []

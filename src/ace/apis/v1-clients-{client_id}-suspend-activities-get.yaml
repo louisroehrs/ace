@@ -1,0 +1,66 @@
+definition:
+  path: /v1/clients/{client_id}/suspend-activities
+  verb: get
+  id: imported#/v1/clients/{client_id}/suspend-activities#get
+  operationId: getClientSuspensionV1
+  tags:
+    - Client
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: Effective Date
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: externalClientIdIndicator
+      description: Client External Number
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: client_id
+      description: Client ID
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clientSuspensionV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/clientSuspensionV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: getClientSuspensionV1.yaml
+method: get
+path: /v1/clients/{client_id}/suspend-activities
+errorHandlers: []
+handlers: []

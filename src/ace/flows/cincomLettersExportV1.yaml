@@ -1,0 +1,88 @@
+tags:
+  - Client
+sampleInputSchema: ""
+sampleData:
+  xmlRequest:
+    type: string
+  customerHeaderHolder:
+    title: customerHeaderHolder
+    properties:
+      packId:
+        type: integer
+      documentId:
+        type: integer
+      noInPack:
+        type: integer
+      posInPack:
+        type: string
+      deliveryChannel:
+        type: string
+      printServer:
+        type: string
+      deliveryAddress:
+        type: string
+      date:
+        type: string
+      letterCode:
+        type: integer
+      letterName:
+        type: integer
+    type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        xmlRequest:
+          type: string
+        customerHeaderHolder:
+          title: customerHeaderHolder
+          properties:
+            packId:
+              type: integer
+            documentId:
+              type: integer
+            noInPack:
+              type: integer
+            posInPack:
+              type: string
+            deliveryChannel:
+              type: string
+            printServer:
+              type: string
+            deliveryAddress:
+              type: string
+            date:
+              type: string
+            letterCode:
+              type: integer
+            letterName:
+              type: integer
+          type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/cincom-communications"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers: {}
+      targetPath: result
+    description: ""

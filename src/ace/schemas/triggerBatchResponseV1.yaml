@@ -1,0 +1,8 @@
+title: triggerBatchResponse
+properties:
+  batchId:
+    type: integer
+  batchRunNumber:
+    type: integer
+type: object
+required: []

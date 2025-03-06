@@ -1,0 +1,45 @@
+definition:
+  path: /v1/general/regDate
+  verb: get
+  id: imported#/v1/general/regDate#get
+  operationId: getSystemRegDateV1
+  summary: Getting current reg date. This is used mainly for test
+  tags:
+    - General
+  parameters:
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/systemRegDateV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/systemRegDateV1"
+  security:
+    - bearerAuth: []
+flow: getSystemRegDateV1.yaml
+method: get
+path: /v1/general/regDate
+errorHandlers: []
+handlers: []

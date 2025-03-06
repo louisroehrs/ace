@@ -1,0 +1,125 @@
+title: batchAuditBasic
+properties:
+  batchId:
+    properties:
+      Number:
+        type: integer
+        description: Number
+      Name:
+        type: string
+        description: Name
+    type: object
+    required:
+      - Number
+    description: Batch ID, per t_batch.batch_id, identifying the group of batch
+      tasks for the batch audit entry.
+  taskId:
+    properties:
+      Number:
+        type: string
+        description: Number
+      Name:
+        type: string
+        description: Name
+    type: object
+    required:
+      - Number
+    description: Task ID, per t_task.task_id, identifying the specific task /
+      function for the batch entry.
+  batchRunNumber:
+    type: integer
+    description: Unique identifier for a batch run.
+    format: int32
+  chunkId:
+    type: integer
+    description: Unique identifier for batch chunk process transaction.
+    format: int32
+  entryType:
+    type: integer
+    description: Describes the batch audit record type(e.g. :1- start ; 2= end; 3-
+      In progress).
+  entryTime:
+    type: string
+    description: Timestamp (actual date/time) when batch was run.
+    format: date-time
+  description:
+    type: string
+    description: Description of the batch process transaction. The description can
+      detail the start/end of a batch process or sub-process, and the batch run
+      time parameters. The description can detail entity level progress for
+      batch or batch task transactions, including specific warnings or errors
+      for unsuccessful transactions.
+  primaryKey:
+    type: string
+    description: Entity for batch activity per primary_key_type (e.g. Policy No,
+      Client ID, Agent ID, etc.).
+  primaryKeyType:
+    properties:
+      number:
+        type: string
+        description: Number
+      name:
+        type: string
+        description: Name
+    type: object
+    required:
+      - number
+    description: Entity type for batch activity (e.g. Policy, Client, Agent).
+  secondaryKey:
+    type: string
+    description: Secondary entity key value, per second key type, for Entity
+      associated to batch activity.
+  secondaryKeyType:
+    properties:
+      number:
+        type: string
+        description: Number
+      name:
+        type: string
+        description: Name
+    type: object
+    required:
+      - number
+    description: Second entity key type for batch activity used to identify sub-entity.
+  thirdKey:
+    type: string
+    description: Third entity key value, per third key type, for Entity associated
+      to batch activity.
+  thirdKeyType:
+    properties:
+      number:
+        type: string
+        description: Number
+      name:
+        type: string
+        description: Name
+    type: object
+    required:
+      - number
+      - name
+    description: Third entity key type for batch activity used to identify sub-entity.
+  processId:
+    type: string
+    description: Process ID
+  serverName:
+    type: string
+    description: Server Name
+  processingId:
+    type: string
+    description: Identifier which relates batch audit to a process control
+      processing cycle. When batch processing is triggered in the context of an
+      activity which uses process control, the processing_id as in
+      g_process_control is recorded on the related batch audit
+type: object
+required:
+  - entryType
+  - entryTime
+  - description
+  - taskId
+  - batchId
+  - batchRunNumber
+  - primaryKeyType
+  - processId
+  - serverName
+  - processingId
+description: "table property name : GeneralBatchAuditView"

@@ -1,0 +1,65 @@
+definition:
+  path: /v1/clients/{client_id}/tax-jurisdiction-details
+  verb: put
+  id: imported#/v1/clients/{client_id}/tax-jurisdiction-details#put
+  operationId: updateTaxJurisdictionDetailsV1
+  summary: Check if client is valid and update the client taxes
+  tags:
+    - client
+  parameters:
+    - in: query
+      name: taxJurisdictionNo
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: client_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/clientTaxJurisdictionRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/updateResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/updateResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: updateTaxJurisdictionDetailsV1.yaml
+method: put
+path: /v1/clients/{client_id}/tax-jurisdiction-details
+errorHandlers: []
+handlers: []

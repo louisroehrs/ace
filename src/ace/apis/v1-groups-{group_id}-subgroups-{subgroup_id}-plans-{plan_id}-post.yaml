@@ -1,0 +1,65 @@
+definition:
+  path: /v1/groups/{group_id}/subgroups/{subgroup_id}/plans/{plan_id}
+  verb: post
+  id: imported#/v1/groups/{group_id}/subgroups/{subgroup_id}/plans/{plan_id}#post
+  operationId: 5de506b8-efd2-4fc6-8df6-9ca667787023V1
+  tags:
+    - groups
+  parameters:
+    - in: path
+      name: group_id
+      description: GroupID
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: subgroup_id
+      description: SubgroupNo
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: plan_id
+      description: PlanNo
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: aliscompanyid
+      description: aliscompanyid
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: username
+      description: Username
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: body param generated from provided JSON request example
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          example: {}
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+        application/xml:
+          schema:
+            type: object
+            example: {}
+  security:
+    - bearerAuth: []
+flow: 5de506b8-efd2-4fc6-8df6-9ca667787023V1.yaml
+method: post
+path: /v1/groups/{group_id}/subgroups/{subgroup_id}/plans/{plan_id}
+errorHandlers: []
+handlers: []

@@ -1,0 +1,57 @@
+definition:
+  path: /v1/policies/{policy_id}/covers
+  verb: post
+  id: imported#/v1/policies/{policy_id}/covers#post
+  operationId: 41c68ad4-4d6c-46d7-a721-d838b1727921V1
+  summary: Add new covers on existing policy
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: externalPolicyIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: policy_id
+      description: policy no
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/RequestSavePolicyCoverV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/genericResponseV1"
+  security:
+    - bearerAuth: []
+flow: 41c68ad4-4d6c-46d7-a721-d838b1727921V1.yaml
+method: post
+path: /v1/policies/{policy_id}/covers
+errorHandlers: []
+handlers: []

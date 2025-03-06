@@ -1,0 +1,10 @@
+title: DividentMethodsResponse
+properties:
+  result:
+    $ref: DividentMethodsV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required:
+  - result
+  - response

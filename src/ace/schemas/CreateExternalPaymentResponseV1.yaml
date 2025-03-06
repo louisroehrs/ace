@@ -1,0 +1,18 @@
+title: CreateExternalPaymentResponse
+properties:
+  status:
+    type: integer
+  primaryKey:
+    type: integer
+  secondaryKey:
+    type: integer
+  messages:
+    type: array
+    items:
+      properties:
+        text:
+          type: string
+        code:
+          type: integer
+      type: object
+type: object

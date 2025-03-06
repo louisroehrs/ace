@@ -1,0 +1,64 @@
+definition:
+  path: /v1/metadata/products/{no1}/versions/{no2}/availableInvestmentProfiles
+  verb: get
+  id: imported#/v1/metadata/products/{no1}/versions/{no2}/availableInvestmentProfiles#get
+  operationId: c1f32c33-001a-4567-82e7-bf6bb366ca20V1
+  summary: Get the investment profiles that are available for policies of the
+    requested product + version to use at time of query
+  tags:
+    - metadata
+  parameters:
+    - in: query
+      name: salesChannel
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: no1
+      description: Product number
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: no2
+      description: Product Version number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/availableProfilesV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/availableProfilesV1"
+  security:
+    - bearerAuth: []
+flow: c1f32c33-001a-4567-82e7-bf6bb366ca20V1.yaml
+method: get
+path: /v1/metadata/products/{no1}/versions/{no2}/availableInvestmentProfiles
+errorHandlers: []
+handlers: []

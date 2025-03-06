@@ -1,0 +1,33 @@
+title: genericResponse
+properties:
+  primaryKey:
+    type: string
+  primaryKeyType:
+    type: integer
+  secondaryKey:
+    type: string
+  secondaryKeyType:
+    type: integer
+  responseMessage:
+    properties:
+      code:
+        type: number
+      text:
+        type: string
+    type: object
+    required: []
+  additionalMessages:
+    properties:
+      text:
+        type: string
+    type: array
+    items:
+      properties:
+        code:
+          type: integer
+        text:
+          type: string
+      type: object
+      required: []
+type: object
+required: []

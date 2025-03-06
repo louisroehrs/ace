@@ -1,0 +1,15 @@
+title: ResponseGeneralFileType
+properties:
+  result:
+    properties:
+      fileId:
+        type: number
+      messages:
+        type: array
+        items:
+          properties:
+            message:
+              type: string
+          type: object
+    type: object
+type: object

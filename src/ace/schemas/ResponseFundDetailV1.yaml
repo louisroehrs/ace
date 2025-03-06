@@ -1,0 +1,182 @@
+title: ResponseFundDetail
+properties:
+  type:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  fund:
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      externalReference:
+        type: string
+      isinCode:
+        type: string
+    type: object
+  fundDataUrl:
+    type: string
+  openForMarketing:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  launchDate:
+    type: string
+    format: date
+  closureDate:
+    type: string
+    format: date
+  mergedFund:
+    type: number
+  fundManager:
+    properties:
+      clientId:
+        type: string
+      name:
+        type: string
+    type: object
+  baseCurrency:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+      symbol:
+        type: string
+      isoCode:
+        type: string
+    type: object
+  tradingCalendar:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  cutoff:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+      time:
+        type: string
+        format: date-time
+    type: object
+  mandatedStockAllocationPercentage:
+    type: number
+  mandatedBondAllocationPercentage:
+    type: number
+  mandatedMarketAllocationPercentage:
+    type: number
+  assetClass:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  minimumBuyTradingLimit:
+    type: number
+  minimumSellTradingLimit:
+    type: number
+  interestBearingFlag:
+    type: boolean
+    default: false
+  interestRate:
+    type: number
+  group:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  typeForInformation:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  pricingMethod:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+    description: Defines the fund pricing method
+  exclusiveFlag:
+    type: boolean
+    default: false
+  maximumBidOfferSpread:
+    type: number
+  maximumBareBidSpread:
+    type: number
+  maximumDailySpread:
+    type: number
+  switchingOption:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  baseFund:
+    type: number
+  reversionaryBonusFlag:
+    type: boolean
+    default: false
+  terminalBonusFlag:
+    type: boolean
+    default: false
+  externalFundId:
+    type: number
+  shortName:
+    type: string
+  generalDescription:
+    type: string
+  fundFamily:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  participantsBonusFlag:
+    type: boolean
+    default: false
+  capRateBase:
+    type: string
+  shadowFundNumber:
+    type: number
+  fundPerformanceUrl:
+    type: string
+  cutOffFormat:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  closureDueDate:
+    type: string
+    format: date
+  suspendedFund:
+    type: boolean
+    default: false
+  suspensionPeriodStartDate:
+    type: string
+    format: date
+  suspensionPeriodEndDate:
+    type: string
+    format: date
+type: object

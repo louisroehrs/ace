@@ -1,0 +1,23 @@
+title: policyKidNumber
+properties:
+  policyKidNumber:
+    title: Policy KID number
+    type: string
+    description: Policy level KID number
+  contributionKidNumbers:
+    type: array
+    items:
+      properties:
+        contributionType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        layer:
+          type: integer
+        kidNumber:
+          type: string
+      type: object
+type: object

@@ -1,0 +1,50 @@
+definition:
+  path: /v1/groups/{group_id}/illustrations
+  verb: post
+  id: imported#/v1/groups/{group_id}/illustrations#post
+  operationId: d5e5d528-4eed-4e61-acef-45cb73dc33acV1
+  summary: this Api for group illustration
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: Group Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/RequestGroupIllustrationV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseGroupIllustrationV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseGroupIllustrationV1"
+  security:
+    - bearerAuth: []
+flow: d5e5d528-4eed-4e61-acef-45cb73dc33acV1.yaml
+method: post
+path: /v1/groups/{group_id}/illustrations
+errorHandlers: []
+handlers: []

@@ -1,0 +1,80 @@
+title: clientCommunicationPartyDetails
+properties:
+  Status:
+    type: string
+  Party:
+    properties:
+      PartyKey:
+        type: string
+      PartySysKey:
+        type: integer
+      FullName:
+        type: string
+      Person:
+        properties:
+          PersonKey:
+            type: string
+          PersonSysKey:
+            type: integer
+          FirstName:
+            type: string
+          BirthDate:
+            type: string
+          Gender:
+            type: string
+        type: object
+      Organization:
+        properties:
+          EstabDate:
+            type: string
+          OrganizationKey:
+            type: string
+          OrganizationSysKey:
+            type: integer
+          OrgCode:
+            type: integer
+          OrgCodeName:
+            type: string
+        type: object
+      Producer:
+        properties:
+          ProducerKey:
+            type: string
+          ProducerSysKey:
+            type: integer
+        type: object
+      EMailAddress:
+        type: array
+        items:
+          properties:
+            EMailAddressKey:
+              type: string
+            EMailAddressSysKey:
+              type: string
+            AddrLine:
+              type: string
+            PrefEMailAddr:
+              type: boolean
+            EMailType:
+              type: number
+          type: object
+      Address:
+        type: array
+        items:
+          properties:
+            AddressKey:
+              type: string
+            AddressSysKey:
+              type: integer
+            Line1:
+              type: string
+            PrefAddr:
+              type: boolean
+            AddressTypeCode:
+              type: number
+          type: object
+    type: object
+    required:
+      - field_4
+type: object
+required: []

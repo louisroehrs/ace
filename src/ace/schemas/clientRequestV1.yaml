@@ -1,0 +1,813 @@
+title: clientRequest
+properties:
+  title:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  firstName:
+    type: string
+    nullable: true
+  middleName:
+    type: string
+    nullable: true
+  surName:
+    type: string
+    nullable: true
+  secondSurname:
+    type: string
+    nullable: true
+  maidenName:
+    type: string
+    nullable: true
+  gender:
+    properties:
+      code:
+        type: integer
+        enum:
+          - 1
+          - 2
+          - 0
+      name:
+        type: string
+        nullable: true
+    type: object
+  nationalInsuranceType:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  nationalInsuranceCountry:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+      "isoCode ":
+        type: string
+        nullable: true
+    type: object
+  nationalInsuranceReference:
+    type: string
+    nullable: true
+  dateOfBirth:
+    type: string
+    format: date
+    nullable: true
+  smokerStatus:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  occupation:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  personStatus:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  clientType:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  preferredLanguage:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  familyStatus:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  normalRetirementAge:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  externalClientId:
+    type: string
+    nullable: true
+  certification:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  suffix:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  countryOfBirth:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  alternativeName:
+    type: string
+    nullable: true
+  nonDriverFlag:
+    type: boolean
+    default: false
+    nullable: true
+  driverLicenseNumber:
+    type: string
+    nullable: true
+  driverLicenseState:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  sourceVersion:
+    type: integer
+    nullable: true
+  addressDetails:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        openingEffectiveDate:
+          type: string
+          format: date
+        addressType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        mainAddressFlag:
+          type: boolean
+          default: false
+        houseNumber:
+          type: string
+          nullable: true
+        houseName:
+          type: string
+          nullable: true
+        address1:
+          type: string
+          nullable: true
+        address2:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        postCode:
+          type: string
+          nullable: true
+        country:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+            isoCode:
+              type: string
+              nullable: true
+          type: object
+        province:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+        postOfficeBox:
+          type: string
+          nullable: true
+        state:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+        plus4:
+          type: string
+          nullable: true
+        addressUnknown:
+          type: boolean
+          default: false
+        municipality:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+      type: object
+  contactDetails:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        openingEffectiveDate:
+          type: string
+          format: date
+        contactType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        mainContactFlag:
+          type: boolean
+          default: false
+        countryCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+            isoCode:
+              type: string
+              nullable: true
+          type: object
+        phone:
+          type: string
+          nullable: true
+        invalidPhoneFlag:
+          type: boolean
+          default: false
+        mobile:
+          type: string
+          nullable: true
+        invalidMobileFlag:
+          type: boolean
+          default: false
+        email:
+          type: string
+          nullable: true
+        invalidEmailFlag:
+          type: boolean
+          default: false
+        fax:
+          type: string
+          nullable: true
+        invalidFaxFlag:
+          type: boolean
+          default: false
+        fromContactHour:
+          type: string
+          default: 00:00
+          pattern: (0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$
+        toContactHour:
+          type: string
+          default: 00:00
+          pattern: (0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$
+        contactDefaultMethod:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+      type: object
+  paymentArrangements:
+    type: array
+    items:
+      properties:
+        openingEffectiveDate:
+          type: string
+          format: date
+          default: 1950-01-01
+        arrangementId:
+          type: integer
+        arrangementType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        arrangementName:
+          type: string
+          nullable: true
+        paymentMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        mainArrangementFlag:
+          type: boolean
+          default: false
+        currency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+            symbol:
+              type: string
+              nullable: true
+          type: object
+        paymentFrequency:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        paymentDay:
+          type: integer
+        paymentMonth:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        brand:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        collectionInAdvanceFlag:
+          type: boolean
+          default: false
+        externalBillingId:
+          type: string
+          nullable: true
+        billing:
+          properties:
+            billingNotice:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            billingFormat:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            billingMethod:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            billingMedia:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            leadTime:
+              type: integer
+              nullable: true
+          type: object
+        bankAccount:
+          properties:
+            ibanAcctNo:
+              type: string
+              nullable: true
+            accountName:
+              type: string
+              nullable: true
+            country:
+              properties:
+                code:
+                  type: string
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+                isoCode:
+                  type: string
+                  nullable: true
+              type: object
+            accountType:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            sortCode:
+              type: string
+              nullable: true
+            authorization:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            bicCode:
+              type: string
+              nullable: true
+            bankName:
+              type: string
+              nullable: true
+            bankBranch:
+              type: integer
+              nullable: true
+          type: object
+        mandate:
+          properties:
+            mandateType:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            mandateStatus:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            mandateId:
+              type: string
+              nullable: true
+            mandateStartDate:
+              type: string
+              format: date
+              nullable: true
+            mandateEndDate:
+              type: string
+              format: date
+              nullable: true
+            mandateReasonCode:
+              type: string
+              nullable: true
+            mandateBatchSendRef:
+              type: string
+              nullable: true
+            mandateRefusalBatchRef:
+              type: string
+              nullable: true
+            soleAuthorisedSignatoryFlag:
+              type: boolean
+              default: false
+          type: object
+        creditCardDetails:
+          properties:
+            cardType:
+              type: integer
+            cardStatus:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            cardNumber:
+              type: string
+              nullable: true
+            transactionType:
+              properties:
+                code:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+              type: object
+            expiryDate:
+              type: string
+              format: date
+              nullable: true
+            statusDate:
+              type: string
+              format: date
+              nullable: true
+          type: object
+      type: object
+  linkagesDetails:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+          nullable: true
+        linkageType:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+        clientId:
+          type: integer
+          nullable: true
+        externalClientId:
+          type: string
+          nullable: true
+        linkageName:
+          type: string
+          nullable: true
+        openingEffectiveDate:
+          type: string
+          format: date
+          nullable: true
+      type: object
+  foreignTaxLiability:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+  cityOfBirth:
+    type: string
+    nullable: true
+  taxJurisdictionDetails:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+          nullable: true
+        taxJurisdiction:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+        foreignIdType:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+        foreignIdDescription:
+          type: string
+          nullable: true
+        reasonNoTin:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        additionalInformation:
+          type: string
+          nullable: true
+        foreignEffectiveDate:
+          type: string
+          format: date
+        foreignExpiryDate:
+          type: string
+          format: date
+        foreignCountryOfIdIssue:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        foreignFtrStatus:
+          type: string
+          nullable: true
+        foreignFtrClassification:
+          type: string
+          nullable: true
+      type: object
+  lettersRecipients:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        letterCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        recipientType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        role:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        recipientsGroup:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        addressType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        noOfCopies:
+          type: integer
+        copyCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        linkage:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        priorityInGroup:
+          type: integer
+        emailFlag:
+          type: boolean
+          default: false
+        postFlag:
+          type: boolean
+          default: false
+        faxFlag:
+          type: boolean
+          default: false
+        mandatoryFlag:
+          type: boolean
+          default: false
+      type: object
+  notes:
+    type: array
+    items:
+      properties:
+        id:
+          type: integer
+        noteText:
+          type: string
+          nullable: true
+        registrationDate:
+          type: string
+          format: date
+        userId:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+        statusNotes:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+      type: object
+  entityItems:
+    type: array
+    items:
+      properties:
+        entitySecondSubType:
+          type: integer
+        entitySubType:
+          type: integer
+        entityType:
+          type: integer
+        id:
+          type: integer
+        entityNo:
+          type: integer
+        value:
+          type: string
+      type: object
+type: object
+required: []

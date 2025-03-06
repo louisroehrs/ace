@@ -1,0 +1,80 @@
+title: searchFollowUps
+properties:
+  followUpList:
+    type: array
+    items:
+      properties:
+        followUpId:
+          type: integer
+        followUpActivity:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        followUpProcedure:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        status:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+          required: []
+        priority:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required: []
+        userRole:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        team:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        user:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+          required: []
+        openingDueDate:
+          type: string
+        primaryKeyType:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+          required: []
+        primaryKey:
+          type: integer
+      type: object
+      required: []
+type: object
+required:
+  - followUpList

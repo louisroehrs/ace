@@ -1,0 +1,63 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  documentId: integer
+  deliveryChannel:
+    type: integer
+  deviceName:
+    type: string
+  outputRequestId:
+    type: integer
+  jobId:
+    type: string
+  docStatus:
+    type: string
+  errorMessage:
+    type: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        deliveryChannel:
+          type: integer
+        deviceName:
+          type: string
+        outputRequestId:
+          type: integer
+        jobId:
+          type: string
+        docStatus:
+          type: string
+        errorMessage:
+          type: string
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/documents/{{documentId}}/letters-status-update"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Letters Status Update

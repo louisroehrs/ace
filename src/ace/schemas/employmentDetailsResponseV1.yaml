@@ -1,0 +1,49 @@
+title: employmentDetailsResponse
+properties:
+  Employer:
+    properties:
+      id:
+        type: integer
+        description: The Employer Id
+      name:
+        type: string
+        description: Employer Name
+      Employee details:
+        properties:
+          id:
+            type: integer
+            description: Employee Id
+          externalId:
+            type: string
+          name:
+            type: string
+            description: Employee Name
+          hireDate:
+            type: string
+            description: Employee Hire Date
+          pensionableServiceStartDate:
+            type: string
+          partTimePercentage:
+            type: number
+          fromEffectiveDate:
+            type: string
+            description: Effective From
+          memberAdditionalSalaryFlag:
+            type: boolean
+          employmentStatus:
+            properties:
+              code:
+                type: number
+              name:
+                type: string
+            type: object
+          employmentType:
+            properties:
+              code:
+                type: number
+              name:
+                type: string
+            type: object
+        type: object
+    type: object
+type: object

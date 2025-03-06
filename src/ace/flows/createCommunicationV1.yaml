@@ -1,0 +1,142 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  identifier:
+    type: integer
+  identifierId:
+    type: integer
+  communicationType:
+    type: integer
+  printStatus:
+    type: integer
+  printDate:
+    type: string
+    format: date
+  printDueDate:
+    type: string
+    format: date
+  dataRetrievedFlag:
+    type: integer
+  dataRetrievedDate:
+    type: string
+    format: date
+  secondaryKeyType:
+    type: integer
+  secondaryKey:
+    type: string
+  senderUserId:
+    type: integer
+  tertiaryKeyType:
+    type: integer
+  tertiaryKey:
+    type: string
+  recipientDetails:
+    type: array
+    items:
+      properties:
+        recipientType:
+          type: integer
+        role:
+          type: integer
+        recipientId:
+          type: integer
+        addressType:
+          type: integer
+        source:
+          type: integer
+        communication:
+          type: integer
+        email:
+          type: integer
+        fax:
+          type: integer
+      type: object
+  printOption:
+    type: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        identifier:
+          type: integer
+        identifierId:
+          type: integer
+        communicationType:
+          type: integer
+        printStatus:
+          type: integer
+        printDate:
+          type: string
+          format: date
+        printDueDate:
+          type: string
+          format: date
+        dataRetrievedFlag:
+          type: integer
+        dataRetrievedDate:
+          type: string
+          format: date
+        secondaryKeyType:
+          type: integer
+        secondaryKey:
+          type: string
+        senderUserId:
+          type: integer
+        tertiaryKeyType:
+          type: integer
+        tertiaryKey:
+          type: string
+        recipientDetails:
+          type: array
+          items:
+            properties:
+              recipientType:
+                type: integer
+              role:
+                type: integer
+              recipientId:
+                type: integer
+              addressType:
+                type: integer
+              source:
+                type: integer
+              communication:
+                type: integer
+              email:
+                type: integer
+              fax:
+                type: integer
+            type: object
+        printOption:
+          type: string
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/customer-communication"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: ""

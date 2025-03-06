@@ -1,0 +1,79 @@
+title: followUps
+properties:
+  followUps:
+    type: array
+    items:
+      properties:
+        followUpProcedure:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        priority:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        primaryKeyType:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        primaryKey:
+          type: integer
+        dueDate:
+          type: string
+          format: date
+        openingDescription:
+          type: string
+        processDescription:
+          type: string
+        procedureCaseNumber:
+          type: integer
+        assignedUserTeam:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        assignedUserRole:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        assignedUser:
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+          type: object
+        externalReference:
+          type: string
+        attachmentUrl:
+          type: string
+        closingMainRef:
+          type: integer
+        closingSubRef:
+          type: integer
+        closingDescription:
+          type: string
+        followUpStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+      type: object
+type: object
+required: []

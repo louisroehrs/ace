@@ -1,0 +1,23 @@
+title: triggerBatchRequest
+properties:
+  tasks:
+    type: array
+    items:
+      properties:
+        parameters:
+          type: array
+          items:
+            properties:
+              Value1:
+                type: string
+                format: date
+              Value2:
+                type: string
+                format: date
+              parameterId:
+                type: integer
+            type: object
+        taskId:
+          type: integer
+      type: object
+type: object

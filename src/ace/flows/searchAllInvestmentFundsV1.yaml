@@ -1,0 +1,45 @@
+tags:
+  - Metadata
+sampleInputSchema: ""
+sampleData:
+  fundId: integer
+  fundType: integer
+  fundGroup: integer
+  name: string
+  isinCode: string
+  registrationDate: string
+  assetClass: integer
+  externalFundId: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"fundId":"fundId","fundType":"fundType","fundGroup":"fundGroup","name":"name","isinCode":"isinCode","registrationDate":"registrationDate","assetClass":"assetClass","externalFundId":"externalFundId"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/funds"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: ""

@@ -1,0 +1,7 @@
+title: GroupDashBoardMemberAlertsResponse
+properties:
+  result:
+    $ref: ResponseGetGroupDashBoardMemberAlertsV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object

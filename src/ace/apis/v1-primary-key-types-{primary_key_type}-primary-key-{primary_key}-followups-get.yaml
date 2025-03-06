@@ -1,0 +1,110 @@
+definition:
+  path: /v1/primary-key-types/{primary_key_type}/primary-key/{primary_key}/followups
+  verb: get
+  id: imported#/v1/primary-key-types/{primary_key_type}/primary-key/{primary_key}/followups#get
+  operationId: searchFollowUpsV1
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: followUpId
+      description: Follow Up Id
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: secondaryKeyType
+      description: Secondary Key Type
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: secondaryKey
+      description: Secondary Key
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: followUpProcedure
+      description: Procedure
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: followUpActivity
+      description: Activity
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: status
+      description: Status
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: priority
+      description: Priority
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: team
+      description: Team
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: openingDueDate
+      description: Maturity Date
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: designatedUserId
+      description: User
+      required: false
+      schema:
+        type: integer
+    - in: path
+      name: primary_key_type
+      description: ""
+      required: true
+      schema:
+        type: number
+    - in: path
+      name: primary_key
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchFollowUpsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/searchFollowUpsV1"
+  security:
+    - bearerAuth: []
+flow: searchFollowUpsV1.yaml
+method: get
+path: /v1/primary-key-types/{primary_key_type}/primary-key/{primary_key}/followups
+errorHandlers: []
+handlers: []

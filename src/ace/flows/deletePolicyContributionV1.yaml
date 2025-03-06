@@ -1,0 +1,34 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  layer: integer
+  effectiveDate: string
+  externalPolicyNoIndicator: boolean
+  policy_id: integer
+  contribution_type: integer
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"layer":"layer","effectiveDate":"effectiveDate","externalPolicyNoIndicator":"externalPolicyNoIndicator"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policy_id}}/contributions/{{contribution_type}}"
+        method: DELETE
+      restRequest: JSON
+      json: {}
+      queryParams: "{{queryParams}}"
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

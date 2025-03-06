@@ -1,0 +1,54 @@
+definition:
+  path: /v1/clients/{id1}/paymentArrangements
+  verb: get
+  id: imported#/v1/clients/{id1}/paymentArrangements#get
+  operationId: c88fe997-aede-4089-8505-fcd6b43270aaV1
+  summary: Retrieves the payment arrangements corresponding to a given Payer ID.
+  tags:
+    - Client
+  parameters:
+    - in: path
+      name: id1
+      description: Client ID
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: Database Key
+      required: true
+      schema:
+        type: number
+    - in: header
+      name: CoreSuite-User-Name
+      description: Database User Name
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ClientPaymentArrangementsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ClientPaymentArrangementsResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: c88fe997-aede-4089-8505-fcd6b43270aaV1.yaml
+method: get
+path: /v1/clients/{id1}/paymentArrangements
+errorHandlers: []
+handlers: []

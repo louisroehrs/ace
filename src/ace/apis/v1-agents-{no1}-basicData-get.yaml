@@ -1,0 +1,52 @@
+definition:
+  path: /v1/agents/{no1}/basicData
+  verb: get
+  id: imported#/v1/agents/{no1}/basicData#get
+  operationId: ad5ae1d6-6d91-48f1-aa56-2da6e066ea41V1
+  summary: Retrieve Agent Details
+  tags:
+    - Agent
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: path
+      name: no1
+      description: AgentNo
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/agentDetailsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/agentDetailsV1"
+  security:
+    - bearerAuth: []
+flow: ad5ae1d6-6d91-48f1-aa56-2da6e066ea41V1.yaml
+method: get
+path: /v1/agents/{no1}/basicData
+errorHandlers: []
+handlers: []

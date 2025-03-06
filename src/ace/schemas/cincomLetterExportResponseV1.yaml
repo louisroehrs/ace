@@ -1,0 +1,9 @@
+title: cincomLetterExportResponse
+properties:
+  code:
+    type: integer
+  message:
+    type: string
+  outputRequestID:
+    type: string
+type: object

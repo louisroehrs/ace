@@ -1,0 +1,57 @@
+definition:
+  path: /v1/general/funds/fund-details
+  verb: get
+  id: imported#/v1/general/funds/fund-details#get
+  operationId: getFundDetailsV1
+  summary: "get all the fund details based on fundNo, extFundNo and isinCode given. "
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: fundId
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: externalId
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: isinCode
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseFundDetailV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseFundDetailV1"
+  security:
+    - bearerAuth: []
+flow: getFundDetailsV1.yaml
+method: get
+path: /v1/general/funds/fund-details
+errorHandlers: []
+handlers: []

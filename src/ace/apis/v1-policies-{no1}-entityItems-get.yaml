@@ -1,0 +1,50 @@
+definition:
+  path: /v1/policies/{no1}/entityItems
+  verb: get
+  id: imported#/v1/policies/{no1}/entityItems#get
+  operationId: d4ec460e-13de-499f-895d-fcf21f9339dfV1
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: YYYY-MM-DD (Effective Date for data retrieval)
+      required: false
+      schema:
+        type: string
+    - in: path
+      name: no1
+      description: Policy Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: Database Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: User Name
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/responsePolicyEntityItemsV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/responsePolicyEntityItemsV1"
+  security:
+    - bearerAuth: []
+flow: d4ec460e-13de-499f-895d-fcf21f9339dfV1.yaml
+method: get
+path: /v1/policies/{no1}/entityItems
+errorHandlers: []
+handlers: []

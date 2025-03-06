@@ -1,0 +1,193 @@
+tags:
+  - Group
+sampleInputSchema: ""
+sampleData:
+  group_id: string
+  plan_id: string
+  subgroup_id: string
+  agentAccount:
+    title: agentAccount
+    type: number
+    description: "1"
+  agentId:
+    title: agentId
+    type: number
+    description: "750995"
+  billingBasis:
+    title: billingBasis
+    type: number
+    description: "1"
+  billingTimingMethod:
+    title: billingTimingMethod
+    type: number
+    description: "0"
+  commissionStyle:
+    title: commissionStyle
+    type: number
+    description: "8"
+  fundBasedRenewalCommissionCode:
+    title: fundBasedRenewalCommissionCode
+    type: number
+    description: "0"
+  fundBasedRenewalCommissionFixedDay:
+    title: fundBasedRenewalCommissionFixedDay
+    type: number
+    description: "0"
+  fundBasedRenewalCommissionFixedMonth:
+    title: fundBasedRenewalCommissionFixedMonth
+    type: number
+    description: "0"
+  fundBasedRenewalCommissionFormulaNo:
+    title: fundBasedRenewalCommissionFormulaNo
+    type: number
+    description: "0"
+  fundBasedRenewalCommissionRate:
+    title: fundBasedRenewalCommissionRate
+    type: number
+    description: "0"
+  fundBasedRenewalFrequency:
+    title: fundBasedRenewalFrequency
+    type: number
+    description: "0"
+  insuranceCompany:
+    title: insuranceCompany
+    type: number
+    description: "2"
+  manualCommissionFlag:
+    title: manualCommissionFlag
+    type: boolean
+    description: "true"
+  manualCommissionRate:
+    title: manualCommissionRate
+    type: string
+    description: "1"
+  clientPaymentId:
+    title: clientPaymentId
+    type: number
+    description: "6753"
+  clientPaymentArrangementId:
+    title: clientPaymentArrangementId
+    type: number
+    description: "1"
+  startDate:
+    title: startDate
+    type: string
+    description: 2020-01-01
+  description:
+    title: description
+    type: string
+    description: SG
+  commissionMultiplier:
+    title: commissionMultiplier
+    type: number
+    description: "1"
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        agentAccount:
+          title: agentAccount
+          type: number
+          description: "1"
+        agentId:
+          title: agentId
+          type: number
+          description: "750995"
+        billingBasis:
+          title: billingBasis
+          type: number
+          description: "1"
+        billingTimingMethod:
+          title: billingTimingMethod
+          type: number
+          description: "0"
+        commissionStyle:
+          title: commissionStyle
+          type: number
+          description: "8"
+        fundBasedRenewalCommissionCode:
+          title: fundBasedRenewalCommissionCode
+          type: number
+          description: "0"
+        fundBasedRenewalCommissionFixedDay:
+          title: fundBasedRenewalCommissionFixedDay
+          type: number
+          description: "0"
+        fundBasedRenewalCommissionFixedMonth:
+          title: fundBasedRenewalCommissionFixedMonth
+          type: number
+          description: "0"
+        fundBasedRenewalCommissionFormulaNo:
+          title: fundBasedRenewalCommissionFormulaNo
+          type: number
+          description: "0"
+        fundBasedRenewalCommissionRate:
+          title: fundBasedRenewalCommissionRate
+          type: number
+          description: "0"
+        fundBasedRenewalFrequency:
+          title: fundBasedRenewalFrequency
+          type: number
+          description: "0"
+        insuranceCompany:
+          title: insuranceCompany
+          type: number
+          description: "2"
+        manualCommissionFlag:
+          title: manualCommissionFlag
+          type: boolean
+          description: "true"
+        manualCommissionRate:
+          title: manualCommissionRate
+          type: string
+          description: "1"
+        clientPaymentId:
+          title: clientPaymentId
+          type: number
+          description: "6753"
+        clientPaymentArrangementId:
+          title: clientPaymentArrangementId
+          type: number
+          description: "1"
+        startDate:
+          title: startDate
+          type: string
+          description: 2020-01-01
+        description:
+          title: description
+          type: string
+          description: SG
+        commissionMultiplier:
+          title: commissionMultiplier
+          type: number
+          description: "1"
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/groups/{{group_id}}/plans/{{plan_id}}/subgroups/{{subgroup_id}}"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: Get subgroup details under a plan and a group

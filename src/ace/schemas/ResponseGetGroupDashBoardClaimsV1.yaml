@@ -1,0 +1,26 @@
+title: ResponseGetGroupDashBoardClaims
+properties:
+  groupId:
+    type: number
+  totalOutstandingClaim:
+    type: number
+  totalSubmittedClaim:
+    type: number
+  claimsCountSpecificPeriod:
+    type: array
+    items:
+      properties:
+        period:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        amount:
+          type: number
+      type: object
+      required:
+        - period
+        - amount
+type: object

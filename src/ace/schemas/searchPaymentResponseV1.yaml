@@ -1,0 +1,74 @@
+title: searchPaymentResponse
+properties:
+  payments:
+    type: array
+    items:
+      properties:
+        source:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        payerId:
+          type: integer
+        payerExternalId:
+          type: string
+        payerName:
+          type: string
+        registrationDate:
+          type: string
+          format: date
+        moneyValueDate:
+          type: string
+          format: date
+        amount:
+          type: number
+        paymentMethod:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        internalNumber:
+          type: integer
+        paymentReference:
+          type: string
+        currency:
+          properties:
+            currencyCode:
+              type: integer
+            currencyName:
+              type: string
+            currencySymbol:
+              type: string
+          type: object
+        bankAccountShortCode:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        lastUpdatingUser:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        paymentBatchNumber:
+          type: integer
+        mandateId:
+          type: string
+        paymentStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+      type: object
+type: object

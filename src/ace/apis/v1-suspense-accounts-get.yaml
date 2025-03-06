@@ -1,0 +1,70 @@
+definition:
+  path: /v1/suspense-accounts
+  verb: get
+  id: imported#/v1/suspense-accounts#get
+  operationId: searchSuspenseAccountV1
+  summary: Ace service to search suspense Account
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: maxSuspenseEntryDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: insuranceCompany
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: payerId
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: destinationType
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: destinationId
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchSuspenseAccountResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/searchSuspenseAccountResponseV1"
+  security:
+    - bearerAuth: []
+flow: searchSuspenseAccountV1.yaml
+method: get
+path: /v1/suspense-accounts
+errorHandlers: []
+handlers: []

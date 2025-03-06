@@ -1,0 +1,195 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  policy_id: integer
+  clientId:
+    type: number
+  claimType:
+    type: number
+  claimSubType:
+    type: number
+  requestorId:
+    type: number
+  requestDate:
+    type: string
+    format: date
+  receivedDate:
+    type: string
+    format: date
+  effectiveDate:
+    type: string
+    format: date
+  valueDate:
+    type: string
+    format: date
+  status:
+    type: number
+  initialReason:
+    type: number
+  approvalReason:
+    type: number
+  entityItems:
+    type: array
+    items:
+      properties:
+        id:
+          type: number
+        value:
+          type: string
+        manualFlag:
+          type: number
+      type: object
+  paymentOrders:
+    type: array
+    items:
+      properties:
+        payeeId:
+          type: number
+        requestType:
+          type: number
+        requestAmount:
+          type: number
+        paymentStatus:
+          type: number
+        paymentDueDate:
+          type: string
+          format: date
+        additionalAmountFromSurplus:
+          type: number
+        paymentOption:
+          type: number
+        paymentMethod:
+          type: number
+        destinationReference:
+          type: string
+        bankAccount:
+          properties:
+            transitNumber:
+              type: number
+            accountNumber:
+              type: string
+            accountType:
+              type: number
+            accountName:
+              type: string
+          type: object
+        manualInterestFlag:
+          type: number
+        interestAmount:
+          type: number
+        interestRate:
+          type: number
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        clientId:
+          type: number
+        claimType:
+          type: number
+        claimSubType:
+          type: number
+        requestorId:
+          type: number
+        requestDate:
+          type: string
+          format: date
+        receivedDate:
+          type: string
+          format: date
+        effectiveDate:
+          type: string
+          format: date
+        valueDate:
+          type: string
+          format: date
+        status:
+          type: number
+        initialReason:
+          type: number
+        approvalReason:
+          type: number
+        entityItems:
+          type: array
+          items:
+            properties:
+              id:
+                type: number
+              value:
+                type: string
+              manualFlag:
+                type: number
+            type: object
+        paymentOrders:
+          type: array
+          items:
+            properties:
+              payeeId:
+                type: number
+              requestType:
+                type: number
+              requestAmount:
+                type: number
+              paymentStatus:
+                type: number
+              paymentDueDate:
+                type: string
+                format: date
+              additionalAmountFromSurplus:
+                type: number
+              paymentOption:
+                type: number
+              paymentMethod:
+                type: number
+              destinationReference:
+                type: string
+              bankAccount:
+                properties:
+                  transitNumber:
+                    type: number
+                  accountNumber:
+                    type: string
+                  accountType:
+                    type: number
+                  accountName:
+                    type: string
+                type: object
+              manualInterestFlag:
+                type: number
+              interestAmount:
+                type: number
+              interestRate:
+                type: number
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policy_id}}/cancellations"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: cancelling a admin claim policy.

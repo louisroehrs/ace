@@ -1,0 +1,232 @@
+title: ResponseClaimWithdrawal
+properties:
+  claimTypeMainGroup:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  claimType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  claimSubType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  requestorId:
+    type: number
+  requestDate:
+    type: string
+    format: date
+  receivedDate:
+    type: string
+    format: date
+  effectiveDate:
+    type: string
+    format: date
+  valueDate:
+    type: string
+    format: date
+  stage:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  initialReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  approvalReason:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  surrenderRequestType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  contributions:
+    type: array
+    items:
+      properties:
+        contribution:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+            funds:
+              type: array
+              items:
+                properties:
+                  fund:
+                    properties:
+                      code:
+                        type: number
+                      name:
+                        type: string
+                      isinCode:
+                        type: string
+                      externalReference:
+                        type: string
+                      requestType:
+                        properties:
+                          code:
+                            type: number
+                          name:
+                            type: string
+                        type: object
+                      requestAmount:
+                        type: number
+                      grossSurrenderValue:
+                        type: number
+                      cashValue:
+                        type: number
+                      claimAmount:
+                        type: number
+                    type: object
+                type: object
+          type: object
+      type: object
+  paymentOrders:
+    type: array
+    items:
+      properties:
+        payeeId:
+          type: number
+        requestType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        requestAmount:
+          type: number
+        originalAmount:
+          type: number
+        paymentStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        paymentDueDate:
+          type: string
+          format: date
+        additionalAmountSurplus:
+          type: number
+        paymentOption:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        paymentMethod:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        destinationReference:
+          type: string
+        sourceCurrency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+            symbol:
+              type: string
+          type: object
+        paidCurrency:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+            symbol:
+              type: string
+          type: object
+        transitNumber:
+          type: string
+        accountNumber:
+          type: string
+        accountType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        accountName:
+          type: string
+        manualInterestFlag:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        interestAmount:
+          type: number
+        interestRate:
+          type: number
+        overrideUser:
+          type: number
+        openingUser:
+          type: number
+        authorizationUser:
+          type: number
+      type: object
+  requiredDocument:
+    type: array
+    items:
+      properties:
+        documentTitle:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        requestDate:
+          type: string
+        status:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        receivedDate:
+          type: string
+          format: date
+        freeDescription:
+          type: string
+        mustFlag:
+          type: boolean
+          default: false
+      type: object
+type: object

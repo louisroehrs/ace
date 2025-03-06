@@ -1,0 +1,30 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  no1: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/dividendMethods"
+        method: GET
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coreSuiteUserName: "{{$headers.coreSuiteUserName}}"
+      targetPath: result
+    description: Get Dividend Methods for a given policy

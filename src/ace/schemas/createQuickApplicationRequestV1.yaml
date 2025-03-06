@@ -1,0 +1,36 @@
+title: createQuickApplicationRequest
+properties:
+  Product:
+    type: number
+    description: Product number
+  Version:
+    type: number
+    description: Product version number
+  EffecDate:
+    type: string
+    description: Effective date (and application's commencement date)
+  DOB:
+    type: string
+    description: Main insured's date of birth
+  ClientId:
+    type: number
+    description: Main insured's ID
+  AgentId:
+    type: number
+    description: Main agent's ID
+  CoverList:
+    type: array
+    items:
+      type: number
+    description: List of cover types requested
+  CoverSumList:
+    type: array
+    items:
+      type: number
+    description: List of sums requested per cover
+  FundList:
+    type: array
+    items:
+      type: number
+    description: List of funds requested per cover
+type: object

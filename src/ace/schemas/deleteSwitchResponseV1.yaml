@@ -1,0 +1,39 @@
+title: deleteSwitchResponse
+properties:
+  result:
+    properties:
+      policyNo:
+        type: integer
+        description: The requested
+      externalPolicyNo:
+        type: string
+      switchReference:
+        type: string
+    type: object
+    required:
+      - policyNo
+      - switchReference
+  response:
+    properties:
+      status:
+        properties:
+          code:
+            type: integer
+          name:
+            type: string
+        type: object
+        required:
+          - code
+          - name
+      messages:
+        type: array
+        items:
+          properties:
+            number:
+              type: string
+            name:
+              type: string
+          type: object
+    type: object
+type: object
+required: []

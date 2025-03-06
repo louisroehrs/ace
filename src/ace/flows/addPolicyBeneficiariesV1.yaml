@@ -1,0 +1,165 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  no1: integer
+  eventType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  clauseType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  effectiveDate:
+    type: string
+  clauseName:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  beneficiary:
+    properties:
+      clientId:
+        type: integer
+      firstName:
+        type: string
+      middleName:
+        type: string
+      surname:
+        type: string
+    type: object
+  beneficiaryType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  linkage:
+    type: number
+  internalReference:
+    type: number
+  priority:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  requestType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+  amount:
+    type: string
+  clauseText:
+    type: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        eventType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        clauseType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        effectiveDate:
+          type: string
+        clauseName:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        beneficiary:
+          properties:
+            clientId:
+              type: integer
+            firstName:
+              type: string
+            middleName:
+              type: string
+            surname:
+              type: string
+          type: object
+        beneficiaryType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        linkage:
+          type: number
+        internalReference:
+          type: number
+        priority:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        requestType:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        amount:
+          type: string
+        clauseText:
+          type: string
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{no1}}/beneficiaries"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

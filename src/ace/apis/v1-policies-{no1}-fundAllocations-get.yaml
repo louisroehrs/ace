@@ -1,0 +1,68 @@
+definition:
+  path: /v1/policies/{no1}/fundAllocations
+  verb: get
+  id: imported#/v1/policies/{no1}/fundAllocations#get
+  operationId: 73b0a72f-653f-4f45-8177-4df8f0b514c4V1
+  summary: Get list of funds and their allocation (split) starting from requested
+    date and onward, each change for a given policy
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: path
+      name: no1
+      description: Policy No
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FundAllocationHistoryResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/FundAllocationHistoryResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 73b0a72f-653f-4f45-8177-4df8f0b514c4V1.yaml
+method: get
+path: /v1/policies/{no1}/fundAllocations
+errorHandlers: []
+handlers: []

@@ -1,0 +1,55 @@
+definition:
+  path: /v1/policies/{policy_id}/claims/{claim_type}/calc-additional-amounts
+  verb: post
+  id: imported#/v1/policies/{policy_id}/claims/{claim_type}/calc-additional-amounts#post
+  operationId: calcClaimAdditionalAmountsV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policy_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: claim_type
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/calcClaimAdditionalAmountsRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/calcClaimAdditionalAmountsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/calcClaimAdditionalAmountsResponseV1"
+  security:
+    - bearerAuth: []
+flow: calcClaimAdditionalAmountsV1.yaml
+method: post
+path: /v1/policies/{policy_id}/claims/{claim_type}/calc-additional-amounts
+errorHandlers: []
+handlers: []

@@ -1,0 +1,44 @@
+definition:
+  path: /v1/groups
+  verb: post
+  id: imported#/v1/groups#post
+  operationId: 55e79475-1940-4085-be82-2e22fda2505bV1
+  summary: Create a new group
+  tags:
+    - Group
+  parameters:
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/RequestCreateGroupViewV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseCreateGroupViewV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ResponseCreateGroupViewV1"
+  security:
+    - bearerAuth: []
+flow: 55e79475-1940-4085-be82-2e22fda2505bV1.yaml
+method: post
+path: /v1/groups
+errorHandlers: []
+handlers: []

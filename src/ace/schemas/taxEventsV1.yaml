@@ -1,0 +1,91 @@
+title: taxEvents
+properties:
+  taxEvents:
+    properties:
+      eventId:
+        type: integer
+        description: New counter to designate the reportable event.
+      activityType:
+        properties:
+          code:
+            type: integer
+            description: Activity Code
+          name:
+            type: string
+            description: Activity Name
+        type: object
+        required:
+          - code
+          - name
+        description: Activity type initiating the tax event.
+      primaryKeyType:
+        properties:
+          code:
+            type: number
+            description: Primary Key code
+          name:
+            type: string
+            description: Primary Key name
+        type: object
+        required:
+          - code
+          - name
+        description: Primary Key Type
+      primaryKey:
+        type: string
+        description: Entity value for primary key entity type.
+      clientId:
+        type: integer
+        description: Unique identifier for a client.
+      activityAmount:
+        type: number
+        description: Calculated from the activity, in the resolution of current tax_group.
+      taxableFlag:
+        type: boolean
+        description: Taxable Flag indicator for whether the activity is taxable
+          (calculated or manual)
+        default: false
+      taxableAmount:
+        type: number
+        description: Defaulted by original taxable amount but may be overridden by the user.
+      ownershipShare:
+        type: number
+        description: "Share of ownership "
+      status:
+        properties:
+          code:
+            type: integer
+            description: Tax event status code
+          name:
+            type: string
+            description: Tax event status name
+        type: object
+        required:
+          - code
+          - name
+        description: Tax event status.
+      effectiveDate:
+        type: string
+        format: date
+        description: Effective date - the date from which this record is effective.
+      openingRegisterDate:
+        type: string
+        format: date
+        description: The date on which this set of details was opened.
+    type: object
+    required:
+      - eventId
+      - activityType
+      - primaryKeyType
+      - primaryKey
+      - clientId
+      - activityAmount
+      - taxableFlag
+      - taxableAmount
+      - ownershipShare
+      - status
+      - effectiveDate
+      - openingRegisterDate
+type: object
+required:
+  - taxEvents

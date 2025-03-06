@@ -1,0 +1,109 @@
+title: allInvestmentFund
+properties:
+  fund:
+    type: array
+    items:
+      properties:
+        fundDetails:
+          properties:
+            fundNumber:
+              type: number
+            externalReference:
+              type: string
+            fundName:
+              type: string
+            isinCode:
+              type: string
+            registrationDate:
+              type: string
+              format: date
+            fundTypeDetails:
+              properties:
+                type:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+                group:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+                class:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+                assetClass:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+                typeInformation:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+                baseFund:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+                accountType:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+                baseCurrency:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                    symbol:
+                      type: string
+                  type: object
+              type: object
+            fundPerformance:
+              properties:
+                fundAccountForGL:
+                  type: string
+                glGroup:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+                fundFamily:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+                riskProfile:
+                  properties:
+                    code:
+                      type: number
+                    name:
+                      type: string
+                  type: object
+              type: object
+          type: object
+      type: object
+type: object

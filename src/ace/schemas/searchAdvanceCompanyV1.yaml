@@ -1,0 +1,22 @@
+title: searchAdvanceCompany
+properties:
+  companyId:
+    type: integer
+  companyName:
+    type: string
+  tin:
+    type: string
+    nullable: true
+  ssn:
+    type: string
+    nullable: true
+  companyType:
+    type: integer
+    nullable: true
+  zipCode:
+    type: string
+    nullable: true
+type: object
+required:
+  - companyId
+  - companyName

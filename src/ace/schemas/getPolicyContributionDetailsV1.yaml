@@ -1,0 +1,202 @@
+title: getPolicyContributionDetails
+properties:
+  result:
+    properties:
+      policyNo:
+        type: string
+      contributions:
+        type: array
+        items:
+          properties:
+            contributionType:
+              properties:
+                number:
+                  type: number
+                name:
+                  type: string
+              type: object
+            contributionTypeMainGroup:
+              properties:
+                number:
+                  type: number
+                name:
+                  type: string
+              type: object
+            premiumInPercentFlag:
+              type: boolean
+              default: false
+            premium:
+              type: number
+            calculatedPremium:
+              type: number
+            currency:
+              properties:
+                number:
+                  type: number
+                name:
+                  type: string
+                symbol:
+                  type: string
+              type: object
+            paymentFrequency:
+              properties:
+                number:
+                  type: number
+                name:
+                  type: string
+              type: object
+            payer:
+              properties:
+                id:
+                  type: number
+                externalId:
+                  type: string
+                firstName:
+                  type: string
+                surname:
+                  type: string
+                middleName:
+                  type: string
+                secondLastName:
+                  type: string
+              type: object
+            paymentArrangement:
+              properties:
+                id:
+                  type: number
+                name:
+                  type: string
+              type: object
+            escalationMethod:
+              properties:
+                number:
+                  type: number
+                name:
+                  type: string
+              type: object
+            indexType:
+              properties:
+                number:
+                  type: number
+                name:
+                  type: string
+              type: object
+            escalationRate:
+              type: number
+            nextBillingDate:
+              type: string
+              format: date
+            nextPaymentTreatmentDate:
+              type: string
+              format: date
+            wholeLifeFlag:
+              type: boolean
+              default: false
+            maturityTermYear:
+              type: number
+            maturityTermMonth:
+              type: number
+            maturityTermDay:
+              type: number
+            terminationDate:
+              type: string
+              format: date
+            premiumPaymentTermYear:
+              type: number
+            premiumPaymentTermMonth:
+              type: number
+            premiumPaymentTermDay:
+              type: number
+            premiumTerminationDate:
+              type: string
+              format: date
+            contributionInvestments:
+              type: array
+              items:
+                properties:
+                  number:
+                    type: number
+                  profileNo:
+                    type: number
+                  name:
+                    type: string
+                  isinCode:
+                    type: string
+                  externalReference:
+                    type: string
+                  allocationPercentage:
+                    type: number
+                type: object
+            contributionItems:
+              type: array
+              items:
+                properties:
+                  itemNo:
+                    type: number
+                type: object
+            contributionlayers:
+              type: array
+              items:
+                properties:
+                  effectiveDate:
+                    type: string
+                    format: date
+                  layerNo:
+                    type: number
+                  premiumForLayer:
+                    type: number
+                  contributionInvestments:
+                    type: array
+                    items:
+                      properties:
+                        number:
+                          type: number
+                        profileNo:
+                          type: number
+                        name:
+                          type: string
+                        isinCode:
+                          type: string
+                        externalReference:
+                          type: string
+                        allocationPercentage:
+                          type: number
+                      type: object
+                  contributionItems:
+                    type: array
+                    items:
+                      properties:
+                        itemNo:
+                          type: number
+                      type: object
+                  contributionLayerTransfer:
+                    properties:
+                      transferDate:
+                        type: string
+                        format: date
+                      source:
+                        properties:
+                          code:
+                            type: integer
+                          name:
+                            type: string
+                        type: object
+                      transferringCompanyNumber:
+                        type: number
+                      transferringCompanyName:
+                        type: string
+                      originalContractRef:
+                        type: string
+                      previousEmployerNumber:
+                        type: number
+                      CurrentTaxYearContribution:
+                        type: number
+                      totalTransferValue:
+                        type: number
+                      transferRef:
+                        type: number
+                    type: object
+                type: object
+          type: object
+    type: object
+type: object

@@ -1,0 +1,87 @@
+title: employeeTerminationRequest
+properties:
+  leaveType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  leaveReason:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  leaveStatus:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  notificationDate:
+    type: string
+  leavingDate:
+    type: string
+  effectiveDate:
+    type: string
+  requiredDocuments:
+    type: array
+    items:
+      properties:
+        documentTitle:
+          properties:
+            number:
+              type: integer
+            name:
+              type: string
+          type: object
+        requestDate:
+          type: string
+        receivedDate:
+          type: string
+        note:
+          type: string
+        mandatoryFlag:
+          type: boolean
+        docStatus:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+      type: object
+  certificates:
+    type: array
+    items:
+      properties:
+        planNo:
+          type: integer
+        claimType:
+          type: array
+          items:
+            properties:
+              number:
+                type: integer
+              name:
+                type: string
+            type: object
+      type: object
+type: object
+required:
+  - leaveType
+  - leaveReason
+  - leaveStatus
+  - notificationDate

@@ -1,0 +1,63 @@
+definition:
+  path: /v1/clients/{client_id}/communications
+  verb: get
+  id: imported#/v1/clients/{client_id}/communications#get
+  operationId: getClientCommunicationV1
+  summary: Get Details of all communications with a client
+  description: Returns all Communication (Messages) on the basis of clientId and
+    printDate parameters
+  tags: []
+  parameters:
+    - in: path
+      name: client_id
+      required: true
+      description: Client Id
+      schema:
+        type: string
+    - in: query
+      name: externalClientIdIndicator
+      required: false
+      description: ""
+      schema:
+        type: boolean
+    - in: query
+      name: fromPrintDate
+      required: false
+      description: ""
+      schema:
+        type: string
+    - in: query
+      name: toPrintDate
+      required: false
+      description: ""
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      required: false
+      description: ""
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      required: false
+      description: ""
+      schema:
+        type: string
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ClientCommunicationsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ClientCommunicationsResponseV1"
+  security:
+    - bearerAuth: []
+flow: getClientCommunicationV1.yaml
+method: get
+path: /v1/clients/{client_id}/communications
+errorHandlers: []
+handlers: []

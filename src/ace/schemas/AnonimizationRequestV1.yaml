@@ -1,0 +1,13 @@
+title: AnonimizationRequest
+properties:
+  anonymizationStage:
+    title: Name
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    description: Stage of anonymisation name
+type: object
+description: Stage of anonymisation code

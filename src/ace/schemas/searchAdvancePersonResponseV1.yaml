@@ -1,0 +1,248 @@
+title: searchAdvancePersonResponse
+properties:
+  clients:
+    type: array
+    items:
+      properties:
+        personalInformation:
+          properties:
+            title:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            insuranceCompany:
+              properties:
+                code:
+                  type: integer
+                stringCode:
+                  type: string
+                name:
+                  type: string
+              type: object
+            "clientId ":
+              type: integer
+            clientExternalRef:
+              type: string
+            ssn:
+              type: string
+            dob:
+              type: string
+              format: date
+            firstName:
+              type: string
+            surname:
+              type: string
+            gender:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            suffix:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+          type: object
+        clientContactDetails:
+          type: array
+          items:
+            properties:
+              contactType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              phone:
+                type: string
+              email:
+                type: string
+                format: email
+              contactMainCode:
+                type: integer
+            type: object
+        clientAddressDetails:
+          type: array
+          items:
+            properties:
+              "addressType ":
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              addressLine1:
+                type: string
+              addressLine2:
+                type: string
+              addressLine3:
+                type: string
+              city:
+                type: string
+              state:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              zipCode:
+                type: integer
+              plus4:
+                type: integer
+              country:
+                properties:
+                  code:
+                    type: integer
+                  isoCode:
+                    type: string
+                  name:
+                    type: string
+                type: object
+              addressMainCode:
+                type: integer
+            type: object
+        clientEntityItems:
+          type: array
+          items:
+            properties:
+              itemId:
+                type: integer
+              itemName:
+                type: string
+              itemValue:
+                type: string
+              itemValueName:
+                type: string
+            type: object
+        clientMembershipDetails:
+          properties:
+            membershipType:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            membershipStatus:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            membershipStartDate:
+              type: string
+              format: date
+            membershipEndDate:
+              type: string
+              format: date
+            chapterOrCouncil:
+              properties:
+                code:
+                  type: integer
+                name:
+                  type: string
+              type: object
+          type: object
+        policies:
+          type: array
+          items:
+            properties:
+              policyNo:
+                type: integer
+              externalPolicyNumber:
+                type: string
+              commencementDate:
+                type: string
+                format: date
+              clientRoles:
+                type: array
+                items:
+                  properties:
+                    code:
+                      type: integer
+                    name:
+                      type: string
+                  type: object
+              product:
+                properties:
+                  number:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              "productVersion ":
+                properties:
+                  number:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              policyEntityItems:
+                type: array
+                items:
+                  properties:
+                    itemId:
+                      type: integer
+                    itemName:
+                      type: string
+                    itemValue:
+                      type: string
+                    itemValueName:
+                      type: string
+                  type: object
+              covers:
+                type: array
+                items:
+                  properties:
+                    coverNo:
+                      type: integer
+                    coverName:
+                      type: string
+                    currency:
+                      properties:
+                        code:
+                          type: integer
+                        name:
+                          type: string
+                        symbol:
+                          type: string
+                      type: object
+                    faceAmount:
+                      type: number
+                    totalPremium:
+                      type: number
+                    loadings:
+                      type: array
+                      items:
+                        properties:
+                          loadingType:
+                            properties:
+                              code:
+                                type: integer
+                              name:
+                                type: string
+                            type: object
+                          durationInMonths:
+                            type: integer
+                          loadingPercentage:
+                            type: number
+                          loadingRate:
+                            type: number
+                          table:
+                            type: string
+                        type: object
+                  type: object
+            type: object
+      type: object
+type: object

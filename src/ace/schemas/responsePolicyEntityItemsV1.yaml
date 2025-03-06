@@ -1,0 +1,19 @@
+title: responsePolicyEntityItems
+properties:
+  policyNo:
+    type: string
+  entityItems:
+    type: array
+    items:
+      properties:
+        entityId:
+          type: number
+        value:
+          type: string
+        name:
+          type: string
+        manualFlag:
+          type: boolean
+      type: object
+      required: []
+type: object

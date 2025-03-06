@@ -1,0 +1,22 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  claim_id: integer
+description: Created by imported openApi schema
+steps:
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/claims/{{claim_id}}/claim-information"
+        method: GET
+      restRequest: JSON
+      json: {}
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

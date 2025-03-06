@@ -1,0 +1,14 @@
+title: suppressClientCommunication
+properties:
+  suppressLetters:
+    properties:
+      code:
+        type: boolean
+      name:
+        type: string
+    type: object
+  activationDate:
+    type: string
+    format: date
+type: object
+required: []

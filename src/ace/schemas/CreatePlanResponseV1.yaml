@@ -1,0 +1,10 @@
+title: CreatePlanResponse
+properties:
+  planNumber:
+    type: string
+  referenceId:
+    type: string
+type: object
+required:
+  - planNumber
+  - referenceId

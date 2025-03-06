@@ -1,0 +1,193 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  policy_id: integer
+  cover_no: integer
+  layer: integer
+  beneficiaryEventType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  clauseType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  client:
+    properties:
+      clientNo:
+        type: integer
+        nullable: true
+      clientName:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  beneficiaryReferenceRole:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  beneficiaryType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+        nullable: true
+    type: object
+    required:
+      - code
+  priority:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  amountType:
+    properties:
+      code:
+        type: integer
+        nullable: true
+      name:
+        type: string
+        nullable: true
+    type: object
+    nullable: true
+  amount:
+    type: number
+    nullable: true
+  clauseText:
+    type: string
+    nullable: true
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        beneficiaryEventType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+          required:
+            - code
+        clauseType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+          required:
+            - code
+        client:
+          properties:
+            clientNo:
+              type: integer
+              nullable: true
+            clientName:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        beneficiaryReferenceRole:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        beneficiaryType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+              nullable: true
+          type: object
+          required:
+            - code
+        priority:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        amountType:
+          properties:
+            code:
+              type: integer
+              nullable: true
+            name:
+              type: string
+              nullable: true
+          type: object
+          nullable: true
+        amount:
+          type: number
+          nullable: true
+        clauseText:
+          type: string
+          nullable: true
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/coverbeneficiary/{{policy_id}}/{{cover_no}}/{{layer}}"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""

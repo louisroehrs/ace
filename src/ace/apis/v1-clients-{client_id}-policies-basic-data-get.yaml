@@ -1,0 +1,61 @@
+definition:
+  path: /v1/clients/{client_id}/policies/basic-data
+  verb: get
+  id: imported#/v1/clients/{client_id}/policies/basic-data#get
+  operationId: 59cff356-6140-4b1a-aea2-eed78ecac6e4V1
+  summary: Fetch all policies' details for a given client
+  tags:
+    - Client
+  parameters:
+    - in: query
+      name: externalClientIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: client_id
+      description: client Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clientPoliciesV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/clientPoliciesV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 59cff356-6140-4b1a-aea2-eed78ecac6e4V1.yaml
+method: get
+path: /v1/clients/{client_id}/policies/basic-data
+errorHandlers: []
+handlers: []

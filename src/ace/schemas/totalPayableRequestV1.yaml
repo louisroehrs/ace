@@ -1,0 +1,32 @@
+title: totalPayableRequest
+properties:
+  claimCover:
+    type: array
+    items:
+      properties:
+        finalAmount:
+          type: integer
+      type: object
+      required: []
+  claimFundSurrender:
+    type: array
+    items:
+      properties:
+        amountToBePaid:
+          type: integer
+      type: object
+  claimAdditionalAmount:
+    type: array
+    items:
+      properties:
+        finalAmount:
+          type: integer
+      type: object
+  claimRefund:
+    type: array
+    items:
+      properties:
+        amountToBePaid:
+          type: integer
+      type: object
+type: object

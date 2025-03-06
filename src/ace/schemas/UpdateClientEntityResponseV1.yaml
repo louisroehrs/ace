@@ -1,0 +1,10 @@
+title: UpdateClientEntityResponse
+properties:
+  message:
+    properties:
+      code:
+        type: number
+      text:
+        type: string
+    type: object
+type: object

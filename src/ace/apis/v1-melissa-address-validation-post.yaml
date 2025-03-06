@@ -1,0 +1,40 @@
+definition:
+  path: /v1/melissa/address-validation
+  verb: post
+  id: imported#/v1/melissa/address-validation#post
+  operationId: globalAddressValidationV1
+  tags:
+    - Client
+  parameters: []
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/globalAddressValidationRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/globalAddressValidationResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/globalAddressValidationResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: globalAddressValidationV1.yaml
+method: post
+path: /v1/melissa/address-validation
+errorHandlers: []
+handlers: []

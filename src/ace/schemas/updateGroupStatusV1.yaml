@@ -1,0 +1,19 @@
+title: updateGroupStatus
+properties:
+  groupId:
+    title: GroupId
+    type: number
+    description: "2870"
+  openingStatus:
+    title: openingStatus
+    type: number
+    description: "-1"
+  effectiveDate:
+    title: filterDate
+    type: string
+    description: 2020-01-01
+type: object
+required:
+  - groupId
+  - openingStatus
+  - effectiveDate

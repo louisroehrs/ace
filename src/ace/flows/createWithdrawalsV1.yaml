@@ -1,0 +1,137 @@
+tags:
+  - Client
+sampleInputSchema: ""
+sampleData:
+  policy_id: string
+  claimType:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  claimSubType:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  requestorId:
+    type: integer
+  notificationDate:
+    type: string
+    format: date
+  effectiveDate:
+    type: string
+    format: date
+  priceDate:
+    type: string
+    format: date
+  surrenderRequestType:
+    properties:
+      code:
+        type: integer
+      name:
+        type: string
+    type: object
+  requestedAmount:
+    type: number
+  funds:
+    type: array
+    items:
+      properties:
+        number:
+          type: integer
+        name:
+          type: string
+        isinCode:
+          type: string
+        externalReference:
+          type: string
+        requestedAmount:
+          type: number
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        claimType:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        claimSubType:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        requestorId:
+          type: integer
+        notificationDate:
+          type: string
+          format: date
+        effectiveDate:
+          type: string
+          format: date
+        priceDate:
+          type: string
+          format: date
+        surrenderRequestType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        requestedAmount:
+          type: number
+        funds:
+          type: array
+          items:
+            properties:
+              number:
+                type: integer
+              name:
+                type: string
+              isinCode:
+                type: string
+              externalReference:
+                type: string
+              requestedAmount:
+                type: number
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/policies/{{policy_id}}/withdrawals/notification"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: withdrawals

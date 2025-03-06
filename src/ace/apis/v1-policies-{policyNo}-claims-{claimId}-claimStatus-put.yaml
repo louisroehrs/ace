@@ -1,0 +1,55 @@
+definition:
+  path: /v1/policies/{policyNo}/claims/{claimId}/claimStatus
+  verb: put
+  id: imported#/v1/policies/{policyNo}/claims/{claimId}/claimStatus#put
+  operationId: updateClaimStatusV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policyNo
+      description: Policy Number
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: claimId
+      description: Claim Id
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/UpdateClaimStatusRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UpdateClaimStatusResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/UpdateClaimStatusResponseV1"
+  security:
+    - bearerAuth: []
+flow: updateClaimStatusV1.yaml
+method: put
+path: /v1/policies/{policyNo}/claims/{claimId}/claimStatus
+errorHandlers: []
+handlers: []

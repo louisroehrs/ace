@@ -1,0 +1,8 @@
+title: ClientEntityItemsResponse
+properties:
+  result:
+    $ref: responseClientEntityItemsV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

@@ -1,0 +1,925 @@
+title: companyDetails
+properties:
+  companyDetails:
+    title: Company Details
+    properties:
+      companyName:
+        title: Company Name
+        type: string
+        description: The surname of person clients, or the entity name for company or
+          scheme clients.
+      alternativeName:
+        title: Alternative Name
+        type: string
+        description: Alternate name given for the company
+      companyNationalId:
+        title: Company National Id 
+        type: string
+        description: National Insurance number.
+      natureOfBusiness:
+        title: Nature Of Business
+        properties:
+          code:
+            title: Code
+            type: integer
+          name:
+            title: Name
+            type: string
+            nullable: true
+        type: object
+        description: The nature of business as defined by the Life Office. E.g.  1
+          Wholesale & Retail  2 Hotels & Restaurants Hotels 3 Construction  and
+          may more
+      companyType:
+        title: Company Type
+        properties:
+          code:
+            title: Code
+            type: integer
+          name:
+            title: Name
+            type: string
+            nullable: true
+        type: object
+        description: Indicates the type of company as defined by the Life Office
+      externalRef:
+        title: External Ref
+        type: string
+        nullable: true
+        description: Client external reference  May also be used to identify client data
+          imported into CoreSuite from other systems
+      clientType:
+        title: Client Type
+        properties:
+          code:
+            title: Code
+            type: integer
+          name:
+            title: Name
+            type: string
+            nullable: true
+        type: object
+        description: The type of client - regular, VIP etc.
+      preferredLanguage:
+        title: Preferred Language
+        properties:
+          code:
+            title: Code
+            type: integer
+          name:
+            title: Name
+            type: string
+            nullable: true
+        type: object
+        description: The preferred language of the client.
+      companyregistrationNumber:
+        title: Company Registration Number
+        type: string
+        description: Company registration number.
+      vatRegistrationNoFlag:
+        title: Vat Registered flag
+        type: boolean
+        nullable: true
+        description: Indicator of VAT registered in use when
+          t_company_defaults.commission_vat_code > 0, 0 - not registered, 1 -
+          registered
+      vatRegistrationNo:
+        title: Vat Registered no
+        type: string
+        nullable: true
+        description: Indicator of VAT registered number
+      sourceVersion:
+        type: integer
+        nullable: true
+      addressDetails:
+        title: Address Details
+        type: array
+        items:
+          properties:
+            openingEffectiveDate:
+              title: Date
+              type: string
+              format: date
+            addressType:
+              title: Address Type
+              properties:
+                code:
+                  type: number
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: Identifier For Type Of Address, For Example, Residence,
+                Correspondence.
+            mainAddressFlag:
+              title: Main
+              type: boolean
+              description: Identifies the default address (main address).
+              default: false
+            houseNumber:
+              title: House Number
+              type: string
+              nullable: true
+              description: House Or Flat Number.
+            houseName:
+              title: House Name
+              type: string
+              description: House name line 1.
+            address1:
+              title: Address 1
+              type: string
+              description: Street name for the address.
+            address2:
+              title: Address 2
+              type: string
+              nullable: true
+              description: House name line 2.
+            city:
+              title: City
+              type: string
+              nullable: true
+              description: City For Address.
+            postCode:
+              title: Post Code
+              type: string
+              description: Postcode.
+            country:
+              title: Country
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+                iso:
+                  title: ISO
+                  type: string
+                  description: The ISO country codes are internationally recognized codes that
+                    designate every country and most of the dependent areas a
+                    two-letter combination or a three-letter combination
+              type: object
+              description: Country for the address.
+            province:
+              title: Province
+              properties:
+                code:
+                  type: number
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+            postOfficeBox:
+              title: PO Box/PVT
+              type: string
+              nullable: true
+              description: PO box of the address.
+          type: object
+      contactDetails:
+        title: Contact Details
+        type: array
+        items:
+          properties:
+            openingEffectiveDate:
+              title: Date
+              type: string
+              format: date
+            contactType:
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: States whether the contact telephone numbers are for Residence,
+                Work or spouse etc.
+            mainContactFlag:
+              title: Main
+              type: boolean
+              description: Indicates the default / main contact information.
+              default: false
+            countryCode:
+              title: Country Code
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: Country code.
+            phone:
+              title: Phone
+              type: string
+              nullable: true
+              description: Telephone number.
+            invalidPhoneFlag:
+              title: Invalid Phone
+              type: boolean
+              description: Signifies which of the contact details are not valid.
+              default: false
+            mobile:
+              title: Mobile
+              type: string
+              nullable: true
+              description: The clients mobile phone .
+            invalidMobileFlag:
+              title: Invalid Mobile
+              type: boolean
+              description: Signifies which of the contact details are not valid.
+              default: false
+            email:
+              title: Email
+              type: string
+              description: E-mail address.
+            invalidEmailFlag:
+              title: Invalid Email
+              type: boolean
+              description: Signifies which of the contact details are not valid.
+              default: false
+            fax:
+              title: Fax
+              type: string
+              nullable: true
+              description: Fax no.
+            invalidFaxFlag:
+              title: Invalid Fax
+              type: boolean
+              description: Signifies which of the contact details are not valid.
+              default: false
+            fromContactHour:
+              title: Contact From (Hour)
+              type: string
+              nullable: true
+              description: Contact client after this time, and before to_contact_hour.
+              default: 00:00
+            toContactHour:
+              title: "Until (Hour)\t"
+              type: string
+              nullable: true
+              description: Contact client before this time, and after from_contact_hour.
+              default: 00:00
+            contactDefaultMethod:
+              title: Preferred Method
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+              type: object
+              required:
+                - code
+                - name
+              description: The clients preferred method of contact.
+          type: object
+          required:
+            - toContactHour
+            - fromContactHour
+            - invalidFaxFlag
+            - fax
+            - contactDefaultMethod
+      paymentArrangements:
+        title: Payment Arrangement
+        type: array
+        items:
+          properties:
+            openingEffectiveDate:
+              title: Date
+              type: string
+              format: date
+              description: "The date from which this set of details is effective. This may be before, after or on the date on which the data was actually set up originally or changed. "
+            arrangementId:
+              title: ID
+              type: integer
+              description: " Identifier for this payment arrangement - this is needed along with the client id to identify a payment arrangement."
+            arrangementType:
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: In - direct debit ; Out - direct credit.
+            arrangementName:
+              title: Name
+              type: string
+              description: " Name of payment arrangement."
+            paymentMethod:
+              title: Method
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: Method of payment, for example, cheque.
+            mainArrangementFlag:
+              title: Main
+              type: boolean
+              description: Identifies the default payment arrangement 1 - YES / 0 - NO.
+              default: false
+            currency:
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+                symbol:
+                  title: Symbol
+                  type: string
+              type: object
+              description: The currency that applies to this record.
+            paymentFrequency:
+              title: Frequency
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: Frequency of payment, for example, monthly or annually.
+            paymentDay:
+              title: Day
+              type: integer
+              description: Payment day.
+            paymentMonth:
+              title: Month
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: Payment month
+            brand:
+              title: Brand
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: Insurance company identifier.
+            collectionInAdvanceFlag:
+              title: Collection In Advance
+              type: boolean
+              description: Indicates where collection should be made in advance where
+                collection date is prior to effective date.
+              default: false
+            externalBillingID:
+              title: External Billing ID
+              type: string
+            billing:
+              title: Billing
+              properties:
+                billingNotice:
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                  type: object
+                  required:
+                    - code
+                    - name
+                  description: Indicator for whether or when billing is to be used, for example,
+                    yes, no or first bill only.
+                billingFormat:
+                  title: Format
+                  properties:
+                    code:
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                  type: object
+                  required:
+                    - code
+                    - name
+                  description: The format in which the bill is produced - for example in Salary -
+                    Sort by Name format.
+                billingMethod:
+                  title: Billing Method
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                  type: object
+                  required:
+                    - code
+                    - name
+                  description: The method to be used for billing, for example, External via
+                    payroll.
+                billingMedia:
+                  title: Media
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                  type: object
+                  required:
+                    - code
+                    - name
+                  description: The media in which the bill is produced, for example, report.
+                leadTime:
+                  title: Lead Time
+                  type: integer
+                  description: Time in days before the payment date that the payment arrangement
+                    is used for billing.
+              type: object
+              required:
+                - billingFormat
+                - billingMethod
+                - leadTime
+                - billingMedia
+            bankAccount:
+              title: Bank account
+              properties:
+                ibanAcctNo:
+                  title: IBAN / Acct No
+                  type: string
+                  description: Bank account number.
+                accountName:
+                  title: Account Name
+                  type: string
+                  description: Field for the name of the Bank.
+                country:
+                  title: Country
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                  type: object
+                  required:
+                    - code
+                    - name
+                  description: Bank address country.
+                accountType:
+                  title: Account Type
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                  type: object
+                  required:
+                    - code
+                    - name
+                  description: The type of account, e.g. savings, current
+                sortCode:
+                  title: Sort Code
+                  type: string
+                  description: Bank specified code that uniquely identifies a bank/branch
+                    combination.
+                authorization:
+                  title: Authorization
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                  type: object
+                  required:
+                    - code
+                    - name
+                  description: Stores the authorization type field which will be added to the PA
+                    section in the UI
+                bicCode:
+                  title: BIC Code
+                  type: string
+                  description: Reference code   needed from receiving   bank to make   payments
+                    overseas .
+                bankName:
+                  title: Bank Name
+                  type: string
+                  description: Field for the name of the Bank.
+                bankBranch:
+                  title: BankBranch
+                  type: integer
+                  nullable: true
+                  description: Bank branch.
+              type: object
+              required:
+                - ibanAcctNo
+                - country
+                - accountName
+                - accountType
+                - sortCode
+                - bankName
+                - bankBranch
+            mandate:
+              title: Mandate
+              properties:
+                mandateType:
+                  title: Mandate Type
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                      nullable: true
+                  type: object
+                  description: Mandates may be of the old paper based type of "Manual" or the new
+                    BACS authorized type of "Electronic".
+                mandateStatus:
+                  title: Mandate/ Card Status
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                      nullable: true
+                  type: object
+                  required:
+                    - code
+                    - name
+                  description: The status of the mandate - this may be none, new, open, refused,
+                    closed, represent, cancelled and may be amended manually or
+                    by BACS processing such as AUDDIS and ADDACS.
+                mandateId:
+                  title: Mandate ID
+                  type: string
+                  description: Identifier for a mandate - a mandate is an agreement between the
+                    client, the company and the bank that payments can be made
+                    using BACS direct debit.
+                mandateStartDate:
+                  title: Mandate Start Date
+                  type: string
+                  format: date
+                  description: The date the mandate is valid from - assumption is that the mandate
+                    can be used 4 days after being sent to AUDDIS.
+                mandateEndDate:
+                  title: Mandate End Date
+                  type: string
+                  format: date
+                  description: The end date for the mandate - set by the AUDDIS refusals file.
+                mandateReasonCode:
+                  title: Mandate Reason Code
+                  type: string
+                  description: The reason for cancellation or refusal - part of the AUDDIS
+                    refusals interface.
+                mandateBatchSendRef:
+                  title: Mandate Batch Send Ref
+                  type: string
+                  description: The batch reference of the batch run that was used for sending the
+                    mandate out.
+                mandateRefusalBatchRef:
+                  title: Mandate Refusal Batch Ref
+                  type: string
+                  description: The batch reference of the batch run that refused or cancelled the
+                    mandate.
+                soleAuthorisedSignatoryFlag:
+                  title: Sole Authorised Signatory
+                  type: boolean
+                  default: false
+              type: object
+              required:
+                - mandateId
+                - mandateReasonCode
+                - mandateEndDate
+                - mandateStartDate
+                - soleAuthorisedSignatoryFlag
+                - mandateRefusalBatchRef
+                - mandateBatchSendRef
+            creditcardDetails:
+              title: Credit Card Details
+              properties:
+                card:
+                  title: Card
+                  properties:
+                    cardType:
+                      title: Code
+                      type: integer
+                  type: object
+                  required:
+                    - cardType
+                  description: Type of credit/debit card, for example, Delta.
+                cardNumber:
+                  title: Card Number
+                  type: string
+                  description: Credit card account number.
+                cardStatus:
+                  title: Card Status
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                  type: object
+                  required:
+                    - code
+                    - name
+                transactionType:
+                  title: Transaction Type
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                  type: object
+                  required:
+                    - code
+                    - name
+                  description: Mandates may be of the old paper based type of "Manual" or the new
+                    BACS authorized type of "Electronic".
+                expiryDate:
+                  title: Expiry date
+                  type: string
+                  format: date
+                  description: Expiry date for debit card.
+                statusDate:
+                  title: Status Date
+                  type: string
+                  format: date
+                  description: Sent date of the direct debit mandate.
+              type: object
+              required:
+                - card
+                - cardNumber
+                - cardStatus
+                - transactionType
+                - expiryDate
+                - statusDate
+          type: object
+      linkagesDetails:
+        title: Linkages Details
+        type: array
+        items:
+          properties:
+            linkageType:
+              title: Linkage Type
+              properties:
+                code:
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: The type of linkage between two client entities.
+            linkageId:
+              title: Linkage ID
+              type: integer
+              description: Linkage id.
+            linkageclientClass:
+              title: Linkage Client Class
+              properties:
+                code:
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: The class of client - person, company, agent.
+            clientId:
+              title: Client ID
+              type: integer
+            externalClientId:
+              title: External Id
+              type: string
+              nullable: true
+            linkageName:
+              title: Linkage Name
+              type: string
+              description: The current client.
+            openingEffectiveDate:
+              title: Effective Date
+              type: string
+              format: date
+              description: The date from which this set of details is effective.
+          type: object
+          required:
+            - linkageId
+      taxJurisdiction:
+        title: Tax  Juridiction
+        properties:
+          foreignTaxLiability:
+            title: Foreign Tax Liability
+            properties:
+              code:
+                title: Code
+                type: integer
+                nullable: true
+              name:
+                title: Name
+                type: string
+                nullable: true
+            type: object
+            required:
+              - code
+              - name
+            description: Foreign Tax Liability option when
+              t_company_defaults.tax_liability_flag is 1
+          taxJurisdictionDetails:
+            type: array
+            items:
+              properties:
+                taxJurisdiction:
+                  title: Tax Jurisdiction
+                  properties:
+                    code:
+                      type: integer
+                      nullable: true
+                    name:
+                      title: Name
+                      type: string
+                      nullable: true
+                  type: object
+                  description: This field hold the client tax jurisdiction. Optional values will
+                    be taken from GC 17432
+                foreignIdType:
+                  title: Foreign ID Type
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                      nullable: true
+                  type: object
+                  description: TIN or GIN ID Type
+                foreignIdDescription:
+                  title: Foreign ID Description
+                  type: string
+                  description: The actual TIN or GIN ID number of the client
+                reasonNoTin:
+                  title: Reason No TIN
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                      nullable: true
+                  type: object
+                  description: " reasons if TIN (i.e. Foreign ID hasnt been provided), is not provided, GC 20500"
+                additionalInformation:
+                  title: Additional Information
+                  type: string
+                  description: The data entrered by the user for additional information if Reason
+                    B
+                foreignEffectiveDate:
+                  title: Foreign Effective Date
+                  type: string
+                  format: date
+                  description: This field stores the Foreign_expiry_date of the client whose
+                    Foreign Tax Liability is set to Yes. Default value will be
+                    system date.
+                foreignExpiryDate:
+                  title: Foreign Expiry Date
+                  type: string
+                  format: date
+                  description: This field stores the Foreign_expiry_date of the client whose
+                    Foreign Tax Liability is set to Yes.Default value will be
+                    01/01/3000.
+                foreignCountryOfIdIssue:
+                  title: Foreign Country of ID Issue
+                  properties:
+                    code:
+                      title: Code
+                      type: integer
+                    name:
+                      title: Name
+                      type: string
+                      nullable: true
+                  type: object
+                  description: Foreign country of issue taken from GC 17432
+                foreignFtrStatus:
+                  title: Foreign FTR Status
+                  type: string
+                  description: "client foreign tax reporting status "
+                foreignFtrClassification:
+                  title: Foreign FTR Classification
+                  type: string
+                  description: client foreign tax reporting classification
+              type: object
+        type: object
+        required:
+          - foreignTaxLiability
+      notes:
+        title: Notes
+        type: array
+        items:
+          properties:
+            noteText:
+              title: Note Text
+              type: string
+              description: Notes for the policy or client - large text fields.
+            registrationDate:
+              title: Date
+              type: string
+              format: date
+              description: System registration date when the note was created.
+            userId:
+              title: User ID
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  title: Name
+                  type: string
+                  nullable: true
+              type: object
+              description: Id of the note.
+            statusNotes:
+              title: Status
+              properties:
+                code:
+                  title: Code
+                  type: integer
+                name:
+                  type: string
+                  nullable: true
+              type: object
+              description: Note status (Active / closed).
+          type: object
+      entityItems:
+        title: Entity Items
+        type: array
+        items:
+          properties:
+            entitySecondSubType:
+              title: Entity Second Sub Type
+              type: integer
+              description: Record entity sub type, from t_entity_type.
+            entitySubType:
+              title: Entity Sub Type
+              type: integer
+              description: Code to indicate the sub category or subtype for this record
+            entityType:
+              title: Entity Type
+              type: integer
+              description: Code to indicate the category or type for this record.
+            id:
+              title: Id
+              type: integer
+              nullable: true
+              description: Code to indicate which piece of data is being stored.
+            entityNo:
+              title: Entity No
+              type: integer
+              description: CoreSuite id number of the entity to which this record relates
+                (e.g. agent number, client number, policy number etc.).
+            value:
+              title: Value
+              type: string
+              description: Entity item value.
+          type: object
+    type: object
+type: object
+required: []

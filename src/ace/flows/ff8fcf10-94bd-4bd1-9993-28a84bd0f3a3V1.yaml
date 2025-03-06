@@ -1,0 +1,94 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  currencyValueList:
+    title: currencyValueList
+    type: array
+    items:
+      properties:
+        fromCurrency:
+          type: string
+          description: From currency ISO code
+        toCurrency:
+          type: string
+          description: From currency ISO code
+        currencyValue:
+          type: number
+          description: Currency market value
+        currencyBuyValue:
+          type: number
+          description: Currency buy value
+        currencySellValue:
+          type: number
+          description: Currency sell value
+      type: object
+      required:
+        - fromCurrency
+        - toCurrency
+        - currencyValue
+  fromEffectiveDate:
+    type: string
+    description: Date exchange rate is valid for
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        currencyValueList:
+          title: currencyValueList
+          type: array
+          items:
+            properties:
+              fromCurrency:
+                type: string
+                description: From currency ISO code
+              toCurrency:
+                type: string
+                description: From currency ISO code
+              currencyValue:
+                type: number
+                description: Currency market value
+              currencyBuyValue:
+                type: number
+                description: Currency buy value
+              currencySellValue:
+                type: number
+                description: Currency sell value
+            type: object
+            required:
+              - fromCurrency
+              - toCurrency
+              - currencyValue
+        fromEffectiveDate:
+          type: string
+          description: Date exchange rate is valid for
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/general/currencies/exchangeRates"
+        method: POST
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: Saves new exchange rates for a specific date

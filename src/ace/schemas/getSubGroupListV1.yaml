@@ -1,0 +1,34 @@
+title: getSubGroupList
+properties:
+  groupId:
+    type: integer
+  groupName:
+    type: string
+  subgroups:
+    type: array
+    items:
+      properties:
+        subgroupNo:
+          type: number
+        subgroupName:
+          type: string
+        subgroupStatus:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        planSelectionMode:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+        companyName:
+          type: string
+      type: object
+type: object
+required:
+  - field_1

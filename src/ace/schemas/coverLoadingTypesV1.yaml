@@ -1,0 +1,13 @@
+type: object
+properties:
+  underwritingLoadings:
+    type: array
+    items:
+      type: object
+      properties:
+        loadingType:
+          type: integer
+        loadingName:
+          type: string
+        externalCode:
+          type: string

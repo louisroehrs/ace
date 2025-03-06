@@ -1,0 +1,33 @@
+title: ResponseGetGroupDashBoardBillingAndCollection
+properties:
+  groupId:
+    type: number
+  inSuspenseAmount:
+    type: number
+  lastInvoiceAmount:
+    properties:
+      amount:
+        type: number
+      amountDate:
+        type: string
+        format: date
+    type: object
+  lastPaymentAmount:
+    properties:
+      amount:
+        type: number
+      amountDate:
+        type: string
+        format: date
+    type: object
+  overdueAmount:
+    type: number
+  nextInvoiceAmount:
+    properties:
+      amount:
+        type: number
+      amounDate:
+        type: string
+        format: date
+    type: object
+type: object

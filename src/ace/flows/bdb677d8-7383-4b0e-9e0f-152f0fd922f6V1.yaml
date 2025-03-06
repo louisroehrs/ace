@@ -1,0 +1,35 @@
+tags:
+  - General
+sampleInputSchema: ""
+sampleData:
+  fromEffectiveDate: string
+  toEffectiveDate: string
+  activityType: integer
+  type: string
+  key: string
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"fromEffectiveDate":"fromEffectiveDate","toEffectiveDate":"toEffectiveDate","activityType":"activityType"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/api/general/entities/{{type}}/{{key}}/taxEvents"
+        method: GET
+      restRequest: JSON
+      json: {}
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+        CoreSuite-Monitoring-Token: "{{$headers.CoreSuite-Monitoring-Token}}"
+      targetPath: result
+    description: Retrieves the tax events for a given policy.

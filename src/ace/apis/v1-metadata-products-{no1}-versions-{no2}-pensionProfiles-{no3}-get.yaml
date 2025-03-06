@@ -1,0 +1,57 @@
+definition:
+  path: /v1/metadata/products/{no1}/versions/{no2}/pensionProfiles/{no3}
+  verb: get
+  id: imported#/v1/metadata/products/{no1}/versions/{no2}/pensionProfiles/{no3}#get
+  operationId: 2f9191ef-a153-4198-bdb8-36f9789648a5V1
+  summary: Get the structure of a pension profile of lifestyle type
+  tags:
+    - Metadata
+  parameters:
+    - in: path
+      name: no1
+      description: Product No
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: no2
+      description: Product Version No
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: no3
+      description: Profile Number
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/generalPensionProfileV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/generalPensionProfileV1"
+  security:
+    - bearerAuth: []
+flow: 2f9191ef-a153-4198-bdb8-36f9789648a5V1.yaml
+method: get
+path: /v1/metadata/products/{no1}/versions/{no2}/pensionProfiles/{no3}
+errorHandlers: []
+handlers: []

@@ -1,0 +1,28 @@
+title: response
+properties:
+  number:
+    type: number
+    description: An object number of the result service.
+  reference:
+    type: string
+    description: A reference string identifying this action (to match the request
+      reference).
+  responseMessageList:
+    type: array
+    items:
+      properties:
+        type:
+          type: number
+        code:
+          type: number
+          description: Warning/Error message code
+        reference:
+          type: string
+          description: A reference string identifying each action (for multi-entity
+            handling).
+        text:
+          type: string
+          description: Warning/Error message text
+      type: object
+    description: Any warning or error messages
+type: object

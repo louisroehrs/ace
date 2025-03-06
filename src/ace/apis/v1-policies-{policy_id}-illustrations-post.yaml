@@ -1,0 +1,59 @@
+definition:
+  path: /v1/policies/{policy_id}/illustrations
+  verb: post
+  id: imported#/v1/policies/{policy_id}/illustrations#post
+  operationId: createAndGetpolicyIllustrationV1
+  summary: "create and get policy illustration "
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policy_id
+      description: policy id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/illustrationExistingPolicyV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/policyIllustrationV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/policyIllustrationV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: createAndGetpolicyIllustrationV1.yaml
+method: post
+path: /v1/policies/{policy_id}/illustrations
+errorHandlers: []
+handlers: []

@@ -1,0 +1,57 @@
+definition:
+  path: /v1/groups/{group_id}/subgroups/{subgroup_id}
+  verb: put
+  id: imported#/v1/groups/{group_id}/subgroups/{subgroup_id}#put
+  operationId: 873e67e2-a05b-4600-942b-c4579d01ef78V1
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: Group Id
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: subgroup_id
+      description: Subgroup Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: Company Id or Database No
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: User Name
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/updateSubgroupRequestV1"
+  responses:
+    "200":
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+        application/xml:
+          schema:
+            type: object
+            example: {}
+  security:
+    - bearerAuth: []
+flow: 873e67e2-a05b-4600-942b-c4579d01ef78V1.yaml
+method: put
+path: /v1/groups/{group_id}/subgroups/{subgroup_id}
+errorHandlers: []
+handlers: []

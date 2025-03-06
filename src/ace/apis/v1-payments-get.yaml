@@ -1,0 +1,127 @@
+definition:
+  path: /v1/payments
+  verb: get
+  id: imported#/v1/payments#get
+  operationId: 17e24438-223b-4c44-bb50-44d80ee4f326V1
+  summary: Ace service to search payments
+  tags:
+    - General
+  parameters:
+    - in: query
+      name: moneySourceCode
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: companyId
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: payerId
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: paymentMethod
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: policyNumber
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: fromRegistrationDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: toRegistrationDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: fromValueDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: toValueDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: paymentReference
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: clientPaymentRef
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: internalNumber
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: query
+      name: mandateID
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: source
+      description: ""
+      required: false
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchPaymentResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/searchPaymentResponseV1"
+  security:
+    - bearerAuth: []
+flow: 17e24438-223b-4c44-bb50-44d80ee4f326V1.yaml
+method: get
+path: /v1/payments
+errorHandlers: []
+handlers: []

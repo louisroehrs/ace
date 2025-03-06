@@ -1,0 +1,20 @@
+title: responseClientEntityItems
+properties:
+  clientId:
+    type: string
+  externalClientId:
+    type: string
+  entityItems:
+    type: array
+    items:
+      properties:
+        number:
+          type: number
+        value:
+          type: string
+        name:
+          type: string
+        valueName:
+          type: string
+      type: object
+type: object

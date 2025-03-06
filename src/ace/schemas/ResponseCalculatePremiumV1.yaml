@@ -1,0 +1,5 @@
+title: ResponseCalculatePremium
+properties:
+  calculatedPremium:
+    type: number
+type: object

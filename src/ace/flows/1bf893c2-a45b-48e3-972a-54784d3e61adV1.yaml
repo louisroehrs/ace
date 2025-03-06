@@ -1,0 +1,120 @@
+tags:
+  - Client
+sampleInputSchema: ""
+sampleData:
+  externalClientIdIndicator: boolean
+  client_id: string
+  addressDetails:
+    type: array
+    items:
+      properties:
+        effectiveDate:
+          type: string
+          format: date
+        addressType:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+          type: object
+        mainAddressFlag:
+          type: boolean
+        houseName:
+          type: string
+        street:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        postCode:
+          type: string
+        country:
+          properties:
+            code:
+              type: integer
+            name:
+              type: string
+            isoCode:
+              type: string
+          type: object
+      type: object
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: AJV
+    stepType: ajv
+    condition: ""
+    config:
+      dataPath: requestBody
+      schema:
+        addressDetails:
+          type: array
+          items:
+            properties:
+              effectiveDate:
+                type: string
+                format: date
+              addressType:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+              mainAddressFlag:
+                type: boolean
+              houseName:
+                type: string
+              street:
+                type: string
+              address2:
+                type: string
+              city:
+                type: string
+              postCode:
+                type: string
+              country:
+                properties:
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                  isoCode:
+                    type: string
+                type: object
+            type: object
+      targetPath: validations
+      error: true
+    description: validating request body
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: '{"externalClientIdIndicator":"externalClientIdIndicator"}'
+          targetPath: queryParams
+    description: mapping query params
+  - name: REST
+    stepType: rest-new
+    condition: "{{validations && validations.length === 0}}"
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/clients/{{client_id}}/addresses"
+        method: PUT
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: "{{queryParams}}"
+      headers:
+        CoreSuite-DataSource-Key: "{{$headers.CoreSuite-DataSource-Key}}"
+        CoreSuite-User-Name: "{{$headers.CoreSuite-User-Name}}"
+      targetPath: result
+    description: ""

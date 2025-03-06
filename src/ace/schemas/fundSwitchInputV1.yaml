@@ -1,0 +1,61 @@
+title: fundSwitchInput
+properties:
+  effectiveDate:
+    type: string
+    format: date
+  switchStatusCode:
+    type: integer
+    description: Default Value = 10 (Approved)
+  switchTypeNo:
+    type: integer
+    description: Default Value =1 (Regular Switch)
+  switchValueCalcMethodNo:
+    type: integer
+    description: 1=Gross,  2=Net
+  redirectionFlag:
+    type: boolean
+    description: True = Include redirection with fund switch
+  fundsToSwitchOut:
+    type: array
+    items:
+      properties:
+        fund:
+          properties:
+            number:
+              type: integer
+            isinCode:
+              type: string
+            externalReference:
+              type: string
+          type: object
+          required: []
+        amountTypeNo:
+          type: integer
+          description: Default Value -1, 1= Percentage, 2 = Amount, 3 = Units
+        amount:
+          type: number
+      type: object
+      required: []
+  fundsToSwitchIn:
+    type: array
+    items:
+      properties:
+        fund:
+          properties:
+            number:
+              type: integer
+            isinCode:
+              type: string
+            externalReference:
+              type: string
+          type: object
+          required: []
+        profileNo:
+          type: integer
+        allocationPercentage:
+          type: number
+          description: Total for all fund(s) should be 100
+      type: object
+      required: []
+type: object
+required: []

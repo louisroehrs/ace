@@ -1,0 +1,158 @@
+title: PolicyLoanDetails
+properties:
+  effectiveDate:
+    type: string
+  interestRate:
+    type: number
+  interestType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  interestMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  additionalInterestRate:
+    type: integer
+  loanType:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  loanAmount:
+    type: integer
+  status:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  duration:
+    type: integer
+  loanRepaymentMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  periodicalAmount:
+    type: number
+  firstPaymentDate:
+    type: string
+  lastPaymentDate:
+    type: string
+  payer:
+    properties:
+      id:
+        type: number
+      firstName:
+        type: string
+      surname:
+        type: string
+    type: object
+    required:
+      - id
+      - firstName
+      - surname
+  paymentArrangement:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  frequency:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  billingNotice:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  payerPaymentMethod:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+  separateBillingOfLoanPrincipalFlag:
+    type: boolean
+  principalRepayment:
+    type: integer
+  payerSecondPaymentArrangement:
+    properties:
+      code:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - code
+      - name
+type: object
+required:
+  - effectiveDate
+  - interestRate
+  - interestType
+  - interestMethod
+  - additionalInterestRate
+  - loanType
+  - loanAmount
+  - status
+  - duration
+  - loanRepaymentMethod
+  - periodicalAmount
+  - firstPaymentDate
+  - lastPaymentDate
+  - payer
+  - paymentArrangement
+  - frequency
+  - billingNotice
+  - payerPaymentMethod
+  - separateBillingOfLoanPrincipalFlag
+  - principalRepayment
+  - payerSecondPaymentArrangement

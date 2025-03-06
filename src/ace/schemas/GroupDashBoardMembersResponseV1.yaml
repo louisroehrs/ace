@@ -1,0 +1,8 @@
+title: GroupDashBoardMembersResponse
+properties:
+  result:
+    $ref: ResponseGetGroupDashBoardMembersV1.yaml
+  response:
+    $ref: errorHandlingV1.yaml
+type: object
+required: []

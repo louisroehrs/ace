@@ -1,0 +1,50 @@
+definition:
+  path: /v1/groups/{group_id}/template/plans
+  verb: post
+  id: imported#/v1/groups/{group_id}/template/plans#post
+  operationId: bc19dfb7-c154-4267-a50b-de6d7711db30V1
+  summary: this Api for creating plan using template
+  tags:
+    - Group
+  parameters:
+    - in: path
+      name: group_id
+      description: Group Id
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/SavePlanFromTemplateRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/SavePlanFromTemplateResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/SavePlanFromTemplateResponseV1"
+  security:
+    - bearerAuth: []
+flow: bc19dfb7-c154-4267-a50b-de6d7711db30V1.yaml
+method: post
+path: /v1/groups/{group_id}/template/plans
+errorHandlers: []
+handlers: []

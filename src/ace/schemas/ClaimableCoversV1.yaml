@@ -1,0 +1,61 @@
+title: ClaimableCovers
+properties:
+  clientId:
+    type: integer
+  policyNo:
+    type: integer
+  role:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+  covers:
+    type: array
+    items:
+      properties:
+        policyCover:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        commencementDate:
+          type: string
+        benefitGroup:
+          properties:
+            code:
+              type: number
+            name:
+              type: string
+          type: object
+          required: []
+        benefitRequestType:
+          properties:
+            number:
+              type: number
+            name:
+              type: string
+          type: object
+        finalAmount:
+          type: integer
+        originalAmount:
+          type: integer
+        sumAssured:
+          type: integer
+        sumAssuredClaimedPart:
+          type: integer
+        surrenderAmount:
+          type: integer
+        partialAmountEntryMethod:
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+          type: object
+      type: object
+type: object
+required: []

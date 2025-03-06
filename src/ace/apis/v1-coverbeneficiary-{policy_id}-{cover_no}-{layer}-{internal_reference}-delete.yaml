@@ -1,0 +1,89 @@
+definition:
+  path: /v1/coverbeneficiary/{policy_id}/{cover_no}/{layer}/{internal_reference}
+  verb: delete
+  id: imported#/v1/coverbeneficiary/{policy_id}/{cover_no}/{layer}/{internal_reference}#delete
+  operationId: deleteCoverBeneficiaryV1
+  tags:
+    - Policy
+  parameters:
+    - in: path
+      name: policy_id
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: cover_no
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: layer
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: path
+      name: internal_reference
+      description: ""
+      required: true
+      schema:
+        type: integer
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/responseCoverBeneficiaryV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/responseCoverBeneficiaryV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: deleteCoverBeneficiaryV1.yaml
+method: delete
+path: /v1/coverbeneficiary/{policy_id}/{cover_no}/{layer}/{internal_reference}
+errorHandlers: []
+handlers: []

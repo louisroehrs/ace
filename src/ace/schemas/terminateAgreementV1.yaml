@@ -1,0 +1,16 @@
+title: terminateAgreement
+properties:
+  terminationReason:
+    properties:
+      number:
+        type: number
+      name:
+        type: string
+    type: object
+    required:
+      - number
+  agreementEndDate:
+    type: string
+type: object
+required:
+  - agreementEndDate

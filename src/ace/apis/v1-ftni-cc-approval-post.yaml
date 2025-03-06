@@ -1,0 +1,31 @@
+definition:
+  path: /v1/ftni/cc-approval
+  verb: post
+  id: imported#/v1/ftni/cc-approval#post
+  operationId: processCcSaleUnifiedV1
+  tags:
+    - General
+  parameters: []
+  requestBody:
+    description: Request body example
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ftniRequestV1"
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ftniResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/ftniResponseV1"
+  security:
+    - bearerAuth: []
+flow: processCcSaleUnifiedV1.yaml
+method: post
+path: /v1/ftni/cc-approval
+errorHandlers: []
+handlers: []

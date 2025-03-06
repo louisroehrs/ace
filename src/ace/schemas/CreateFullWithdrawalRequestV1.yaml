@@ -1,0 +1,159 @@
+title: CreateFullWithdrawalRequest
+properties:
+  claimType:
+    type: integer
+    description: From field of claimType
+  claimSubType:
+    type: integer
+    description: From field of claimSubType
+  requestorId:
+    type: integer
+    description: From field of requestorId
+  requestDate:
+    type: string
+    description: From field of openingRegistrationDate
+    format: date
+  receivedDate:
+    type: string
+    description: From field of claimNotificationDate
+    format: date
+  effectiveDate:
+    type: string
+    description: From field of openingEffectiveDate
+    format: date
+  valueDate:
+    type: string
+    description: From field of claimPriceDate
+    format: date
+  status:
+    type: integer
+    description: From field of currentStatus
+  initialReason:
+    type: integer
+    description: From field of initialNoteReasonCode
+  approvalReason:
+    type: integer
+    description: From field of approvalReasonCode
+  surrenderRequestType:
+    type: integer
+    description: From field of requestType
+  requestedAmount:
+    type: number
+    description: From field of originalRequestedAmount
+  contributions:
+    type: array
+    items:
+      properties:
+        contribution:
+          type: integer
+          description: From field of contributorType
+        funds:
+          type: array
+          items:
+            properties:
+              number:
+                type: integer
+                description: From field of fundNo
+              isinCode:
+                type: string
+                description: From field of fundIsinCode
+              externalReference:
+                type: string
+                description: From field of externalFundReference
+              requestedAmount:
+                type: number
+                description: From field of originalRequestedAmount
+            type: object
+      type: object
+  paymentOrders:
+    type: array
+    items:
+      properties:
+        payeeId:
+          type: integer
+          description: From field of payeeClientId
+        requestType:
+          type: integer
+          description: From field of requestedPaymentAmountType
+        requestAmount:
+          type: number
+          description: From field of requestedPaymentAmount
+        paymentStatus:
+          type: integer
+          description: From field of openingStatus
+        paymentDueDate:
+          type: string
+          description: From field of paymentDueDate
+          format: date
+        additionalAmountSurplus:
+          type: number
+          description: From field of additionalAmountFromSurplus
+        paymentOption:
+          type: integer
+          description: From field of sourceForthKey
+        paymentMethod:
+          type: integer
+          description: From field of sourceForthKey
+        destinationReference:
+          type: string
+          description: From field of lodgementReference
+        bankAccount:
+          properties:
+            transitNumber:
+              type: string
+              description: From field of sortCode
+            accountNumber:
+              type: string
+              description: From field of bankAccountNo
+            accountType:
+              type: integer
+              description: From field of bankAccountType
+            accountName:
+              type: string
+              description: From field of bankAccountName
+          type: object
+        manualInterestFlag:
+          type: integer
+          description: From field of manualInterestAmountFlag
+        interestAmount:
+          type: number
+          description: From field of interestAmount
+        interestRate:
+          type: number
+          description: From field of interestRate
+      type: object
+      required: []
+  requiredDocuments:
+    type: array
+    items:
+      properties:
+        documentTitle:
+          type: integer
+          description: From field of requiredDocumentNo
+        requestDate:
+          type: string
+          description: "From field of requestDate "
+          format: date
+        status:
+          type: integer
+          description: From field of receivedFlag
+        receivedDate:
+          type: string
+          description: From field of receivedDate
+          format: date
+        freeDescription:
+          type: string
+          description: From field of freeDescription
+        mustFlag:
+          type: boolean
+          description: From field of mustFlag
+          default: false
+      type: object
+type: object
+required:
+  - claimType
+  - claimSubType
+  - requestDate
+  - effectiveDate
+  - valueDate
+  - status

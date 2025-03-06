@@ -1,0 +1,99 @@
+definition:
+  path: /v1/agents/{agent_id}/commissions
+  verb: get
+  id: imported#/v1/agents/{agent_id}/commissions#get
+  operationId: f5d23815-e198-4de2-ab25-d5a7e34b5bceV1
+  summary: Service to get agent commission details
+  tags:
+    - Agent
+  parameters:
+    - in: query
+      name: accountNumber
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: fromRegistrationDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: toRegistrationDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: query
+      name: movementType
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: balanceType
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: policyNo
+      description: ""
+      required: false
+      schema:
+        type: number
+    - in: query
+      name: externalIdIndicator
+      description: ""
+      required: false
+      schema:
+        type: boolean
+        default: false
+    - in: path
+      name: agent_id
+      description: ""
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: coresuite-datasource-key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: coresuite-user-name
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: {}
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/agentCommissionDetailsResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/agentCommissionDetailsResponseV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: f5d23815-e198-4de2-ab25-d5a7e34b5bceV1.yaml
+method: get
+path: /v1/agents/{agent_id}/commissions
+errorHandlers: []
+handlers: []

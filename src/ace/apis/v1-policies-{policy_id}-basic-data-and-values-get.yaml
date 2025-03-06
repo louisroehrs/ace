@@ -1,0 +1,85 @@
+definition:
+  path: /v1/policies/{policy_id}/basic-data-and-values
+  verb: get
+  id: imported#/v1/policies/{policy_id}/basic-data-and-values#get
+  operationId: 0ab82a6f-c5cc-4989-81c9-7da38dc5cd84V1
+  summary: Gets basic details of a policy
+  tags:
+    - Policy
+  parameters:
+    - in: query
+      name: effectiveDate
+      description: ""
+      required: false
+      schema:
+        type: string
+        format: date
+    - in: path
+      name: policy_id
+      description: Policy Number
+      required: true
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-DataSource-Key
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-User-Name
+      description: ""
+      required: false
+      schema:
+        type: string
+    - in: header
+      name: CoreSuite-Monitoring-Token
+      description: ""
+      required: false
+      schema:
+        type: string
+  requestBody: null
+  responses:
+    "200":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/BasicPolicyDataAndValuesResponseV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/BasicPolicyDataAndValuesResponseV1"
+    "400":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "404":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+    "500":
+      description: Response body example
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/errorHandlingV1"
+  security:
+    - bearerAuth: []
+flow: 0ab82a6f-c5cc-4989-81c9-7da38dc5cd84V1.yaml
+method: get
+path: /v1/policies/{policy_id}/basic-data-and-values
+errorHandlers: []
+handlers: []

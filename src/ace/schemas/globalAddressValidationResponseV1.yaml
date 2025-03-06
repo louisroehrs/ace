@@ -1,0 +1,145 @@
+title: globalAddressValidationResponse
+properties:
+  version:
+    type: string
+  transmissionReference:
+    type: integer
+  transmissionResults:
+    type: integer
+  totalRecords:
+    type: string
+  records:
+    type: array
+    items:
+      properties:
+        recordID:
+          type: string
+        results:
+          type: string
+        formattedAddress:
+          type: string
+        organization:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        addressLine4:
+          type: string
+        addressLine5:
+          type: string
+        addressLine6:
+          type: string
+        addressLine7:
+          type: string
+        addressLine8:
+          type: string
+        subPremises:
+          type: string
+        doubleDependentLocality:
+          type: string
+        dependentLocality:
+          type: string
+        locality:
+          type: string
+        subAdministrativeArea:
+          type: string
+        administrativeArea:
+          type: string
+        postalCode:
+          type: string
+        postalCodeType:
+          type: string
+        addressType:
+          type: string
+        addressKey:
+          type: string
+        subNationalArea:
+          type: string
+        countryName:
+          type: string
+        countryISO3166_1_Alpha2:
+          type: string
+        countryISO3166_1_Alpha3:
+          type: string
+        countryISO3166_1_Numeric:
+          type: string
+        countrySubdivisionCode:
+          type: string
+        thoroughfare:
+          type: string
+        thoroughfarePreDirection:
+          type: string
+        thoroughfareLeadingType:
+          type: string
+        thoroughfareName:
+          type: string
+        thoroughfareTrailingType:
+          type: string
+        thoroughfarePostDirection:
+          type: string
+        dependentThoroughfare:
+          type: string
+        dependentThoroughfarePreDirection:
+          type: string
+        dependentThoroughfareLeadingType:
+          type: string
+        dependentThoroughfareName:
+          type: string
+        dependentThoroughfareTrailingType:
+          type: string
+        dependentThoroughfarePostDirection:
+          type: string
+        building:
+          type: string
+        premisesType:
+          type: string
+        premisesNumber:
+          type: string
+        subPremisesType:
+          type: string
+        subPremisesNumber:
+          type: string
+        postBox:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        deliveryIndicator:
+          type: string
+        melissaAddressKey:
+          type: string
+        melissaAddressKeyBase:
+          type: string
+        postOfficeLocation:
+          type: string
+        subPremiseLevel:
+          type: string
+        subPremiseLevelType:
+          type: string
+        subPremiseLevelNumber:
+          type: string
+        subBuilding:
+          type: string
+        subBuildingType:
+          type: string
+        subBuildingNumber:
+          type: string
+        utc:
+          type: string
+        ust:
+          type: string
+        deliveryPointSuffix:
+          type: string
+        censusKey:
+          type: string
+        extras:
+          properties: {}
+          type: object
+      type: object
+      required: []
+type: object
+required: []

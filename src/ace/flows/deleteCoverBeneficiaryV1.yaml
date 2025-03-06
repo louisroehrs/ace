@@ -1,0 +1,33 @@
+tags:
+  - Policy
+sampleInputSchema: ""
+sampleData:
+  policy_id: integer
+  cover_no: integer
+  layer: integer
+  internal_reference: integer
+description: Created by imported openApi schema
+steps:
+  - name: JSONATA MAP
+    stepType: jsonata
+    condition: ""
+    config:
+      maps:
+        - jsonata: $
+          targetPath: requestBody
+    description: mapping request body
+  - name: REST
+    stepType: rest-new
+    condition: ""
+    config:
+      endpoint:
+        url: "{{$env.DYNAMIC_APIS_URL}}/coverbeneficiary/{{policy_id}}/{{cover_no}}/{{layer}}/{{internal_reference}}"
+        method: DELETE
+      restRequest: JSON
+      json: "{{requestBody}}"
+      queryParams: {}
+      headers:
+        coresuite-datasource-key: "{{$headers.coresuite-datasource-key}}"
+        coresuite-user-name: "{{$headers.coresuite-user-name}}"
+      targetPath: result
+    description: ""
