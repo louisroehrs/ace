@@ -1,0 +1,16 @@
+path: /sample-lfr/fuzzle/{fuzzle}
+method: get
+flow: 054615aa-4731-481d-99f0-aa0548b66c0fV1.yaml
+secured: true
+definition:
+  description: A fuzzle or an error
+  operationId: lfr054615aa-4731-481d-99f0-aa0548b66c0fV1
+  summary: This gets a fuzzle by id from the fuzzle store.
+  responses: {}
+  parameters:
+    - in: path
+      name: fuzzle
+      required: true
+      description: Id  of fuzzle to fetch
+      schema:
+        type: number
