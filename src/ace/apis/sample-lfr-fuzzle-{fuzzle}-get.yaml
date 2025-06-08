@@ -6,7 +6,13 @@ definition:
   description: A fuzzle or an error
   operationId: lfr054615aa-4731-481d-99f0-aa0548b66c0fV1
   summary: This gets a fuzzle by id from the fuzzle store.
-  responses: {}
+  responses:
+    "200":
+      description: acord
+      content:
+        application/json:
+          schema:
+            $ref: acordApplicationV1.yaml
   parameters:
     - in: path
       name: fuzzle
